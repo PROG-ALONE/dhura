@@ -1798,6 +1798,93 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .pl-bar{display:flex;height:34px;border-radius:10px;overflow:hidden;gap:2px}.pl-bar i{display:grid;place-items:center;color:#fff;font-style:normal;font-size:10.5px;font-weight:700;min-width:0;overflow:hidden;white-space:nowrap}
 .pl-eta{display:flex;flex-direction:column;gap:6px;margin-top:6px}.pl-eta div{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:6px 8px;border-radius:10px;background:var(--bg2)}.pl-eta div.main{background:color-mix(in srgb,var(--gold) 18%,var(--card));font-weight:700}
 .pl-week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:6px}.pl-week div{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--bg2);border-radius:10px;padding:6px 2px;font-size:10.5px}.pl-week div.on{outline:2px solid var(--gold)}.pl-week div.rv{background:color-mix(in srgb,#8a2f4a 15%,var(--card))}.pl-week b{font-size:15px}
+/* التنقل: مؤشر السحب وزر السابق */
+.nav-swipe{position:fixed;top:45%;right:6px;width:44px;height:44px;border-radius:50%;background:var(--accent,#b8862b);color:#fff;display:grid;place-items:center;font-size:22px;opacity:0;pointer-events:none;z-index:999;transform:translateX(calc(-1 * var(--d,0px)/2));transition:opacity .15s;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.nav-swipe.l{right:auto;left:6px;transform:translateX(calc(var(--d,0px)/2)) scaleX(-1)}
+.k-nav2{display:flex;gap:10px;align-items:stretch}.k-nav2 .k-btn.big{flex:1}
+.k-btn.prev{flex:0 0 auto;padding:0 18px;background:#fff;color:#7a5a12;border:2px solid #e6c97a;border-radius:18px;font-weight:800;font-size:16px}
+/* ============ رفّ التبويب ============ */
+.shelf2{position:relative;margin:6px 0 2px;padding:14px 10px 0;border-radius:14px;background:linear-gradient(#3b2414,#2a180c);box-shadow:inset 0 10px 24px rgba(0,0,0,.55),0 6px 16px rgba(60,35,10,.25);perspective:900px;overflow:hidden}
+.shelf2-back{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 46px),radial-gradient(ellipse at 50% -20%,rgba(255,214,140,.32),transparent 60%);pointer-events:none}
+.shelf2-row{position:relative;display:flex;align-items:flex-end;gap:5px;min-height:172px;padding:0 4px;overflow-x:auto;scrollbar-width:none}
+.shelf2-row::-webkit-scrollbar{display:none}
+.shelf2-board{height:14px;margin:0 -10px;background:linear-gradient(#a0703f,#6d4520 60%,#4a2c12);box-shadow:0 4px 8px rgba(0,0,0,.45)}
+.shelf2-note{font-size:12px;color:var(--muted);margin:8px 2px 0;line-height:1.7}
+.bk2-arr{align-self:center;color:#e9cf8f;opacity:.55;font-style:normal;font-size:14px;padding:0 1px}
+.bk2-par{display:flex;align-items:flex-end;gap:3px;padding:0 4px 0;border-bottom:2px dashed rgba(233,207,143,.35)}
+.bk2{position:relative;flex:0 0 auto;width:var(--w);height:var(--h);border:0;padding:8px 2px;border-radius:3px 5px 5px 3px;cursor:pointer;
+ background:linear-gradient(90deg,rgba(0,0,0,.35),transparent 18%,rgba(255,255,255,.14) 30%,transparent 46%,rgba(0,0,0,.25)),linear-gradient(var(--c2),var(--c1));
+ box-shadow:inset -2px 0 0 rgba(0,0,0,.25),2px 0 3px rgba(0,0,0,.4);color:#f6e7bf;display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+ transform-origin:50% 100%;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .3s}
+.bk2::before,.bk2::after{content:'';position:absolute;left:3px;right:3px;height:3px;background:linear-gradient(90deg,#c9a24a,#f3dc9a,#c9a24a);opacity:.85}
+.bk2::before{top:12px}.bk2::after{bottom:14px}
+.bk2-t{writing-mode:vertical-rl;font-family:Amiri,serif;font-weight:700;font-size:13px;line-height:1.1;max-height:calc(var(--h) - 46px);overflow:hidden;text-shadow:0 1px 1px rgba(0,0,0,.5);margin-top:12px}
+.bk2-a{font-size:9.5px;opacity:.85;margin-bottom:16px;max-width:100%;overflow:hidden;white-space:nowrap}
+.bk2:hover:not(.lk){transform:translateY(-6px) rotateX(4deg)}
+.bk2.pull{transform:translateY(-34px) translateZ(60px) rotateY(-24deg)!important;filter:brightness(1.15);z-index:3}
+.bk2.lk{filter:saturate(.25) brightness(.55)}
+.bk2-l{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);font-size:15px;filter:drop-shadow(0 1px 2px #000)}
+.bk2.pre{opacity:.82}
+.bk2.opt{transform:scale(.9);filter:saturate(.55) brightness(.8)}
+.bk2.opt:hover{transform:scale(.94) translateY(-4px)}
+.bk2-rb{position:absolute;top:-2px;left:50%;width:12px;height:30px;margin-left:-6px;background:linear-gradient(#f3d27a,#c9962f);clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%)}
+.bk2-pg{position:absolute;left:0;bottom:0;width:3px;background:#f3d27a;border-radius:2px}
+/* الكتاب يطير ويُفتح */
+.bk-fly{position:fixed;inset:0;z-index:1000;background:rgba(10,8,4,0);transition:background .45s;pointer-events:none;perspective:1400px}
+.bk-fly.go{background:rgba(10,8,4,.55)}.bk-fly.out{opacity:0;transition:opacity .35s}
+.bk-fly-b{position:absolute;left:var(--x);top:var(--y);width:46px;height:150px;transform:translate(-50%,-50%) rotateY(70deg);transform-style:preserve-3d;transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.bk-fly.go .bk-fly-b{left:50%;top:46%;width:220px;height:300px;transform:translate(-50%,-50%) rotateY(0)}
+.bk-fly-cv{position:absolute;inset:0;border-radius:4px 12px 12px 4px;background:linear-gradient(135deg,var(--c2),var(--c1));box-shadow:0 30px 60px rgba(0,0,0,.5),inset 0 0 0 6px rgba(233,207,143,.35);color:#f6e7bf;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px;text-align:center;transform-origin:100% 50%;transition:transform .55s ease-in;backface-visibility:hidden;z-index:2}
+.bk-fly-cv b{font-family:Amiri,serif;font-size:24px;line-height:1.4}.bk-fly-cv span{font-size:13px;opacity:.85}.bk-fly-cv small{opacity:.8}
+.bk-fly-pg{position:absolute;inset:6px;border-radius:4px 10px 10px 4px;background:repeating-linear-gradient(#fbf6e8 0 22px,#efe5cc 22px 23px);box-shadow:inset 8px 0 18px rgba(0,0,0,.15)}
+.bk-fly.open .bk-fly-cv{transform:rotateY(-160deg)}
+/* ============ خزانة ذُرى ============ */
+.hall{--wood1:#3a2210;--wood2:#25150a;margin:-14px -16px 0;padding:0 0 30px;background:radial-gradient(ellipse at 50% 0,#4a2e14 0,#1d1108 55%,#120a05 100%);color:#f3e6c4;min-height:100vh;overflow:hidden}
+.hall-sky{position:relative;padding:26px 16px 18px;text-align:center;overflow:hidden}
+.hall-ch{position:absolute;top:-80px;left:50%;width:360px;height:260px;margin-left:-180px;background:radial-gradient(ellipse at 50% 30%,rgba(255,210,120,.55),rgba(255,180,80,.12) 45%,transparent 70%);animation:hallGlow 5s ease-in-out infinite alternate;pointer-events:none}
+@keyframes hallGlow{to{opacity:.7;transform:scale(1.06)}}
+.hall-dust{position:absolute;top:100%;left:var(--x);width:3px;height:3px;border-radius:50%;background:rgba(255,226,160,.7);box-shadow:0 0 6px rgba(255,210,120,.8);animation:hallDust var(--d) linear var(--t) infinite;pointer-events:none}
+@keyframes hallDust{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-260px) translateX(30px);opacity:0}}
+.hall-ttl{position:relative}.hall-ttl small{font-family:Amiri,serif;color:#d9b86a;font-size:14px}
+.hall-ttl h1{font-family:Amiri,serif;font-size:40px;margin:2px 0;background:linear-gradient(#ffe7a8,#c9962f);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 30px rgba(255,200,100,.25)}
+.hall-ttl p{margin:0;font-size:13px;opacity:.75}
+.hall-stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:16px}
+.hall-stats span{background:rgba(255,230,170,.06);border:1px solid rgba(233,207,143,.2);border-radius:12px;padding:8px 2px;font-size:10.5px;opacity:.95;display:flex;flex-direction:column;gap:2px}
+.hall-stats b{font-size:18px;color:#ffe2a0}
+.hall-desk{display:flex;align-items:center;gap:12px;margin:4px 16px 14px;padding:12px 14px;border-radius:16px;background:linear-gradient(135deg,#5a3818,#3a220f);border:1px solid rgba(233,207,143,.3);box-shadow:0 10px 24px rgba(0,0,0,.4);cursor:pointer}
+.hall-desk b{display:block;font-family:Amiri,serif;font-size:18px}.hall-desk span{font-size:12px;opacity:.75}.hall-desk small{color:#e9cf8f}
+.hall-desk .crs-bar{margin-top:6px}
+.hall-open{position:relative;width:62px;height:44px;flex:0 0 auto;perspective:200px}
+.hall-open i{position:absolute;top:0;width:31px;height:44px;background:repeating-linear-gradient(#fbf6e8 0 6px,#e8dcc0 6px 7px);box-shadow:0 4px 8px rgba(0,0,0,.4)}
+.hall-open i:first-child{right:0;transform:rotateY(-18deg);transform-origin:0 50%;border-radius:0 4px 4px 0}
+.hall-open i:last-child{left:0;transform:rotateY(18deg);transform-origin:100% 50%;border-radius:4px 0 0 4px}
+.hall-aisles{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:none}
+.hall-aisles::-webkit-scrollbar{display:none}
+.hall-aisles button{flex:0 0 auto;border:1px solid rgba(233,207,143,.3);background:rgba(255,230,170,.05);color:#f3e6c4;border-radius:20px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer}
+.hall-aisles button.on{background:linear-gradient(#e9cf8f,#b8862b);color:#2a1808;font-weight:800}
+.hall-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 16px 10px;scrollbar-width:none}
+.hall-track::-webkit-scrollbar{display:none}
+.case{flex:0 0 calc(100% - 26px);max-width:520px;scroll-snap-align:center;border-radius:22px 22px 10px 10px;padding:12px 10px 14px;background:linear-gradient(90deg,#1a0e05,var(--wood1) 6%,var(--wood2) 50%,var(--wood1) 94%,#1a0e05);box-shadow:inset 0 0 0 3px #5a3a1a,inset 0 0 0 5px #2a1808,0 20px 40px rgba(0,0,0,.6);perspective:1000px}
+.case-crown{display:flex;flex-direction:column;align-items:center;margin:-2px auto 10px;padding:8px 18px;border-radius:40px 40px 10px 10px;background:linear-gradient(var(--c2),var(--c1));box-shadow:inset 0 0 0 2px rgba(233,207,143,.5);width:max-content;max-width:90%}
+.case-crown span{font-size:20px}.case-crown b{font-family:Amiri,serif;font-size:19px;color:#ffeec4}
+.case-sh{position:relative;margin-top:10px;padding:10px 6px 0;background:linear-gradient(#140a03,#2a170a);border-radius:6px;box-shadow:inset 0 12px 20px rgba(0,0,0,.7)}
+.case-lbl{position:absolute;top:-9px;right:10px;font-size:10.5px;padding:2px 8px;border-radius:8px;background:#e9cf8f;color:#3a2210;font-weight:800;z-index:2}
+.case-row{display:flex;align-items:flex-end;gap:4px;min-height:166px;overflow-x:auto;padding:6px 2px 0;scrollbar-width:none}
+.case-row::-webkit-scrollbar{display:none}
+.case-board{height:12px;margin:0 -6px;background:linear-gradient(#a0703f,#6d4520 60%,#3a220e);border-radius:0 0 4px 4px}
+.case-sh.lk{background:linear-gradient(135deg,#2d1a0a,#1b0f05)}
+.case-door{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:120px;margin:0 6px 8px;border-radius:8px;background:linear-gradient(135deg,rgba(255,230,170,.08),rgba(255,230,170,.02)),repeating-linear-gradient(90deg,rgba(0,0,0,.15) 0 2px,transparent 2px 50%);border:2px solid #5a3a1a;box-shadow:inset 0 0 0 6px rgba(90,58,26,.45);backdrop-filter:blur(2px);color:#cdb88a}
+.case-door span{font-size:22px}.case-door b{font-size:14px}.case-door small{font-size:11px;opacity:.8}
+.hall-foot{text-align:center;font-size:11.5px;opacity:.6;margin:6px 16px 0}
+@media (prefers-reduced-motion:reduce){.hall-dust,.hall-ch{animation:none}.bk-fly-b,.bk-fly-cv{transition:none}}
+/* بطاقة قرآني في المستوى */
+.hzl-card{margin:10px 0;padding:14px;border-radius:16px;background:linear-gradient(135deg,#fffaf0,#f6ecd2);border:1px solid #e6d3a0;box-shadow:0 4px 14px rgba(120,90,30,.08)}
+.hzl-card b{display:block;font-size:15px}.hzl-card small{color:var(--muted);font-size:12.5px}
+.hzl-card .ring{width:54px;height:54px}
+.hzl-chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.hzl-chips button{border:1px solid #e3d2a6;background:#fff;color:#8a7a55;border-radius:16px;padding:5px 11px;font:inherit;font-size:13px;cursor:pointer}
+.hzl-chips button.ok{background:linear-gradient(#f5dc95,#d9a94a);color:#3a2808;border-color:#c9962f;font-weight:700}
+.hzl-n{font-weight:800;font-size:18px;color:#b8862b;padding:6px 10px;border-radius:12px;background:#fff;border:1px solid #e6d3a0}
 </style>
 </head>
 <body>
@@ -2346,6 +2433,7 @@ function gqRender(){
     ps.lv[lk]=true;ps.att[lk]=(ps.att[lk]||0)+1;ps.best[lk]=total;save();GQ=null;sound('win');logAct('q');
     if(String(pid).startsWith('dua:')){duaLvPassed(pid.slice(4));return}
     if(String(pid).startsWith('spec:')){const k=pid.slice(5);SPS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>🎯</div><h2 style='margin:4px 0'>١٠٠٪ — اجتزت اختبار مسار ${SPECM[k].n}</h2><button class='btn gold' onclick="go('spec',{k:'${k}'})">العودة إلى المسار</button></div>`;return}
+    if(String(pid).startsWith('hzx:')){const k=pid.slice(4);HZXS(k).pass=true;save();logAct('s');$('#app').innerHTML=`<div class='panel done'><div class='big'>🎓</div><h2 style='margin:4px 0'>١٠٠٪ — اجتزت اختبار سور «${(DLVM[k]||{}).n||k}» كلها</h2><p class='muted'>ثبّت الله حفظك، وستعود السور إليك في المراجعة.</p><button class='btn gold' onclick='backLv()'>العودة</button></div>`;return}
     if(String(pid).startsWith('bk:')){const k=pid.slice(3);BKS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>📚</div><h2 style='margin:4px 0'>١٠٠٪ — أتممت الكتاب</h2><p class='muted'>${BKM[k].t}: وُضع عليه الشريط الذهبي في رفّك.</p><button class='btn gold' onclick="go('lib',{s:'${BKM[k].s}'})">📚 العودة إلى المكتبة</button></div>`;return}
     if(String(pid).startsWith('qs:')){const k=pid.slice(3);QSS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>📜</div><h2 style='margin:4px 0'>١٠٠٪ — أتممت القصة</h2><p class='muted'>${QSM[k].n}: صارت الأحداث والآيات مرتبطة في ذهنك.</p><button class='btn gold' onclick='backLv()'>العودة</button></div>`;return}
     if(String(pid).startsWith('tl:')){const k=pid.slice(3);TLS(k).pass=true;save();$('#app').innerHTML=`<div class="panel done"><div class="big">🕰</div><h2 style="margin:4px 0">١٠٠٪ — أتممت الخط الزمني</h2><p class="muted">${TL.find(x=>x.k===k).n}: صارت الآيات مرتبطة في ذهنك بأحداثها وأعوامها.</p><button class="btn gold" onclick="backLv()">العودة</button></div>`;return}
@@ -11580,6 +11668,204 @@ const _agendaHTML12=agendaHTML;agendaHTML=function(){if(((S.profile||{}).track||
    ${P.tasks.map(t=>`<button class="ag-i" onclick="${t.go}"><span class="ag-ic">${t.ic}</span><div class="grow"><b>${t.t}</b></div><span class="ag-m">${AR(t.min)} د</span></button>`).join('')}
    ${P.dLv!=null?`<div class="muted" style="font-size:12px;margin-top:6px">🏁 بهذه الوتيرة تكون جاهزًا لامتحان «${P.L.n}» في ${plDate(P.dLv)}</div>`:''}</div>`};
 
+/* ============ التنقل الموحّد: سجل رجوع لكل شاشة + زر رجوع أندرويد + السحب من حافة الشاشة ============ */
+const NAV_ROOTS=['home','muslim','tests','settings','library'];
+let NAVH=[],NAV_SKIP=false,IN_RENDER=0;
+const _renderNav0=render;render=function(){IN_RENDER++;try{return _renderNav0.apply(this,arguments)}finally{IN_RENDER--}};
+const navKey=r=>JSON.stringify(r);
+const _goNav=go;
+go=function(v,extra){
+  const prev=route?JSON.parse(JSON.stringify(route)):null;
+  if(!NAV_SKIP&&!IN_RENDER&&prev&&prev.v!=='welcome'){
+    const nx=Object.assign({v},extra||{});
+    if(NAV_ROOTS.includes(v)&&!(extra&&(extra.l||extra.k))){NAVH=[]}            // الرجوع إلى تبويب رئيسي يبدأ سجلًا جديدًا
+    else if(prev.v!==v||prev.id!==nx.id||prev.l!==nx.l||prev.t!==nx.t||prev.k!==nx.k||prev.pid!==nx.pid){
+      if(!NAVH.length||navKey(NAVH[NAVH.length-1])!==navKey(prev)){NAVH.push(prev);if(NAVH.length>60)NAVH.shift();try{history.pushState({dh:NAVH.length},'')}catch(e){}}
+    }
+  }
+  if(['klesson','kreview','kptest','kexam'].includes((prev||{}).v)&&prev.v!==v&&typeof kStop==='function')kStop();
+  return _goNav(v,extra)};
+function navBack(){
+  while(NAVH.length){const r=NAVH.pop();if(navKey(r)!==navKey(route)){NAV_SKIP=true;try{const {v,...x}=r;go(v,x)}finally{NAV_SKIP=false}return true}}
+  const b=document.querySelector('#hdr .back');if(b&&b.dataset.old){NAV_SKIP=true;try{eval(b.dataset.old)}finally{NAV_SKIP=false}return true}
+  if(route.v!=='home'){NAV_SKIP=true;try{go('home')}finally{NAV_SKIP=false}return true}
+  return false}
+function navUIBack(){if(NAVH.length&&history.state&&history.state.dh){history.back();return}navBack()}
+/* زر الرجوع في الرأس يرجع إلى الشاشة السابقة فعلًا */
+const _renderHeaderNav=renderHeader;
+renderHeader=function(){_renderHeaderNav();const h=document.getElementById('hdr');if(!h)return;let b=h.querySelector('.back');
+  if(!b&&NAVH.length&&!NAV_ROOTS.includes(route.v)){h.insertAdjacentHTML('afterbegin','<button class="back">→</button>');b=h.querySelector('.back')}
+  if(b){b.dataset.old=b.getAttribute('onclick')||'';b.setAttribute('onclick','navUIBack()');b.setAttribute('aria-label','رجوع')}};
+/* زر الرجوع في الجهاز (أندرويد) وفي المتصفح */
+window.addEventListener('popstate',()=>{if(!navBack()){try{history.pushState({dh:0},'')}catch(e){}}});
+/* السحب: من حافة الشاشة = رجوع، وفي منتصف الدرس المقسّم = السابق/التالي */
+(()=>{let sx=0,sy=0,edge=false,on=false,ind=null;const EDGE=28,MIN=70;
+  const ensure=()=>{if(!ind){ind=document.createElement('div');ind.className='nav-swipe';ind.textContent='→';document.body.appendChild(ind)}return ind};
+  document.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;const t=e.touches[0];sx=t.clientX;sy=t.clientY;const w=innerWidth;edge=sx<EDGE||sx>w-EDGE;on=true;
+    if(e.target.closest('input,textarea,select,.no-swipe,.ptr-wrap,canvas'))on=false},{passive:true});
+  document.addEventListener('touchmove',e=>{if(!on||!edge)return;const t=e.touches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dy)>Math.abs(dx))return;
+    const d=Math.min(Math.abs(dx),120),el=ensure();el.style.opacity=d/120;el.classList.toggle('l',sx<EDGE);el.style.setProperty('--d',d+'px')},{passive:true});
+  document.addEventListener('touchend',e=>{if(!on)return;on=false;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(ind)ind.style.opacity=0;
+    if(Math.abs(dx)<MIN||Math.abs(dy)>Math.abs(dx)*0.7)return;
+    if(edge){if((sx<EDGE&&dx>0)||(sx>innerWidth-EDGE&&dx<0)){if(!NAV_ROOTS.includes(route.v)||NAVH.length)navUIBack()}return}
+    const S2=window.STEP_SWIPE;if(S2&&S2.v===route.v){if(dx>0)S2.next&&S2.next();else S2.prev&&S2.prev()}},{passive:true})})();
+/* درس البراعم: زر «السابق» والسحب بين النقاط */
+const _vKLessonNav=vKLesson;
+vKLesson=function(){_vKLessonNav();window.STEP_SWIPE=null;if(!KL||KL.st!=='learn')return;
+  const big=document.querySelector('#app .k-btn.big');
+  if(big&&KL.p>0){big.insertAdjacentHTML('beforebegin','<div class="k-nav2"></div>');const w=document.querySelector('#app .k-nav2');w.appendChild(big);w.insertAdjacentHTML('afterbegin','<button class="k-btn prev" onclick="kPrevPt()">→ السابق</button>')}
+  window.STEP_SWIPE={v:'klesson',prev:()=>kPrevPt(),next:()=>{const l=KIDL.find(x=>x.id===KL.id);if(KL.p<l.pts.length-1)kNextPt()}}};
+function kPrevPt(){if(KL&&KL.p>0){if(typeof kStop==='function')kStop();KL.p--;sound('flip');vKLesson()}}
+
+/* ============ تنظيم التبويبات: دمج «الحفظ» في «الأذكار والأدعية»، وجمع المتفرّعات في بند واحد ============ */
+(()=>{const L=DLVM.D1;if(L&&L.tabs){const hi=L.tabs.findIndex(T=>T.k==='hfz'),ad=L.tabs.find(T=>T.k==='adhkar');
+  if(hi>=0&&ad){const H=L.tabs[hi];ad.items=ad.items.concat(H.items);ad.n='الأذكار والأدعية';ad.ic=ad.ic||'🤲';L.tabs.splice(hi,1)}}
+  ['D2','D3'].forEach(k=>{const T=(DLVM[k]&&DLVM[k].tabs||[]).find(T=>T.k==='hfz');if(T){T.n='حفظ الأدعية';T.ic='🤲'}})})();
+/* المتفرّعات المتتالية من نوع واحد تُعرض بندًا واحدًا بمحطاته */
+const GRP_T={tl:{ic:'🕰',n:'القرآن على خط السيرة',st:'محطة',sub:'الآيات مرتبة بحسب زمن الأحداث التي نزلت فيها، مربوطة بالسيرة'}};
+const _tabRows22=tabRows;
+tabRows=function(T){const rows=_tabRows22(T),out=[];let g=null;
+  rows.forEach(r=>{const t=r.it&&r.it.t,G=t&&GRP_T[t];
+    if(G&&T.items.filter(i=>i.t===t).length>1){const m=tabMeta(r.it);let go=m[3]||'';if(/pquiz/.test(go)&&!/gqStart/.test(go)){const pid=(go.match(/pid:'([^']+)'/)||[])[1];if(pid)go+=`;gqStart('${pid}','q')`}
+      const x={ic:m[0],t:String(m[1]).replace(/^التفسير على الخط الزمني:\s*/,''),sub:String(m[2]||'').replace(/\s*—\s*الآيات بحسب أسبقية أحداث نزولها/,'').replace(/<[^>]+>/g,''),go,done:itemDone(r.it)};
+      if(g&&g.gt===t){g.rows.push(x);g.done=g.rows.every(y=>y.done);return}
+      g={grp:1,gt:t,g:t==='tl'?t:'',ic:G.ic,t:G.n,goal:G.sub||'',rows:[x],done:x.done};out.push(g);return}
+    g=null;out.push(r)});
+  out.forEach(r=>{if(r.gt){const n=r.rows.length,d=r.rows.filter(x=>x.done).length;r.kind=AR(n)+' '+(r.gt==='tl'?'محطات':(n>10||n<3?'دعاءً':'أدعية'))+' · أتممت '+AR(d)}});
+  return out};
+
+/* ============ القرآن في كل مستوى: محفوظاتك داخل تبويب القرآن + اختبار شامل لسور المستوى + الحفظ اختياري بعد المستوى الرابع ============ */
+function HZXS(k){S.hzx=S.hzx||{};S.hzx[k]=S.hzx[k]||{pass:false};return S.hzx[k]}
+const HZ_REQ_LAST='D4';
+function hzOptional(k){return lvIdx(k)>lvIdx(HZ_REQ_LAST)}
+const QTAB={D0:'kqr',D1:'quran',D2:'tfs',D3:'tfs',D4:'tfs'};
+/* توليد أسئلة الاختبار الشامل من نص السور (رسم عثماني) */
+function hzxQuiz(k){const list=HZ_LV[k]||[];if(!list.length)return [];let seed=0;for(const ch of k)seed=seed*31+ch.charCodeAt(0);
+  const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};const pick=a=>a[Math.floor(rnd()*a.length)];
+  const T={};list.forEach(s=>{T[s]=hzText(s)||[]});const all=[];list.forEach(s=>T[s].forEach((a,i)=>all.push({s,i,a})));
+  const per=list.length<=8?2:1,qs=[];
+  list.forEach((s,si)=>{const t=T[s];if(!t.length)return;
+    for(let r=0;r<per;r++){const ty=(si+r)%3,cand=t.map((a,i)=>i).filter(i=>t[i].split(/\s+/).length>=(ty===0?4:2)&&(ty!==2||i<t.length-1));if(!cand.length)continue;const i=pick(cand),a=t[i],nm=SUR_N[s-1];
+      const others=n=>{const out=[],seen=new Set();let g=0;while(out.length<n&&g++<200){const x=pick(all);if(x.s===s&&x.i===i)continue;const v=ty===0?x.a.split(/\s+/).slice(Math.ceil(x.a.split(/\s+/).length/2)).join(' '):x.a;if(seen.has(v))continue;seen.add(v);out.push(v)}return out};
+      if(ty===0){const w=a.split(/\s+/),h=Math.ceil(w.length/2);qs.push({t:'mcq',q:`أكمل الآية من سورة ${nm}: ﴿${w.slice(0,h).join(' ')} …﴾`,o:[w.slice(h).join(' '),...others(3)],w:`سورة ${nm}، الآية ${AR(i+1)}.`})}
+      else if(ty===1){const names=list.filter(x=>x!==s).map(x=>SUR_N[x-1]);const pool=names.length>=3?names:SUR_N.filter((n,j)=>j+1!==s&&Math.abs(j+1-s)<12);const o=[];while(o.length<3&&pool.length){const n=pick(pool);if(!o.includes(n))o.push(n)}
+        qs.push({t:'mcq',q:`من أي سورة هذه الآية؟ ﴿${a}﴾`,o:[nm,...o],w:`هي الآية ${AR(i+1)} من سورة ${nm}.`})}
+      else qs.push({t:'mcq',q:`في سورة ${nm}، ما الآية التي تلي: ﴿${a}﴾؟`,o:[t[i+1],...others(3)],w:`الآية ${AR(i+2)} من سورة ${nm}.`})}});
+  return qs}
+Object.keys(HZ_LV).forEach(k=>{PATHS['hzx:'+k]={id:'hzx:'+k,title:'اختبار سور '+((DLVM[k]||{}).n||k)+' كلها',stations:[],levels:[{k:'q',n:'السور كلها',st:[],quiz:hzxQuiz(k)}],final:{n:'',order:{o:[]},mix:0}}});
+function hzxStart(k){go('pquiz',{pid:'hzx:'+k,lk:'q'});gqStart('hzx:'+k,'q')}
+/* اجتياز المستوى: حفظ السور + اجتياز اختبارها الشامل، والحفظ اختياري بعد المستوى الرابع */
+const _hzLvDone21=hzLvDone;hzLvDone=function(k){if(!HZ_LV[k]||RO())return true;if(hzOptional(k))return true;return _hzLvDone21(k)&&HZXS(k).pass};
+/* بند الاختبار في آخر تبويب الحفظ */
+(()=>{Object.keys(HZ_LV).forEach(k=>{const L=DLVM[k];if(!L||!L.tabs)return;const T=L.tabs.find(x=>x.hz);if(!T)return;if(hzOptional(k))T.n='حفظ القرآن (اختياري)';if(!T.items.some(i=>i.t==='hzx'))T.items.push({t:'hzx',l:k})})})();
+const _itemDone21=itemDone;itemDone=function(it){if(it.t==='hzx')return RO()||HZXS(it.l).pass;return _itemDone21(it)};
+const _itemProg21=itemProg;itemProg=function(it){if(it.t==='hzx')return [HZXS(it.l).pass?1:0,1];return _itemProg21(it)};
+const _tabMeta21=tabMeta;tabMeta=function(it){if(it.t==='hzx'){const n=(HZ_LV[it.l]||[]).length;return ['🎓','الاختبار الشامل لسور المستوى',AR(n)+' '+(n>10||n<3?'سورة':'سور')+' · يلزم ١٠٠٪'+(HZXS(it.l).pass?' · ✓ اجتزته':''),`hzxStart('${it.l}')`]}return _tabMeta21(it)};
+const _tabItemHTML21=tabItemHTML;tabItemHTML=function(it,o){if(it.t!=='hzx')return _tabItemHTML21(it,o);const k=it.l,list=HZ_LV[k]||[],m=list.filter(hzDone).length,ready=m===list.length||RO(),x=HZXS(k);
+  return `<div class="hz-card"><p>بعد حفظ سور المستوى كلها تختبر فيها معًا: إكمال الآيات، ومعرفة سورة كل آية، والآية التي تليها. ولا تجتاز المستوى إلا بعده.</p><i class="crs-bar"><u style="width:${m/list.length*100}%"></u></i><small class="muted">حفظت ${AR(m)} من ${AR(list.length)}</small>
+   <button class="btn ${x.pass?'ghost':'gold'}" style="width:100%;margin-top:8px" ${ready?`onclick="hzxStart('${k}')"`:'disabled'}>${x.pass?'✓ أعد الاختبار':ready?'🎓 ابدأ الاختبار الشامل':'🔒 احفظ السور كلها أولًا'}</button></div>`};
+/* بطاقة «قرآني في هذا المستوى» في أعلى تبويب القرآن */
+function hzLvCard(k){const list=HZ_LV[k]||[];if(!list.length)return '';const L=DLVM[k],hj=L.tabs.findIndex(T=>T.hz),m=list.filter(hzDone).length,x=HZXS(k),all=m===list.length;
+  return `<div class="hzl-card"><div class="row"><div class="grow"><b>📖 قرآني في هذا المستوى${hzOptional(k)?' (اختياري)':''}</b><small>حفظت ${AR(m)} من ${AR(list.length)}${x.pass?' · ✓ اجتزت الاختبار الشامل':''}</small></div><span class="hzl-n">${AR(m)}/${AR(list.length)}</span></div><i class="crs-bar" style="margin-top:8px"><u style="width:${list.length?m/list.length*100:0}%"></u></i>
+   <div class="hzl-chips">${list.map(s=>`<button class="${hzDone(s)?'ok':''}" onclick="go('hz',{s:${s}})">${hzDone(s)?'✓ ':''}${SUR_N[s-1]}</button>`).join('')}</div>
+   ${all?`<button class="btn ${x.pass?'ghost':'gold'}" style="width:100%" onclick="hzxStart('${k}')">${x.pass?'✓ أعد الاختبار الشامل':'🎓 الاختبار الشامل للسور كلها'}</button>`:`<button class="btn ghost" style="width:100%" onclick="go('lvtab',{l:'${k}',t:${hj}})">تابع الحفظ ←</button>`}</div>`}
+const _vLvTab21=vLvTab;vLvTab=function(){_vLvTab21();if(route.v!=='lvtab')return;const L=DLVM[route.l],T=L&&L.tabs[+route.t];if(!T||QTAB[L.k]!==T.k)return;const h=document.querySelector('#app .hero');if(h)h.insertAdjacentHTML('afterend',hzLvCard(L.k))};
+
+/* ============ المكتبة ٢: رفّ واحد في كل تبويب لكل مستوى، كتب متتابعة (١٠٠٪)، و«خزانة ذُرى» الكبرى في الشريط ============ */
+/* تصحيح مواضع الكتب بحسب التدرّج */
+BOOKS.push({id:'saadi2829',s:'tfs',lv:'D2',t:'تيسير الكريم الرحمن — جزءا تبارك وقد سمع',a:'عبد الرحمن بن ناصر السعدي',d:'١٣٧٦هـ',sch:'all',why:'تكملة لتفسير جزء عمّ بالأسلوب نفسه: معنى إجمالي واضح، وفوائد عملية، قبل الانتقال إلى أصول التفسير.'});
+BKM.saadi2829=BOOKS[BOOKS.length-1];
+const BK_FIX={arbain:{s:'hdt',lv:'D2'},umdaahkam:{s:'hdt',lv:'D2'},atfalb:{lv:'D2'},jazariyya:{lv:'D3'},muqaddimatafsir:{lv:'D3'},mukhmuslim:{lv:'D5'},adabmufrad:{s:'akh',lv:'D4'}};
+Object.entries(BK_FIX).forEach(([id,f])=>{if(BKM[id])Object.assign(BKM[id],f)});
+['shamail','adhkarnawawi','adabmufrad'].forEach(id=>{const b=BKM[id];if(b&&!/الصحيح منه/.test(b.why))b.why+=' في الكتاب أحاديث ضعيفة، فلا يُعرض منه في ذُرى إلا الصحيح مع درجة كل حديث.'});
+if(BKM.riyad){BKM.riyad.tg=['akhlaq'];BKM.riyad.why='أحاديث صحيحة في الآداب والرقائق مرتبة على أبواب. في التأسيس نقرأ منه أبواب الأدب فقط.'}
+if(BKM.mukhmuslim)BKM.mukhmuslim.why='اختصار صحيح مسلم بحذف الأسانيد والمكرر (نحو ٦٠٠ صفحة)، لذلك وُضع في الذروة بعد بلوغ المرام.';
+/* الرفوف: لكل مستوى ولكل تبويب سلسلة مرتبة؛ والمصفوفة الداخلية كتب متوازية بحسب المذهب أو المدرسة */
+const LIBPLACE={
+ D1:{quran:['saadi30','tibyan'],sira:['shamail'],adhkar:['adhkarnawawi'],akhlaq:['riyad']},
+ D2:{aqd:['tahawi'],fqh:['ijmaa'],tjw:['atfalb'],sir:['nuryaqin'],hdt:['arbain','umdaahkam'],tfs:['saadi2829']},
+ D3:{aqd:[['jawhara','wasitiyya']],fqh:[['nuridah','akhdari','safina','akhsar']],tjw:['jazariyya'],sir:['ibnhisham'],hdt:['bayqb','nukhba'],tfs:['muqaddimatafsir','ibnkathir']},
+ D4:{aqd:[['kharida','lumaa']],fqh:[['quduri','risala','abishuja','umda']],sir:['zadmaad'],hdt:['bulugh'],akh:['minhajqasidin','adabmufrad']},
+ D5:{aqd:[['sharhtahawi','tuhfamurid'],'ibana'],fqh:[['kanz','khalil','minhaj','zad'],'bidaya','mughni','majmu'],tjw:['shatibiyya','nashr'],sir:['shifa'],hdt:['mukhmuslim','bukhari'],tfs:['itqan','qurtubi'],akh:['madarij']}
+};
+const SCH_MZ={han:0,mal:1,sha:2,hnb:3};
+function bkMine(id){const b=BKM[id];if(!b)return false;const mz=S.settings.madhhab,aq=S.aqSchool;
+  if(SCH_MZ[b.sch]!=null)return mz==null||mz===4||SCH_MZ[b.sch]===mz;
+  if(b.sch==='ash')return !aq||aq==='c'||aq==='s'||aq==='m';
+  if(b.sch==='ath')return !aq||aq==='c'||aq==='a';return true}
+function bkReady(id){const b=BKM[id];return !!(b&&(b.ch||(typeof RDP!=='undefined'&&RDP[id])))}
+function bkComplete(id){const b=BKM[id];if(!b)return true;if(RO())return true;if(!bkReady(id))return true;
+  const rd=typeof RDP!=='undefined'&&RDP[id];if(rd){const x=RDS(id);if(Object.keys(x.p||{}).length<rdPages(id).length)return false}
+  if(b.quiz)return !!BKS(id).pass;return b.ch?bkDone(id):true}
+function bkReadPct(id){const b=BKM[id];if(!b)return 0;const rd=typeof RDP!=='undefined'&&RDP[id];let a=0,n=0;
+  if(rd){a+=Object.keys(RDS(id).p||{}).length;n+=rdPages(id).length}if(b.quiz){n++;if(BKS(id).pass)a++}if(!rd&&b.ch){const p=bkProg(id);a+=p[0];n+=p[1]}return n?a/n:0}
+function shelfChain(lv,tk){return ((LIBPLACE[lv]||{})[tk])||[]}
+function shelfBooks(lv,tk){return shelfChain(lv,tk).flat().filter(id=>BKM[id])}
+/* هل العنصر رقم i في السلسلة مفتوح؟ */
+function chainOpen(ch,i){if(RO())return true;for(let j=0;j<i;j++){const e=ch[j];if(Array.isArray(e)){const mine=e.filter(bkMine);if(!(mine.length?mine:e).some(bkComplete))return false}else if(!bkComplete(e))return false}return true}
+function bkLockMsg(ch,i){for(let j=0;j<i;j++){const e=ch[j],ids=Array.isArray(e)?e:[e];if(!ids.some(bkComplete))return 'أتمّ «'+BKM[ids[0]].t+'» أولًا: القراءة كاملة واختباره بنسبة ١٠٠٪'}return ''}
+/* نزع بنود المكتبة القديمة ووضع رفّ واحد */
+(()=>{DLV.forEach(L=>(L.tabs||[]).forEach(T=>{T.items=(T.items||[]).filter(i=>i.t!=='lib');const tk=T.k==='akhlaq'&&L.k!=='D1'?'akh':T.k;if(shelfBooks(L.k,tk).length)T.items.push({t:'shelf',lv:L.k,tk})}))})();
+const _itemDone20=itemDone;itemDone=function(it){if(it.t==='shelf')return true;return _itemDone20(it)};
+const _itemProg20=itemProg;itemProg=function(it){if(it.t==='shelf'){const bs=shelfBooks(it.lv,it.tk);return [bs.filter(id=>bkComplete(id)&&bkReady(id)).length,bs.filter(bkReady).length]}return _itemProg20(it)};
+const _tabMeta20=tabMeta;tabMeta=function(it){if(it.t==='shelf'){const bs=shelfBooks(it.lv,it.tk),d=bs.filter(id=>bkReady(id)&&bkComplete(id)).length;return ['📚','رفّ الكتب',NBK(bs.length)+' لهذا التبويب في هذا المستوى · أتممت '+AR(d)]}return _tabMeta20(it)};
+function bkSpine2(id,o,cls,msg){const b=BKM[id],L=LIBS[b.s]||LIBS.gen,h=128+((b.t.length*7)%30),w=34+((b.a.length*3)%10),pct=bkReadPct(id),dn=bkReady(id)&&bkComplete(id)&&pct>=1;
+  const col=b.sch==='han'?['#6b2c2c','#843838']:b.sch==='mal'?['#2c5a6b','#387184']:b.sch==='sha'?['#4a6b2c','#5c8438']:b.sch==='hnb'?['#6b5a2c','#847038']:b.sch==='ash'?['#4a2c6b','#5c3884']:b.sch==='ath'?['#2c6b5a','#388470']:L.c;
+  return `<button class="bk2 ${o?'':'lk'} ${dn?'dn':''} ${bkReady(id)?'':'pre'} ${cls||''}" style="--h:${h}px;--w:${w}px;--c1:${col[0]};--c2:${col[1]}" onclick="${o?`bkPull(this,'${id}')`:`toast('🔒 ${(msg||'يُفتح مع مستواه').replace(/'/g,'’')}')`}" title="${b.t}">
+   <span class="bk2-t">${b.t}</span><span class="bk2-a">${b.a.split(' ').slice(-1)[0]}</span>${o?'':'<span class="bk2-l">🔒</span>'}${dn?'<i class="bk2-rb"></i>':pct>0?`<i class="bk2-pg" style="height:${pct*100}%"></i>`:''}</button>`}
+function shelfHTML(lv,tk){const ch=shelfChain(lv,tk);let n=0;
+  const parts=ch.map((e,i)=>{const o=chainOpen(ch,i),msg=bkLockMsg(ch,i);
+    if(!Array.isArray(e)){n++;return bkSpine2(e,o,'',msg)}
+    const mine=e.filter(bkMine),grp=mine.length&&mine.length<e.length;
+    return `<span class="bk2-par" title="كتب متوازية: اقرأ كتاب مذهبك أو مدرستك">${e.map(id=>bkSpine2(id,o,grp&&!bkMine(id)?'opt':'',msg)).join('')}</span>`});
+  const par=ch.some(Array.isArray);
+  return `<div class="shelf2"><div class="shelf2-back"></div><div class="shelf2-row">${parts.join('<i class="bk2-arr">←</i>')}</div><div class="shelf2-board"></div></div>
+   <p class="shelf2-note">${ch.length>1?'الكتب بالترتيب: لا يُفتح الكتاب التالي حتى تُتم الذي قبله قراءةً واختبارًا بنسبة ١٠٠٪.':'اضغط على الكتاب لينزل من الرف ويُفتح.'}${par?' الكتب المتجاورة متوازية بحسب المذهب أو المدرسة: كتاب اختيارك مضيء، والبقية اختيارية.':''}</p>`}
+const _tabItemHTML20=tabItemHTML;tabItemHTML=function(it,o){if(it.t!=='shelf')return _tabItemHTML20(it,o);return shelfHTML(it.lv,it.tk)};
+/* الكتاب ينزل من الرف ويُفتح */
+function bkPull(el,id){if(el.classList.contains('pull'))return;sound('flip');el.classList.add('pull');
+  const r=el.getBoundingClientRect(),b=BKM[id],L=LIBS[b.s]||LIBS.gen,ov=document.createElement('div');ov.className='bk-fly';
+  ov.innerHTML=`<div class="bk-fly-b" style="--x:${r.left+r.width/2}px;--y:${r.top+r.height/2}px;--c1:${L.c[0]};--c2:${L.c[1]}"><div class="bk-fly-cv"><small>${L.ic} ${L.n}</small><b>${b.t}</b><span>${b.a}</span></div><div class="bk-fly-pg"></div></div>`;
+  document.body.appendChild(ov);requestAnimationFrame(()=>ov.classList.add('go'));
+  setTimeout(()=>{ov.classList.add('open')},520);setTimeout(()=>{go('book',{id});ov.classList.add('out');setTimeout(()=>ov.remove(),380)},1050)}
+
+/* ============ «خزانة ذُرى»: المكتبة الكبرى ============ */
+const HALL_ORDER=['gen','aqd','fqh','hdt','tfs','sir','tjw','akh'];
+function hallBooks(s){return BOOKS.filter(b=>b.s===s)}
+function hallLvOpen(lv){return shelfOpen(lv)}
+function hallChainOf(id){for(const [lv,tabs] of Object.entries(LIBPLACE))for(const [tk,ch] of Object.entries(tabs)){const i=ch.findIndex(e=>Array.isArray(e)?e.includes(id):e===id);if(i>=0)return {lv,tk,ch,i}}return null}
+function hallBookOpen(id){const b=BKM[id];if(!hallLvOpen(b.lv))return false;const c=hallChainOf(id);return c?chainOpen(c.ch,c.i):true}
+function hallDesk(){let best=null,bp=-1;BOOKS.forEach(b=>{const p=bkReadPct(b.id);if(p>0&&p<1&&p>bp){bp=p;best=b}});
+  if(!best){const nx=BOOKS.find(b=>bkReady(b.id)&&hallBookOpen(b.id)&&!bkComplete(b.id));if(nx)best=nx,bp=0}return best?[best,bp]:null}
+function vHall(){const s=route.s||null,all=BOOKS.filter(b=>hallLvOpen(b.lv)),done=BOOKS.filter(b=>bkReady(b.id)&&bkComplete(b.id)&&bkReadPct(b.id)>=1).length;
+  let pages=0,sec=0;Object.values(S.rd||{}).forEach(x=>{pages+=Object.keys(x.p||{}).length;sec+=x.sec||0});
+  const desk=hallDesk();
+  $('#app').classList.add('wide');
+  $('#app').innerHTML=`<div class="hall">
+   <div class="hall-sky"><i class="hall-ch"></i>${Array.from({length:14},(_,i)=>`<i class="hall-dust" style="--x:${(i*37)%100}%;--d:${6+(i*3)%7}s;--t:${(i*7)%10}s"></i>`).join('')}
+    <div class="hall-ttl"><small>بسم الله</small><h1>خزانة ذُرى</h1><p>كل رفّ هنا يُفتح مع مستواه، وكل كتاب بعد الذي قبله</p></div>
+    <div class="hall-stats"><span><b>${AR(all.length)}</b>كتابًا مفتوحًا</span><span><b>${AR(done)}</b>أتممتها</span><span><b>${AR(pages)}</b>صفحة قرأتها</span><span><b>${AR(Math.round(sec/60))}</b>دقيقة قراءة</span></div></div>
+   ${desk?`<div class="hall-desk" onclick="go('book',{id:'${desk[0].id}'})"><div class="hall-open"><i></i><i></i></div><div class="grow"><small>📖 على مكتبك الآن</small><b>${desk[0].t}</b><span>${desk[0].a}</span><i class="crs-bar"><u style="width:${desk[1]*100}%"></u></i></div><span class="chev">←</span></div>`:''}
+   <div class="hall-aisles">${HALL_ORDER.filter(k=>hallBooks(k).length).map(k=>`<button class="${(s||HALL_ORDER[0])===k?'on':''}" onclick="hallGo('${k}')">${LIBS[k].ic} ${LIBS[k].n}</button>`).join('')}</div>
+   <div class="hall-track" id="hallT">${HALL_ORDER.filter(k=>hallBooks(k).length).map(k=>hallCase(k)).join('')}</div>
+   <p class="hall-foot">اسحب يمينًا ويسارًا بين الأجنحة · الرفوف المغلقة تُفتح حين تصل إلى مستواها</p></div>`;
+  const t=document.getElementById('hallT');if(t){if(s){const el=t.querySelector('[data-s="'+s+'"]');if(el)t.scrollLeft=el.offsetLeft-t.offsetLeft-(t.clientWidth-el.clientWidth)/2}
+    t.addEventListener('scroll',()=>{clearTimeout(t._h);t._h=setTimeout(()=>{const c=[...t.children].map(e=>[Math.abs(e.getBoundingClientRect().left+e.clientWidth/2-innerWidth/2),e.dataset.s]).sort((a,b)=>a[0]-b[0])[0];if(c){document.querySelectorAll('.hall-aisles button').forEach(b=>b.classList.toggle('on',b.getAttribute('onclick').includes("'"+c[1]+"'")));route.s=c[1]}},120)},{passive:true})}}
+function hallGo(k){const t=document.getElementById('hallT'),el=t&&t.querySelector('[data-s="'+k+'"]');if(el)el.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});route.s=k;sound('flip')}
+function hallCase(k){const L=LIBS[k],lvs=['D1','D2','D3','D4','D5'].filter(lv=>hallBooks(k).some(b=>b.lv===lv));
+  return `<section class="case" data-s="${k}" style="--c1:${L.c[0]};--c2:${L.c[1]}"><div class="case-crown"><span>${L.ic}</span><b>${L.n}</b></div>
+   ${lvs.map(lv=>{const o=hallLvOpen(lv),bs=hallBooks(k).filter(b=>b.lv===lv);
+     return o?`<div class="case-sh"><div class="case-lbl">المستوى ${AR(lvIdx(lv))} · ${LVN(lv)}</div><div class="case-row">${bs.map(b=>bkSpine2(b.id,hallBookOpen(b.id),bkMine(b.id)?'':'opt',(hallChainOf(b.id)?bkLockMsg(hallChainOf(b.id).ch,hallChainOf(b.id).i):''))).join('')}</div><div class="case-board"></div></div>`
+      :`<div class="case-sh lk"><div class="case-door"><span>🔒</span><b>المستوى ${AR(lvIdx(lv))}</b><small>${NBK(bs.length)} خلف هذا الباب</small></div><div class="case-board"></div></div>`}).join('')}
+   </section>`}
+const _renderNav20=renderNav;renderNav=function(){_renderNav20();if((S.profile||{}).kid)return;const nav=document.getElementById('nav');if(!nav||nav.querySelector('[data-hall]'))return;
+  const btn=`<button data-hall class="${route.v==='hall'?'on':''}" onclick="go('hall')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h3v16H4zM9 4h3v16H9z"/><path d="M14.5 5.2l2.9-.8 3.8 14.6-2.9.8z"/><path d="M3 21h18"/></svg><span>المكتبة</span></button>`;
+  const set=nav.querySelector('button:last-child');if(set)set.insertAdjacentHTML('beforebegin',btn);else nav.insertAdjacentHTML('beforeend',btn);
+  if(route.v==='hall')nav.querySelectorAll('button:not([data-hall])').forEach(b=>b.classList.remove('on'))};
+NAV_ROOTS.push('hall');
+/* المسار القديم للمكتبة يفتح الخزانة على جناحها */
+function vLib(){return go('hall',{s:route.s})}
+
 
 /* ---- الشهادة الصغيرة لكل وحدة ---- */
 function drawCertMini(U){const W=1400,H=1000,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
@@ -12021,11 +12307,11 @@ function renderNavOld(){
 }
 function renderHeader(){
   const back=['matn','session','path','pquiz','intro','practice','srev','lesson','adhkar','course','gate','sci','log','qz','read','readrev','plan','lib','book','pt','hz','hzrev','hzpick','lx0','spec','qs','mymutun','lv','lvtab','lx','jh','tl','mountain','adklog','duas','dua','dread','klesson','kreview','kptest','kexam','kcerts'].includes(route.v);
-  const sub={read:'القراءة',readrev:'مراجعة القراءة',plan:'خطتي',lib:'المكتبة',book:'المكتبة',pt:'شجرة الأنبياء',hz:'حفظ القرآن',hzrev:'مراجعة الحفظ',hzpick:'الحفظ الاختياري',lx0:'امتحان البراعم',spec:'مسارات التخصص',qs:'قصص القرآن',mymutun:'منظوماتي',mountain:'الطريق كاملًا',adklog:'سجل الأذكار',lv:'بوابة المستوى',lvtab:'طريق الذُّرى',lx:'الامتحان الشامل',jh:'الجواب الحاضر',tl:'التفسير على الخط الزمني',klesson:'درس البراعم',kreview:'لعبة المراجعة',kptest:'اختبار الوالدين',kexam:'الامتحان الشامل',kcerts:'شهاداتي',duas:'الأدعية والأذكار',dua:'الحفظ',dread:'قراءة اليوم',tests:'اختباراتي',qz:'اختبار ترسيخ',log:'سجلّي',gate:'بوابة العلوم',sci:'طريق العلم',course:'دورة',adhkar:'الأذكار',home:'ورد اليوم',srev:'المراجعة',muslim:(S.profile||{}).kid?'رحلة البراعم':'طريق الذُّرى',lesson:'درس',library:'المنظومات',paths:'المسارات المضيئة',books:'رفّ الكتب',intro:'المدخل',practice:'التدريب الحر',settings:'الإعدادات',matn:'المنظومة',session:'جلسة التسميع',path:'المسار المضيء',pquiz:'اختبار الفهم'}[route.v];
+  const sub={hall:'خزانة ذُرى',read:'القراءة',readrev:'مراجعة القراءة',plan:'خطتي',lib:'المكتبة',book:'المكتبة',pt:'شجرة الأنبياء',hz:'حفظ القرآن',hzrev:'مراجعة الحفظ',hzpick:'الحفظ الاختياري',lx0:'امتحان البراعم',spec:'مسارات التخصص',qs:'قصص القرآن',mymutun:'منظوماتي',mountain:'الطريق كاملًا',adklog:'سجل الأذكار',lv:'بوابة المستوى',lvtab:'طريق الذُّرى',lx:'الامتحان الشامل',jh:'الجواب الحاضر',tl:'التفسير على الخط الزمني',klesson:'درس البراعم',kreview:'لعبة المراجعة',kptest:'اختبار الوالدين',kexam:'الامتحان الشامل',kcerts:'شهاداتي',duas:'الأدعية والأذكار',dua:'الحفظ',dread:'قراءة اليوم',tests:'اختباراتي',qz:'اختبار ترسيخ',log:'سجلّي',gate:'بوابة العلوم',sci:'طريق العلم',course:'دورة',adhkar:'الأذكار',home:'ورد اليوم',srev:'المراجعة',muslim:(S.profile||{}).kid?'رحلة البراعم':'طريق الذُّرى',lesson:'درس',library:'المنظومات',paths:'المسارات المضيئة',books:'رفّ الكتب',intro:'المدخل',practice:'التدريب الحر',settings:'الإعدادات',matn:'المنظومة',session:'جلسة التسميع',path:'المسار المضيء',pquiz:'اختبار الفهم'}[route.v];
   $('#hdr').innerHTML=(back?`<button class="back" onclick="${route.v==='sci'?`go('gate',{lit:1})`:route.v==='course'?`backSci()`:route.v==='lesson'?`crsBack('${findTrack(route.tid).c||''}')`:route.v==='lv'||route.v==='mountain'?`go('muslim')`:route.v==='adklog'?`go('home')`:route.v==='lvtab'?`go('muslim',{l:'${route.l}',lit:1})`:route.v==='read'?`go('book',{id:'${route.id}',m:'read'})`:route.v==='readrev'?`go('plan')`:route.v==='plan'?`go('home')`:route.v==='book'?`go('lib',{s:'${(BKM[route.id]||{}).s||'aqd'}'})`:route.v==='lib'?`backLv()`:route.v==='spec'?(route.k?`go('spec')`:`go('muslim')`):route.v==='hzrev'||route.v==='hzpick'?`go('home')`:['lx','lx0','jh','tl','qs','mymutun','hz','pt'].includes(route.v)?`backLv()`:route.v==='pquiz'&&/^(mlv|tl):/.test(String(route.pid))?`backLv()`:['klesson','kreview','kptest','kexam','kcerts'].includes(route.v)?`KL=null;KPT=null;kStop();go('muslim')`:route.v==='pquiz'&&route.pid==='place:basics'?`go('gate')`:route.v==='pquiz'&&String(route.pid).startsWith('dua:')?`go('duas')`:route.v==='pquiz'&&String(route.pid).startsWith('crs:')?`crsBack('${String(route.pid).split(':')[1]}')`:route.v==='pquiz'&&String(route.pid).startsWith('mtl:')?`go('lesson',{tid:'${String(route.pid).split(':')[1]}',lid:'${String(route.pid).split(':')[2]}'})`:route.v==='pquiz'?(String(route.pid).startsWith('intro:')?`go('intro',{k:'${String(route.pid).slice(6)}'})`:`go('path',{pid:'${route.pid}'})`):route.v==='matn'||route.v==='practice'||route.v==='path'||route.v==='intro'?`backSci()`:`go('${route.from||'home'}')`}">→</button>`:'')+
     `<div class="logo">ذُرى<span id="syncDot" class="sync-dot ${SY.on?(SY.err?'err':SY.dirty?'wait':'ok'):'off'}"></span></div><div class="sub">${sub}</div>`;
 }
-function render(){applyTheme();if(route.v!=='welcome'){document.getElementById('nav').style.display='';document.getElementById('hdr').style.display=''}document.getElementById('app').classList.remove('wide');if(route.v!=='path')pmStop();renderHeader();renderNav();({welcome:vWelcome,lv:vLv,lvtab:vLvTab,lx:vLx,jh:vJH,tl:vTL,mountain:vMountain,adklog:vAdkLog,duas:vDuas,dua:vDua,dread:vDRead,story:vStory,klesson:vKLesson,kreview:vKReview,kptest:vKPTest,kexam:vKExam,kcerts:vKCerts,tests:vTests,qz:vQz,log:vLog,gate:vGate,sci:vSci,course:vCourse,adhkar:vAdhkar,muslim:vMuslim,lesson:vLessonX,mymutun:vMyMutun,qs:vQS,spec:vSpec,lx0:vLx0,hz:vHz,hzrev:vHzRev,hzpick:vHzPick,pt:vPT,lib:vLib,book:vBook,read:vRead,readrev:vReadRev,plan:vPlan,srev:vSrev,home:vHome,library:vMutunTab,paths:vPathsTab,books:vBooks,intro:vIntro,matn:vMatn,practice:vPractice,settings:vSettings,session:vSession,path:vPath,pquiz:vPQuiz})[route.v]();setTimeout(lsCenter,30)}
+function render(){applyTheme();if(route.v!=='welcome'){document.getElementById('nav').style.display='';document.getElementById('hdr').style.display=''}document.getElementById('app').classList.remove('wide');if(route.v!=='path')pmStop();renderHeader();renderNav();({welcome:vWelcome,lv:vLv,lvtab:vLvTab,lx:vLx,jh:vJH,tl:vTL,mountain:vMountain,adklog:vAdkLog,duas:vDuas,dua:vDua,dread:vDRead,story:vStory,klesson:vKLesson,kreview:vKReview,kptest:vKPTest,kexam:vKExam,kcerts:vKCerts,tests:vTests,qz:vQz,log:vLog,gate:vGate,sci:vSci,course:vCourse,adhkar:vAdhkar,muslim:vMuslim,lesson:vLessonX,mymutun:vMyMutun,qs:vQS,spec:vSpec,lx0:vLx0,hz:vHz,hzrev:vHzRev,hzpick:vHzPick,pt:vPT,lib:vLib,hall:vHall,book:vBook,read:vRead,readrev:vReadRev,plan:vPlan,srev:vSrev,home:vHome,library:vMutunTab,paths:vPathsTab,books:vBooks,intro:vIntro,matn:vMatn,practice:vPractice,settings:vSettings,session:vSession,path:vPath,pquiz:vPQuiz})[route.v]();setTimeout(lsCenter,30)}
 
 /* ============ الرئيسية ============ */
 function ring(p){const r=34,c=2*Math.PI*r;return `<svg class="ring" viewBox="0 0 84 84"><circle cx="42" cy="42" r="${r}" stroke="rgba(255,255,255,.18)" stroke-width="8" fill="none"/>
