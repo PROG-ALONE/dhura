@@ -2544,6 +2544,33 @@ html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none
 @keyframes mrP{50%{box-shadow:0 0 0 14px rgba(226,86,74,.15)}}
 .ms-wrap:not(.fitted) .md-ls{visibility:hidden}
 .md-ls{width:100%;align-self:stretch}
+
+/* ألوان التجويد */
+.md-ls::highlight(tj-ham_wasl){color:#9a9a9a}
+.md-ls::highlight(tj-madda_necessary){color:#c2185b}
+.md-ls::highlight(tj-madda_obligatory){color:#e53935}
+.md-ls::highlight(tj-madda_permissible){color:#fb8c00}
+.md-ls::highlight(tj-madda_normal){color:#c9a227}
+.md-ls::highlight(tj-ghunnah){color:#22a861}
+.md-ls::highlight(tj-ikhafa){color:#8e44ad}
+.md-ls::highlight(tj-idgham_ghunnah){color:#16a085}
+.md-ls::highlight(tj-idgham_wo_ghunnah){color:#7f8c8d}
+.md-ls::highlight(tj-iqlab){color:#1fa2c4}
+.md-ls::highlight(tj-qalaqah){color:#2f80ed}
+.th-kitab .md-ls::highlight(tj-ikhafa),.th-night .md-ls::highlight(tj-ikhafa),.th-dark .md-ls::highlight(tj-ikhafa){color:#c58af0}
+.th-kitab .md-ls::highlight(tj-qalaqah),.th-night .md-ls::highlight(tj-qalaqah),.th-dark .md-ls::highlight(tj-qalaqah){color:#6aa8ff}
+.th-kitab .md-ls::highlight(tj-madda_necessary),.th-night .md-ls::highlight(tj-madda_necessary){color:#ff5c9a}
+.ms-tjl{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:5px 4px;margin-top:5px;font-size:10.5px;color:var(--muted);white-space:nowrap}
+.ms-tjl span{display:inline-flex;align-items:center;gap:4px}
+.ms-tjl i{width:9px;height:9px;border-radius:50%;display:inline-block}
+/* ألوان الصفحات صريحة في كل الأوضاع */
+.ms-wrap.th-paper .ms-pg{background:radial-gradient(ellipse at 50% 0%,#fffdf6,#fbf3dd 70%,#f4e7c3)!important;color:#1d1609!important}
+.ms-wrap.th-white .ms-pg{background:#fff!important;color:#141414!important;box-shadow:0 2px 10px rgba(0,0,0,.25)!important}
+.ms-wrap.th-paper .ms-ph,.ms-wrap.th-white .ms-ph,.ms-wrap.th-paper .ms-pf,.ms-wrap.th-white .ms-pf{color:#7a6a45}
+.ms-wrap.th-kitab .ms-pg{color:#ece8de!important}
+.ms-wrap.th-night .ms-pg{background:#0c0b09!important;color:#d8c9a3!important}
+.ms-wrap.th-dark .ms-pg{background:#1d1c1f!important;color:#ecebe6!important}
+.ms-wrap.th-paper,.ms-wrap.th-white{--md-acc:#a8761f}
 /* ===== هوية «أذكار»: كحلي زجاجي ===== */
 :root.navy[data-theme="dark"]{--bg:#0a0f22;--bg2:#121a35;--card:#131b38;--ink:#eef1fa;--muted:#9aa3c2;--line:rgba(255,255,255,.09);--green:#7fa8ff;--green2:#0e1634;--gold:#f2c46d;--gold2:#f2c46d;--red:#ff7b6b;--amber:#f2b44a;--ok:#5fd39b;--shadow:0 8px 30px rgba(0,0,0,.35)}
 :root.navy body{background:radial-gradient(900px 520px at 90% -8%,rgba(96,110,255,.20),transparent 60%),radial-gradient(700px 500px at -10% 30%,rgba(60,140,255,.08),transparent 60%),linear-gradient(180deg,#0b1024,#070a17 70%);background-attachment:fixed}
@@ -2646,6 +2673,8 @@ html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none
 :root.navy .pq-g>div{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.07)}
 :root.navy .pq-g>div.on{background:rgba(242,196,109,.14);border-color:rgba(242,196,109,.5)}
 :root.navy .pq-d b,:root.navy .pq-n b{color:var(--gold)}
+.ah-tabs{display:flex;width:100%;margin:2px 0}
+.ah-tabs button{flex:1}
 /* مختبر المناسك */
 .hj-tabs{display:flex;margin:4px 0 12px;width:100%}
 .hj-tabs button{flex:1}
@@ -2695,6 +2724,37 @@ html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none
 .hj-ns>div{padding:10px 8px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);display:flex;flex-direction:column;gap:4px;font-size:12px}
 .hj-ns b{font-size:15px;color:var(--gold)}
 .hj-ns em{font-style:normal;color:var(--ink)}
+/* وحدة المناسك */
+.nk-h .row{align-items:center}
+.nk-ring{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold) calc(var(--p)*360deg),rgba(255,255,255,.12) 0);position:relative;flex:none}
+.nk-ring::before{content:'';position:absolute;inset:6px;border-radius:50%;background:#131b3a}
+.nk-ring b{position:relative;font-size:13px}
+.nk-bar{margin:4px 0 12px}
+.nk-ls{display:flex;flex-direction:column;gap:8px}
+.nk-ls>button{display:flex;align-items:center;gap:12px;padding:13px 12px;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;text-align:right}
+.nk-ls>button .n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font-size:13px;flex:none}
+.nk-ls>button.ok .n{background:var(--ok);color:#06210f;border-color:transparent}
+.nk-ls>button.lk{opacity:.5}
+.nk-ls b{font-size:14.5px;font-weight:600}
+.nk-b p{line-height:2}
+.nk-3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}
+.nk-3>div{padding:10px 8px;border-radius:12px;background:rgba(127,168,255,.08);border:1px solid rgba(127,168,255,.18);display:flex;flex-direction:column;gap:4px}
+.nk-3 b{color:var(--gold)}
+.nk-3 small{font-size:11.5px;color:var(--muted);line-height:1.6}
+.nk-t{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}
+.nk-t th{text-align:right;white-space:nowrap;padding:7px 8px;color:var(--gold);vertical-align:top;border-bottom:1px solid var(--line)}
+.nk-t td{padding:7px 8px;border-bottom:1px solid var(--line);line-height:1.8}
+.nk-w{padding:12px;border-radius:16px;border:1px dashed rgba(242,196,109,.35);background:rgba(242,196,109,.04);margin:10px 0}
+.nk-no{padding:10px 12px;border-radius:12px;background:rgba(242,180,74,.1);border:1px solid rgba(242,180,74,.3);line-height:1.9}
+.nk-so{text-align:center}
+.nk-so-c{display:block;font-size:19px;margin:10px 0 4px}
+.hj-ch button.ok,.nk-fd button.ok{border-color:var(--ok)!important;background:rgba(95,211,155,.14)!important}
+.hj-ch button.no,.nk-fd button.no{border-color:var(--red)!important;background:rgba(255,123,107,.12)!important}
+.nk-ck{margin-top:12px}
+.nk-fd{display:flex;flex-direction:column;gap:6px;padding:10px 0;border-bottom:1px solid var(--line)}
+.nk-fd b{font-size:14px;line-height:1.8}
+.nk-fd button{text-align:right;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font:inherit;font-size:13.5px}
+.nk-li{padding:4px 0;font-size:13.5px}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -14357,7 +14417,7 @@ function mBar(){if(!MPL.on)return '';const id=MPL.q[MPL.id],[s,a]=id?mSA(id):[1,
    <div class="row" style="gap:6px">${[1,1.25,1.5].map(r=>`<button class="btn sm ${(m.rate||1)===r?'gold':''}" onclick="MS().rate=${r};save();hzEl().playbackRate=${r};document.getElementById('msBar').innerHTML=mBar()">${AR(r)}×</button>`).join('')}<button class="btn sm" onclick="mPlay()">⏸</button></div></div>`}
 function mBind(){const w=document.getElementById('msWrap');if(!w)return;let x0=null,y0=0;
   w.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
-  w.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){e.stopPropagation();const st=MS().mode==='two'?2:1;mGo(dx<0?st:-st)}});
+  w.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){e.stopPropagation();const st=MS().mode==='two'?2:1;mGo(dx>0?st:-st)}});
   const more=document.getElementById('msMore');if(more)new IntersectionObserver((en,ob)=>{if(en[0].isIntersecting){ob.disconnect();const m=MS(),last=+[...w.querySelectorAll('.ms-pg')].pop().dataset.p;if(last<604){more.insertAdjacentHTML('beforebegin',[1,2,3].map(i=>last+i<=604?mPageHTML(last+i):'').join(''));mBind2(more)}}}).observe(more)}
 function mBind2(more){new IntersectionObserver((en,ob)=>{if(en[0].isIntersecting){ob.disconnect();const w=document.getElementById('msWrap'),last=+[...w.querySelectorAll('.ms-pg')].pop().dataset.p;if(last<604){more.insertAdjacentHTML('beforebegin',[1,2,3].map(i=>last+i<=604?mPageHTML(last+i):'').join(''));mBind2(more)}}}).observe(more)}
 function mGo(d){const m=MS(),np=clamp(m.p+d,1,604);if(np===m.p)return;m.p=np;m.ai=0;save();sound('flip');vMushaf();window.scrollTo(0,0);const w=document.getElementById('msWrap');if(w){w.classList.add(d>0?'turn-n':'turn-p');setTimeout(()=>w.classList.remove('turn-n','turn-p'),450)}}
@@ -15135,12 +15195,12 @@ const _vBook301=vBook;vBook=function(){_vBook301();const b=BKM[route.id],tb=docu
    تقسيم الأسطر من مشروع quran-madina-html (رخصة الوقف العامة) عن مصحف المدينة، مجمع الملك فهد.
    الخط: KFGQPC Hafs، وللتجويد الملوّن: Amiri Quran Colored. */
 const MDN={h:null,c:null,ld:{},fail:0};
-const mdnKey=()=>MS().lay.tj?'c':'h';
+const mdnKey=()=>'h';
 const MDN_ON=()=>['pg','two'].includes(MS().mode)&&!MS().plain&&!!MDN[mdnKey()];
 function mdnLoad(k,cb){if(MDN[k])return cb();if(MDN.ld[k]){MDN.ld[k].push(cb);return}MDN.ld[k]=[cb];
   fetch('mdn_'+k+'.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{MDN[k]=j.pg;const l=MDN.ld[k];MDN.ld[k]=null;l.forEach(f=>f())})
    .catch(()=>{const l=MDN.ld[k];MDN.ld[k]=null;MDN.fail=1;toast('تعذّر تحميل صفحات مصحف المدينة، فعُرض النص المتصل');l.forEach(f=>f())})}
-const mdnN=t=>t.replace(/(﴿[٠-٩]+﴾)/g,'<span class="md-n">$1</span>');
+const mdnN=t=>t.replace(/ـ+(?=[\u0621-\u064A\u0671 ])/g,'').replace(/ـ{2,}/g,'ـ').replace(/(﴿[٠-٩]+﴾)/g,'<span class="md-n">$1</span>');
 function mdnPageHTML(p){const L=MDN[mdnKey()][p-1],m=MS(),c=p<=2,f=MPG[p],[s]=mSA(f);
   const row=line=>{if(!line.length)return c?'':'<div class="md-l e"></div>';const g0=line[0];
     if(g0[1]===0)return `<div class="md-l t" onclick="event.stopPropagation();mInfo(${g0[0]})"><span class="md-in">${g0[2]}</span></div>`;
@@ -15156,7 +15216,7 @@ const _vMushaf5=vMushaf;vMushaf=function(){const m=MS();if(m.th==null)m.th='kita
   if(MDN_ON()&&document.fonts&&!document.fonts.check('20px '+fam,'بسم')){msLock(true);$('#app').innerHTML=`<div class="md-load"><div class="md-spin"></div><b>جارٍ تجهيز الخط</b></div>`;
     const done=()=>{if(route.v==='mushaf')_vMushaf5()};let t=setTimeout(done,4000);document.fonts.load('20px '+fam,'بسم').then(()=>{clearTimeout(t);setTimeout(done,30)},()=>{clearTimeout(t);done()});return}
   _vMushaf5()};
-const _msH5=msH;msH=function(w){return _msH5(w)-((document.querySelector('.ms-bot')||{}).offsetHeight||0)};
+const _msH5=msH;msH=function(w){const q=s=>(document.querySelector(s)||{}).offsetHeight||0;return _msH5(w)-q('.ms-bot')-q('.ms-tjl')};
 /* ---- القياس: خط واحد لكل الصفحات يُحسب من عرض الشاشة، و١٥ سطرًا تملأ الارتفاع ---- */
 function mdnMed(){const k=mdnKey();S.mus.fz2=S.mus.fz2||{};if(S.mus.fz2[k])return S.mus.fz2[k];
   const box=document.createElement('div');box.style.cssText='position:fixed;top:0;left:-9999px;width:3000px;visibility:hidden';box.innerHTML=mdnPageHTML(50);document.body.appendChild(box);
@@ -15164,14 +15224,14 @@ function mdnMed(){const k=mdnKey();S.mus.fz2=S.mus.fz2||{};if(S.mus.fz2[k])retur
   const med=ws[Math.floor(ws.length*.6)]||400;S.mus.fz2[k]=med;return med}
 function mdnFit(){const w=document.getElementById('msWrap');if(!w)return;msLock(true);
   const bot=(document.querySelector('.ms-bot')||{}).offsetHeight||0,two=MS().mode==='two'&&window.innerWidth<760,pgs=[...w.querySelectorAll('.ms-pg')];
-  const H=Math.max(300,msH(w)),each=two?H/pgs.length-6:H;
-  pgs.forEach(pg=>{pg.style.height=each+'px';const ls=pg.querySelector('.md-ls'),W=ls.clientWidth,lh=ls.clientHeight/15.4;
+  const H=Math.max(300,msH(w)),pw=pgs[0].clientWidth,each=Math.min(two?H/pgs.length-6:H,Math.round(pw*1.62));
+  pgs.forEach((pg,ix)=>{pg.style.height=each+'px';pg.style.marginTop=ix||two?'':Math.max(0,Math.floor((H-each)/2))+'px';const ls=pg.querySelector('.md-ls'),W=ls.clientWidth,lh=ls.clientHeight/15.4;
     let F=20*W*.97/mdnMed();
     F=Math.min(F,lh*.64);ls.style.fontSize=F+'px';ls.style.setProperty('--lh',lh+'px');
     ls.querySelectorAll('.md-l').forEach(l=>{const i=l.querySelector('.md-in');if(!i)return;i.style.wordSpacing='';i.style.transform='';const nat=i.offsetWidth;
       if(l.classList.contains('j')&&nat<W){const sp=(i.textContent.match(/ /g)||[]).length;if(sp)i.style.wordSpacing=((W-nat)/sp).toFixed(2)+'px';const n2=i.offsetWidth;if(n2>W)i.style.transform=`scaleX(${(W/n2).toFixed(4)})`}
       else if(nat>W)i.style.transform=`scaleX(${(W/nat).toFixed(4)})`})});
-  w.dataset.fit=window.innerWidth;mdnSync();
+  w.dataset.fit=window.innerWidth;mdnSync();tjPaint(w);
   /* تحقق بعد الرسم: إن تأخر الخط عن القياس أعدناه قبل إظهار الصفحة */
   requestAnimationFrame(()=>requestAnimationFrame(()=>{const bad=[...w.querySelectorAll('.md-l.j .md-in')].some(i=>{const W=i.parentNode.clientWidth,r=i.getBoundingClientRect().width;return Math.abs(r-W)>3});
     w._fx=(w._fx||0)+1;if(bad&&w._fx<6&&document.body.contains(w)){S.mus.fz2={};setTimeout(mdnFit,80);return}w.classList.add('fitted')}))}
@@ -15185,7 +15245,8 @@ let MDN_OB=null;function mdnSync(){const w=document.getElementById('msWrap');if(
 /* ---- الواجهة: شريط علوي وسفلي على نمط «الكتاب» ---- */
 function mdnChrome(){const m=MS(),t=document.querySelector('#app .ms-top');if(!t||t.dataset.k)return;t.dataset.k=1;const p=m.p,f=MPG[p],[s]=mSA(f);
   t.innerHTML=`<button class="ms-i" onclick="mDr()" aria-label="القائمة">☰</button><div class="grow ms-tt" onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>ص ${AR(p)} · ج ${AR(mJuz(f))}</small></div>${mFcChip()}<button class="ms-i" onclick="mSearch()" aria-label="بحث">🔍</button><button class="ms-i" onclick="mSet()" aria-label="المزيد">⋯</button>`;
-  const st=document.querySelector('#app .ms-stage');if(st&&!document.querySelector('.ms-bot'))st.insertAdjacentHTML('afterend',`<div class="ms-bot"><div onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>الجزء ${AR(mJuz(f))}</small></div>
+  const st=document.querySelector('#app .ms-stage');if(st&&m.lay.tj&&!document.querySelector('.ms-tjl'))st.insertAdjacentHTML('afterend',tjLegend());
+  if(st&&!document.querySelector('.ms-bot'))(document.querySelector('.ms-tjl')||st).insertAdjacentHTML('afterend',`<div class="ms-bot"><div onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>الجزء ${AR(mJuz(f))}</small></div>
     <button class="ms-mic ${MPL.on?'on':''}" onclick="mPlay()" aria-label="ختمة على الإيقاع">${MPL.on?'⏸':'▶'}</button><div onclick="mIndex(1)"><b>${AR(p)}</b><small>الحزب ${AR(Math.ceil(mHizb(f)/4))} · الصفحة</small></div></div>`)}
 const _mFit5=mFit;mFit=function(){mdnChrome();const w=document.getElementById('msWrap');if(!w)return;
   if(!w.querySelector('.ms-pg.md'))return _mFit5();if(w.dataset.fit==String(window.innerWidth))return;
@@ -15302,6 +15363,36 @@ function mrPlay(id){mrTx('readonly',st=>st.get(id)).then(r=>{if(!r)return;const 
 /* المسارات */
 const _go6=go;go=function(v,o){if(v!=='mlq')mlqStop();return _go6(v,o)};
 
+/* ---- التجويد الملوّن بلا تقطيع للحروف: تلوين نطاقات النص (CSS Highlight API) ---- */
+const TJR=[['ham_wasl','لا يُنطق','#9a9a9a'],['madda_necessary','مد لازم ٦','#c2185b'],['madda_obligatory','مد واجب ٤–٥','#e53935'],['madda_permissible','مد جائز ٢–٦','#fb8c00'],['madda_normal','مد طبيعي ٢','#c9a227'],['ghunnah','غنة','#22a861'],['ikhafa','إخفاء','#8e44ad'],['idgham_ghunnah','إدغام بغنة','#16a085'],['idgham_wo_ghunnah','إدغام بلا غنة','#7f8c8d'],['iqlab','إقلاب','#1fa2c4'],['qalaqah','قلقلة','#2f80ed']];
+const TJ_OK=()=>typeof CSS!=='undefined'&&CSS.highlights&&typeof Highlight!=='undefined';
+function tjLegend(){return `<div class="ms-tjl">${TJ_OK()?TJR.map(([k,n,c])=>`<span><i style="background:${c}"></i>${n}</span>`).join(''):'<span>متصفحك لا يدعم تلوين التجويد؛ حدّثه لتظهر الألوان</span>'}</div>`}
+const TJ_RX=(()=>{const L='[\\u0621-\\u063A\\u0641-\\u064A\\u0671]',M='[\\u064B-\\u065F\\u0670\\u06D6-\\u06ED]*',HZ='[ءأإؤئ\\u0654]',IKH='[تثجدذزسشصضطظفقك]';return [
+  ['ham_wasl',new RegExp('\\u0671','g')],
+  ['ham_wasl',new RegExp(L+'(?=\\u06DF)\\u06DF','g')],
+  ['madda_necessary',new RegExp(L+M+'\\u0653(?='+L+'[\\u064B-\\u0650]*[\\u0651\\u0652])','g')],
+  ['madda_necessary',new RegExp(L+'\\u0653(?=[^\\s]*\\u0653)|(?<=\\u0653[^\\s]*)'+L+'\\u0653','g')],
+  ['madda_obligatory',new RegExp(L+M+'\\u0653(?='+M+'ـ?'+M+HZ+')','g')],
+  ['madda_permissible',new RegExp(L+M+'\\u0653(?='+M+'[\\u0627\\u06DF]*'+M+'\\s+'+HZ+')','g')],
+  ['madda_normal',new RegExp('[\\u0670\\u06E5\\u06E6]','g')],
+  ['ghunnah',new RegExp('[نم]'+'[\\u064B-\\u0650]*\\u0651','g')],
+  ['iqlab',new RegExp('(?:ن|[\\u064B-\\u064D])\\u06E2','g')],
+  ['ikhafa',new RegExp('ن(?=\\s*'+IKH+')','g')],
+  ['ikhafa',new RegExp('[\\u064B-\\u064D](?=[\\u0627\\u0649]?\\s+'+IKH+')','g')],
+  ['idgham_ghunnah',new RegExp('(?:ن|[\\u064B-\\u064D][\\u0627\\u0649]?)(?=\\s+[ينمو])','g')],
+  ['idgham_wo_ghunnah',new RegExp('(?:ن|[\\u064B-\\u064D][\\u0627\\u0649]?)(?=\\s+[لر])','g')],
+  ['qalaqah',new RegExp('[قطبجد]\\u0652','g')]]})();
+function tjPaint(w){if(!TJ_OK())return;TJR.forEach(([k])=>CSS.highlights.delete('tj-'+k));if(!MS().lay.tj||!w)return;const H={};
+  w.querySelectorAll('.md-l:not(.t):not(.b) .md-in').forEach(el=>{const nodes=[],tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let str='',n;
+    while(n=tw.nextNode()){if(n.parentNode.closest('.md-n'))continue;nodes.push([n,str.length]);str+=n.data}
+    const at=i=>{let k=nodes.length-1;while(k>0&&nodes[k][1]>i)k--;return [nodes[k][0],i-nodes[k][1]]};
+    TJ_RX.forEach(([k,re])=>{re.lastIndex=0;let m;while(m=re.exec(str)){if(!m[0].length){re.lastIndex++;continue}
+      /* نمدّ النطاق ليشمل حركات الحرف حتى لا ينقسم العنقود */
+      let e=m.index+m[0].length;while(e<str.length&&/[ً-ٰٟۖ-ۭ]/.test(str[e]))e++;
+      try{const r=new Range(),[a,ao]=at(m.index),[b,bo]=at(e-1);r.setStart(a,ao);r.setEnd(b,bo+1);(H[k]=H[k]||[]).push(r)}catch(x){}}})});
+  Object.entries(H).forEach(([k,rs])=>CSS.highlights.set('tj-'+k,new Highlight(...rs)))}
+const _go7=go;go=function(v,o){if(v!=='mushaf'&&TJ_OK())TJR.forEach(([k])=>CSS.highlights.delete('tj-'+k));return _go7(v,o)};
+
 /* ============ هوية «أذكار»: الكحلي الزجاجي، والرئيسية، وكتيّب الأذكار، وأدعيتي، وعدّاد المناسبات ============ */
 /* ---- الثيم الكحلي افتراضيًا (ويبقى الاختيار في الإعدادات) ---- */
 const _applyTheme7=applyTheme;applyTheme=function(){const t=S.settings.theme,r=document.documentElement;if(t==='navy'){r.setAttribute('data-theme','dark');r.classList.add('navy')}else{r.classList.remove('navy');_applyTheme7()}};
@@ -15340,7 +15431,7 @@ function ahMus(){if(!MSC){mInit(()=>{if(route.v==='home')render()});return `<div
   return `<div class="ah-c"><div class="ah-ct">المصحف <span>🔖 ${AR(m.cur.pg.length)}</span></div><div class="ah-mg"><button onclick="go('mushaf')"><small>آخر صفحة</small><b class="qf">سورة ${SUR_N[s-1]}</b><small>صفحة ${AR(m.p)}</small></button>
    <button onclick="${last?`MS().flash=mID(${last.split(':')[0]},${last.split(':')[1]});MS().p=mPageOf(MS().flash);save();go('mushaf')`:`go('mushaf')`}"><small>آخر علامة</small><b>${last?SUR_N[last.split(':')[0]-1]+' · '+AR(+last.split(':')[1]):'—'}</b></button></div>
    <div class="ah-wd" onclick="go('muslog')"><span>الورد اليومي</span><b>${AR(Math.min(td,wird))} / ${AR(wird)}</b><i><u style="width:${Math.min(1,td/wird)*100}%"></u></i></div></div>`}
-const AH_G=[['📖','كتيّب الأذكار',"go('zkb',{k:adkNow(),i:0})"],['🤲','أدعيتي',"go('myd')"],['📿','التسبيح',"ZKT='tsb';go('zkr')"],['✨','أسماء الله الحسنى',"ZKT='asm';go('zkr')"],['🕋','العمرة والحج',"go('hjlab')"],['🕌','أذكار الصلاة',"go('zkb',{k:'p',i:0})"],['📊','سجل العبادات',"ZKT='trk';go('zkr')"],['📜','مواقف السيرة',"go('sv')"],['🌱','رحلة الحفظ',"go('hifz')"],['🔁','ملقّن القرآن',"go('mlq')"]];
+const AH_G=[['📿','التسبيح',"ZKT='tsb';go('zkr')"],['✨','أسماء الله الحسنى',"ZKT='asm';go('zkr')"],['📊','سجل العبادات',"ZKT='trk';go('zkr')"],['🌙','سنن الجمعة',"ZKT='jum';go('zkr')"]];
 function ahGrid(){return `<div class="ah-c"><div class="ah-g">${AH_G.map(([i,n,f])=>`<button onclick="${f}"><span>${i}</span>${n}</button>`).join('')}</div></div>`}
 function ahCal(){const d=new Date();d.setHours(12);const days=[];for(let i=-3;i<=3;i++){const x=new Date(d.getTime()+i*864e5);days.push([x,hjP(x),i===0])}
   return `<div class="ah-c"><div class="ah-ct">التقويم <span>${d.toLocaleDateString('ar-IQ',{month:'long',year:'numeric'})}</span></div><div class="ah-wk">${days.map(([x,h,on])=>`<div class="${on?'on':''}"><small>${x.toLocaleDateString('ar-IQ',{weekday:'short'})}</small><b>${AR(x.getDate())}</b><small>${AR(h.d)}</small></div>`).join('')}</div></div>`}
@@ -15351,10 +15442,15 @@ function ahOcc(){const L=occNext();if(!L.length)return '';const a=L[0],mo=Math.f
    <i class="ah-ocb">${Array.from({length:40},(_,i)=>`<u class="${i<40-Math.min(40,Math.round(a.days/9))?'on':''}"></u>`).join('')}</i><div class="ah-ocs">${L.slice(1,4).map(x=>`<span>${x.ic} ${x.n}: ${AR(x.days)} يومًا</span>`).join('')}</div></div>`}
 function ahCustom(){const h=AHS().hide;$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">تخصيص البطاقات</h3><button class="icon-btn" onclick="closeModal();render()">✕</button></div>
   ${AHC.map(([k,n])=>`<label class="lad-c"><input type="checkbox" ${h.includes(k)?'':'checked'} onchange="const h=AHS().hide,i=h.indexOf('${k}');if(this.checked&&i>=0)h.splice(i,1);if(!this.checked&&i<0)h.push('${k}');save()"> ${n}</label>`).join('')}`;$('#modal').classList.add('open')}
-function ahHomeHTML(){return `<div class="ah">${ahHeader()}${ahOn('now')?ahNow():''}${ahOn('aud')?ahpHTML():''}${ahOn('pray')&&ptToday()?ptCardHTML():''}${ahOn('mus')?ahMus():''}${ahOn('grid')?ahGrid():''}${ahOn('cal')?ahCal():''}${ahOn('my')?ahMy():''}${ahOn('myd')?ahMyd():''}${ahOn('occ')?ahOcc():''}
-  <button class="ah-cu" onclick="ahCustom()">☰ تخصيص البطاقات</button></div>`}
-const _vHome7=vHome;vHome=function(){_vHome7();if(route.v!=='home'||(S.profile||{}).kid)return;const app=document.getElementById('app');
-  app.querySelectorAll('.pq-c').forEach(e=>e.remove());app.insertAdjacentHTML('afterbegin',ahHomeHTML()+`<h2 class="ah-sec">دراستي ومساري</h2>`)};
+function ahPray(){const t=ptToday();if(!t)return '';const nx=ptNext();return `<div class="ah-c" onclick="ptSetup()"><div class="ah-ct">مواقيت الصلاة <span>${esc(PTS().city||'')}</span></div><div class="pq-g">${PTN.map(([k,n,i])=>`<div class="${nx&&nx.k===k?'on':''}"><span>${i}</span><small>${n}</small><b>${ptFmt(t[k])}</b></div>`).join('')}</div></div>`}
+const AHT=[['day','اليوم'],['zkr','الأذكار'],['study','دراستي']];
+function ahTabs(){const t=AHS().tab||'day';return `<div class="ms-seg ah-tabs">${AHT.map(([k,n])=>`<button class="${t===k?'on':''}" onclick="AHS().tab='${k}';save();render()">${n}</button>`).join('')}</div>`}
+function ahHomeHTML(){const t=AHS().tab||'day';
+  if(t==='day')return `<div class="ah">${ahHeader()}${ahTabs()}${ahOn('now')?ahNow():''}${ahOn('pray')?ahPray():''}${ahOn('mus')?ahMus():''}${ahOn('occ')?ahOcc():''}${ahOn('cal')?ahCal():''}<button class="ah-cu" onclick="ahCustom()">☰ تخصيص البطاقات</button></div>`;
+  return `<div class="ah">${ahHeader()}${ahTabs()}${ahOn('aud')?ahpHTML():''}${ahOn('my')?ahMy():''}<button class="ah-c ah-now" onclick="go('zkb',{k:adkNow(),i:0})"><span class="ah-ni">📖</span><div class="grow"><b>كتيّب الأذكار</b><small>ذكرٌ في كل صفحة بخط كبير وعدّاد</small></div><span class="ah-go">‹</span></button>${ahOn('myd')?ahMyd():''}${ahOn('grid')?ahGrid():''}</div>`}
+const _vHome7=vHome;vHome=function(){if((S.profile||{}).kid)return _vHome7();const t=AHS().tab||'day',app=document.getElementById('app');
+  if(t!=='study'){app.innerHTML=ahHomeHTML();return}
+  _vHome7();if(route.v!=='home')return;app.querySelectorAll('.pq-c').forEach(e=>e.remove());app.querySelectorAll('.hm-q button,.ro-g button').forEach(b=>{if(/mushaf|zkr|adhkar/.test(b.getAttribute('onclick')||''))b.remove()});app.querySelectorAll('.hm-q,.ro-g').forEach(g=>{if(!g.children.length)g.remove()});app.insertAdjacentHTML('afterbegin',`<div class="ah">${ahTabs()}</div>`)};
 /* ---- أدعيتي ---- */
 function MYD(){S.myd=S.myd||[];return S.myd}
 function vMyd(){const L=MYD();$('#app').innerHTML=`<div class="zb-top"><button class="icon-btn" onclick="go('home')">›</button><b class="grow">أدعيتي</b><button class="icon-btn" onclick="mydEdit()">＋</button></div>
@@ -15446,7 +15542,7 @@ function hjSa(){if(HJS.sai>=7)return;const d=document.getElementById('hjSd');d.s
 function hjLab(k){if(k==='tw')return `<div class="hj-ct"><div><small>الأشواط</small><b id="hjLap">${AR(HJS.lap)}</b>/٧</div><button class="btn gold" id="hjTwB" onclick="hjTw()" ${HJS.lap>=7?'disabled':''}>${HJS.lap>=7?'✓ أتممت سبعة أشواط':'الشوط '+AR(HJS.lap+1)+(HJS.lap<3?' (رَمَل)':'')}</button><button class="btn" id="hjTk" onclick="hjTk()">الله أكبر <small id="hjTkN">${AR(HJS.tk)}</small></button></div><small class="muted">اضغط «الله أكبر» لحظة توهّج الحجر الأسود.</small>`;
   if(k==='sa')return `<div class="hj-ct"><div><small>الأشواط</small><b id="hjSaN">${AR(HJS.sai)}</b>/٧</div><button class="btn gold" id="hjSaB" onclick="hjSa()" ${HJS.sai>=7?'disabled':''}>${HJS.sai>=7?'✓ انتهى السعي':'الشوط '+AR(HJS.sai+1)+(HJS.sai%2?' (من المروة)':' (من الصفا)')}</button><span id="hjGr" class="hj-gr">إسراع بين الميلين</span></div>`;
   return ''}
-function hjU(i){HJS.u=i;cancelAnimationFrame(HJS.raf);vHjLab()}
+function hjU(i){HJS.u=i;cancelAnimationFrame(HJS.raf);hjRe()}
 /* ---- الحج: الأيام والخريطة ---- */
 const HJ_P={mk:[60,70,'مكة'],mn:[150,95,'منى'],mz:[225,135,'مزدلفة'],ar:[310,170,'عرفة']};
 const HJ_D=[
@@ -15465,38 +15561,124 @@ const k2path=pts=>`<path d="${pts.map((p,i)=>(i?'L':'M')+p[0]+' '+p[1]).join(' '
 const HJ_ORD=['رمي جمرة العقبة','النحر','الحلق أو التقصير','طواف الإفاضة'];
 function hjOrd(){HJS.ord=HJS.ord||[];const rest=HJ_ORD.map((x,i)=>i).filter(i=>!HJS.ord.includes(i)).sort(()=>.5-Math.random());
   return `<div class="hj-ord"><small>رتّب أعمال يوم النحر كما فعلها النبي ﷺ:</small><div class="hj-ordc">${HJS.ord.map((i,j)=>`<span class="${i===j?'ok':'no'}">${AR(j+1)}. ${HJ_ORD[i]}</span>`).join('')}</div>
-   <div class="hj-ch">${rest.map(i=>`<button onclick="HJS.ord.push(${i});vHjLab()">${HJ_ORD[i]}</button>`).join('')}</div>
-   ${HJS.ord.length===4?`<p class="hj-ok">${HJS.ord.every((i,j)=>i===j)?'✓ هذا ترتيب النبي ﷺ':'رتّبتها بخلاف فعله ﷺ، ومع ذلك يصح: «افعل ولا حرج»'}. ويحصل التحلل الأول عند الشافعية والحنابلة بفعل اثنين من ثلاثة (الرمي والحلق والطواف)، وعند المالكية بالرمي، وعند الحنفية بالحلق.</p><button class="btn sm" onclick="HJS.ord=[];vHjLab()">↺ أعد</button>`:''}</div>`}
+   <div class="hj-ch">${rest.map(i=>`<button onclick="HJS.ord.push(${i});hjRe()">${HJ_ORD[i]}</button>`).join('')}</div>
+   ${HJS.ord.length===4?`<p class="hj-ok">${HJS.ord.every((i,j)=>i===j)?'✓ هذا ترتيب النبي ﷺ':'رتّبتها بخلاف فعله ﷺ، ومع ذلك يصح: «افعل ولا حرج»'}. ويحصل التحلل الأول عند الشافعية والحنابلة بفعل اثنين من ثلاثة (الرمي والحلق والطواف)، وعند المالكية بالرمي، وعند الحنفية بالحلق.</p><button class="btn sm" onclick="HJS.ord=[];hjRe()">↺ أعد</button>`:''}</div>`}
 function hjJm(){HJS.jm=HJS.jm||[0,0,0];const N=['الصغرى','الوسطى','العقبة'],cur=HJS.jm.findIndex(n=>n<7);
   return `<div class="hj-jm"><small>ارمِ كل جمرة بسبع حصيات مكبّرًا مع كل حصاة، مبتدئًا بالصغرى:</small><div class="hj-jmr">${N.map((n,i)=>`<button class="${HJS.jm[i]>=7?'ok':i===cur?'cur':''}" onclick="hjThrow(${i})"><i>${'●'.repeat(HJS.jm[i])}${'○'.repeat(7-HJS.jm[i])}</i><b>${n}</b></button>`).join('')}</div>
-   ${cur<0?`<p class="hj-ok">✓ أتممت رمي اليوم. ويُسنّ الوقوف للدعاء بعد الصغرى والوسطى لا بعد العقبة (البخاري ١٧٥١).</p><button class="btn sm" onclick="HJS.jm=[0,0,0];vHjLab()">↺ يوم آخر</button>`:''}</div>`}
-function hjThrow(i){const cur=HJS.jm.findIndex(n=>n<7);if(i!==cur)return toast(cur<i?'ابدأ بالجمرة '+['الصغرى','الوسطى','العقبة'][cur]+' أولًا؛ الترتيب واجب عند الجمهور':'أتممت هذه الجمرة');HJS.jm[i]++;toast('الله أكبر');try{navigator.vibrate&&navigator.vibrate(10)}catch(e){}vHjLab()}
+   ${cur<0?`<p class="hj-ok">✓ أتممت رمي اليوم. ويُسنّ الوقوف للدعاء بعد الصغرى والوسطى لا بعد العقبة (البخاري ١٧٥١).</p><button class="btn sm" onclick="HJS.jm=[0,0,0];hjRe()">↺ يوم آخر</button>`:''}</div>`}
+function hjThrow(i){const cur=HJS.jm.findIndex(n=>n<7);if(i!==cur)return toast(cur<i?'ابدأ بالجمرة '+['الصغرى','الوسطى','العقبة'][cur]+' أولًا؛ الترتيب واجب عند الجمهور':'أتممت هذه الجمرة');HJS.jm[i]++;toast('الله أكبر');try{navigator.vibrate&&navigator.vibrate(10)}catch(e){}hjRe()}
 /* ---- المواقيت ---- */
 const HJ_MQ=[['ذو الحليفة (أبيار علي)','أهل المدينة','نحو ٤٢٠ كم',60,40],['الجحفة (ويُحرم اليوم من رابغ)','أهل الشام ومصر والمغرب','نحو ١٨٦ كم',28,110],['قرن المنازل (السيل الكبير)','أهل نجد','نحو ٨٠ كم',250,70],['يلملم','أهل اليمن','نحو ١٢٠ كم',230,200],['ذات عِرق','أهل العراق','نحو ١٠٠ كم',220,28]];
 function hjMq(){const sel=HJS.mq==null?4:HJS.mq;return `<svg viewBox="0 0 320 240" class="hj-svg"><rect x="4" y="4" width="312" height="232" rx="18" fill="#10162e" stroke="rgba(255,255,255,.08)"/>
   <circle cx="160" cy="125" r="12" fill="#0b0b0d" stroke="#d9b36a"/><text x="160" y="152" class="hj-l c">مكة</text>
-  ${HJ_MQ.map(([n,w,km,x,y],i)=>`<g onclick="HJS.mq=${i};vHjLab()" style="cursor:pointer"><line x1="160" y1="125" x2="${x}" y2="${y}" stroke="${i===sel?'#f2c46d':'rgba(255,255,255,.12)'}" stroke-dasharray="4 4"/><circle cx="${x}" cy="${y}" r="${i===sel?11:8}" fill="${i===sel?'#f2c46d':'#2c4fb8'}"/><text x="${x}" y="${y+(y<120?-14:24)}" class="hj-l c">${n.split(' (')[0]}</text></g>`).join('')}</svg>
+  ${HJ_MQ.map(([n,w,km,x,y],i)=>`<g onclick="HJS.mq=${i};hjRe()" style="cursor:pointer"><line x1="160" y1="125" x2="${x}" y2="${y}" stroke="${i===sel?'#f2c46d':'rgba(255,255,255,.12)'}" stroke-dasharray="4 4"/><circle cx="${x}" cy="${y}" r="${i===sel?11:8}" fill="${i===sel?'#f2c46d':'#2c4fb8'}"/><text x="${x}" y="${y+(y<120?-14:24)}" class="hj-l c">${n.split(' (')[0]}</text></g>`).join('')}</svg>
   <div class="hj-n"><b>${HJ_MQ[sel][0]}</b>: ميقات ${HJ_MQ[sel][1]}، ويبعد عن مكة ${HJ_MQ[sel][2]}. ومن مرّ به من غير أهله أحرم منه، ومن كان دونه فمن حيث أنشأ، حتى أهل مكة من مكة (البخاري ١٥٢٤ ومسلم ١١٨١ عن ابن عباس).</div>
   <small class="refs">ذات عرق: ثبت توقيتها عن عمر رضي الله عنه (البخاري ١٥٣١)، ورُوي مرفوعًا عند أبي داود والنسائي. ومن جاء بالطائرة أحرم إذا حاذى الميقات جوًّا.</small>`}
 /* ---- الأنساك: اختر نسكك ---- */
 function hjNs(){const a=HJS.ns||{};const r=a.h==null?'':a.h?'القِران: تُحرم بالعمرة والحج معًا وتبقى على إحرامك حتى يوم النحر؛ لأنك سقت الهدي.':a.u?'التمتع: عمرة الآن ثم تحلّ، ثم تُحرم بالحج يوم الثامن، وعليك هدي التمتع.':'الإفراد: تُحرم بالحج وحده، ولا هدي عليك.';
   return `<div class="hj-ns">${[['تمتع','عمرة ثم تحلّ ثم حج من عامك','عليه هدي','أفضل عند الحنابلة'],['قِران','عمرة وحج بإحرام واحد','عليه هدي','أفضل عند الحنفية'],['إفراد','حج وحده','لا هدي عليه','أفضل عند المالكية والشافعية']].map(([n,d,h,f])=>`<div><b>${n}</b><small>${d}</small><em>${h}</em><small class="muted">${f}</small></div>`).join('')}</div>
-   <h4>اختر نسكك بسؤالين</h4><p>هل سقت الهدي معك من الميقات؟</p><div class="hj-ch"><button class="${a.h===true?'on':''}" onclick="HJS.ns={h:true};vHjLab()">نعم</button><button class="${a.h===false?'on':''}" onclick="HJS.ns={h:false};vHjLab()">لا</button></div>
-   ${a.h===false?`<p>هل تريد أن تعتمر قبل الحج في سفرك هذا؟</p><div class="hj-ch"><button class="${a.u===true?'on':''}" onclick="HJS.ns.u=true;vHjLab()">نعم</button><button class="${a.u===false?'on':''}" onclick="HJS.ns.u=false;vHjLab()">لا</button></div>`:''}
+   <h4>اختر نسكك بسؤالين</h4><p>هل سقت الهدي معك من الميقات؟</p><div class="hj-ch"><button class="${a.h===true?'on':''}" onclick="HJS.ns={h:true};hjRe()">نعم</button><button class="${a.h===false?'on':''}" onclick="HJS.ns={h:false};hjRe()">لا</button></div>
+   ${a.h===false?`<p>هل تريد أن تعتمر قبل الحج في سفرك هذا؟</p><div class="hj-ch"><button class="${a.u===true?'on':''}" onclick="HJS.ns.u=true;hjRe()">نعم</button><button class="${a.u===false?'on':''}" onclick="HJS.ns.u=false;hjRe()">لا</button></div>`:''}
    ${r&&(a.h||a.u!=null)?`<p class="hj-ok">${r}</p>`:''}<small class="refs">أمر النبي ﷺ من لم يسق الهدي أن يجعلها عمرة (البخاري ١٥٦٨، ومسلم ١٢١٨).</small>`}
 /* ---- العرض ---- */
-function vHjLab(){const tabs=[['umra','العمرة'],['hajj','الحج'],['mq','المواقيت'],['ns','الأنساك']];
+function hjLabBody(){const tabs=[['umra','العمرة'],['hajj','الحج'],['mq','المواقيت'],['ns','الأنساك']];
   let body='';if(HJT==='umra'){const s=HJ_U[HJS.u];body=`<div class="hj-st">${HJ_U.map((x,i)=>`<button class="${i===HJS.u?'on':i<HJS.u?'ok':''}" onclick="hjU(${i})"><span>${x.ic}</span>${x.n}</button>`).join('')}</div>${hjHaram()}${hjLab(s.lab)}<div class="panel hj-b"><h3>${AR(HJS.u+1)}. ${s.n}</h3>${s.b()}</div>
    <div class="row" style="gap:8px">${HJS.u?`<button class="btn ghost grow" onclick="hjU(${HJS.u-1})">→ السابق</button>`:''}${HJS.u<4?`<button class="btn gold grow" onclick="hjU(${HJS.u+1})">التالي ←</button>`:''}</div>`}
-  else if(HJT==='hajj'){const D=HJ_D[HJS.h];body=`<div class="hj-st">${HJ_D.map((x,i)=>`<button class="${i===HJS.h?'on':''}" onclick="HJS.h=${i};vHjLab()"><span>${x.d}</span>${x.n}</button>`).join('')}</div>${hjMap(D.r)}
+  else if(HJT==='hajj'){const D=HJ_D[HJS.h];body=`<div class="hj-st">${HJ_D.map((x,i)=>`<button class="${i===HJS.h?'on':''}" onclick="HJS.h=${i};hjRe()"><span>${x.d}</span>${x.n}</button>`).join('')}</div>${hjMap(D.r)}
    <div class="panel hj-b"><h3>${D.n}</h3><div class="hj-t">${D.t.map((t,i)=>`<label class="lad-c"><input type="checkbox"> ${t}</label>`).join('')}</div>${hjNote(D.h)}${D.x==='ord'?hjOrd():D.x==='jm'?hjJm():''}</div>`}
   else if(HJT==='mq')body=hjMq();else body=hjNs();
-  $('#app').innerHTML=`<div class="hero"><div class="t">🕋 مختبر المناسك</div><div style="font-size:13px;opacity:.85">العمرة والحج خطوةً خطوة على خريطة متحركة. الرسوم تقريبية، والأحكام مع أقوال المذاهب.</div></div>
-   <div class="ms-seg hj-tabs">${tabs.map(([k,n])=>`<button class="${HJT===k?'on':''}" onclick="HJT='${k}';cancelAnimationFrame(HJS.raf);vHjLab()">${n}</button>`).join('')}</div>${body}
-   ${typeof hajjSim==='function'?`<button class="btn ghost" style="width:100%;margin-top:10px" onclick="hajjSim()">🧩 اختبر نفسك في ترتيب المناسك</button>`:''}`;
-  if(HJT==='umra'){const d=document.getElementById('hjDot');if(HJS.u===2)document.getElementById('hjMaqam').classList.add('hj-glow');if(HJS.u===3&&d)d.setAttribute('opacity',.25),document.getElementById('hjSd').setAttribute('opacity',1),document.getElementById('hjSd').setAttribute('cy',HJS.sai%2?260:40)}}
-/* زر المختبر داخل الدراسة العملية للحج */
-const _vAmal8=vAmal;vAmal=function(){_vAmal8();if(route.id!=='hj')return;const b=document.querySelector('#app .lad-b');if(b)b.insertAdjacentHTML('afterbegin',`<button class="btn gold" style="width:100%;margin-bottom:10px" onclick="go('hjlab')">🕋 افتح مختبر المناسك المصوّر</button>`)};
+  return `<div class="ms-seg hj-tabs">${tabs.map(([k,n])=>`<button class="${HJT===k?'on':''}" onclick="HJT='${k}';cancelAnimationFrame(HJS.raf);hjRe()">${n}</button>`).join('')}</div>${body}`}
+function hjLabPost(){if(HJT==='umra'){const d=document.getElementById('hjDot');if(HJS.u===2)document.getElementById('hjMaqam').classList.add('hj-glow');if(HJS.u===3&&d)d.setAttribute('opacity',.25),document.getElementById('hjSd').setAttribute('opacity',1),document.getElementById('hjSd').setAttribute('cy',HJS.sai%2?260:40)}}
+function vHjLab(){$('#app').innerHTML=`<div class="hero"><div class="t">🕋 مختبر المناسك</div><div style="font-size:13px;opacity:.85">العمرة والحج خطوةً خطوة على خريطة متحركة.</div></div>${hjLabBody()}`;hjLabPost()}
+function hjRe(){if(route.v==='nsk')vNsk();else vHjLab()}
+/* الحج والعمرة وحدة كاملة في مسار الفقه */
+const _vAmal8=vAmal;vAmal=function(){if(route.id==='hj')return go('nsk');_vAmal8()};
+
+/* ============ وحدة المناسك (العمرة والحج) في مسار الفقه: دروس متدرجة، لكل درس تجربة تفاعلية وتحقق، ثم مختبر واختبار ============ */
+function NSKS(){S.nsk=S.nsk||{d:{},ck:{},sec:'les',fd:{},so:{i:0,ok:0,a:null},is:{}};const n=S.nsk;n.fd=n.fd||{};n.so=n.so||{i:0,ok:0,a:null};n.is=n.is||{};return n}
+const NSK=[
+ {id:'ma',ic:'🕋',n:'الحج والعمرة: المعنى والحكم والشروط',w:'ist',b:`<p><b>الحج</b> لغةً: القصد. وشرعًا: قصد مكة لأداء عبادات مخصوصة في وقت مخصوص. وهو الركن الخامس من أركان الإسلام: ﴿وَلِلَّهِ عَلَى ٱلنَّاسِ حِجُّ ٱلۡبَيۡتِ مَنِ ٱسۡتَطَاعَ إِلَيۡهِ سَبِيلٗا﴾، ويجب مرة واحدة في العمر: «الحج مرة، فما زاد فهو تطوع» (أبو داود ١٧٢١، وصححه الألباني).</p>
+  <p><b>العمرة</b>: زيارة البيت للطواف والسعي والحلق، وتصح في كل السنة. حكمها: واجبة مرة في العمر عند الشافعية والحنابلة، وسنة مؤكدة عند الحنفية والمالكية.</p>
+  <p><b>فضلهما</b>: «من حج لله فلم يرفث ولم يفسق رجع كيوم ولدته أمه» (البخاري ١٥٢١ ومسلم ١٣٥٠)، و«العمرة إلى العمرة كفارة لما بينهما، والحج المبرور ليس له جزاء إلا الجنة» (البخاري ١٧٧٣ ومسلم ١٣٤٩).</p>
+  <p><b>شروط الوجوب</b> خمسة: الإسلام، والعقل، والبلوغ، والحرية، والاستطاعة. والاستطاعة: نفقة الذهاب والإياب زائدة عن حاجته وحاجة من يعول، وصحة البدن، وأمن الطريق. وجرّب الشروط بنفسك:</p>`,
+  q:[['كم مرة يجب الحج في العمر؟',['مرة واحدة','كل عام','مرتين','كل خمس سنين'],'«الحج مرة، فما زاد فهو تطوع».'],['حكم العمرة عند الشافعية والحنابلة:',['واجبة مرة في العمر','سنة مستحبة','مكروهة','لا تشرع إلا مع الحج'],'وعند الحنفية والمالكية سنة مؤكدة.'],['صبي حجّ قبل البلوغ، فهل تجزئه عن حجة الإسلام؟',['لا، تلزمه إذا بلغ واستطاع','نعم تجزئه','تجزئه إن كان مميزًا','تجزئه إن حج مع أبيه'],'حجه صحيح وله أجره، لكنه لا يسقط الفريضة بإجماع العلماء.']]},
+ {id:'ark',ic:'🧱',n:'الأركان والواجبات والسنن',w:'sort',b:`<p>أعمال النسك ثلاث مراتب، وفهمها مفتاح الباب كله:</p>
+  <div class="nk-3"><div><b>الركن</b><small>لا يصح النسك بدونه، ولا يُجبر بشيء</small></div><div><b>الواجب</b><small>يصح النسك بدونه، ويُجبر تركه بدم عند الجمهور</small></div><div><b>السنة</b><small>يُثاب فاعلها، ولا شيء على تاركها</small></div></div>
+  <p><b>أركان الحج</b> في المذاهب:</p><table class="nk-t"><tr><th>الحنابلة</th><td>الإحرام، الوقوف بعرفة، طواف الإفاضة، السعي</td></tr><tr><th>الشافعية</th><td>الإحرام، الوقوف، الطواف، السعي، الحلق أو التقصير، والترتيب في معظمها</td></tr><tr><th>المالكية</th><td>الإحرام، الوقوف بعرفة، الطواف، السعي</td></tr><tr><th>الحنفية</th><td>الوقوف بعرفة، وأكثر طواف الإفاضة (والإحرام شرط)</td></tr></table>
+  <p><b>أركان العمرة</b> عند الحنابلة: الإحرام، والطواف، والسعي. والآن صنّف أعمال الحج بنفسك على المذهب الحنبلي:</p>`,
+  q:[['من ترك المبيت بمزدلفة بلا عذر فعليه عند الجمهور:',['دم','بطلان الحج','لا شيء عليه','قضاء الحج من قابل'],'المبيت بمزدلفة واجب، والواجب يُجبر بدم.'],['ما الركن الذي يفوت الحج بفواته؟',['الوقوف بعرفة','طواف الوداع','رمي الجمار','المبيت بمنى'],'«الحج عرفة»؛ فمن فاته الوقوف فاته الحج.'],['الرَّمَل في الأشواط الثلاثة الأولى من الطواف:',['سنة','ركن','واجب','شرط'],'فعله النبي ﷺ وأصحابه، ولا شيء على تاركه.']]},
+ {id:'mq',ic:'📍',n:'المواقيت: الزمان والمكان',w:'mq',b:`<p><b>ميقات الزمان</b>: ﴿ٱلۡحَجُّ أَشۡهُرٞ مَّعۡلُومَٰتٞ﴾: شوال وذو القعدة وعشر ذي الحجة عند الجمهور، وذو الحجة كله عند المالكية. أما العمرة فوقتها السنة كلها.</p>
+  <p><b>ميقات المكان</b>: خمسة مواضع لا يتجاوزها من أراد الحج أو العمرة إلا محرمًا. فمن تجاوزه بلا إحرام رجع فأحرم منه، فإن لم يرجع فعليه دم ونسكه صحيح. اضغط كل ميقات على الخريطة:</p>`,
+  q:[['ميقات أهل العراق:',['ذات عِرق','يلملم','الجحفة','قرن المنازل'],'وقّتها عمر رضي الله عنه (البخاري ١٥٣١).'],['من كان مسكنه أقرب إلى مكة من المواقيت يُحرم من:',['مسكنه','ذي الحليفة','أقرب ميقات خلفه','التنعيم دائمًا'],'«فمن كان دونهن فمهلّه من أهله» (متفق عليه).'],['تجاوز الميقات وهو يريد العمرة بلا إحرام ولم يرجع:',['عمرته صحيحة وعليه دم','بطلت عمرته','لا شيء عليه','يصوم ثلاثة أيام'],'الإحرام من الميقات واجب يُجبر بدم.']]},
+ {id:'ihr',ic:'⚪',n:'الإحرام ومحظوراته',w:'pb',b:`<p><b>الإحرام</b>: نية الدخول في النسك، وبه يبدأ. ومن سننه: الغسل، والتطيب في البدن قبله، ولبس إزار ورداء أبيضين للرجل، والتلبية.</p><p>وبمجرد الإحرام تحرم أمور كانت مباحة، اضغط كل محظور لتعرف حكمه:</p>`,
+  q:[['تغطية الرأس محظورة في الإحرام على:',['الرجل','المرأة','الرجل والمرأة','لا أحد'],'والمرأة تغطي رأسها، ولا تنتقب ولا تلبس القفازين.'],['المرأة المحرمة لا تلبس:',['النقاب والقفازين','الثياب الملونة','الجوارب','الحذاء'],'«ولا تنتقب المرأة المحرمة ولا تلبس القفازين» (البخاري ١٨٣٨).'],['التطيب في البدن قبل الإحرام:',['سنة عند الجمهور ولو بقي أثره','محظور','يبطل الإحرام','واجب'],'حديث عائشة في وبيص الطيب (متفق عليه)، وكرهه المالكية إن بقي أثره.']]},
+ {id:'ns',ic:'🔀',n:'الأنساك الثلاثة',w:'ns',b:`<p>للحج ثلاث صفات يختار المسلم إحداها عند الإحرام: <b>التمتع</b> و<b>القِران</b> و<b>الإفراد</b>. والفرق بينها في: هل يعتمر قبل الحج؟ وهل يبقى محرمًا؟ وهل عليه هدي؟</p>`,
+  q:[['المتمتع يُحرم بالعمرة ثم:',['يحلّ، ثم يُحرم بالحج من عامه','يبقى محرمًا إلى يوم النحر','لا يحج','يرجع إلى الميقات'],'ولذلك سُمّي متمتعًا: يتمتع بالحِل بين النسكين.'],['يجب الهدي على:',['المتمتع والقارن','المفرد وحده','كل حاج','لا أحد'],'﴿فَمَن تَمَتَّعَ بِٱلۡعُمۡرَةِ إِلَى ٱلۡحَجِّ فَمَا ٱسۡتَيۡسَرَ مِنَ ٱلۡهَدۡيِ﴾.'],['من لم يجد الهدي:',['صام ثلاثة أيام في الحج وسبعة إذا رجع','سقط عنه','أطعم ستين مسكينًا','صام شهرين'],'﴿فَمَن لَّمۡ يَجِدۡ فَصِيَامُ ثَلَٰثَةِ أَيَّامٖ فِي ٱلۡحَجِّ وَسَبۡعَةٍ إِذَا رَجَعۡتُمۡ﴾.']]},
+ {id:'um',ic:'🔄',n:'العمرة خطوة بخطوة',w:'um',b:`<p>العمرة خمس خطوات: <b>الإحرام</b> من الميقات، ثم <b>الطواف</b> سبعة أشواط من الحجر الأسود والكعبة عن يسارك، ثم <b>ركعتان</b> خلف المقام، ثم <b>السعي</b> سبعة أشواط من الصفا إلى المروة، ثم <b>الحلق أو التقصير</b>.</p><p>رتّبها أولًا، ثم أدِّها في المختبر على خريطة الحرم:</p>`,
+  q:[['يبدأ الطواف من:',['الحجر الأسود','باب الكعبة','الركن اليماني','مقام إبراهيم'],'ويُختم به كل شوط.'],['تكون الكعبة في الطواف عن:',['يسارك','يمينك','أمامك','خلفك'],'هكذا طاف النبي ﷺ.'],['يبدأ السعي من الصفا وينتهي:',['بالمروة','بالصفا','بزمزم','بالمقام'],'«أبدأ بما بدأ الله به» (مسلم ١٢١٨).']]},
+ {id:'dy',ic:'🗺️',n:'الحج يومًا بيوم',w:'dy',b:`<p>الحج ستة أيام تقريبًا تتنقّل فيها بين أربعة مواضع: مكة ومنى ومزدلفة وعرفة. اختر اليوم لترى طريقه وأعماله:</p>`,
+  q:[['يوم التروية هو:',['الثامن من ذي الحجة','التاسع','العاشر','الحادي عشر'],'وفيه يتوجه الحاج إلى منى.'],['تُصلّى الظهر والعصر بعرفة:',['جمعًا وقصرًا جمع تقديم','كل صلاة في وقتها تامة','جمع تأخير','لا تُصلّى'],'كما في حديث جابر (مسلم ١٢١٨).'],['ينتهي وقت الوقوف بعرفة عند الجمهور:',['بطلوع فجر يوم النحر','بغروب الشمس','بأذان العصر','بزوال الشمس'],'فمن وقف قبل الفجر ولو لحظة أدرك الحج.']]},
+ {id:'nh',ic:'✂️',n:'يوم النحر والتحلل',w:'ord',b:`<p>يوم العاشر أكثر أيام الحج عملًا: <b>رمي جمرة العقبة</b>، ثم <b>النحر</b>، ثم <b>الحلق</b>، ثم <b>طواف الإفاضة</b> (والسعي لمن عليه سعي).</p><p><b>التحلل الأول</b>: يحلّ به كل شيء إلا النساء. <b>والتحلل الثاني</b> بعد الأعمال كلها: يحلّ به كل شيء. رتّب الأعمال:</p>`,
+  q:[['من حلق قبل أن يرمي يوم النحر:',['لا حرج عليه','عليه دم','بطل حجه','يعيد الحلق'],'«افعل ولا حرج» (البخاري ٨٣ ومسلم ١٣٠٦).'],['بعد التحلل الأول يحلّ للحاج كل شيء إلا:',['النساء','الطيب','اللباس','قص الأظفار'],'ويحلّ ذلك بعد التحلل الثاني.'],['طواف الإفاضة:',['ركن من أركان الحج','واجب يُجبر بدم','سنة','خاص بالمتعجل'],'﴿وَلۡيَطَّوَّفُواْ بِٱلۡبَيۡتِ ٱلۡعَتِيقِ﴾.']]},
+ {id:'ts',ic:'🪨',n:'أيام التشريق والرمي والوداع',w:'jm',b:`<p>أيام التشريق: ١١ و١٢ و١٣، يبيت الحاج فيها بمنى ويرمي كل يوم الجمرات الثلاث بعد الزوال: الصغرى ثم الوسطى ثم العقبة، بسبع حصيات لكل جمرة. ومن تعجّل خرج يوم ١٢ قبل الغروب. ثم <b>طواف الوداع</b> آخر عهده بالبيت. جرّب الرمي:</p>`,
+  q:[['ترتيب الجمرات أيام التشريق:',['الصغرى ثم الوسطى ثم العقبة','العقبة ثم الوسطى ثم الصغرى','بأي ترتيب شاء','الوسطى أولًا'],'هكذا رمى النبي ﷺ (البخاري ١٧٥١).'],['يبدأ وقت رمي أيام التشريق عند الجمهور:',['بعد زوال الشمس','بعد الفجر','بعد العصر','بعد المغرب'],'قال جابر: ورمى بعد ذلك إذا زالت الشمس (مسلم ١٢٩٩).'],['يسقط طواف الوداع عن:',['الحائض والنفساء','المريض','كبير السن','المتعجل'],'«إلا أنه خُفّف عن الحائض» (متفق عليه).']]},
+ {id:'fd',ic:'⚖️',n:'الفدية والدماء: ماذا يلزمني؟',w:'fd',b:`<p>الخطأ في النسك له علاج، وهذه القاعدة الجامعة:</p><div class="nk-3"><div><b>ترك ركنًا</b><small>لا يتم النسك حتى يأتي به</small></div><div><b>ترك واجبًا</b><small>دم يُذبح في الحرم عند الجمهور</small></div><div><b>فعل محظورًا</b><small>فدية بحسبه، وتسقط عن الناسي في بعضها عند الشافعية والحنابلة</small></div></div><p>احكم في هذه الحالات:</p>`,
+  q:[['فدية من حلق رأسه لأذى وهو محرم:',['مخيّر: صيام ٣ أيام أو إطعام ٦ مساكين أو ذبح شاة','دم لا غير','صيام ١٠ أيام','لا شيء عليه'],'حديث كعب بن عجرة (البخاري ١٨١٤ ومسلم ١٢٠١).'],['من ترك واجبًا من واجبات الحج:',['عليه دم عند الجمهور','بطل حجه','لا شيء عليه','يصوم يومًا'],'الواجب يُجبر بالدم.'],['جزاء من قتل صيدًا وهو محرم:',['مثله من النعم، أو قيمته طعامًا، أو صيام','شاة دائمًا','لا شيء','بدنة دائمًا'],'﴿فَجَزَآءٞ مِّثۡلُ مَا قَتَلَ مِنَ ٱلنَّعَمِ﴾ الآية.']]}];
+const NSKM={};NSK.forEach((l,i)=>{l.i=i;NSKM[l.id]=l});
+const nskDone=id=>!!NSKS().d[id];
+const nskOpen=i=>i===0||RO()||nskDone(NSK[i-1].id)||nskDone(NSK[i].id);
+/* ---- التجارب التفاعلية ---- */
+function nskIst(){const s=NSKS().is,F=[['m','مسلم'],['a','عاقل'],['b','بالغ'],['h','حر'],['n','عنده نفقة الحج زائدة عن حاجته وحاجة من يعول'],['p','يقدر ببدنه على السفر'],['t','الطريق آمن']];
+  const all=F.every(([k])=>s[k]!==false),r=s.m===false?'لا يجب ولا يصح من غير المسلم.':s.a===false?'لا يجب على المجنون، فالعقل مناط التكليف.':s.b===false?'لا يجب، ويصح منه نفلًا وله أجره، ويلزمه إذا بلغ.':s.h===false?'لا يجب على العبد، ويصح منه.':s.n===false?'لا يجب؛ لأنه غير مستطيع بماله.':s.t===false?'لا يلزمه الأداء حتى يأمن الطريق.':s.p===false?'إن كان عجزه دائمًا وعنده المال: يلزمه أن يُنيب من يحج عنه عند الشافعية والحنابلة.':s.w&&s.mh===false?'لا يجب عليها الأداء بلا محرم عند الحنفية والحنابلة، وأجاز المالكية والشافعية في الفريضة مع رفقة مأمونة.':'✓ تحققت الشروط: يجب عليك الحج، على الفور عند الجمهور، وعلى التراخي عند الشافعية.';
+  return `<div class="nk-w"><div class="hj-ch"><button class="${!s.w?'on':''}" onclick="NSKS().is.w=0;save();hjRe()">رجل</button><button class="${s.w?'on':''}" onclick="NSKS().is.w=1;save();hjRe()">امرأة</button></div>
+   ${F.concat(s.w?[['mh','معها محرم']]:[]).map(([k,n])=>`<label class="lad-c"><input type="checkbox" ${s[k]===false?'':'checked'} onchange="NSKS().is['${k}']=this.checked;save();hjRe()"> ${n}</label>`).join('')}<p class="${all&&!(s.w&&s.mh===false)?'hj-ok':'nk-no'}">${r}</p></div>`}
+const NSK_SO=[['الإحرام','r'],['الوقوف بعرفة','r'],['طواف الإفاضة','r'],['السعي بين الصفا والمروة','r'],['الإحرام من الميقات','w'],['الوقوف بعرفة إلى الغروب لمن وقف نهارًا','w'],['المبيت بمزدلفة','w'],['المبيت بمنى ليالي التشريق','w'],['رمي الجمار','w'],['الحلق أو التقصير','w'],['طواف الوداع','w'],['طواف القدوم','s'],['الرَّمَل والاضطباع','s'],['المبيت بمنى ليلة عرفة','s']];
+const NSK_CN={r:'ركن',w:'واجب',s:'سنة'};
+function nskSort(){const o=NSKS().so;if(!o.ord){o.ord=NSK_SO.map((x,i)=>i).sort(()=>.5-Math.random());o.i=0;o.ok=0;o.a=null}
+  if(o.i>=o.ord.length)return `<div class="nk-w"><p class="hj-ok">صنّفت ${AR(o.ok)} من ${AR(o.ord.length)} تصنيفًا صحيحًا${o.ok===o.ord.length?' ✓ ممتاز':''}.</p><button class="btn sm" onclick="NSKS().so={i:0,ok:0,a:null};save();hjRe()">↺ أعد التصنيف</button></div>`;
+  const [n,c]=NSK_SO[o.ord[o.i]];return `<div class="nk-w nk-so"><small>${AR(o.i+1)} / ${AR(o.ord.length)} · على المذهب الحنبلي</small><b class="nk-so-c">${n}</b>
+   <div class="hj-ch">${['r','w','s'].map(k=>`<button class="${o.a?k===c?'ok':k===o.a?'no':'':''}" ${o.a?'disabled':''} onclick="const o=NSKS().so;o.a='${k}';if('${k}'==='${c}')o.ok++;save();hjRe()">${NSK_CN[k]}</button>`).join('')}</div>
+   ${o.a?`<p class="${o.a===c?'hj-ok':'nk-no'}">${o.a===c?'✓ صحيح':'الصواب: '+NSK_CN[c]}.</p><button class="btn sm gold" onclick="const o=NSKS().so;o.i++;o.a=null;save();hjRe()">التالي ←</button>`:''}</div>`}
+const NSK_FD=[['حلق رأسه لأذى في رأسه وهو محرم.',['فدية أذى: يختار صيام ٣ أيام أو إطعام ٦ مساكين أو ذبح شاة','دم لا غير','لا شيء عليه'],'حديث كعب بن عجرة (متفق عليه)، وهي على التخيير.'],
+ ['لبس قميصًا ناسيًا، فلما تذكّر نزعه فورًا.',['لا شيء عليه عند الشافعية والحنابلة، وعليه فدية عند الحنفية والمالكية','بطل إحرامه','عليه بدنة'],'﴿رَبَّنَا لَا تُؤَاخِذۡنَآ إِن نَّسِينَآ أَوۡ أَخۡطَأۡنَا﴾، والخلاف معتبر.'],
+ ['ترك رمي الجمار كلها حتى انتهت أيام التشريق.',['عليه دم عند الجمهور وحجه صحيح','بطل حجه','يرمي في العام القادم'],'الرمي واجب، والواجب يُجبر بدم.'],
+ ['جامع زوجته قبل التحلل الأول.',['فسد حجه عند الجمهور، ويمضي فيه، وعليه بدنة والقضاء من قابل','عليه شاة فقط','لا شيء عليه إن كان بعد عرفة'],'وعند الحنفية: إن كان بعد الوقوف بعرفة لم يفسد وعليه بدنة.'],
+ ['متمتع لم يجد الهدي ولا ثمنه.',['يصوم ثلاثة أيام في الحج وسبعة إذا رجع','يسقط عنه بلا بدل','يطعم عشرة مساكين'],'تلك عشرة كاملة.']];
+function nskFd(){const f=NSKS().fd;return `<div class="nk-w">${NSK_FD.map(([q,o,w],i)=>{const sh=[0,1,2].sort((a,b)=>((i*7+a*3)%5)-((i*7+b*3)%5)),a=f[i];
+  return `<div class="nk-fd"><b>${AR(i+1)}. ${q}</b>${sh.map(j=>`<button class="${a!=null?j===0?'ok':j===a?'no':'':''}" ${a!=null?'disabled':''} onclick="NSKS().fd[${i}]=${j};save();hjRe()">${o[j]}</button>`).join('')}${a!=null?`<small class="muted">${w}</small>`:''}</div>`}).join('')}</div>`}
+const NSK_UO=['الإحرام من الميقات','الطواف سبعة أشواط','ركعتا الطواف','السعي سبعة أشواط','الحلق أو التقصير'];
+function nskUm(){HJS.uo=HJS.uo||[];const rest=NSK_UO.map((x,i)=>i).filter(i=>!HJS.uo.includes(i));
+  return `<div class="nk-w"><div class="hj-ordc">${HJS.uo.map((i,j)=>`<span class="${i===j?'ok':'no'}">${AR(j+1)}. ${NSK_UO[i]}</span>`).join('')}</div><div class="hj-ch">${rest.sort((a,b)=>(a*5)%3-(b*5)%3).map(i=>`<button onclick="HJS.uo.push(${i});hjRe()">${NSK_UO[i]}</button>`).join('')}</div>
+   ${HJS.uo.length===5?`<p class="${HJS.uo.every((i,j)=>i===j)?'hj-ok':'nk-no'}">${HJS.uo.every((i,j)=>i===j)?'✓ ترتيب صحيح':'في الترتيب خطأ؛ أعد المحاولة'}</p><div class="row" style="gap:8px"><button class="btn sm" onclick="HJS.uo=[];hjRe()">↺ أعد</button><button class="btn sm gold" onclick="NSKS().sec='lab';HJT='umra';HJS.u=0;save();go('nsk')">🕋 أدِّها في المختبر</button></div>`:''}</div>`}
+function nskDy(){const D=HJ_D[HJS.h||0];return `<div class="nk-w"><div class="hj-st">${HJ_D.map((x,i)=>`<button class="${i===(HJS.h||0)?'on':''}" onclick="HJS.h=${i};hjRe()"><span>${x.d}</span>${x.n}</button>`).join('')}</div>${hjMap(D.r)}<div class="hj-t">${D.t.map(t=>`<div class="nk-li">• ${t}</div>`).join('')}</div>${hjNote(D.h)}</div>`}
+function nskW(k){return k==='ist'?nskIst():k==='sort'?nskSort():k==='mq'?hjMq():k==='pb'?`<div class="nk-w">${HJ_U[0].b()}</div>`:k==='ns'?hjNs():k==='um'?nskUm():k==='dy'?nskDy():k==='ord'?hjOrd():k==='jm'?hjJm():k==='fd'?nskFd():''}
+/* ---- التحقق السريع داخل الدرس ---- */
+function nskCk(L){const c=NSKS().ck[L.id]||{};return `<div class="nk-ck"><h4>✅ تحقّق من فهمك</h4>${L.q.map(([q,o,w],qi)=>{const a=c[qi],sh=o.map((x,i)=>i).sort((x,y)=>((qi+1)*(x+3)*7)%5-((qi+1)*(y+3)*7)%5);
+  return `<div class="nk-fd"><b>${q}</b>${sh.map(j=>`<button class="${a===0&&j===0?'ok':a!=null&&a!==0&&j===a?'no':''}" ${a===0?'disabled':''} onclick="nskA('${L.id}',${qi},${j})">${o[j]}</button>`).join('')}${a!=null?`<small class="muted">${a===0?'✓ ':'✗ حاول مرة أخرى. '}${a===0?w:''}</small>`:''}</div>`}).join('')}</div>`}
+function nskA(id,qi,j){const n=NSKS(),c=n.ck[id]=n.ck[id]||{};c[qi]=j;const L=NSKM[id];if(L.q.every((x,i)=>c[i]===0)&&!n.d[id]){n.d[id]=today();toast('✓ أتممت الدرس');try{sound('win')}catch(e){}}save();vNsk()}
+/* ---- الاختبار النهائي ---- */
+function nskQs(){const mc=[];NSK.forEach(L=>L.q.forEach(([q,o,w])=>mc.push({t:'mcq',q,o:o.slice(),w})));
+  const fixed=[{t:'order',q:'رتّب أعمال العمرة:',o:NSK_UO.slice(),w:'هذه صفة العمرة.'},{t:'order',q:'رتّب أيام الحج:',o:['الثامن: إلى منى','التاسع: الوقوف بعرفة','ليلة العاشر: مزدلفة','العاشر: الرمي والنحر والحلق والإفاضة','أيام التشريق: رمي الجمرات','طواف الوداع'],w:'«لتأخذوا مناسككم» (مسلم ١٢٩٧).'},
+   {t:'match',q:'صِل الميقات بأهله:',p:[['ذو الحليفة','أهل المدينة'],['الجحفة','أهل الشام ومصر'],['قرن المنازل','أهل نجد'],['يلملم','أهل اليمن']],w:'حديث ابن عباس (متفق عليه).'},
+   {t:'multi',q:'اختر أركان الحج عند الحنابلة:',o:['الإحرام','الوقوف بعرفة','طواف الإفاضة','السعي','رمي الجمار','المبيت بمزدلفة','طواف الوداع'],ok:['الإحرام','الوقوف بعرفة','طواف الإفاضة','السعي'],w:'والبقية واجبات.'},
+   {t:'tf',q:'من قدّم الطواف على الرمي يوم النحر فحجّه صحيح ولا شيء عليه.',a:true,w:'«افعل ولا حرج».'},{t:'tf',q:'يجوز للمرأة المحرمة أن تلبس النقاب.',a:false,w:'«ولا تنتقب المرأة المحرمة».'}];
+  return fixed.concat(mc.sort(()=>.5-Math.random()).slice(0,10)).sort(()=>.5-Math.random())}
+function nskTest(){tjXStart(nskQs(),{title:'🕋 اختبار المناسك',gen:nskQs,back:"go('nsk')",passMsg:'أتممت وحدة المناسك بإتقان، تقبّل الله منك.',onPass:()=>{const n=NSKS();n.t=today();try{const st=AS('hj');st.d[today()]=[0,1]}catch(e){}save()}})}
+/* ---- العرض ---- */
+function vNsk(){const n=NSKS(),dn=NSK.filter(l=>n.d[l.id]).length,L=route.l?NSKM[route.l]:null,sec=n.sec||'les';
+  const top=`<div class="hero nk-h"><div class="row"><div class="grow"><div class="t">🕋 المناسك: العمرة والحج</div><div style="font-size:13px;opacity:.85">فقه · دراسة نظرية وعملية · ${AR(dn)} من ${AR(NSK.length)} دروس${n.t?' · ✓ اجتزت الاختبار':''}</div></div><div class="nk-ring" style="--p:${dn/NSK.length}"><b>${AR(Math.round(dn/NSK.length*100))}٪</b></div></div></div>`;
+  if(L){const i=L.i;$('#app').innerHTML=`<div class="zb-top"><button class="icon-btn" onclick="go('nsk')">›</button><b class="grow">${L.ic} ${L.n}</b><small class="muted">${AR(i+1)}/${AR(NSK.length)}</small></div>
+    <div class="panel nk-b">${L.b}</div>${nskW(L.w)}${nskCk(L)}
+    <div class="row" style="gap:8px;margin-top:10px">${i?`<button class="btn ghost grow" onclick="go('nsk',{l:'${NSK[i-1].id}'})">→ السابق</button>`:''}${i<NSK.length-1?`<button class="btn gold grow" ${nskOpen(i+1)?'':'disabled'} onclick="go('nsk',{l:'${NSK[i+1].id}'})">${nskOpen(i+1)?'الدرس التالي ←':'🔒 أجب عن التحقق أولًا'}</button>`:`<button class="btn gold grow" onclick="NSKS().sec='lab';save();go('nsk')">إلى المختبر ←</button>`}</div>`;
+    if(L.w==='mq'||L.w==='ns')0;return}
+  const chips=[['les','📘 الدروس'],['lab','🧪 المختبر'],['tst','📝 الاختبار']];
+  let body='';
+  if(sec==='les')body=`<div class="nk-ls">${NSK.map((l,i)=>{const o=nskOpen(i),d=nskDone(l.id);return `<button class="${d?'ok':''} ${o?'':'lk'}" onclick="${o?`go('nsk',{l:'${l.id}'})`:`toast('🔒 أتمّ الدرس السابق أولًا')`}"><span class="n">${d?'✓':o?AR(i+1):'🔒'}</span><div class="grow"><b>${l.ic} ${l.n}</b></div><span class="ah-go">‹</span></button>`}).join('')}</div>`;
+  else if(sec==='lab')body=`<p class="muted" style="font-size:12.5px">أدِّ المناسك بنفسك على الخرائط: الطواف والسعي يتحركان، وترمي الجمرات، وترتّب يوم النحر.</p>${hjLabBody()}`;
+  else body=`<div class="panel"><h3>📝 الاختبار الشامل</h3><p class="muted">ستة عشر سؤالًا متنوعًا: اختيار، وصواب وخطأ، وترتيب، وتوصيل، واختيار متعدد. تتغير الأسئلة في كل محاولة، والنجاح بإتقان الجميع.</p>${dn<NSK.length?`<p class="nk-no">يُستحسن أن تُتمّ الدروس أولًا (${AR(dn)} من ${AR(NSK.length)}).</p>`:''}<button class="btn gold" style="width:100%" onclick="nskTest()">ابدأ الاختبار</button></div>`;
+  $('#app').innerHTML=`${top}<div class="tju-bar nk-bar">${chips.map(([k,t])=>`<button class="${sec===k?'on':''}" onclick="NSKS().sec='${k}';save();cancelAnimationFrame(HJS.raf);vNsk()">${t}</button>`).join('')}</div>${body}
+   <button class="btn ghost" style="width:100%;margin-top:12px" onclick="backLv()">⟵ العودة إلى المستوى</button>`;
+  if(sec==='lab')hjLabPost()}
 
 
 
@@ -15941,11 +16123,11 @@ function renderNavOld(){
 }
 function renderHeader(){
   const back=['matn','session','path','pquiz','intro','practice','srev','lesson','adhkar','course','gate','sci','log','qz','read','readrev','plan','lib','book','pt','hz','hzrev','hzpick','lx0','spec','qs','mymutun','lv','lvtab','lx','jh','tl','mountain','adklog','duas','dua','dread','klesson','kreview','kptest','kexam','kcerts'].includes(route.v);
-  const sub={hall:'خزانة ذُرى',plansetup:'وقتي وأيامي',tjlab:'مختبر التجويد',hifz:'رحلتي مع الحفظ',mlq:'ملقّن القرآن',mrec:'تسجيلاتي',zkb:'كتيّب الأذكار',myd:'أدعيتي',hjlab:'مختبر المناسك',mushaf:'المصحف',muslog:'سجل المصحف',fam:'ملفي والمجموعة',zkr:'ركن الأذكار',lad:'سُلَّم العبادة',amal:'دراسة عملية',mw:'مختبر المواريث',sv:'مواقف السيرة',read:'القراءة',readrev:'مراجعة القراءة',plan:'خطتي',lib:'المكتبة',book:'المكتبة',pt:'شجرة الأنبياء',hz:'حفظ القرآن',hzrev:'مراجعة الحفظ',hzpick:'الحفظ الاختياري',lx0:'امتحان البراعم',spec:'مسارات التخصص',qs:'قصص القرآن',mymutun:'منظوماتي',mountain:'الطريق كاملًا',adklog:'سجل الأذكار',lv:'بوابة المستوى',lvtab:'طريق الذُّرى',lx:'الامتحان الشامل',jh:'الجواب الحاضر',tl:'التفسير على الخط الزمني',klesson:'درس البراعم',kreview:'لعبة المراجعة',kptest:'اختبار الوالدين',kexam:'الامتحان الشامل',kcerts:'شهاداتي',duas:'الأدعية والأذكار',dua:'الحفظ',dread:'قراءة اليوم',tests:'اختباراتي',qz:'اختبار ترسيخ',log:'سجلّي',gate:'بوابة العلوم',sci:'طريق العلم',course:'دورة',adhkar:'الأذكار',home:'ورد اليوم',srev:'المراجعة',muslim:(S.profile||{}).kid?'رحلة البراعم':'طريق الذُّرى',lesson:'درس',library:'المنظومات',paths:'المسارات المضيئة',books:'رفّ الكتب',intro:'المدخل',practice:'التدريب الحر',settings:'الإعدادات',matn:'المنظومة',session:'جلسة التسميع',path:'المسار المضيء',pquiz:'اختبار الفهم'}[route.v];
+  const sub={hall:'خزانة ذُرى',plansetup:'وقتي وأيامي',tjlab:'مختبر التجويد',hifz:'رحلتي مع الحفظ',mlq:'ملقّن القرآن',mrec:'تسجيلاتي',zkb:'كتيّب الأذكار',myd:'أدعيتي',hjlab:'مختبر المناسك',nsk:'المناسك',mushaf:'المصحف',muslog:'سجل المصحف',fam:'ملفي والمجموعة',zkr:'ركن الأذكار',lad:'سُلَّم العبادة',amal:'دراسة عملية',mw:'مختبر المواريث',sv:'مواقف السيرة',read:'القراءة',readrev:'مراجعة القراءة',plan:'خطتي',lib:'المكتبة',book:'المكتبة',pt:'شجرة الأنبياء',hz:'حفظ القرآن',hzrev:'مراجعة الحفظ',hzpick:'الحفظ الاختياري',lx0:'امتحان البراعم',spec:'مسارات التخصص',qs:'قصص القرآن',mymutun:'منظوماتي',mountain:'الطريق كاملًا',adklog:'سجل الأذكار',lv:'بوابة المستوى',lvtab:'طريق الذُّرى',lx:'الامتحان الشامل',jh:'الجواب الحاضر',tl:'التفسير على الخط الزمني',klesson:'درس البراعم',kreview:'لعبة المراجعة',kptest:'اختبار الوالدين',kexam:'الامتحان الشامل',kcerts:'شهاداتي',duas:'الأدعية والأذكار',dua:'الحفظ',dread:'قراءة اليوم',tests:'اختباراتي',qz:'اختبار ترسيخ',log:'سجلّي',gate:'بوابة العلوم',sci:'طريق العلم',course:'دورة',adhkar:'الأذكار',home:'ورد اليوم',srev:'المراجعة',muslim:(S.profile||{}).kid?'رحلة البراعم':'طريق الذُّرى',lesson:'درس',library:'المنظومات',paths:'المسارات المضيئة',books:'رفّ الكتب',intro:'المدخل',practice:'التدريب الحر',settings:'الإعدادات',matn:'المنظومة',session:'جلسة التسميع',path:'المسار المضيء',pquiz:'اختبار الفهم'}[route.v];
   $('#hdr').innerHTML=(back?`<button class="back" onclick="${route.v==='sci'?`go('gate',{lit:1})`:route.v==='course'?`backSci()`:route.v==='lesson'?`crsBack('${findTrack(route.tid).c||''}')`:route.v==='lv'||route.v==='mountain'?`go('muslim')`:route.v==='adklog'?`go('home')`:route.v==='lvtab'?`go('muslim',{l:'${route.l}',lit:1})`:route.v==='read'?`go('book',{id:'${route.id}',m:'read'})`:route.v==='readrev'?`go('plan')`:route.v==='plan'?`go('home')`:route.v==='book'?`go('lib',{s:'${(BKM[route.id]||{}).s||'aqd'}'})`:route.v==='lib'?`backLv()`:route.v==='spec'?(route.k?`go('spec')`:`go('muslim')`):route.v==='hzrev'||route.v==='hzpick'?`go('home')`:['lx','lx0','jh','tl','qs','mymutun','hz','pt'].includes(route.v)?`backLv()`:route.v==='pquiz'&&/^(mlv|tl):/.test(String(route.pid))?`backLv()`:['klesson','kreview','kptest','kexam','kcerts'].includes(route.v)?`KL=null;KPT=null;kStop();go('muslim')`:route.v==='pquiz'&&route.pid==='place:basics'?`go('gate')`:route.v==='pquiz'&&String(route.pid).startsWith('dua:')?`go('duas')`:route.v==='pquiz'&&String(route.pid).startsWith('crs:')?`crsBack('${String(route.pid).split(':')[1]}')`:route.v==='pquiz'&&String(route.pid).startsWith('mtl:')?`go('lesson',{tid:'${String(route.pid).split(':')[1]}',lid:'${String(route.pid).split(':')[2]}'})`:route.v==='pquiz'?(String(route.pid).startsWith('intro:')?`go('intro',{k:'${String(route.pid).slice(6)}'})`:`go('path',{pid:'${route.pid}'})`):route.v==='matn'||route.v==='practice'||route.v==='path'||route.v==='intro'?`backSci()`:`go('${route.from||'home'}')`}">→</button>`:'')+
     `<div class="logo">ذُرى<span id="syncDot" class="sync-dot ${SY.on?(SY.err?'err':SY.dirty?'wait':'ok'):'off'}"></span></div><div class="sub">${sub}</div>`;
 }
-function render(){applyTheme();if(route.v!=='welcome'){document.getElementById('nav').style.display='';document.getElementById('hdr').style.display=''}document.getElementById('app').classList.remove('wide');if(route.v!=='path')pmStop();renderHeader();renderNav();({welcome:vWelcome,lv:vLv,lvtab:vLvTab,lx:vLx,jh:vJH,tl:vTL,mountain:vMountain,adklog:vAdkLog,duas:vDuas,dua:vDua,dread:vDRead,story:vStory,klesson:vKLesson,kreview:vKReview,kptest:vKPTest,kexam:vKExam,kcerts:vKCerts,tests:vTests,qz:vQz,log:vLog,gate:vGate,sci:vSci,course:vCourse,adhkar:vAdhkar,muslim:vMuslim,lesson:vLessonX,mymutun:vMyMutun,qs:vQS,spec:vSpec,lx0:vLx0,hz:vHz,hzrev:vHzRev,hzpick:vHzPick,pt:vPT,lib:vLib,hall:vHall,plansetup:vPlanSetup,tjlab:vTjLab,hifz:vHifz,mlq:vMlq,mrec:vMrec,zkb:vZkb,myd:vMyd,hjlab:vHjLab,mushaf:vMushaf,muslog:vMusLog,fam:vFam,zkr:vZkr,lad:vLad,amal:vAmal,mw:vMw,sv:vSv,book:vBook,read:vRead,readrev:vReadRev,plan:vPlan,srev:vSrev,home:vHome,library:vMutunTab,paths:vPathsTab,books:vBooks,intro:vIntro,matn:vMatn,practice:vPractice,settings:vSettings,session:vSession,path:vPath,pquiz:vPQuiz})[route.v]();setTimeout(lsCenter,30)}
+function render(){applyTheme();if(route.v!=='welcome'){document.getElementById('nav').style.display='';document.getElementById('hdr').style.display=''}document.getElementById('app').classList.remove('wide');if(route.v!=='path')pmStop();renderHeader();renderNav();({welcome:vWelcome,lv:vLv,lvtab:vLvTab,lx:vLx,jh:vJH,tl:vTL,mountain:vMountain,adklog:vAdkLog,duas:vDuas,dua:vDua,dread:vDRead,story:vStory,klesson:vKLesson,kreview:vKReview,kptest:vKPTest,kexam:vKExam,kcerts:vKCerts,tests:vTests,qz:vQz,log:vLog,gate:vGate,sci:vSci,course:vCourse,adhkar:vAdhkar,muslim:vMuslim,lesson:vLessonX,mymutun:vMyMutun,qs:vQS,spec:vSpec,lx0:vLx0,hz:vHz,hzrev:vHzRev,hzpick:vHzPick,pt:vPT,lib:vLib,hall:vHall,plansetup:vPlanSetup,tjlab:vTjLab,hifz:vHifz,mlq:vMlq,mrec:vMrec,zkb:vZkb,myd:vMyd,hjlab:vHjLab,nsk:vNsk,mushaf:vMushaf,muslog:vMusLog,fam:vFam,zkr:vZkr,lad:vLad,amal:vAmal,mw:vMw,sv:vSv,book:vBook,read:vRead,readrev:vReadRev,plan:vPlan,srev:vSrev,home:vHome,library:vMutunTab,paths:vPathsTab,books:vBooks,intro:vIntro,matn:vMatn,practice:vPractice,settings:vSettings,session:vSession,path:vPath,pquiz:vPQuiz})[route.v]();setTimeout(lsCenter,30)}
 
 /* ============ الرئيسية ============ */
 function ring(p){const r=34,c=2*Math.PI*r;return `<svg class="ring" viewBox="0 0 84 84"><circle cx="42" cy="42" r="${r}" stroke="rgba(255,255,255,.18)" stroke-width="8" fill="none"/>
