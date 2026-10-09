@@ -2755,6 +2755,50 @@ html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none
 .nk-fd b{font-size:14px;line-height:1.8}
 .nk-fd button{text-align:right;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font:inherit;font-size:13.5px}
 .nk-li{padding:4px 0;font-size:13.5px}
+/* المجسّمات والمحاكاة */
+.n3{position:relative;height:min(62vh,420px);border-radius:18px;overflow:hidden;background:#0b1024;border:1px solid var(--line);margin-top:10px}
+.n3 canvas{display:block;width:100%!important;height:100%!important}
+.n3-ld{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:13px}
+.n3-lbl{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.n3-l{position:absolute;left:0;top:0;pointer-events:auto;border:0;border-radius:10px;padding:3px 8px;font:inherit;font-size:11px;white-space:nowrap;background:rgba(10,15,34,.78);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.n3-l.hl{background:rgba(242,196,109,.9);color:#1a1205}
+.n3-l::after{content:'';position:absolute;left:50%;bottom:-5px;width:1px;height:5px;background:rgba(255,255,255,.6)}
+.n3-tip{position:absolute;left:8px;right:8px;bottom:8px;padding:10px 12px;border-radius:14px;background:rgba(10,15,34,.92);color:#fff;font-size:13px;line-height:1.8;border:1px solid rgba(242,196,109,.4)}
+.n3-tip b{color:#f2c46d}.n3-tip p{margin:4px 0 0}
+.n3-tip button{position:absolute;top:6px;left:8px;background:none;border:0;color:#fff;font-size:14px}
+.nk-ul{margin:4px 0 8px;padding-inline-start:20px;line-height:2}
+.nk-trs{display:flex;width:100%;margin:8px 0}.nk-trs button{flex:1}
+.nk-simb{margin-top:6px;border-style:dashed!important;border-color:rgba(242,196,109,.5)!important}
+.nk-simb small{display:block;color:var(--muted);font-size:11.5px}
+.nk-flow{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:12.5px}
+.nk-flow span{padding:6px 9px;border-radius:10px;background:rgba(127,168,255,.1)}
+.nk-flow i{font-style:normal;color:var(--muted)}
+.nk-peb{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;padding:12px;border-radius:14px;background:#1d1a16;margin-bottom:8px}
+.nk-peb button{width:calc(14px*var(--s));height:calc(11px*var(--s));justify-self:center;align-self:center;border:0;border-radius:45% 55% 50% 50%;background:radial-gradient(circle at 35% 30%,#a8a199,#5e5852)}
+.nk-peb button.on{outline:2px solid var(--gold);opacity:.35}
+.nk-mis{display:block;width:100%;text-align:right;margin:6px 0;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font:inherit}
+.nk-mis small{display:none;margin-top:4px;color:var(--ok);line-height:1.8}
+.nk-mis.on small{display:block}.nk-mis b{color:#ff9b8b;font-weight:600}
+.sim{position:relative;border-radius:18px;overflow:hidden;background:#000;aspect-ratio:9/12;max-height:72vh;width:100%}
+@media (min-width:700px){.sim{aspect-ratio:16/10}}
+.sim-v{position:absolute;inset:0}.sim-v canvas{display:block;width:100%!important;height:100%!important}
+.sim-fade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.sim-fade.on{animation:simF 1.1s ease}
+@keyframes simF{0%{opacity:1}100%{opacity:0}}
+.sim-cap{position:absolute;left:0;right:0;bottom:6px;padding:40px 14px 10px;background:linear-gradient(transparent,rgba(0,0,0,.82));color:#fff;pointer-events:none}
+.sim-cap b{display:block;font-size:16px;color:#f2c46d;margin-bottom:4px}
+.sim-cap p{margin:0;font-size:13.5px;line-height:1.9;max-height:9.5em;overflow:hidden}
+.sim-cap small{display:block;opacity:.7;font-size:11px}
+.sim-n{position:absolute;top:10px;right:10px;padding:5px 12px;border-radius:14px;background:rgba(10,15,34,.75);color:#fff;font-size:13px;font-weight:700}
+.sim-n:empty{display:none}
+.sim-pr{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.15)}
+.sim-pr u{display:block;height:100%;width:0;background:#f2c46d}
+.sim-ctl{display:flex;justify-content:center;gap:10px;margin:10px 0}
+.sim-ctl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);font:inherit;font-size:15px}
+.sim-ctl button.big{width:58px;height:58px;background:var(--gold);color:#1a1205;font-size:20px}
+.sim-ch{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;margin-bottom:6px}
+.sim-ch button{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);border-radius:16px;padding:6px 11px;font:inherit;font-size:12px}
+.sim-ch button.on{border-color:var(--gold);color:var(--ink);background:rgba(242,196,109,.12)}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -15224,8 +15268,8 @@ function mdnMed(){const k=mdnKey();S.mus.fz2=S.mus.fz2||{};if(S.mus.fz2[k])retur
   const med=ws[Math.floor(ws.length*.6)]||400;S.mus.fz2[k]=med;return med}
 function mdnFit(){const w=document.getElementById('msWrap');if(!w)return;msLock(true);
   const bot=(document.querySelector('.ms-bot')||{}).offsetHeight||0,two=MS().mode==='two'&&window.innerWidth<760,pgs=[...w.querySelectorAll('.ms-pg')];
-  const H=Math.max(300,msH(w)),pw=pgs[0].clientWidth,each=Math.min(two?H/pgs.length-6:H,Math.round(pw*1.62));
-  pgs.forEach((pg,ix)=>{pg.style.height=each+'px';pg.style.marginTop=ix||two?'':Math.max(0,Math.floor((H-each)/2))+'px';const ls=pg.querySelector('.md-ls'),W=ls.clientWidth,lh=ls.clientHeight/15.4;
+  pgs.forEach(g=>{g.style.width='';g.style.marginInline=''});const H=Math.max(300,msH(w)),pw=pgs[0].clientWidth,each=Math.min(two?H/pgs.length-6:H,Math.round(pw*1.62));
+  pgs.forEach((pg,ix)=>{pg.style.height=each+'px';if(!two&&pw>each/1.42){pg.style.width=Math.round(each/1.5)+'px';pg.style.marginInline='auto'}pg.style.marginTop=ix||two?'':Math.max(0,Math.floor((H-each)/2))+'px';const ls=pg.querySelector('.md-ls'),W=ls.clientWidth,lh=ls.clientHeight/15.4;
     let F=20*W*.97/mdnMed();
     F=Math.min(F,lh*.64);ls.style.fontSize=F+'px';ls.style.setProperty('--lh',lh+'px');
     ls.querySelectorAll('.md-l').forEach(l=>{const i=l.querySelector('.md-in');if(!i)return;i.style.wordSpacing='';i.style.transform='';const nat=i.offsetWidth;
@@ -15449,6 +15493,7 @@ function ahHomeHTML(){const t=AHS().tab||'day';
   if(t==='day')return `<div class="ah">${ahHeader()}${ahTabs()}${ahOn('now')?ahNow():''}${ahOn('pray')?ahPray():''}${ahOn('mus')?ahMus():''}${ahOn('occ')?ahOcc():''}${ahOn('cal')?ahCal():''}<button class="ah-cu" onclick="ahCustom()">☰ تخصيص البطاقات</button></div>`;
   return `<div class="ah">${ahHeader()}${ahTabs()}${ahOn('aud')?ahpHTML():''}${ahOn('my')?ahMy():''}<button class="ah-c ah-now" onclick="go('zkb',{k:adkNow(),i:0})"><span class="ah-ni">📖</span><div class="grow"><b>كتيّب الأذكار</b><small>ذكرٌ في كل صفحة بخط كبير وعدّاد</small></div><span class="ah-go">‹</span></button>${ahOn('myd')?ahMyd():''}${ahOn('grid')?ahGrid():''}</div>`}
 const _vHome7=vHome;vHome=function(){if((S.profile||{}).kid)return _vHome7();const t=AHS().tab||'day',app=document.getElementById('app');
+  if(t==='zkr'){vZkr();return}
   if(t!=='study'){app.innerHTML=ahHomeHTML();return}
   _vHome7();if(route.v!=='home')return;app.querySelectorAll('.pq-c').forEach(e=>e.remove());app.querySelectorAll('.hm-q button,.ro-g button').forEach(b=>{if(/mushaf|zkr|adhkar/.test(b.getAttribute('onclick')||''))b.remove()});app.querySelectorAll('.hm-q,.ro-g').forEach(g=>{if(!g.children.length)g.remove()});app.insertAdjacentHTML('afterbegin',`<div class="ah">${ahTabs()}</div>`)};
 /* ---- أدعيتي ---- */
@@ -15490,6 +15535,13 @@ function zbMore(){$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<d
   <button class="btn sm" onclick="if(confirm('إعادة عدّ هذا الورد لليوم؟')){const s=ADKS();zbItems(route.k).forEach((x,i)=>delete s.c[route.k+i]);save();closeModal();route.i=0;vZkb()}">↺ إعادة الورد</button>
   <button class="btn sm" onclick="closeModal();go('myd')">🤲 إدارة أدعيتي</button>`;$('#modal').classList.add('open')}
 function zbShare(){const it=zbItems(route.k)[route.i],t=zPlain(it.t)+(it.s?'\n'+zPlain(it.s):'');if(navigator.share)navigator.share({text:t}).catch(()=>{});else{try{navigator.clipboard.writeText(t);toast('✓ نُسخ النص')}catch(e){toast('تعذّر النسخ')}}}
+
+/* ---- ركن الأذكار داخل تبويب «الأذكار» في يومي، بلا تكرار ---- */
+const _vZkr9=vZkr;vZkr=function(){if(route.v==='zkr'){AHS().tab='zkr';save();setTimeout(()=>go('home'),0);return}_vZkr9();if(route.v!=='home')return;const app=document.getElementById('app');
+  app.querySelectorAll('.hero,.pq-c').forEach(e=>e.remove());app.insertAdjacentHTML('afterbegin',`<div class="ah">${ahHeader()}${ahTabs()}</div>`);
+  if(ZKT==='home'){const g=app.querySelector('.zk-g');if(g){g.querySelectorAll('button').forEach(b=>{const m=(b.getAttribute('onclick')||'').match(/go\('adhkar',\{k:'(\w)'/);if(m)b.setAttribute('onclick',`go('zkb',{k:'${m[1]}',i:0})`)});
+    g.insertAdjacentHTML('afterend',`<div class="ah" style="margin:10px 0">${ahOn('aud')?ahpHTML():''}<button class="ah-c ah-now" onclick="go('zkb',{k:adkNow(),i:0})"><span class="ah-ni">📖</span><div class="grow"><b>كتيّب الأذكار</b><small>ذكرٌ في كل صفحة بخط كبير وعدّاد</small></div><span class="ah-go">‹</span></button>${ahOn('myd')?ahMyd():''}</div>`)}}};
+zkAuto=function(){if(ZKA){clearInterval(ZKA);ZKA=0}else{ZKA=setInterval(()=>{if(!['zkr','home'].includes(route.v)||ZKT!=='tsb'){clearInterval(ZKA);ZKA=0;return}zkTap()},ZK().auto*1000)}vZkr()};
 
 /* ============ مختبر المناسك: العمرة والحج والمواقيت والأنساك — مصوّر تفاعلي (رسوم تقريبية بلا أشخاص) ============ */
 let HJT='umra',HJS={u:0,h:0,lap:0,sai:0,ab:0,tk:0,pb:{},raf:0};
@@ -15594,9 +15646,269 @@ function hjRe(){if(route.v==='nsk')vNsk();else vHjLab()}
 /* الحج والعمرة وحدة كاملة في مسار الفقه */
 const _vAmal8=vAmal;vAmal=function(){if(route.id==='hj')return go('nsk');_vAmal8()};
 
+/* ============ مجسّمات المشاعر ثلاثية الأبعاد (three.js) — بلا أشخاص؛ الحاجّ نقطة مضيئة، والزحام نقاط ============ */
+let N3P=null;
+function n3Load(){if(window.THREE)return Promise.resolve();if(N3P)return N3P;N3P=new Promise((ok,no)=>{const s=document.createElement('script');s.src='vendor/three.min.js';s.onload=ok;s.onerror=()=>{N3P=null;no()};document.head.appendChild(s)});return N3P}
+function n3Ok(){try{const c=document.createElement('canvas');return !!(window.WebGLRenderingContext&&(c.getContext('webgl')||c.getContext('experimental-webgl')))}catch(e){return false}}
+const N3SKY={day:[0x9cc8ef,0xdfe8ff,0x8a7350,.7,.8],sunset:[0xe9925a,0xffc89a,0x5a3a2a,.75,.55],night:[0x070b1c,0x34406e,0x0c0c14,.35,.18],dawn:[0x6b7fb5,0xc8c4e0,0x3a3440,.6,.45]};
+/* ---- المشهد والتحكم ---- */
+function N3(el,o){o=o||{};const T=THREE,W=el.clientWidth||320,H=el.clientHeight||240;
+  const r=new T.WebGLRenderer({antialias:true});r.setPixelRatio(Math.min(2,window.devicePixelRatio||1));r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=.95;r.setSize(W,H);el.appendChild(r.domElement);
+  const sc=new T.Scene(),cam=new T.PerspectiveCamera(50,W/H,.5,6000),hemi=new T.HemisphereLight(0xdfe8ff,0x8a7350,.9),sun=new T.DirectionalLight(0xffffff,.9);
+  sun.position.set(120,200,60);sc.add(hemi,sun);sc.fog=new T.Fog(0x9cc8ef,300,1400);
+  const L=document.createElement('div');L.className='n3-lbl';el.appendChild(L);
+  const v={T,el,r,sc,cam,hemi,sun,L,lbl:[],upd:[],picks:[],ctl:{th:.9,ph:1.05,rad:o.rad||70,tg:new T.Vector3(),min:o.min||12,max:o.max||400},fly:false,alive:true};
+  v.sky=k=>{const s=N3SKY[k]||N3SKY.day;sc.background=new T.Color(s[0]);sc.fog.color.set(s[0]);hemi.color.set(s[1]);hemi.groundColor.set(s[2]);hemi.intensity=s[3];sun.intensity=s[4];v.skyK=k;if(v.stars)v.stars.visible=k==='night'};
+  v.sky('day');
+  v.label=(t,p,info,cls)=>{const d=document.createElement('button');d.className='n3-l '+(cls||'');d.textContent=t;d.onclick=e=>{e.stopPropagation();if(info)n3Tip(v,t,info)};L.appendChild(d);const x={d,p:p.clone(),grp:v.grp||''};v.lbl.push(x);return x};
+  v.look=(pos,tg)=>{const d=new T.Vector3().subVectors(pos,tg),rad=d.length();v.ctl.tg.copy(tg);v.ctl.rad=rad;v.ctl.ph=Math.acos(Math.max(-1,Math.min(1,d.y/rad)));v.ctl.th=Math.atan2(d.z,d.x)};
+  const apply=()=>{const c=v.ctl;cam.position.set(c.tg.x+c.rad*Math.sin(c.ph)*Math.cos(c.th),c.tg.y+c.rad*Math.cos(c.ph),c.tg.z+c.rad*Math.sin(c.ph)*Math.sin(c.th));cam.lookAt(c.tg)};
+  /* السحب للتدوير، والقرص أو العجلة للتقريب، والنقر لاختيار جسم */
+  let P={},pd=0,moved=0;const cv=r.domElement;cv.style.touchAction='none';
+  cv.addEventListener('pointerdown',e=>{P[e.pointerId]=[e.clientX,e.clientY];moved=0;cv.setPointerCapture(e.pointerId);if(Object.keys(P).length===2){const a=Object.values(P);pd=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1])}});
+  cv.addEventListener('pointermove',e=>{if(!P[e.pointerId]||v.fly)return;const [x0,y0]=P[e.pointerId],ks=Object.keys(P);
+    if(ks.length===2){P[e.pointerId]=[e.clientX,e.clientY];const a=Object.values(P),d=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]);if(pd){v.ctl.rad=Math.max(v.ctl.min,Math.min(v.ctl.max,v.ctl.rad*pd/d))}pd=d;moved=9;return}
+    const dx=e.clientX-x0,dy=e.clientY-y0;moved+=Math.abs(dx)+Math.abs(dy);v.ctl.th+=dx*.008;v.ctl.ph=Math.max(.12,Math.min(1.48,v.ctl.ph-dy*.006));P[e.pointerId]=[e.clientX,e.clientY]});
+  const up=e=>{const was=!!P[e.pointerId];delete P[e.pointerId];pd=0;if(was&&moved<6&&v.picks.length){const rc=new T.Raycaster(),b=cv.getBoundingClientRect(),m=new T.Vector2((e.clientX-b.left)/b.width*2-1,-(e.clientY-b.top)/b.height*2+1);rc.setFromCamera(m,cam);
+    for(const [objs,cb] of v.picks){const h=rc.intersectObjects(objs,true);if(h.length){let o=h[0].object;while(o&&!objs.includes(o))o=o.parent;cb(o||h[0].object,h[0]);break}}}};
+  cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+  cv.addEventListener('wheel',e=>{e.preventDefault();v.ctl.rad=Math.max(v.ctl.min,Math.min(v.ctl.max,v.ctl.rad*(e.deltaY>0?1.1:.9)))},{passive:false});
+  const tmp=new T.Vector3(),clk=new T.Clock();
+  v.dispose=()=>{v.alive=false;try{sc.traverse(x=>{x.geometry&&x.geometry.dispose();if(x.material)[].concat(x.material).forEach(m=>{m.map&&m.map.dispose();m.dispose()})});r.dispose();r.forceContextLoss&&r.forceContextLoss()}catch(e){}};
+  const loop=()=>{if(!v.alive)return;if(!el.isConnected){v.dispose();return}requestAnimationFrame(loop);const dt=Math.min(.05,clk.getDelta());
+    const w=el.clientWidth,h=el.clientHeight;if(w&&h&&(w!==v.w||h!==v.h)){v.w=w;v.h=h;r.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()}
+    v.upd.forEach(f=>f(dt));if(!v.fly)apply();r.render(sc,cam);
+    v.lbl.forEach(x=>{tmp.copy(x.p).project(cam);const on=tmp.z<1&&Math.abs(tmp.x)<1.1&&Math.abs(tmp.y)<1.1&&(!x.grp||x.grp===v.grpOn);x.d.style.display=on&&!v.hideL?'':'none';if(on)x.d.style.transform=`translate(${(tmp.x*.5+.5)*v.w}px,${(-tmp.y*.5+.5)*v.h}px) translate(-50%,-100%)`})};
+  v.w=W;v.h=H;loop();return v}
+function n3Tip(v,t,info){let b=v.el.querySelector('.n3-tip');if(!b){b=document.createElement('div');b.className='n3-tip';v.el.appendChild(b)}b.innerHTML=`<b>${t}</b><p>${info}</p><button onclick="this.parentNode.remove()">✕</button>`}
+/* ---- مواد وأدوات ---- */
+const n3M=(c,o)=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.85,metalness:0},o||{}));
+function n3Box(w,h,d,m,x,y,z){const b=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);b.position.set(x||0,(y||0)+h/2,z||0);return b}
+function n3Kiswa(){const c=document.createElement('canvas');c.width=512;c.height=512;const g=c.getContext('2d');g.fillStyle='#0b0b0c';g.fillRect(0,0,512,512);
+  g.strokeStyle='rgba(255,255,255,.035)';for(let i=0;i<512;i+=16){g.beginPath();g.moveTo(0,i);g.lineTo(512,i+8);g.stroke()}
+  g.fillStyle='#b58a2e';g.fillRect(0,120,512,34);g.fillStyle='#e8c56a';g.font='bold 22px Amiri, serif';g.textAlign='center';g.direction='rtl';g.fillText('لا إله إلا الله محمد رسول الله',256,145);
+  g.fillStyle='#b58a2e';for(let i=0;i<4;i++){g.fillRect(40+i*120,200,60,24)}const t=new THREE.CanvasTexture(c);t.anisotropy=4;return t}
+function n3Marker(v,col){const T=THREE,g=new T.Group(),s=new T.Mesh(new T.SphereGeometry(1.3,20,14),new T.MeshStandardMaterial({color:col||0xff9d1e,emissive:col||0xff8a00,emissiveIntensity:1})),ring=new T.Mesh(new T.RingGeometry(1.9,2.5,32),new T.MeshBasicMaterial({color:col||0xff9d1e,transparent:true,opacity:.6,side:T.DoubleSide}));
+  ring.rotation.x=-Math.PI/2;ring.position.y=-.75;g.add(s,ring);v.sc.add(g);v.upd.push(dt=>{ring.scale.setScalar(1+.25*Math.sin(Date.now()/250))});
+  const N=60,pts=new Float32Array(N*3),geo=new T.BufferGeometry();geo.setAttribute('position',new T.BufferAttribute(pts,3));const tr=new T.Line(geo,new T.LineBasicMaterial({color:col||0xf2c46d,transparent:true,opacity:.7}));v.sc.add(tr);
+  let last=null;g.trail=()=>{const p=g.position;if(last&&last.distanceTo(p)<.6)return;last=p.clone();pts.copyWithin(3,0,(N-1)*3);pts[0]=p.x;pts[1]=p.y-.5;pts[2]=p.z;geo.attributes.position.needsUpdate=true};
+  g.clearTrail=()=>{for(let i=0;i<N;i++){pts[i*3]=g.position.x;pts[i*3+1]=g.position.y-.5;pts[i*3+2]=g.position.z}geo.attributes.position.needsUpdate=true;last=null};return g}
+function n3Stars(v,c){const T=THREE,n=900,p=new Float32Array(n*3);for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,b=Math.random()*.45*Math.PI,R=1600;p[i*3]=c.x+R*Math.cos(a)*Math.cos(b);p[i*3+1]=R*Math.sin(b)+40;p[i*3+2]=c.z+R*Math.sin(a)*Math.cos(b)}
+  const g=new T.BufferGeometry();g.setAttribute('position',new T.BufferAttribute(p,3));const s=new T.Points(g,new T.PointsMaterial({color:0xffffff,size:2.2,sizeAttenuation:false,fog:false}));s.visible=false;v.sc.add(s);v.stars=s}
+/* ---- المسجد الحرام والكعبة والمسعى (المركز 0,0,0) ---- */
+function n3Haram(v,o){o=o||{};const T=THREE,sc=v.sc,R={};
+  const fl=new T.Mesh(new T.CircleGeometry(170,64),n3M(0xb4ad9e));fl.rotation.x=-Math.PI/2;sc.add(fl);
+  const mt=new T.Mesh(new T.CircleGeometry(46,64),n3M(0xe4e0d6,{roughness:.4}));mt.rotation.x=-Math.PI/2;mt.position.y=.03;sc.add(mt);
+  for(let r=8;r<46;r+=6){const ln=new T.Mesh(new T.RingGeometry(r,r+.08,96),new T.MeshBasicMaterial({color:0xe6e0d2}));ln.rotation.x=-Math.PI/2;ln.position.y=.05;sc.add(ln)}
+  /* الكعبة: محليًا +x وجه الباب (الشمال الشرقي)، والركن (+x,+z) الحجر الأسود */
+  const K=new T.Group();K.rotation.y=Math.PI/4;sc.add(K);R.K=K;
+  K.add(n3Box(12.6,.35,11.1,n3M(0xe9e4d8),0,0,0));
+  const kis=n3Kiswa(),km=n3M(0xffffff,{map:kis,roughness:.95}),top=n3M(0x0d0d0e);const kb=new T.Mesh(new T.BoxGeometry(12,13,10.5),[km,km,top,top,km,km]);kb.position.y=6.85;K.add(kb);R.kaaba=kb;
+  const gold=n3M(0xd4a63a,{metalness:.7,roughness:.35});
+  const door=n3Box(.12,3.1,1.9,gold,6.02,2.3,2.3);K.add(door);
+  const stone=new T.Mesh(new T.TorusGeometry(.38,.13,10,20),n3M(0xcfd3d8,{metalness:.8,roughness:.3}));stone.position.set(6.02,1.55,5.27);stone.rotation.y=Math.PI/4;K.add(stone);
+  const sIn=new T.Mesh(new T.SphereGeometry(.3,12,10),n3M(0x1a1412));sIn.position.copy(stone.position);K.add(sIn);R.stone=stone;
+  const hj=new T.Mesh(new T.CylinderGeometry(8.5,8.5,1.35,32,1,true,Math.PI/2,Math.PI),n3M(0xf1ede4,{side:T.DoubleSide}));hj.position.set(0,.68,-5.25);hj.scale.z=.9;K.add(hj);R.hijr=hj;
+  K.add(n3Box(.5,.35,1.8,gold,0,13.35,-6.1));
+  /* مقام إبراهيم */
+  const mq=new T.Group();mq.add(n3Box(1.6,.4,1.6,n3M(0xe9e4d8)));const cg=new T.Mesh(new T.CylinderGeometry(.75,.75,1.6,16,1,true),n3M(0xd4a63a,{metalness:.6,roughness:.4,wireframe:true}));cg.position.y=1.2;mq.add(cg);
+  const gl=new T.Mesh(new T.CylinderGeometry(.72,.72,1.6,16),new T.MeshStandardMaterial({color:0xbfe6ff,transparent:true,opacity:.35}));gl.position.y=1.2;mq.add(gl);const dm=new T.Mesh(new T.SphereGeometry(.8,16,8,0,Math.PI*2,0,Math.PI/2),gold);dm.position.y=2;mq.add(dm);
+  mq.position.set(10.5,0,-10.5);sc.add(mq);R.maqam=mq;
+  /* الأروقة والمآذن وبرج الساعة */
+  const colG=new T.CylinderGeometry(.9,.9,12,10),colM=n3M(0xe8e1d0),cols=new T.InstancedMesh(colG,colM,144),mx=new T.Matrix4();
+  for(let i=0;i<144;i++){const a=i/144*Math.PI*2,rr=i%2?66:74;mx.makeTranslation(rr*Math.cos(a),6,rr*Math.sin(a));cols.setMatrixAt(i,mx)}sc.add(cols);
+  const roof=new T.Mesh(new T.RingGeometry(63,80,96),n3M(0xd9d0bd,{side:T.DoubleSide}));roof.rotation.x=-Math.PI/2;roof.position.y=12.2;sc.add(roof);
+  const wall=new T.Mesh(new T.CylinderGeometry(80,80,16,96,1,true),n3M(0xcfc6b2,{side:T.DoubleSide}));wall.position.y=8;sc.add(wall);
+  [0,1,2,3,4,5].forEach(i=>{const a=.3+i*1.05,x=84*Math.cos(a),z=84*Math.sin(a),m=new T.Mesh(new T.CylinderGeometry(1.6,2,62,10),n3M(0xece6d8));m.position.set(x,31,z);sc.add(m);const c=new T.Mesh(new T.ConeGeometry(1.7,6,10),gold);c.position.set(x,65,z);sc.add(c)});
+  const tw=n3Box(26,150,26,n3M(0xb8b2a6),0,0,150);sc.add(tw);const ck=new T.Mesh(new T.CircleGeometry(9,32),new T.MeshStandardMaterial({color:0xf6f1e0,emissive:0x5fbf8f,emissiveIntensity:.25}));ck.position.set(0,128,136.9);ck.rotation.y=Math.PI;sc.add(ck);const sp=new T.Mesh(new T.ConeGeometry(4,40,8),gold);sp.position.set(0,170,150);sc.add(sp);
+  /* المسعى: من الصفا (جنوبًا +z) إلى المروة (شمالًا -z) */
+  const MX=118,SZ=70,MZ=-100;R.MX=MX;R.SZ=SZ;R.MZ=MZ;R.G1=10;R.G2=32;
+  sc.add(n3Box(16,.2,SZ-MZ+20,n3M(0xf3f0e8,{roughness:.4}),MX,0,(SZ+MZ)/2));
+  sc.add(n3Box(16,.6,SZ-MZ+20,n3M(0xddd5c2),MX,14,(SZ+MZ)/2));
+  for(let z=MZ;z<=SZ;z+=10){sc.add(n3Box(1,14,1,colM,MX-8,0,z));sc.add(n3Box(1,14,1,colM,MX+8,0,z))}
+  const rock=(z,n)=>{const r=new T.Mesh(new T.DodecahedronGeometry(6,1),n3M(0x8f7a5e,{flatShading:true}));r.scale.set(1.3,.55,1);r.position.set(MX,1.5,z);sc.add(r);v.label(n,new T.Vector3(MX,6,z),n==='الصفا'?'يبدأ منه السعي: «أبدأ بما بدأ الله به»، فيرقاه ويستقبل القبلة ويكبّر ويهلّل ويدعو.':'ينتهي عنده كل شوط وتراً، ويصنع عليه ما صنع على الصفا.','hl')};
+  rock(SZ+6,'الصفا');rock(MZ-6,'المروة');
+  const gm=new T.MeshStandardMaterial({color:0x2fe08a,emissive:0x2fe08a,emissiveIntensity:1.2});[R.G1,R.G2].forEach(z=>{sc.add(n3Box(16,.3,.6,gm,MX,13.4,z));sc.add(n3Box(16,.06,.4,gm,MX,.22,z))});
+  v.label('الميلان الأخضران',new T.Vector3(MX,15,(R.G1+R.G2)/2),'علامتان خضراوان يُسرع الرجل بينهما في السعي، اقتداءً بسعي هاجر في بطن الوادي.');
+  /* زحام الطائفين: نقاط تدور عكس عقارب الساعة */
+  if(o.crowd!==false){const n=700,cm=new T.InstancedMesh(new T.SphereGeometry(.32,6,4),new T.MeshStandardMaterial({color:0xffffff,roughness:.6}),n),st=[];for(let i=0;i<n;i++)st.push([11+Math.random()*32,Math.random()*Math.PI*2]);
+    v.upd.push(dt=>{st.forEach((s,i)=>{s[1]-=dt*(.9/s[0])*(v.speed||1);mx.makeTranslation(s[0]*Math.cos(s[1]),.35,s[0]*Math.sin(s[1]));cm.setMatrixAt(i,mx)});cm.instanceMatrix.needsUpdate=true});sc.add(cm);R.crowd=cm}
+  const W=p=>K.localToWorld(p.clone());K.updateMatrixWorld(true);
+  R.pStone=W(new T.Vector3(6.3,1.6,5.5));R.pYam=W(new T.Vector3(-6,1.6,5.25));R.pShami=W(new T.Vector3(-6,1.6,-5.25));R.pIraqi=W(new T.Vector3(6,1.6,-5.25));R.pDoor=W(new T.Vector3(6.1,4,2.3));R.pMultazam=W(new T.Vector3(6.1,2,4));R.pHijr=W(new T.Vector3(0,1.5,-12.5));R.pMizab=W(new T.Vector3(0,13.6,-6.2));
+  const startLine=new T.Mesh(new T.PlaneGeometry(40,.5),new T.MeshBasicMaterial({color:0x2fbf75}));startLine.rotation.x=-Math.PI/2;startLine.position.set(R.pStone.x+20,.07,R.pStone.z);startLine.rotation.z=Math.atan2(R.pStone.z,R.pStone.x);sc.add(startLine);
+  if(o.labels!==false){const I=[['الحجر الأسود',R.pStone,'في الركن الشرقي، منه يبدأ الطواف وإليه ينتهي. يستلمه ويقبّله إن تيسّر، وإلا أشار إليه وكبّر، ولا يزاحم فيؤذي.'],['الركن اليماني',R.pYam,'يُستلم باليد إن تيسّر بلا تقبيل، ولا يُشار إليه إن عجز. وبينه وبين الحجر: ﴿رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ…﴾.'],['الركن الشامي',R.pShami,'لا يُستلم، ولم يستلم النبي ﷺ إلا الركنين اليمانيين.'],['الركن العراقي',R.pIraqi,'لا يُستلم كذلك؛ لأن الركنين الشاميين ليسا على قواعد إبراهيم.'],['باب الكعبة',R.pDoor,'في الجهة الشرقية الشمالية، مرتفع عن الأرض نحو مترين.'],['الملتزم',R.pMultazam,'ما بين الحجر الأسود والباب، يُشرع الالتزام عنده والدعاء عند جمع من العلماء.'],['الحِجر (الحطيم)',R.pHijr,'جزء من البيت؛ فمن طاف من داخله لم يصح شوطه، فيطوف من ورائه.'],['الميزاب',R.pMizab,'مصبّ ماء السطح فوق الحِجر.'],['مقام إبراهيم',new T.Vector3(10.5,3,-10.5),'الحجر الذي قام عليه إبراهيم عليه السلام، ويُصلّى خلفه ركعتا الطواف ﴿وَٱتَّخِذُواْ مِن مَّقَامِ إِبۡرَٰهِـۧمَ مُصَلّٗى﴾.']];
+    I.forEach(([n,p,t])=>v.label(n,p,t))}
+  return R}
+/* ---- المشاعر: مكة ومنى ومزدلفة وعرفة (تقريبية مصغّرة) ---- */
+function n3Mash(v,O){const T=THREE,sc=v.sc,R={},o=O||new T.Vector3(0,0,3000),P=(x,z)=>new T.Vector3(o.x+x,0,o.z+z);R.o=o;
+  const g=new T.Mesh(new T.PlaneGeometry(520,260,60,30),n3M(0xcdb488,{flatShading:true}));g.rotation.x=-Math.PI/2;g.position.copy(P(110,-20));const pa=g.geometry.attributes.position;for(let i=0;i<pa.count;i++){const x=pa.getX(i),y=pa.getY(i),edge=Math.max(0,Math.abs(y)-55)/70;pa.setZ(i,edge*edge*30*(0.6+0.4*Math.sin(x*.07)*Math.cos(y*.11)))}g.geometry.computeVertexNormals();sc.add(g);
+  const mtn=new T.InstancedMesh(new T.ConeGeometry(1,1,6),n3M(0x8b6e4e,{flatShading:true}),90),mx=new T.Matrix4(),q=new T.Quaternion(),sv=new T.Vector3();
+  for(let i=0;i<90;i++){const x=-140+Math.random()*500,side=i%2?1:-1,z=side*(70+Math.random()*50)-20,h=12+Math.random()*30;mx.compose(P(x,z).setY(h/2),q,sv.set(14+Math.random()*16,h,14+Math.random()*16));mtn.setMatrixAt(i,mx)}sc.add(mtn);
+  /* مكة: الحرم مصغّرًا */
+  const mk=P(0,0);sc.add(n3Box(4,4.3,3.5,n3M(0x0d0d0e),mk.x,0,mk.z));const ring=new T.Mesh(new T.RingGeometry(8,14,40),n3M(0xe9e4d8,{side:T.DoubleSide}));ring.rotation.x=-Math.PI/2;ring.position.copy(mk).setY(.3);sc.add(ring);sc.add(n3Box(6,40,6,n3M(0xb8b2a6),mk.x,0,mk.z+22));
+  for(let i=0;i<60;i++){const a=Math.random()*Math.PI*2,rr=20+Math.random()*30;sc.add(n3Box(4+Math.random()*5,4+Math.random()*14,4+Math.random()*5,n3M(0xe7e0d2),mk.x+rr*Math.cos(a),0,mk.z+rr*Math.sin(a)))}
+  /* منى: خيام بيضاء */
+  const tn=new T.InstancedMesh(new T.ConeGeometry(1.6,2.4,4),n3M(0xfbfbf7),640);let k=0;for(let i=0;i<32;i++)for(let j=0;j<20;j++){mx.compose(P(56+i*2.1,-24+j*2.1).setY(1.2),q.setFromAxisAngle(new T.Vector3(0,1,0),Math.PI/4),sv.set(1,1,1));tn.setMatrixAt(k++,mx)}sc.add(tn);
+  sc.add(n3Box(8,4,8,n3M(0xe7e0d2),P(78,-30).x,0,P(78,-30).z));
+  /* الجمرات (جسر) */
+  const jm=P(44,-6);sc.add(n3Box(30,6,6,n3M(0xd8d2c6),jm.x,0,jm.z));[-10,0,10].forEach(dx=>sc.add(n3Box(1.2,9,3,n3M(0x9a8f80),jm.x+dx,6,jm.z)));
+  /* مزدلفة والمشعر الحرام */
+  const mz=P(118,-22);sc.add(n3Box(10,4,8,n3M(0xe7e0d2),mz.x,0,mz.z));[-4,4].forEach(dx=>{const m=new T.Mesh(new T.CylinderGeometry(.5,.6,14,8),n3M(0xece6d8));m.position.set(mz.x+dx,7,mz.z-4);sc.add(m)});
+  /* عرفة: جبل الرحمة ومسجد نمرة وحدود عرفة وأشجار */
+  const jr=P(205,-48);const hill=new T.Mesh(new T.ConeGeometry(16,18,10),n3M(0x7d6447,{flatShading:true}));hill.position.copy(jr).setY(9);sc.add(hill);const pil=new T.Mesh(new T.CylinderGeometry(.7,.9,8,10),n3M(0xffffff));pil.position.copy(jr).setY(22);sc.add(pil);
+  const nm=P(174,-26);sc.add(n3Box(22,6,16,n3M(0xece6d8),nm.x,0,nm.z));[[-11,-8],[11,-8],[-11,8],[11,8],[0,-8],[0,8]].forEach(([dx,dz])=>{const m=new T.Mesh(new T.CylinderGeometry(.6,.7,18,8),n3M(0xf2ede2));m.position.set(nm.x+dx,9,nm.z+dz);sc.add(m)});
+  for(let i=0;i<12;i++){const b=n3Box(.8,4,.8,new T.MeshStandardMaterial({color:0xf2c200,emissive:0x664d00}),P(166,-60+i*8).x,0,P(166,-60+i*8).z);sc.add(b)}
+  const tr=new T.InstancedMesh(new T.ConeGeometry(1.4,4,6),n3M(0x5f8f4a),160);for(let i=0;i<160;i++){mx.compose(P(178+Math.random()*60,-70+Math.random()*80).setY(2),q.identity(),sv.set(1,1,1));tr.setMatrixAt(i,mx)}sc.add(tr);
+  /* الطريق */
+  const pts=[P(0,0),P(22,-3),P(44,-6),P(66,-14),P(92,-18),P(118,-22),P(146,-24),P(172,-26),P(190,-34)].map(p=>p.setY(.6));R.curve=new T.CatmullRomCurve3(pts);
+  const tube=new T.Mesh(new T.TubeGeometry(R.curve,200,1.2,6,false),n3M(0x6b6b70));tube.position.y=-.5;sc.add(tube);
+  R.t={mk:0,jm:.25,mn:.36,mz:.62,nm:.85,ar:1};
+  [['مكة',mk.clone().setY(30),'البلد الحرام، فيها المسجد الحرام والكعبة.'],['الجمرات',jm.clone().setY(14),'ثلاث جمرات بين منى ومكة تُرمى أيام النحر والتشريق.'],['منى',P(70,-24).setY(10),'يبيت فيها الحاج يوم التروية وليالي التشريق.'],['مسجد الخيف',P(78,-30).setY(8),'مسجد منى الكبير.'],['مزدلفة',mz.clone().setY(18),'يبيت فيها ليلة النحر، ويقف عند المشعر الحرام بعد الفجر.'],['مسجد نمرة',nm.clone().setY(22),'يُصلّى فيه الظهر والعصر جمعًا يوم عرفة، ومقدّمه خارج حدود عرفة.'],['حدود عرفة',P(166,-64).setY(8),'علامات صفراء؛ من وقف خارجها لم يصح وقوفه، كمن وقف في بطن عُرَنة.'],['جبل الرحمة',jr.clone().setY(30),'في عرفة، ولا يُشرع تكلّف صعوده؛ «وقفت ها هنا، وعرفة كلها موقف» (مسلم ١٢١٨).'],['عرفة',P(195,-20).setY(12),'الوقوف بها ركن الحج الأعظم.']].forEach(([n,p,t])=>v.label(n,p,t));
+  n3Stars(v,P(110,-20));return R}
+/* ---- الجمرات بقرب (المركز 0,0,-3000) ---- */
+function n3Jam(v,O){const T=THREE,sc=v.sc,o=O||new T.Vector3(0,0,-3000),R={o,walls:[],cnt:[0,0,0]};
+  const g=new T.Mesh(new T.PlaneGeometry(260,120),n3M(0xc9bfa9));g.rotation.x=-Math.PI/2;g.position.copy(o);sc.add(g);
+  sc.add(n3Box(170,1,40,n3M(0xe2dccf),o.x,0,o.z));const up=n3Box(170,1,40,n3M(0xe2dccf,{transparent:true,opacity:.85}),o.x,11,o.z);sc.add(up);
+  for(let x=-80;x<=80;x+=16)[-18,18].forEach(z=>sc.add(n3Box(1.4,11,1.4,n3M(0xd6cfc0),o.x+x,1,o.z+z)));
+  [['الصغرى',50,'الأولى من جهة منى ومسجد الخيف، يُبدأ بها أيام التشريق، ثم يقف بعدها مستقبلًا القبلة يدعو طويلًا.'],['الوسطى',0,'الثانية، ويقف بعدها كذلك للدعاء.'],['العقبة',-50,'الكبرى، من جهة مكة؛ وحدها تُرمى يوم النحر، ولا يقف بعدها للدعاء.']].forEach(([n,x,t],i)=>{
+    const w=n3Box(2.4,24,16,n3M(0xa79c8c),o.x+x,0,o.z);sc.add(w);R.walls.push(w);const bs=new T.Mesh(new T.TorusGeometry(10,.5,6,40),n3M(0x8f8576));bs.rotation.x=-Math.PI/2;bs.scale.set(.5,1,1);bs.position.set(o.x+x,1.2,o.z);sc.add(bs);
+    const b2=bs.clone();b2.position.y=12.2;sc.add(b2);v.label('جمرة '+n,new T.Vector3(o.x+x,27,o.z),t,'hl')});
+  R.throw=(i,from,cb)=>{const tg=R.walls[i].position.clone().setY(6+Math.random()*4),s=new T.Mesh(new T.SphereGeometry(.35,8,6),n3M(0x6e6a64));s.position.copy(from);sc.add(s);let t=0;const p0=from.clone(),mid=p0.clone().lerp(tg,.5).setY(Math.max(p0.y,tg.y)+6);
+    const f=dt=>{t+=dt*1.6;const a=1-t,b=t,p=new T.Vector3(a*a*p0.x+2*a*b*mid.x+b*b*tg.x,a*a*p0.y+2*a*b*mid.y+b*b*tg.y,a*a*p0.z+2*a*b*mid.z+b*b*tg.z);s.position.copy(p);
+      if(t>=1){v.upd.splice(v.upd.indexOf(f),1);s.position.copy(tg);setTimeout(()=>{sc.remove(s);s.geometry.dispose()},700);R.cnt[i]++;cb&&cb(R.cnt[i])}};v.upd.push(f)};
+  return R}
+/* ---- ميقات ذي الحليفة (المركز -3000,0,0) ---- */
+function n3Miq(v,O){const T=THREE,sc=v.sc,o=O||new T.Vector3(-3000,0,0);const g=new T.Mesh(new T.PlaneGeometry(300,300),n3M(0xd2bf98));g.rotation.x=-Math.PI/2;g.position.copy(o);sc.add(g);
+  sc.add(n3Box(44,10,32,n3M(0xf3efe6),o.x,0,o.z));for(let i=-4;i<=4;i++)sc.add(n3Box(3,5,.4,n3M(0xcfb98a),o.x+i*4.6,1,o.z+16.1));
+  const mn=new T.Mesh(new T.BoxGeometry(4,52,4),n3M(0xf3efe6));mn.position.set(o.x+26,26,o.z-10);sc.add(mn);sc.add(n3Box(6,1.5,6,n3M(0xd8cfbb),o.x+26,40,o.z-10));const cn=new T.Mesh(new T.ConeGeometry(2.6,7,8),n3M(0xd4a63a,{metalness:.6}));cn.position.set(o.x+26,55,o.z-10);sc.add(cn);
+  for(let i=0;i<26;i++){const x=o.x-70+Math.random()*140,z=o.z+30+Math.random()*50;sc.add(n3Box(.7,8,.7,n3M(0x7a5a3a),x,0,z));const f=new T.Mesh(new T.ConeGeometry(3.4,3,7),n3M(0x4f8a3e,{flatShading:true}));f.position.set(x,9,z);sc.add(f)}
+  v.label('مسجد ذي الحليفة (أبيار علي)',new T.Vector3(o.x,16,o.z),'ميقات أهل المدينة ومن مرّ بها، وهو أبعد المواقيت عن مكة.','hl');return {o}}
+/* ---- عارض داخل الدرس ---- */
+function n3View(id,kind){const el=document.getElementById(id);if(!el)return;if(!n3Ok()){el.innerHTML='<p class="muted" style="padding:12px">جهازك لا يدعم الرسم ثلاثي الأبعاد؛ استعمل الخريطة المسطحة.</p>';return}
+  el.innerHTML='<div class="n3-ld">جارٍ تحميل المجسّم…</div>';n3Load().then(()=>{if(!el.isConnected)return;el.innerHTML='';const v=N3(el,{rad:kind==='mash'?240:kind==='jam'?150:80,max:kind==='mash'?600:420});el._v=v;const T=THREE;
+    if(kind==='kaaba'||kind==='haram'||kind==='masa'){const R=n3Haram(v,{labels:true});v.H=R;if(kind==='masa')v.look(new T.Vector3(R.MX+70,60,40),new T.Vector3(R.MX,0,-15));else if(kind==='kaaba')v.look(new T.Vector3(34,26,34),new T.Vector3(0,5,0));else v.look(new T.Vector3(90,80,90),new T.Vector3(10,0,-10))}
+    else if(kind==='mash'){const R=n3Mash(v,new T.Vector3(0,0,0));v.M=R;v.look(new T.Vector3(60,180,170),new T.Vector3(100,0,-20))}
+    else if(kind==='jam'){const R=n3Jam(v,new T.Vector3(0,0,0));v.J=R;v.look(new T.Vector3(40,60,110),new T.Vector3(0,8,0))}
+    else if(kind==='miq'){n3Miq(v,new T.Vector3(0,0,0));v.look(new T.Vector3(70,40,90),new T.Vector3(0,6,0))}
+    v.upd.push(dt=>{if(v.spin&&!v.fly)v.ctl.th+=dt*.12});v.spin=true;el.addEventListener('pointerdown',()=>v.spin=false,{once:true})}).catch(()=>{el.innerHTML='<p class="muted" style="padding:12px">تعذّر تحميل محرّك المجسّمات (يحتاج اتصالًا أول مرة).</p>'})}
+/* أفعال تفاعلية داخل العارض */
+function n3Lap(id){const el=document.getElementById(id),v=el&&el._v;if(!v||!v.H)return;const T=THREE,H=v.H;if(!v.pm)v.pm=n3Marker(v);const R0=17,a0=Math.atan2(H.pStone.z,H.pStone.x);let t=0;v.spin=false;
+  const f=dt=>{t+=dt/9;const a=a0-t*2*Math.PI;v.pm.position.set(R0*Math.cos(a),.9,R0*Math.sin(a));v.pm.trail();if(t>=1){v.upd.splice(v.upd.indexOf(f),1);toast('✓ شوط كامل: من الحجر الأسود إليه، والكعبة عن يسارك')}};v.pm.position.set(R0*Math.cos(a0),.9,R0*Math.sin(a0));v.pm.clearTrail();v.upd.push(f)}
+function n3Sai(id){const el=document.getElementById(id),v=el&&el._v;if(!v||!v.H)return;const H=v.H;if(!v.pm)v.pm=n3Marker(v);v.sl=(v.sl||0)+1;const up=v.sl%2===1,z0=up?H.SZ:H.MZ,z1=up?H.MZ:H.SZ;let z=z0;v.spin=false;
+  const f=dt=>{const g=z>H.G1&&z<H.G2,sp=(g?26:12)*dt;z+=up?-sp:sp;if(up?z<=z1:z>=z1)z=z1;v.pm.position.set(H.MX,.9,z);v.pm.trail();if(z===z1){v.upd.splice(v.upd.indexOf(f),1);toast('الشوط '+AR(v.sl)+(v.sl>=7?' ✓ تمّ السعي عند المروة':up?' انتهى عند المروة':' انتهى عند الصفا'));if(v.sl>=7)v.sl=0}};v.pm.position.set(H.MX,.9,z0);v.pm.clearTrail();v.upd.push(f)}
+function n3Throw(id,i){const el=document.getElementById(id),v=el&&el._v;if(!v||!v.J)return;const J=v.J,need=J.cnt.findIndex(c=>c<7);
+  if(i!==need&&need>=0)return toast(need<i?'ابدأ بالجمرة '+['الصغرى','الوسطى','العقبة'][need]+'؛ الترتيب واجب عند الجمهور':'أتممت هذه الجمرة');if(need<0)return toast('✓ أتممت رمي اليوم');
+  const w=J.walls[i].position,from=new THREE.Vector3(w.x+6,2,w.z+14);J.throw(i,from,n=>{toast('الله أكبر · '+AR(n)+'/٧');const b=document.getElementById(id+'c');if(b)b.textContent=J.cnt.map(c=>AR(c)).join(' · ')})}
+function n3Aqaba(id){const el=document.getElementById(id),v=el&&el._v;if(!v||!v.J)return;const J=v.J;if(J.cnt[2]>=7)return toast('✓ رميت جمرة العقبة يوم النحر');const w=J.walls[2].position;J.throw(2,new THREE.Vector3(w.x+6,2,w.z+14),n=>{toast('الله أكبر · '+AR(n)+'/٧');if(n===7)toast('✓ رميت جمرة العقبة، وقطعت التلبية مع أول حصاة')})}
+
+/* ============ المحاكاة الكاملة كالفيديو: العمرة والحج مشهدًا مشهدًا ============ */
+let SIM=null;
+const simE=k=>k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+function simShots(kind,W){const T=THREE,V=(x,y,z)=>new T.Vector3(x,y,z),H=W.H,M=W.M,J=W.J,Q=W.Q.o,pm=W.pm,R0=17,a0=Math.atan2(H.pStone.z,H.pStone.x);
+  const onRing=a=>V(R0*Math.cos(a),.9,R0*Math.sin(a)),chase=(p,a,back,h)=>[V((R0+back)*Math.cos(a+.45),h,(R0+back)*Math.sin(a+.45)),p.clone().setY(3)];
+  const lap=(spd)=>(k)=>{const a=a0-k*2*Math.PI;pm.position.copy(onRing(a));pm.trail()};
+  const saiZ=(k,up)=>{const L=H.SZ-H.MZ,g=H.G2-H.G1,Tt=(L-g)+g/1.9;let s=k*Tt,d;const g1=up?H.SZ-H.G2:H.G1-H.MZ;if(s<g1)d=s;else if(s<g1+g/1.9)d=g1+(s-g1)*1.9;else d=g1+g+(s-g1-g/1.9);return up?H.SZ-d:H.MZ+d};
+  const mP=t=>M.curve.getPointAt(Math.max(0,Math.min(1,t))),walk=(t0,t1)=>k=>{pm.position.copy(mP(t0+(t1-t0)*simE(k))).setY(1.6);pm.trail()},follow=(t0,t1,h,b)=>k=>{const p=mP(t0+(t1-t0)*simE(k));return [p.clone().add(V(-b*.3,h,b)),p]};
+  const TALB='لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ';
+  const throwN=(wallOf,total)=>{let done=0;return {init:()=>{J.cnt=[0,0,0];done=0},on:k=>{const n=Math.min(total,Math.floor(k*(total+.6)));while(done<n){const i=wallOf(done),w=J.walls[i].position;pm.position.set(w.x+7,1.6,w.z+14);J.throw(i,pm.position.clone());done++}}}};
+  if(kind==='u'){const S=[
+    {ch:'الميقات',sc:'miq',sky:'day',d:9,cap:'الإحرام من الميقات: ذو الحليفة',sub:'اغتسل وتطيّب في بدنك، والبس إزارًا ورداءً أبيضين، ثم انوِ بقلبك وقل: «لبيك عمرة».',init:()=>{pm.position.set(Q.x+10,1,Q.z+24);pm.clearTrail()},cam:k=>[V(Q.x+90*Math.cos(1-k*.6),30+k*10,Q.z+90*Math.sin(1-k*.6)),V(Q.x,8,Q.z)]},
+    {ch:'التلبية',sc:'miq',sky:'day',d:9,cap:'التلبية',sub:TALB+'<small>البخاري (١٥٤٩) ومسلم (١١٨٤)</small>',cam:k=>[V(Q.x+40,20+k*60,Q.z+70-k*20),V(Q.x,6,Q.z)]},
+    {ch:'المسجد الحرام',sc:'haram',sky:'day',d:9,cap:'الوصول إلى المسجد الحرام',sub:'تدخل بالرجل اليمنى وتقول: «اللهم افتح لي أبواب رحمتك» (مسلم ٧١٣). ويقطع المعتمر التلبية إذا شرع في الطواف.',init:()=>{pm.position.copy(onRing(a0).multiplyScalar(2.4).setY(.9));pm.clearTrail()},cam:k=>{const e=simE(k);return [V(220-150*e,170-120*e,220-150*e),V(0,4,0)]}},
+    {ch:'بداية الطواف',sc:'haram',sky:'day',d:8,cap:'بداية الطواف من الحجر الأسود',sub:'اضطبع: اجعل وسط ردائك تحت إبطك الأيمن. ثم حاذِ الحجر الأسود، واستلمه أو أشِر إليه وقل: «الله أكبر»، والكعبة عن يسارك.',init:()=>{pm.position.copy(onRing(a0));pm.clearTrail()},on:k=>{H.stone.scale.setScalar(1+.6*Math.abs(Math.sin(k*12)))},cam:k=>[V(H.pStone.x+26,10,H.pStone.z+18),H.pStone.clone()]}];
+    for(let i=1;i<=7;i++)S.push({ch:'الشوط '+AR(i),sc:'haram',sky:'day',d:i<=3?7:8,cap:'الطواف · الشوط '+AR(i)+' من ٧',sub:i<=3?'رَمَل: إسراع مع مقاربة الخطى، للرجل في الأشواط الثلاثة الأولى. واذكر الله وادعُ بما شئت؛ فليس لكل شوط دعاء مخصوص.':'مشيٌ معتاد، مع الذكر والدعاء وتلاوة القرآن.',
+      init:()=>{H.stone.scale.setScalar(1)},on:(k)=>{lap()(k);const s=document.getElementById('simS');if(s){const d=k>.78?'بين الركن اليماني والحجر الأسود: ﴿رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ وَقِنَا عَذَابَ ٱلنَّارِ﴾ (أبو داود ١٨٩٢)':k<.06?'حاذيت الحجر الأسود: «الله أكبر»':null;if(d&&s.dataset.d!==d){s.dataset.d=d;s.innerHTML=d}else if(!d&&s.dataset.d){delete s.dataset.d;s.innerHTML=SIM.cur.sub}}},cam:k=>{const a=a0-k*2*Math.PI;return chase(onRing(a),a,26,16)},cnt:()=>'الأشواط '+AR(i)+'/٧'});
+    S.push({ch:'ركعتا الطواف',sc:'haram',sky:'day',d:9,cap:'ركعتان خلف مقام إبراهيم',sub:'تغطي كتفك، وتصلي ركعتين خلف المقام إن تيسّر، تقرأ في الأولى «الكافرون» وفي الثانية «الإخلاص». ﴿وَٱتَّخِذُواْ مِن مَّقَامِ إِبۡرَٰهِـۧمَ مُصَلّٗى﴾',init:()=>{pm.clearTrail()},on:k=>{pm.position.copy(onRing(a0).lerp(V(15,.9,-15),simE(Math.min(1,k*2))))},cam:k=>[V(30-k*6,12,-30+k*6),V(10.5,2,-10.5)]},
+     {ch:'زمزم',sc:'haram',sky:'day',d:7,cap:'زمزم ثم استلام الحجر',sub:'ثم تشرب من ماء زمزم، وترجع إلى الحجر الأسود فتستلمه إن تيسّر، ثم تخرج إلى الصفا (مسلم ١٢١٨).',cam:k=>[V(60+k*40,40,40-k*20),V(40+k*60,0,0)]},
+     {ch:'الصفا',sc:'haram',sky:'day',d:11,cap:'على الصفا',sub:'تقرأ: ﴿إِنَّ ٱلصَّفَا وَٱلۡمَرۡوَةَ مِن شَعَآئِرِ ٱللَّهِ﴾ «أبدأ بما بدأ الله به»، ثم تستقبل الكعبة فتكبّر وتقول: «لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير، لا إله إلا الله وحده، أنجز وعده، ونصر عبده، وهزم الأحزاب وحده» ثلاثًا، وتدعو بينها (مسلم ١٢١٨).',init:()=>{pm.position.set(H.MX,1.6,H.SZ+3);pm.clearTrail()},cam:k=>[V(H.MX+40-k*10,22,H.SZ+40),V(H.MX,2,H.SZ)]});
+    for(let i=1;i<=7;i++){const up=i%2===1;S.push({ch:'السعي '+AR(i),sc:'haram',sky:'day',d:8,cap:'السعي · الشوط '+AR(i)+' من ٧',sub:(up?'من الصفا إلى المروة':'من المروة إلى الصفا')+'. وعلى المروة تصنع ما صنعت على الصفا.',
+      on:k=>{const z=saiZ(k,up);pm.position.set(H.MX,.9,z);pm.trail();const s=document.getElementById('simS'),g=z>H.G1&&z<H.G2;if(s&&g!==!!s.dataset.g){s.dataset.g=g?1:'';if(g)s.dataset.g=1;else delete s.dataset.g;s.innerHTML=g?'بين الميلين الأخضرين: يُسرع الرجل سعيًا شديدًا، والمرأة تمشي.':SIM.cur.sub}},cam:k=>{const z=saiZ(k,up);return [V(H.MX+34,20,z+(up?26:-26)),V(H.MX,1,z)]},cnt:()=>'الأشواط '+AR(i)+'/٧'})}
+    S.push({ch:'الحلق والتقصير',sc:'haram',sky:'sunset',d:10,cap:'الحلق أو التقصير، وتمّت العمرة',sub:'يحلق الرجل رأسه، وهو أفضل، أو يقصّر من جميعه، والمرأة تقصّر قدر أنملة. وبهذا تمّت عمرتك وحلّ لك كل شيء. تقبّل الله منك.',on:k=>{pm.scale.setScalar(1+k*.8)},init:()=>{pm.scale.setScalar(1)},cam:k=>{const e=simE(k);return [V(80+e*140,40+e*160,80+e*140),V(40,0,-10)]}});return S}
+  /* الحج */
+  const jFrom=()=>{const w=J.walls[2].position;return V(w.x+7,1.6,w.z+14)};
+  const aq=throwN(()=>2,7),ts=throwN(n=>Math.floor(n/7),21);
+  return [
+   {ch:'٨ التروية',sc:'mash',sky:'day',d:10,cap:'اليوم الثامن: يوم التروية',sub:'يُحرم المتمتع بالحج من مكانه ضحى، ويتوجه إلى منى ملبّيًا.',init:()=>{pm.clearTrail()},on:walk(0,.36),cam:follow(0,.36,110,120)},
+   {ch:'المبيت بمنى',sc:'mash',sky:'night',d:9,cap:'في منى',sub:'يصلي بها الظهر والعصر والمغرب والعشاء والفجر، كل صلاة في وقتها، ويقصر الرباعية. والمبيت بها ليلة عرفة سنة.',on:k=>{pm.position.copy(mP(.36)).setY(1.6)},cam:k=>{const p=mP(.36);return [p.clone().add(V(40*Math.cos(k*2),40,40*Math.sin(k*2))),p]}},
+   {ch:'٩ إلى عرفة',sc:'mash',sky:'dawn',d:11,cap:'اليوم التاسع: المسير إلى عرفة',sub:'بعد طلوع الشمس يسير ملبّيًا ومكبّرًا إلى نمرة.',init:()=>{pm.clearTrail()},on:walk(.36,.85),cam:follow(.36,.85,110,120)},
+   {ch:'نمرة',sc:'mash',sky:'day',d:9,cap:'مسجد نمرة',sub:'تُسمع خطبة عرفة، ثم يُصلّى الظهر والعصر جمعًا وقصرًا جمع تقديم، بأذان واحد وإقامتين.',on:k=>{pm.position.copy(mP(.85)).setY(1.6)},cam:k=>{const p=mP(.85);return [p.clone().add(V(50-k*20,30,50)),p]}},
+   {ch:'الوقوف بعرفة',sc:'mash',sky:'day',d:13,cap:'الوقوف بعرفة: ركن الحج الأعظم',sub:'يقف داخل حدود عرفة مستقبلًا القبلة رافعًا يديه يدعو، حتى تغرب الشمس: «خير الدعاء دعاء يوم عرفة، وخير ما قلت أنا والنبيون من قبلي: لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير» (الترمذي ٣٥٨٥، وحسّنه الألباني).',on:(k)=>{walk(.85,1)(Math.min(1,k*2));if(k>.7&&W.v.skyK!=='sunset')W.v.sky('sunset')},cam:k=>{const p=mP(1);return [p.clone().add(V(-60+k*30,40,70)),p.clone().add(V(10,0,-14))]}},
+   {ch:'الدفع إلى مزدلفة',sc:'mash',sky:'night',d:10,cap:'الإفاضة إلى مزدلفة بعد الغروب',sub:'يدفع بسكينة: «أيها الناس، السكينة السكينة» (مسلم ١٢١٨). ﴿فَإِذَآ أَفَضۡتُم مِّنۡ عَرَفَٰتٖ فَٱذۡكُرُواْ ٱللَّهَ عِندَ ٱلۡمَشۡعَرِ ٱلۡحَرَامِ﴾',init:()=>{pm.clearTrail()},on:walk(1,.62),cam:follow(1,.62,100,110)},
+   {ch:'ليلة مزدلفة',sc:'mash',sky:'night',d:11,cap:'المبيت بمزدلفة',sub:'يصلي المغرب والعشاء جمعًا إذا وصل، ويلتقط الحصى كحصى الخذف (فوق الحمّصة)، ويبيت، ثم يصلي الفجر ويقف عند المشعر الحرام يذكر الله ويدعو حتى يُسفر جدًّا. ويُرخّص للضعفة في الدفع بعد منتصف الليل.',on:k=>{pm.position.copy(mP(.62)).setY(1.6);if(k>.75&&W.v.skyK!=='dawn')W.v.sky('dawn')},cam:k=>{const p=mP(.62);return [p.clone().add(V(36*Math.cos(k*2.4),26,36*Math.sin(k*2.4))),p]}},
+   {ch:'١٠ إلى منى',sc:'mash',sky:'dawn',d:9,cap:'اليوم العاشر: يوم النحر',sub:'يدفع من مزدلفة قبل طلوع الشمس إلى منى، فيبدأ بجمرة العقبة.',init:()=>{pm.clearTrail()},on:walk(.62,.25),cam:follow(.62,.25,100,110)},
+   {ch:'جمرة العقبة',sc:'jam',sky:'day',d:13,cap:'رمي جمرة العقبة',sub:'سبع حصيات متعاقبات، يرفع يده ويكبّر مع كل حصاة، ويقطع التلبية مع أولها، ولا يقف بعدها للدعاء.',init:aq.init,on:aq.on,cam:k=>{const w=J.walls[2].position;return [V(w.x+30,14,w.z+40),w.clone().setY(8)]},cnt:()=>'العقبة '+AR(J.cnt[2])+'/٧'},
+   {ch:'النحر والحلق',sc:'mash',sky:'day',d:10,cap:'النحر ثم الحلق: التحلل الأول',sub:'ينحر المتمتع والقارن هديه، ثم يحلق أو يقصّر، فيحل له كل شيء إلا النساء. ولو قدّم بعضها على بعض فلا حرج: «افعل ولا حرج» (البخاري ٨٣، ومسلم ١٣٠٦).',on:k=>{pm.position.copy(mP(.3)).setY(1.6)},cam:k=>{const p=mP(.32);return [p.clone().add(V(-40+k*80,70,60)),p]}},
+   {ch:'طواف الإفاضة',sc:'haram',sky:'day',d:12,cap:'طواف الإفاضة ثم السعي',sub:'ركن الحج: سبعة أشواط بلا رمل ولا اضطباع، ثم يسعى المتمتع. وبه يتحلل التحلل الثاني فيحل له كل شيء.',init:()=>{pm.clearTrail()},on:k=>{lap()(k*7%1)},cam:k=>{const a=a0-(k*7%1)*2*Math.PI;return chase(onRing(a),a,40,30)},cnt:()=>'الأشواط '+AR(Math.min(7,1+Math.floor(SIM.k*7)))+'/٧'},
+   {ch:'أيام التشريق',sc:'jam',sky:'day',d:18,cap:'أيام التشريق: ١١ و١٢ و١٣',sub:'يرمي كل يوم بعد الزوال الجمرات الثلاث: الصغرى ثم الوسطى ثم العقبة، سبعًا سبعًا، ويقف بعد الأوليين مستقبلًا القبلة يدعو طويلًا. ويبيت بمنى لياليها.',init:ts.init,on:ts.on,cam:k=>[V(80-k*150,46,-3000+95),V(40-k*90,6,-3000)],cnt:()=>J.cnt.map((c,i)=>['الصغرى','الوسطى','العقبة'][i]+' '+AR(c)).join(' · ')},
+   {ch:'التعجّل',sc:'mash',sky:'sunset',d:8,cap:'التعجّل والتأخر',sub:'﴿فَمَن تَعَجَّلَ فِي يَوۡمَيۡنِ فَلَآ إِثۡمَ عَلَيۡهِ وَمَن تَأَخَّرَ فَلَآ إِثۡمَ عَلَيۡهِ﴾: من تعجّل خرج من منى يوم ١٢ قبل الغروب، ومن تأخر رمى يوم ١٣.',on:k=>{pm.position.copy(mP(.36)).setY(1.6)},cam:k=>{const p=mP(.36);return [p.clone().add(V(60,50-k*20,60-k*30)),p]}},
+   {ch:'طواف الوداع',sc:'haram',sky:'sunset',d:12,cap:'طواف الوداع: آخر عهده بالبيت',sub:'يطوف سبعًا قبل سفره، ويسقط عن الحائض والنفساء. تقبّل الله حجك، وجعله مبرورًا.',init:()=>{pm.clearTrail()},on:k=>{lap()(Math.min(1,k*1.15))},cam:k=>{const e=simE(k);return [V(40+e*180,20+e*180,40+e*180),V(0,4,0)]}}]}
+function simOpen(kind){const el=document.getElementById('simV');if(!el)return;if(!n3Ok()){el.innerHTML='<p class="muted" style="padding:16px">جهازك لا يدعم الرسم ثلاثي الأبعاد.</p>';return}
+  el.innerHTML='<div class="n3-ld">جارٍ تجهيز المحاكاة…</div>';n3Load().then(()=>{if(!el.isConnected)return;el.innerHTML='';const T=THREE,v=N3(el,{});v.hideL=true;v.fly=true;
+    const W={v,H:n3Haram(v,{labels:false}),M:n3Mash(v,new T.Vector3(0,0,3000)),J:n3Jam(v,new T.Vector3(0,0,-3000)),Q:n3Miq(v,new T.Vector3(-3000,0,0))};W.pm=n3Marker(v);
+    SIM={kind,v,W,S:simShots(kind,W),i:0,t:0,k:0,play:true,sp:1,cur:null};simGo(0);
+    v.upd.push(dt=>{if(!SIM||SIM.v!==v)return;v.speed=SIM.sp;const s=SIM.cur;if(SIM.play){SIM.t+=dt*SIM.sp;SIM.k=Math.min(1,SIM.t/s.d);s.on&&s.on(SIM.k,dt)}
+      const [p,tg]=s.cam(SIM.k),c=v.cam,f=SIM.snap?1:1-Math.exp(-dt*3.5);SIM.snap=0;c.position.lerp(p,f);SIM.tg=SIM.tg?SIM.tg.lerp(tg,f):tg.clone();c.lookAt(SIM.tg);
+      const n=document.getElementById('simN');if(n)n.textContent=s.cnt?s.cnt():'';const b=document.getElementById('simP');if(b)b.style.width=((SIM.i+SIM.k)/SIM.S.length*100)+'%';
+      if(SIM.play&&SIM.t>=s.d){if(SIM.i<SIM.S.length-1)simGo(SIM.i+1);else{SIM.play=false;simUi();toast(kind==='u'?'✓ انتهت محاكاة العمرة':'✓ انتهت محاكاة الحج');const st=NSKS();st.sim=st.sim||{};st.sim[kind]=today();save()}}})}).catch(()=>{el.innerHTML='<p class="muted" style="padding:16px">تعذّر تحميل محرّك المجسّمات (يحتاج اتصالًا أول مرة).</p>'})}
+function simGo(i){if(!SIM)return;const S=SIM.S[i],prev=SIM.cur;SIM.i=i;SIM.t=0;SIM.k=0;SIM.cur=S;if(!prev||prev.sc!==S.sc){SIM.snap=1;SIM.tg=null;const f=document.querySelector('.sim-fade');if(f){f.classList.remove('on');void f.offsetWidth;f.classList.add('on')}}
+  SIM.v.sky(S.sky);S.init&&S.init();S.on&&S.on(0,0);const c=document.getElementById('simC'),s=document.getElementById('simS');if(c)c.textContent=S.cap;if(s){delete s.dataset.d;delete s.dataset.g;s.innerHTML=S.sub}simUi()}
+function simUi(){const b=document.getElementById('simB');if(b)b.textContent=SIM&&SIM.play?'⏸':'▶';document.querySelectorAll('.sim-ch button').forEach((x,i)=>x.classList.toggle('on',SIM&&i===SIM.i));const on=document.querySelector('.sim-ch button.on');if(on)on.scrollIntoView({block:'nearest',inline:'center'})}
+function simCtl(a){if(!SIM)return;if(a==='p'){SIM.play=!SIM.play;if(SIM.play&&SIM.i===SIM.S.length-1&&SIM.k>=1)simGo(0)}else if(a==='n')simGo(Math.min(SIM.S.length-1,SIM.i+1));else if(a==='b')simGo(Math.max(0,SIM.t>2?SIM.i:SIM.i-1));else if(a==='s'){SIM.sp=SIM.sp===1?2:SIM.sp===2?.5:1;const e=document.getElementById('simX');if(e)e.textContent=AR(SIM.sp)+'×'}simUi()}
+function simHTML(kind){const names=kind==='u'?['الميقات','التلبية','المسجد الحرام','بداية الطواف','الشوط ١','الشوط ٢','الشوط ٣','الشوط ٤','الشوط ٥','الشوط ٦','الشوط ٧','ركعتا الطواف','زمزم','الصفا','السعي ١','السعي ٢','السعي ٣','السعي ٤','السعي ٥','السعي ٦','السعي ٧','الحلق والتقصير']
+  :['٨ التروية','المبيت بمنى','٩ إلى عرفة','نمرة','الوقوف بعرفة','الدفع إلى مزدلفة','ليلة مزدلفة','١٠ إلى منى','جمرة العقبة','النحر والحلق','طواف الإفاضة','أيام التشريق','التعجّل','طواف الوداع'];
+  return `<div class="sim"><div class="sim-v" id="simV"></div><div class="sim-fade"></div><div class="sim-n" id="simN"></div><div class="sim-cap"><b id="simC"></b><p id="simS"></p></div><i class="sim-pr"><u id="simP"></u></i></div>
+   <div class="sim-ctl"><button onclick="simCtl('b')">⏮</button><button id="simB" class="big" onclick="simCtl('p')">⏸</button><button onclick="simCtl('n')">⏭</button><button id="simX" onclick="simCtl('s')">١×</button></div>
+   <div class="sim-ch">${names.map((n,i)=>`<button onclick="simGo(${i})">${n}</button>`).join('')}</div><small class="muted">المشاهد رسوم تقريبية مصغّرة لا تطابق المقاييس، والنقطة الذهبية تمثّلك. اسحب لا يلزم؛ المحاكاة تتحرك وحدها، ويمكنك القفز إلى أي مشهد.</small>`}
+
 /* ============ وحدة المناسك (العمرة والحج) في مسار الفقه: دروس متدرجة، لكل درس تجربة تفاعلية وتحقق، ثم مختبر واختبار ============ */
 function NSKS(){S.nsk=S.nsk||{d:{},ck:{},sec:'les',fd:{},so:{i:0,ok:0,a:null},is:{}};const n=S.nsk;n.fd=n.fd||{};n.so=n.so||{i:0,ok:0,a:null};n.is=n.is||{};return n}
-const NSK=[
+/* ---- دروس العمرة التفصيلية ---- */
+const NSK_U2=[
+ {id:'utw',ic:'🔄',n:'الطواف بالتفصيل',w:'k3',b:`<p><b>الطواف</b>: الدوران حول الكعبة سبعة أشواط تعبّدًا لله، وهو ركن العمرة.</p>
+  <h4>شروط صحته</h4><ul class="nk-ul"><li>النية.</li><li>الطهارة من الحدث والنجس وستر العورة (والطهارة عند الحنفية واجبة لا شرط).</li><li>سبعة أشواط كاملة يقينًا؛ فإن شكّ بنى على الأقل.</li><li>البدء من الحجر الأسود، وجعل البيت عن يساره.</li><li>الطواف من وراء الحِجر لأنه من البيت، وداخل المسجد.</li><li>الموالاة بين الأشواط: شرط عند المالكية والحنابلة، وسنة عند الحنفية والشافعية.</li></ul>
+  <h4>سننه</h4><ul class="nk-ul"><li>الاضطباع والرَّمَل للرجل في طواف القدوم وطواف العمرة.</li><li>استلام الحجر الأسود وتقبيله، فإن عجز أشار إليه وكبّر.</li><li>استلام الركن اليماني بيده بلا تقبيل ولا إشارة.</li><li>الدعاء بين الركنين: ﴿رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ…﴾.</li><li>الدنوّ من البيت إن لم يؤذِ أحدًا.</li></ul>
+  <h4>أخطاء شائعة</h4><ul class="nk-ul"><li>الطواف من داخل الحِجر، فلا يُحسب ذلك الشوط.</li><li>المزاحمة والإيذاء لتقبيل الحجر، وترك التقبيل أولى من الأذى.</li><li>التزام دعاء مخصوص لكل شوط من الكتيّبات، ولا أصل له؛ فادعُ بما شئت.</li><li>استلام الركنين الشامي والعراقي، والتمسّح بجدران الكعبة والمقام.</li><li>الاضطباع في غير طواف القدوم والعمرة.</li></ul>
+  <p>استكشف الكعبة: اسحب لتدور حولها، واضغط الأسماء لتعرف كل موضع، ثم جرّب شوطًا كاملًا:</p>`,
+  q:[['من طاف من داخل الحِجر:',['لم يصح ذلك الشوط','صحّ طوافه','يُكره فقط','عليه دم'],'لأن الحِجر من البيت، والطواف يكون بالبيت كله.'],['شكّ: هل طاف خمسة أم ستة؟',['يبني على الأقل: خمسة','يبني على الأكثر','يعيد الطواف كله','لا شيء عليه'],'لأن الأقل هو اليقين، وهذا قول الجمهور.'],['الركن اليماني:',['يُستلم باليد بلا تقبيل','يُقبَّل','يُشار إليه ويُكبَّر','لا يُقترب منه'],'«لم أرَ النبي ﷺ يستلم من البيت إلا الركنين اليمانيين» (البخاري ١٦٠٩).']]},
+ {id:'usa',ic:'↕️',n:'السعي بالتفصيل',w:'s3',b:`<p><b>السعي</b>: التردد بين الصفا والمروة سبعة أشواط بعد طواف صحيح. وهو ركن عند المالكية والشافعية والحنابلة، وواجب عند الحنفية.</p>
+  <h4>شروطه</h4><ul class="nk-ul"><li>أن يكون بعد طواف صحيح.</li><li>سبعة أشواط: الذهاب شوط، والرجوع شوط.</li><li>البدء بالصفا والختم بالمروة.</li><li>استيعاب ما بين الصفا والمروة.</li></ul>
+  <p>ولا تُشترط له الطهارة، وهي مستحبة: قال النبي ﷺ لعائشة لما حاضت: «افعلي ما يفعل الحاج، غير ألا تطوفي بالبيت» (البخاري ٣٠٥ ومسلم ١٢١١).</p>
+  <h4>صفته</h4><ul class="nk-ul"><li>يرقى الصفا ويقرأ أول مرة: ﴿إِنَّ ٱلصَّفَا وَٱلۡمَرۡوَةَ مِن شَعَآئِرِ ٱللَّهِ﴾.</li><li>يستقبل الكعبة فيكبّر ويهلّل بالذكر المأثور ثلاثًا ويدعو بينها (مسلم ١٢١٨).</li><li>ينزل فيمشي، ويسرع الرجل بين العلمين الأخضرين.</li><li>يصنع على المروة ما صنع على الصفا.</li></ul>
+  <h4>أخطاء شائعة</h4><ul class="nk-ul"><li>عدّ الذهاب والإياب شوطًا واحدًا، فيصير السعي ١٤ شوطًا.</li><li>رفع اليدين عند التكبير على الصفا كالصلاة؛ والسنة رفعهما للدعاء.</li><li>إسراع المرأة بين الميلين.</li><li>ترك الحائض السعي ظنًّا أن الطهارة شرط له.</li></ul><p>جرّب السعي على المجسّم: كل ضغطة شوط، ولاحظ الإسراع بين الميلين:</p>`,
+  q:[['من الصفا إلى المروة ثم العودة إلى الصفا:',['شوطان','شوط واحد','لا يُحسب الرجوع','نصف شوط'],'الذهاب شوط، والرجوع شوط آخر.'],['هل تُشترط الطهارة للسعي؟',['لا، وهي مستحبة','نعم، شرط','واجبة يجبرها دم','شرط عند الجمهور'],'لحديث عائشة: «غير ألا تطوفي بالبيت».'],['الإسراع بين الميلين الأخضرين:',['للرجل دون المرأة','للمرأة دون الرجل','للرجل والمرأة','لا أصل له'],'والمرأة تمشي سترًا لها.']]},
+ {id:'uhl',ic:'✂️',n:'الحلق والتقصير وختم العمرة',w:'hl',b:`<p>بعد السعي يحلق الرجل رأسه أو يقصّر منه، والحلق أفضل؛ دعا النبي ﷺ للمحلّقين ثلاثًا وللمقصّرين مرة (البخاري ١٧٢٧ ومسلم ١٣٠٢). والمرأة تقصّر من أطراف شعرها قدر أنملة ولا تحلق.</p>
+  <p>وبه تتم العمرة، فيحلّ للمعتمر كل ما حرم عليه بالإحرام. وحكمه: ركن عند الشافعية، وواجب يُجبر بدم عند الجمهور.</p>
+  <p>اختر مذهبك لترى أقل ما يجزئ في التقصير:</p>`,
+  q:[['أقل ما يجزئ في التقصير عند الشافعية:',['ثلاث شعرات','ربع الرأس','جميع الرأس','لا يجزئ التقصير'],'والأحوط تعميم الرأس خروجًا من الخلاف.'],['عند المالكية والحنابلة يجب في التقصير:',['تعميم الرأس','ثلاث شعرات','ربع الرأس','شعرة واحدة'],'أي يقصّر من جميع جوانب رأسه.'],['تقصّر المرأة:',['قدر أنملة من أطراف شعرها','بالحلق','نصف شعرها','لا تقصّر'],'«ليس على النساء حلق، إنما على النساء التقصير» (أبو داود ١٩٨٤، وصححه الألباني).']]}];
+/* ---- دروس الحج التفصيلية ---- */
+const NSK_H2=[
+ {id:'h8',ic:'⛺',n:'اليوم الثامن: يوم التروية',w:'m3',f:'mn',b:`<p>سُمّي بذلك لأنهم كانوا يتروّون فيه الماء لما بعده. وأعماله:</p><ul class="nk-ul"><li>يُحرم بالحج من مكانه ضحى: المتمتعُ ومن كان بمكة، ويغتسل ويتطيب كما فعل عند الميقات، ويقول: «لبيك حجًّا».</li><li>يتوجه إلى منى ملبّيًا.</li><li>يصلي بها الظهر والعصر والمغرب والعشاء والفجر، كل صلاة في وقتها، ويقصر الرباعية بلا جمع.</li><li>يبيت بمنى ليلة التاسع، وهو سنة عند الجمهور.</li></ul><p>تتبّع المشاعر على المجسّم:</p>`,
+  q:[['حكم المبيت بمنى ليلة عرفة:',['سنة','ركن','واجب','بدعة'],'من تركه فلا شيء عليه.'],['تُصلّى الرباعية بمنى يوم التروية:',['قصرًا بلا جمع','جمعًا وقصرًا','تامة','جمعًا بلا قصر'],'كما في حديث جابر الطويل (مسلم ١٢١٨).'],['يُحرم المتمتع بالحج يوم الثامن:',['من مكانه في مكة','من الميقات','من التنعيم وجوبًا','من عرفة'],'«حتى أهل مكة من مكة» (متفق عليه).']]},
+ {id:'h9',ic:'⛰️',n:'اليوم التاسع: يوم عرفة',w:'m3',f:'ar',b:`<p>أعظم أيام الحج، والوقوف فيه ركن لا يصح الحج بدونه: «الحج عرفة».</p><ul class="nk-ul"><li>بعد طلوع الشمس يسير من منى إلى نمرة، فيبقى بها إلى الزوال إن تيسّر.</li><li>بعد الزوال: خطبة عرفة، ثم الظهر والعصر جمع تقديم وقصرًا، بأذان واحد وإقامتين.</li><li>ثم يقف داخل حدود عرفة، مستقبلًا القبلة رافعًا يديه، يكثر الذكر والدعاء والتلبية حتى تغرب الشمس.</li><li>عرفة كلها موقف، ولا يُشرع تكلّف صعود جبل الرحمة. وبطن عُرَنة ومقدّم مسجد نمرة خارج عرفة.</li><li>يُستحب للحاج أن يكون مفطرًا ليتقوى على الدعاء.</li></ul>
+  <p><b>وقت الوقوف</b>: من زوال التاسع إلى فجر العاشر عند الجمهور، ومن فجر التاسع عند الحنابلة. ومن وقف نهارًا لزمه البقاء إلى الغروب عند الجمهور، فإن دفع قبله فعليه دم عند الحنفية والحنابلة.</p>`,
+  q:[['ينتهي وقت الوقوف بعرفة عند الجمهور:',['بطلوع فجر يوم النحر','بغروب الشمس','بأذان العصر','بزوال الشمس'],'فمن أدرك عرفة ليلًا قبل الفجر أدرك الحج.'],['من وقف في بطن عُرَنة:',['لا يصح وقوفه','يصح وقوفه','يُكره فقط','يصح وعليه دم'],'«وارفعوا عن بطن عُرَنة»؛ لأنه ليس من عرفة.'],['يُستحب في الوقوف:',['استقبال القبلة والإكثار من الدعاء','صعود جبل الرحمة','صيام يوم عرفة','التنقّل بين المشاعر'],'ويُسنّ الفطر للحاج يومها.']]},
+ {id:'hmz',ic:'🌙',n:'ليلة مزدلفة',w:'peb',f:'mz',b:`<p>بعد غروب شمس عرفة يدفع الحاج إلى مزدلفة بسكينة، ملبّيًا ذاكرًا.</p><ul class="nk-ul"><li>إذا وصل صلى المغرب والعشاء جمعًا، والعشاء ركعتين.</li><li>يبيت بها، وهو واجب عند الجمهور.</li><li>يصلي الفجر في أول وقتها، ثم يقف عند المشعر الحرام يذكر الله ويدعو حتى يُسفر جدًّا.</li><li>يدفع قبل طلوع الشمس، مخالفةً للمشركين الذين كانوا ينتظرون طلوعها.</li><li>يُرخَّص للضعفة والنساء ومن معهم في الدفع بعد منتصف الليل.</li><li>يلتقط حصى الجمار كحصى الخذف (أكبر قليلًا من الحمّصة)، من مزدلفة أو من أي مكان، ولا يُشرع غسله.</li></ul><p>التقط حصيات جمرة العقبة السبع:</p>`,
+  q:[['المغرب والعشاء بمزدلفة:',['جمعًا عند الوصول','كل صلاة في وقتها','تُصلّيان بعرفة','بعد الفجر'],'كما في حديث جابر.'],['يدفع من مزدلفة:',['قبل طلوع الشمس بعد الإسفار','بعد الظهر','بعد منتصف الليل للجميع','بعد طلوع الشمس'],'خالف النبي ﷺ المشركين في ذلك.'],['حجم حصى الجمار:',['كحصى الخذف: أكبر قليلًا من الحمّصة','حجارة كبيرة','أي حجم','حبات رمل'],'«بأمثال هؤلاء فارموا، وإياكم والغلو» (النسائي، وصححه الألباني).']]},
+ {id:'hwd',ic:'👋',n:'طواف الوداع وأخطاء الحج الشائعة',w:'mis',b:`<p><b>طواف الوداع</b>: آخر ما يفعله الحاج قبل سفره، سبعة أشواط بلا رمل ولا سعي بعده. وهو واجب عند الجمهور، ويسقط عن الحائض والنفساء. ومن أخّر طواف الإفاضة إلى وقت سفره أجزأه عن الوداع.</p><p>وهذه أخطاء تتكرر كثيرًا، اضغط كل خطأ لترى صوابه:</p>`,
+  q:[['يسقط طواف الوداع عن:',['الحائض والنفساء','المريض القادر','كبير السن','من تعجّل'],'«إلا أنه خُفّف عن الحائض» (متفق عليه).'],['من أخّر طواف الإفاضة فطافه عند سفره:',['أجزأه عن طواف الوداع','عليه طوافان','لا يصح','عليه دم'],'لأن المقصود أن يكون آخر عهده بالبيت.'],['الخروج من عرفة قبل غروب الشمس:',['خلاف السنة، وعليه دم عند الحنفية والحنابلة','لا شيء فيه','يبطل الحج','واجب'],'وقف النبي ﷺ حتى غربت الشمس.']]}];
+const NSK_MIS=[['الوقوف خارج حدود عرفة، كبطن عُرَنة','لا يصح الوقوف إلا داخل حدودها؛ فتأكد من العلامات الصفراء.'],['الانصراف من عرفة قبل الغروب','السنة البقاء حتى الغروب، ومن دفع قبله فعليه دم عند الحنفية والحنابلة.'],['الرمي بحصى كبيرة أو بالنعال','السنة حصى الخذف، والرمي بغير الحجارة لا يجزئ عند الجمهور.'],['غسل الحصى','لم يُنقل عن النبي ﷺ، فلا يُشرع.'],['الرمي قبل الزوال أيام التشريق','وقته بعد الزوال عند الجمهور.'],['اعتقاد أن الحصاة لا بد أن تصيب الشاخص','الواجب أن تقع في الحوض.'],['التوكيل في الرمي بلا عذر','يُرمى عن العاجز فقط، كالمريض والصغير.'],['الانشغال بالتصوير والكلام عن الدعاء في عرفة','عرفة يوم دعاء وذكر، فاغتنم ساعاته.']];
+/* ---- تجارب جديدة ---- */
+function nskHl(){const n=NSKS(),m=n.hlm==null?3:n.hlm,D=[['الحنفية','ربع الرأس على الأقل'],['المالكية','تعميم الرأس'],['الشافعية','ثلاث شعرات'],['الحنابلة','تعميم الرأس']];
+  return `<div class="nk-w"><div class="hj-ch">${D.map(([x],i)=>`<button class="${m===i?'on':''}" onclick="NSKS().hlm=${i};save();hjRe()">${x}</button>`).join('')}</div><p class="hj-ok">عند ${D[m][0]}: أقل ما يجزئ في تقصير الرجل <b>${D[m][1]}</b>. والحلق أفضل للرجل في كل المذاهب، والمرأة تقصّر قدر أنملة.</p>
+   <h4>العمرة في سطر</h4><div class="nk-flow">${['⚪ الإحرام','🔄 الطواف ٧','🕌 ركعتان','↕️ السعي ٧','✂️ الحلق'].map(x=>`<span>${x}</span>`).join('<i>←</i>')}</div></div>`}
+function nskPeb(){const n=NSKS(),c=n.peb||[];return `<div class="nk-w"><div class="nk-peb">${Array.from({length:24},(_,i)=>{const sz=[.7,1,1.3,1.8,1,.9,2.6,1.1][i%8];return `<button class="${c.includes(i)?'on':''}" style="--s:${sz}" onclick="nskPk(${i},${sz})"></button>`}).join('')}</div><p class="${c.length>=7?'hj-ok':'muted'}">${c.length>=7?'✓ التقطت سبع حصيات مناسبة لجمرة العقبة يوم النحر.':'التقطت '+AR(c.length)+' من ٧. اختر الحصى المتوسط كحصى الخذف، لا الكبير ولا الدقيق.'}</p>${c.length?`<button class="btn sm" onclick="NSKS().peb=[];save();hjRe()">↺ أعد</button>`:''}</div><div class="n3" id="n3a"></div>`}
+function nskPk(i,sz){const n=NSKS();n.peb=n.peb||[];if(n.peb.includes(i)||n.peb.length>=7)return;if(sz>1.5)return toast('هذه كبيرة؛ «إياكم والغلو في الدين»');if(sz<.8)return toast('هذه دقيقة جدًّا؛ اختر كحصى الخذف');n.peb.push(i);save();hjRe()}
+function nskMis(){const o=NSKS().mis||{};return `<div class="nk-w">${NSK_MIS.map(([a,b],i)=>`<button class="nk-mis ${o[i]?'on':''}" onclick="(NSKS().mis=NSKS().mis||{})[${i}]=1;save();this.classList.add('on')"><b>✗ ${a}</b><small>✓ ${b}</small></button>`).join('')}</div>`}
+function n3Fly(id,k){const el=document.getElementById(id),v=el&&el._v;if(!v||!v.M)return;const p=v.M.curve.getPointAt(v.M.t[k]);v.spin=false;v.look(p.clone().add(new THREE.Vector3(-30,60,70)),p)}
+function nskW3(L){if(L.w==='k3')return `<div class="n3" id="n3a"></div><div class="row" style="gap:8px;margin-top:8px"><button class="btn sm gold grow" onclick="n3Lap('n3a')">🔄 جرّب شوطًا</button><button class="btn sm grow" onclick="const v=document.getElementById('n3a')._v;v&&v.look(new THREE.Vector3(34,26,34),new THREE.Vector3(0,5,0))">⟲ العرض الأول</button></div>`;
+  if(L.w==='s3')return `<div class="n3" id="n3a"></div><button class="btn sm gold" style="width:100%;margin-top:8px" onclick="n3Sai('n3a')">↕️ شوط سعي</button>`;
+  if(L.w==='m3')return `<div class="n3" id="n3a"></div><div class="hj-ch">${[['mk','مكة'],['mn','منى'],['mz','مزدلفة'],['ar','عرفة']].map(([k,n])=>`<button onclick="n3Fly('n3a','${k}')">${n}</button>`).join('')}</div>`;
+  if(L.w==='j3a')return `<div class="n3" id="n3a"></div><button class="btn sm gold" style="width:100%;margin-top:8px" onclick="n3Aqaba('n3a')">🪨 ارمِ حصاة على جمرة العقبة</button>`;
+  if(L.w==='j3')return `<div class="n3" id="n3a"></div><div class="hj-ch">${['الصغرى','الوسطى','العقبة'].map((n,i)=>`<button onclick="n3Throw('n3a',${i})">🪨 ${n}</button>`).join('')}</div><small class="muted" id="n3ac">٠ · ٠ · ٠</small>`;
+  return null}
+const N3K={k3:'kaaba',s3:'masa',m3:'mash',peb:'mash',j3a:'jam',j3:'jam'};
+
+const NSK_O=[
  {id:'ma',ic:'🕋',n:'الحج والعمرة: المعنى والحكم والشروط',w:'ist',b:`<p><b>الحج</b> لغةً: القصد. وشرعًا: قصد مكة لأداء عبادات مخصوصة في وقت مخصوص. وهو الركن الخامس من أركان الإسلام: ﴿وَلِلَّهِ عَلَى ٱلنَّاسِ حِجُّ ٱلۡبَيۡتِ مَنِ ٱسۡتَطَاعَ إِلَيۡهِ سَبِيلٗا﴾، ويجب مرة واحدة في العمر: «الحج مرة، فما زاد فهو تطوع» (أبو داود ١٧٢١، وصححه الألباني).</p>
   <p><b>العمرة</b>: زيارة البيت للطواف والسعي والحلق، وتصح في كل السنة. حكمها: واجبة مرة في العمر عند الشافعية والحنابلة، وسنة مؤكدة عند الحنفية والمالكية.</p>
   <p><b>فضلهما</b>: «من حج لله فلم يرفث ولم يفسق رجع كيوم ولدته أمه» (البخاري ١٥٢١ ومسلم ١٣٥٠)، و«العمرة إلى العمرة كفارة لما بينهما، والحج المبرور ليس له جزاء إلا الجنة» (البخاري ١٧٧٣ ومسلم ١٣٤٩).</p>
@@ -15624,9 +15936,11 @@ const NSK=[
   q:[['ترتيب الجمرات أيام التشريق:',['الصغرى ثم الوسطى ثم العقبة','العقبة ثم الوسطى ثم الصغرى','بأي ترتيب شاء','الوسطى أولًا'],'هكذا رمى النبي ﷺ (البخاري ١٧٥١).'],['يبدأ وقت رمي أيام التشريق عند الجمهور:',['بعد زوال الشمس','بعد الفجر','بعد العصر','بعد المغرب'],'قال جابر: ورمى بعد ذلك إذا زالت الشمس (مسلم ١٢٩٩).'],['يسقط طواف الوداع عن:',['الحائض والنفساء','المريض','كبير السن','المتعجل'],'«إلا أنه خُفّف عن الحائض» (متفق عليه).']]},
  {id:'fd',ic:'⚖️',n:'الفدية والدماء: ماذا يلزمني؟',w:'fd',b:`<p>الخطأ في النسك له علاج، وهذه القاعدة الجامعة:</p><div class="nk-3"><div><b>ترك ركنًا</b><small>لا يتم النسك حتى يأتي به</small></div><div><b>ترك واجبًا</b><small>دم يُذبح في الحرم عند الجمهور</small></div><div><b>فعل محظورًا</b><small>فدية بحسبه، وتسقط عن الناسي في بعضها عند الشافعية والحنابلة</small></div></div><p>احكم في هذه الحالات:</p>`,
   q:[['فدية من حلق رأسه لأذى وهو محرم:',['مخيّر: صيام ٣ أيام أو إطعام ٦ مساكين أو ذبح شاة','دم لا غير','صيام ١٠ أيام','لا شيء عليه'],'حديث كعب بن عجرة (البخاري ١٨١٤ ومسلم ١٢٠١).'],['من ترك واجبًا من واجبات الحج:',['عليه دم عند الجمهور','بطل حجه','لا شيء عليه','يصوم يومًا'],'الواجب يُجبر بالدم.'],['جزاء من قتل صيدًا وهو محرم:',['مثله من النعم، أو قيمته طعامًا، أو صيام','شاة دائمًا','لا شيء','بدنة دائمًا'],'﴿فَجَزَآءٞ مِّثۡلُ مَا قَتَلَ مِنَ ٱلنَّعَمِ﴾ الآية.']]}];
+const _no=id=>NSK_O.find(x=>x.id===id);
+const NSK=[...['ma','mq','ihr'].map(_no),...NSK_U2].map(x=>Object.assign(x,{tr:'u'})).concat([_no('ark'),_no('ns'),NSK_H2[0],NSK_H2[1],NSK_H2[2],Object.assign(_no('nh'),{w:'nh'}),Object.assign(_no('ts'),{w:'j3'}),NSK_H2[3],_no('fd')].map(x=>Object.assign(x,{tr:'h'})));
 const NSKM={};NSK.forEach((l,i)=>{l.i=i;NSKM[l.id]=l});
 const nskDone=id=>!!NSKS().d[id];
-const nskOpen=i=>i===0||RO()||nskDone(NSK[i-1].id)||nskDone(NSK[i].id);
+const nskOpen=i=>{const L=NSK[i],T=NSK.filter(x=>x.tr===L.tr),j=T.indexOf(L);return j===0||RO()||nskDone(T[j-1].id)||nskDone(L.id)};
 /* ---- التجارب التفاعلية ---- */
 function nskIst(){const s=NSKS().is,F=[['m','مسلم'],['a','عاقل'],['b','بالغ'],['h','حر'],['n','عنده نفقة الحج زائدة عن حاجته وحاجة من يعول'],['p','يقدر ببدنه على السفر'],['t','الطريق آمن']];
   const all=F.every(([k])=>s[k]!==false),r=s.m===false?'لا يجب ولا يصح من غير المسلم.':s.a===false?'لا يجب على المجنون، فالعقل مناط التكليف.':s.b===false?'لا يجب، ويصح منه نفلًا وله أجره، ويلزمه إذا بلغ.':s.h===false?'لا يجب على العبد، ويصح منه.':s.n===false?'لا يجب؛ لأنه غير مستطيع بماله.':s.t===false?'لا يلزمه الأداء حتى يأمن الطريق.':s.p===false?'إن كان عجزه دائمًا وعنده المال: يلزمه أن يُنيب من يحج عنه عند الشافعية والحنابلة.':s.w&&s.mh===false?'لا يجب عليها الأداء بلا محرم عند الحنفية والحنابلة، وأجاز المالكية والشافعية في الفريضة مع رفقة مأمونة.':'✓ تحققت الشروط: يجب عليك الحج، على الفور عند الجمهور، وعلى التراخي عند الشافعية.';
@@ -15651,34 +15965,43 @@ function nskUm(){HJS.uo=HJS.uo||[];const rest=NSK_UO.map((x,i)=>i).filter(i=>!HJ
   return `<div class="nk-w"><div class="hj-ordc">${HJS.uo.map((i,j)=>`<span class="${i===j?'ok':'no'}">${AR(j+1)}. ${NSK_UO[i]}</span>`).join('')}</div><div class="hj-ch">${rest.sort((a,b)=>(a*5)%3-(b*5)%3).map(i=>`<button onclick="HJS.uo.push(${i});hjRe()">${NSK_UO[i]}</button>`).join('')}</div>
    ${HJS.uo.length===5?`<p class="${HJS.uo.every((i,j)=>i===j)?'hj-ok':'nk-no'}">${HJS.uo.every((i,j)=>i===j)?'✓ ترتيب صحيح':'في الترتيب خطأ؛ أعد المحاولة'}</p><div class="row" style="gap:8px"><button class="btn sm" onclick="HJS.uo=[];hjRe()">↺ أعد</button><button class="btn sm gold" onclick="NSKS().sec='lab';HJT='umra';HJS.u=0;save();go('nsk')">🕋 أدِّها في المختبر</button></div>`:''}</div>`}
 function nskDy(){const D=HJ_D[HJS.h||0];return `<div class="nk-w"><div class="hj-st">${HJ_D.map((x,i)=>`<button class="${i===(HJS.h||0)?'on':''}" onclick="HJS.h=${i};hjRe()"><span>${x.d}</span>${x.n}</button>`).join('')}</div>${hjMap(D.r)}<div class="hj-t">${D.t.map(t=>`<div class="nk-li">• ${t}</div>`).join('')}</div>${hjNote(D.h)}</div>`}
-function nskW(k){return k==='ist'?nskIst():k==='sort'?nskSort():k==='mq'?hjMq():k==='pb'?`<div class="nk-w">${HJ_U[0].b()}</div>`:k==='ns'?hjNs():k==='um'?nskUm():k==='dy'?nskDy():k==='ord'?hjOrd():k==='jm'?hjJm():k==='fd'?nskFd():''}
+function nskW(L){const k=L.w,w3=nskW3(L);if(w3)return w3;return k==='nh'?`<div class="n3" id="n3a"></div><button class="btn sm gold" style="width:100%;margin-top:8px" onclick="n3Aqaba('n3a')">🪨 ارمِ حصاة على جمرة العقبة</button>${hjOrd()}`:k==='hl'?nskHl():k==='peb'?nskPeb():k==='mis'?nskMis():k==='ist'?nskIst():k==='sort'?nskSort():k==='mq'?hjMq():k==='pb'?`<div class="nk-w">${HJ_U[0].b()}</div>`:k==='ns'?hjNs():k==='um'?nskUm():k==='dy'?nskDy():k==='ord'?hjOrd():k==='jm'?hjJm():k==='fd'?nskFd():''}
 /* ---- التحقق السريع داخل الدرس ---- */
 function nskCk(L){const c=NSKS().ck[L.id]||{};return `<div class="nk-ck"><h4>✅ تحقّق من فهمك</h4>${L.q.map(([q,o,w],qi)=>{const a=c[qi],sh=o.map((x,i)=>i).sort((x,y)=>((qi+1)*(x+3)*7)%5-((qi+1)*(y+3)*7)%5);
   return `<div class="nk-fd"><b>${q}</b>${sh.map(j=>`<button class="${a===0&&j===0?'ok':a!=null&&a!==0&&j===a?'no':''}" ${a===0?'disabled':''} onclick="nskA('${L.id}',${qi},${j})">${o[j]}</button>`).join('')}${a!=null?`<small class="muted">${a===0?'✓ ':'✗ حاول مرة أخرى. '}${a===0?w:''}</small>`:''}</div>`}).join('')}</div>`}
 function nskA(id,qi,j){const n=NSKS(),c=n.ck[id]=n.ck[id]||{};c[qi]=j;const L=NSKM[id];if(L.q.every((x,i)=>c[i]===0)&&!n.d[id]){n.d[id]=today();toast('✓ أتممت الدرس');try{sound('win')}catch(e){}}save();vNsk()}
-/* ---- الاختبار النهائي ---- */
-function nskQs(){const mc=[];NSK.forEach(L=>L.q.forEach(([q,o,w])=>mc.push({t:'mcq',q,o:o.slice(),w})));
-  const fixed=[{t:'order',q:'رتّب أعمال العمرة:',o:NSK_UO.slice(),w:'هذه صفة العمرة.'},{t:'order',q:'رتّب أيام الحج:',o:['الثامن: إلى منى','التاسع: الوقوف بعرفة','ليلة العاشر: مزدلفة','العاشر: الرمي والنحر والحلق والإفاضة','أيام التشريق: رمي الجمرات','طواف الوداع'],w:'«لتأخذوا مناسككم» (مسلم ١٢٩٧).'},
-   {t:'match',q:'صِل الميقات بأهله:',p:[['ذو الحليفة','أهل المدينة'],['الجحفة','أهل الشام ومصر'],['قرن المنازل','أهل نجد'],['يلملم','أهل اليمن']],w:'حديث ابن عباس (متفق عليه).'},
-   {t:'multi',q:'اختر أركان الحج عند الحنابلة:',o:['الإحرام','الوقوف بعرفة','طواف الإفاضة','السعي','رمي الجمار','المبيت بمزدلفة','طواف الوداع'],ok:['الإحرام','الوقوف بعرفة','طواف الإفاضة','السعي'],w:'والبقية واجبات.'},
-   {t:'tf',q:'من قدّم الطواف على الرمي يوم النحر فحجّه صحيح ولا شيء عليه.',a:true,w:'«افعل ولا حرج».'},{t:'tf',q:'يجوز للمرأة المحرمة أن تلبس النقاب.',a:false,w:'«ولا تنتقب المرأة المحرمة».'}];
-  return fixed.concat(mc.sort(()=>.5-Math.random()).slice(0,10)).sort(()=>.5-Math.random())}
-function nskTest(){tjXStart(nskQs(),{title:'🕋 اختبار المناسك',gen:nskQs,back:"go('nsk')",passMsg:'أتممت وحدة المناسك بإتقان، تقبّل الله منك.',onPass:()=>{const n=NSKS();n.t=today();try{const st=AS('hj');st.d[today()]=[0,1]}catch(e){}save()}})}
+/* ---- الاختبار لكل مسار ---- */
+function nskQs(tr){const mc=[];NSK.filter(L=>L.tr===tr).forEach(L=>L.q.forEach(([q,o,w])=>mc.push({t:'mcq',q,o:o.slice(),w})));
+  const fx=tr==='u'?[{t:'order',q:'رتّب أعمال العمرة:',o:['الإحرام من الميقات','الطواف سبعة أشواط','ركعتا الطواف','السعي سبعة أشواط','الحلق أو التقصير'],w:'هذه صفة العمرة.'},
+    {t:'match',q:'صِل الموضع بحكمه في الطواف:',p:[['الحجر الأسود','يُقبَّل أو يُشار إليه'],['الركن اليماني','يُستلم بلا تقبيل'],['الركنان الشامي والعراقي','لا يُستلمان'],['مقام إبراهيم','يُصلّى خلفه']],w:'هكذا فعل النبي ﷺ.'},
+    {t:'match',q:'صِل الميقات بأهله:',p:[['ذو الحليفة','أهل المدينة'],['الجحفة','أهل الشام ومصر'],['قرن المنازل','أهل نجد'],['ذات عِرق','أهل العراق']],w:'المواقيت المكانية.'},
+    {t:'multi',q:'اختر شروط صحة الطواف:',o:['البدء من الحجر الأسود','جعل البيت عن يساره','سبعة أشواط','الطواف من وراء الحِجر','الرمل في كل الأشواط','تقبيل الحجر في كل شوط'],ok:['البدء من الحجر الأسود','جعل البيت عن يساره','سبعة أشواط','الطواف من وراء الحِجر'],w:'والرمل والتقبيل سنتان.'},
+    {t:'tf',q:'الطهارة شرط لصحة السعي.',a:false,w:'مستحبة لا شرط.'},{t:'tf',q:'يلتزم المعتمر دعاءً مخصوصًا لكل شوط.',a:false,w:'لا أصل لذلك؛ يدعو بما شاء.'}]
+   :[{t:'order',q:'رتّب أيام الحج:',o:['الثامن: إلى منى','التاسع: الوقوف بعرفة','ليلة العاشر: مزدلفة','العاشر: الرمي والنحر والحلق والإفاضة','أيام التشريق: رمي الجمرات','طواف الوداع'],w:'«لتأخذوا مناسككم» (مسلم ١٢٩٧).'},
+    {t:'order',q:'رتّب أعمال يوم النحر كما فعلها النبي ﷺ:',o:['رمي جمرة العقبة','النحر','الحلق أو التقصير','طواف الإفاضة'],w:'ومن قدّم أو أخّر فلا حرج.'},
+    {t:'match',q:'صِل المشعر بعمله:',p:[['منى','المبيت ورمي الجمار'],['عرفة','الوقوف حتى الغروب'],['مزدلفة','جمع المغرب والعشاء والمبيت'],['مكة','طواف الإفاضة والوداع']],w:'خريطة الحج.'},
+    {t:'multi',q:'اختر أركان الحج عند الحنابلة:',o:['الإحرام','الوقوف بعرفة','طواف الإفاضة','السعي','رمي الجمار','المبيت بمزدلفة','طواف الوداع'],ok:['الإحرام','الوقوف بعرفة','طواف الإفاضة','السعي'],w:'والبقية واجبات.'},
+    {t:'tf',q:'من قدّم الطواف على الرمي يوم النحر فحجّه صحيح ولا شيء عليه.',a:true,w:'«افعل ولا حرج».'},{t:'tf',q:'يُشرع صعود جبل الرحمة والتعبّد عليه.',a:false,w:'«وعرفة كلها موقف».'}];
+  return fx.concat(mc.sort(()=>.5-Math.random()).slice(0,tr==='u'?10:12)).sort(()=>.5-Math.random())}
+function nskTest(tr){tjXStart(nskQs(tr),{title:tr==='u'?'🕋 اختبار العمرة':'⛰️ اختبار الحج',gen:()=>nskQs(tr),back:"go('nsk')",passMsg:tr==='u'?'أتقنت فقه العمرة، تقبّل الله منك.':'أتقنت فقه الحج، تقبّل الله منك.',onPass:()=>{const n=NSKS();n.tp=n.tp||{};n.tp[tr]=today();if(n.tp.u&&n.tp.h){n.t=today();try{const st=AS('hj');st.d[today()]=[0,1]}catch(e){}}save()}})}
 /* ---- العرض ---- */
-function vNsk(){const n=NSKS(),dn=NSK.filter(l=>n.d[l.id]).length,L=route.l?NSKM[route.l]:null,sec=n.sec||'les';
-  const top=`<div class="hero nk-h"><div class="row"><div class="grow"><div class="t">🕋 المناسك: العمرة والحج</div><div style="font-size:13px;opacity:.85">فقه · دراسة نظرية وعملية · ${AR(dn)} من ${AR(NSK.length)} دروس${n.t?' · ✓ اجتزت الاختبار':''}</div></div><div class="nk-ring" style="--p:${dn/NSK.length}"><b>${AR(Math.round(dn/NSK.length*100))}٪</b></div></div></div>`;
-  if(L){const i=L.i;$('#app').innerHTML=`<div class="zb-top"><button class="icon-btn" onclick="go('nsk')">›</button><b class="grow">${L.ic} ${L.n}</b><small class="muted">${AR(i+1)}/${AR(NSK.length)}</small></div>
-    <div class="panel nk-b">${L.b}</div>${nskW(L.w)}${nskCk(L)}
-    <div class="row" style="gap:8px;margin-top:10px">${i?`<button class="btn ghost grow" onclick="go('nsk',{l:'${NSK[i-1].id}'})">→ السابق</button>`:''}${i<NSK.length-1?`<button class="btn gold grow" ${nskOpen(i+1)?'':'disabled'} onclick="go('nsk',{l:'${NSK[i+1].id}'})">${nskOpen(i+1)?'الدرس التالي ←':'🔒 أجب عن التحقق أولًا'}</button>`:`<button class="btn gold grow" onclick="NSKS().sec='lab';save();go('nsk')">إلى المختبر ←</button>`}</div>`;
-    if(L.w==='mq'||L.w==='ns')0;return}
-  const chips=[['les','📘 الدروس'],['lab','🧪 المختبر'],['tst','📝 الاختبار']];
-  let body='';
-  if(sec==='les')body=`<div class="nk-ls">${NSK.map((l,i)=>{const o=nskOpen(i),d=nskDone(l.id);return `<button class="${d?'ok':''} ${o?'':'lk'}" onclick="${o?`go('nsk',{l:'${l.id}'})`:`toast('🔒 أتمّ الدرس السابق أولًا')`}"><span class="n">${d?'✓':o?AR(i+1):'🔒'}</span><div class="grow"><b>${l.ic} ${l.n}</b></div><span class="ah-go">‹</span></button>`}).join('')}</div>`;
-  else if(sec==='lab')body=`<p class="muted" style="font-size:12.5px">أدِّ المناسك بنفسك على الخرائط: الطواف والسعي يتحركان، وترمي الجمرات، وترتّب يوم النحر.</p>${hjLabBody()}`;
-  else body=`<div class="panel"><h3>📝 الاختبار الشامل</h3><p class="muted">ستة عشر سؤالًا متنوعًا: اختيار، وصواب وخطأ، وترتيب، وتوصيل، واختيار متعدد. تتغير الأسئلة في كل محاولة، والنجاح بإتقان الجميع.</p>${dn<NSK.length?`<p class="nk-no">يُستحسن أن تُتمّ الدروس أولًا (${AR(dn)} من ${AR(NSK.length)}).</p>`:''}<button class="btn gold" style="width:100%" onclick="nskTest()">ابدأ الاختبار</button></div>`;
-  $('#app').innerHTML=`${top}<div class="tju-bar nk-bar">${chips.map(([k,t])=>`<button class="${sec===k?'on':''}" onclick="NSKS().sec='${k}';save();cancelAnimationFrame(HJS.raf);vNsk()">${t}</button>`).join('')}</div>${body}
+function nskTrDone(tr){return NSK.filter(L=>L.tr===tr).every(L=>nskDone(L.id))}
+function vNsk(){const n=NSKS(),tr=n.tr||'u',T=NSK.filter(l=>l.tr===tr),dn=T.filter(l=>n.d[l.id]).length,L=route.l?NSKM[route.l]:null,sec=n.sec==='lab'?'les':(n.sec||'les');
+  if(L){const T2=NSK.filter(x=>x.tr===L.tr),j=T2.indexOf(L),nx=T2[j+1],pv=T2[j-1];
+    $('#app').innerHTML=`<div class="zb-top"><button class="icon-btn" onclick="go('nsk')">›</button><b class="grow">${L.ic} ${L.n}</b><small class="muted">${L.tr==='u'?'العمرة':'الحج'} · ${AR(j+1)}/${AR(T2.length)}</small></div>
+    ${(N3K[L.w]&&L.w!=='peb')||L.w==='nh'?nskW(L)+`<div class="panel nk-b">${L.b}</div>`:`<div class="panel nk-b">${L.b}</div>`+nskW(L)}${nskCk(L)}
+    <div class="row" style="gap:8px;margin-top:10px">${pv?`<button class="btn ghost grow" onclick="go('nsk',{l:'${pv.id}'})">→ السابق</button>`:''}${nx?`<button class="btn gold grow" ${nskDone(L.id)||RO()?'':'disabled'} onclick="go('nsk',{l:'${nx.id}'})">${nskDone(L.id)||RO()?'الدرس التالي ←':'🔒 أجب عن التحقق أولًا'}</button>`:`<button class="btn gold grow" onclick="NSKS().sec='sim';save();go('nsk')">🎬 إلى المحاكاة الكاملة ←</button>`}</div>`;
+    const k=L.w==='nh'?'jam':N3K[L.w];if(k){n3View('n3a',k);if(L.f){const t0=Date.now(),iv=setInterval(()=>{const el=document.getElementById('n3a');if(el&&el._v&&el._v.M){clearInterval(iv);n3Fly('n3a',L.f)}else if(Date.now()-t0>15000||!el)clearInterval(iv)},200)}}return}
+  const top=`<div class="hero nk-h"><div class="row"><div class="grow"><div class="t">🕋 المناسك: العمرة والحج</div><div style="font-size:13px;opacity:.85">فقه · نظري وعملي · مجسّمات ومحاكاة</div></div><div class="nk-ring" style="--p:${dn/T.length}"><b>${AR(Math.round(dn/T.length*100))}٪</b></div></div></div>
+   <div class="ms-seg nk-trs">${[['u','🕋 العمرة'],['h','⛰️ الحج']].map(([k,t])=>`<button class="${tr===k?'on':''}" onclick="NSKS().tr='${k}';save();vNsk()">${t}${(n.tp||{})[k]?' ✓':''}</button>`).join('')}</div>`;
+  const chips=[['les','📘 الدروس'],['sim','🎬 المحاكاة'],['tst','📝 الاختبار']],open=nskTrDone(tr)||RO();let body='';
+  if(sec==='les')body=`<div class="nk-ls">${T.map((l,i)=>{const o=nskOpen(NSK.indexOf(l)),d=nskDone(l.id);return `<button class="${d?'ok':''} ${o?'':'lk'}" onclick="${o?`go('nsk',{l:'${l.id}'})`:`toast('🔒 أتمّ الدرس السابق أولًا')`}"><span class="n">${d?'✓':o?AR(i+1):'🔒'}</span><div class="grow"><b>${l.ic} ${l.n}</b></div><span class="ah-go">‹</span></button>`}).join('')}
+    <button class="${open?'':'lk'} nk-simb" onclick="${open?`NSKS().sec='sim';save();vNsk()`:`toast('🔒 تُفتح المحاكاة بعد إتمام الدروس')`}"><span class="n">🎬</span><div class="grow"><b>المحاكاة الكاملة ${tr==='u'?'للعمرة':'للحج'}</b><small>${open?'جاهزة: شاهد المناسك كلها مشهدًا مشهدًا':'تُفتح بعد إتمام الدروس ('+AR(dn)+'/'+AR(T.length)+')'}</small></div></button></div>`;
+  else if(sec==='sim')body=open?simHTML(tr):`<div class="panel"><p class="nk-no">🔒 أتمّ دروس ${tr==='u'?'العمرة':'الحج'} أولًا (${AR(dn)} من ${AR(T.length)})، ثم تُفتح لك المحاكاة الكاملة.</p></div>`;
+  else body=`<div class="panel"><h3>📝 اختبار ${tr==='u'?'العمرة':'الحج'}</h3><p class="muted">أسئلة متنوعة: اختيار، وصواب وخطأ، وترتيب، وتوصيل، واختيار متعدد. تتغير في كل محاولة، والنجاح بإتقان الجميع.</p>${dn<T.length?`<p class="nk-no">يُستحسن أن تُتمّ الدروس أولًا (${AR(dn)} من ${AR(T.length)}).</p>`:''}<button class="btn gold" style="width:100%" onclick="nskTest('${tr}')">ابدأ الاختبار</button></div>`;
+  $('#app').innerHTML=`${top}<div class="tju-bar nk-bar">${chips.map(([k,t])=>`<button class="${sec===k?'on':''}" onclick="NSKS().sec='${k}';save();vNsk()">${t}</button>`).join('')}</div>${body}
    <button class="btn ghost" style="width:100%;margin-top:12px" onclick="backLv()">⟵ العودة إلى المستوى</button>`;
-  if(sec==='lab')hjLabPost()}
+  if(sec==='sim'&&open)simOpen(tr)}
 
 
 
