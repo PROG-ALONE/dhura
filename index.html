@@ -2993,6 +2993,10 @@ img.fm-av{display:inline-block;border-radius:50%;object-fit:cover;-webkit-clip-p
 .kx-plate{position:relative;text-align:center;font-size:90px;line-height:1.1}.kx-plate .near{position:absolute;bottom:4px;left:50%;font-size:22px;color:#2fa36b}
 .kx-door{display:flex;align-items:center;justify-content:center;gap:14px;font-size:80px}.kx-kn{display:flex;flex-direction:column;gap:4px}.kx-kn i{font-style:normal;font-size:24px;opacity:.25}.kx-kn i.on{opacity:1;animation:kxPop .4s}
 .kx-scale{display:block;width:100%;max-width:320px;margin:0 auto 6px}.kx-st{fill:rgba(150,160,190,.7)}.kx-pan.a{fill:#2fa36b}.kx-pan.b{fill:#e05a4a}
+.kxa{--c:var(--gold,#c9a227);margin:14px 0}.kxa .kx-hd b{font-size:15px}
+.kxa .kx-track div,.kxa .kx-tiles button,.kxa .kx-opts button{font-size:14.5px}.kxa .kx-mt button{font-size:13.5px}
+.kxa .kx-card{padding:14px}.kxa .kx-card b{font-size:16px}.kxa .kx-bins button b{font-size:13px}.kxa .kx-bins button{padding:10px 4px}
+.kxa .kx-end{font-size:15px}.kxa .kx-tap button span{font-size:26px}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -16944,8 +16948,8 @@ k16_8:[{t:'tap',p:'ماذا تعلمتُ في رحلتي؟ المس',it:[['☝�
 
 /* ============ البراعم: محرّك «أشاهد ← أجرّب ← ألعب» ============ */
 const kxSh=a=>{const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
-const kxR=()=>vKLesson();
-function kxS(){return KL.xs=KL.xs||{}}
+let KXC=null;const kxR=()=>KXC?KXC.re():vKLesson();
+function kxS(){return KXC?KXC.xs:(KL.xs=KL.xs||{})}
 function kxFb(t,ok){const s=kxS();s.fb=t;s.fk=ok?'ok':'no';s.fq=(s.fq||0)+1;try{sound(ok?'ok':'bad')}catch(e){}}
 function kxStart(){kStop();KL.st='try';KL.xa=0;KL.xs={};try{delete FQST('kid').w.kxw}catch(e){}sound('lit');kxR()}
 function kxNextAct(){KL.xa++;KL.xs={};try{delete FQST('kid').w.kxw}catch(e){}kxR()}
@@ -16957,17 +16961,17 @@ tap(a,s){s.r=s.r||{};const all=a.it.every((_,i)=>s.r[i]),L=s.last;
   return [`<div class="kx-tap">${a.it.map(([e,n,f],i)=>`<button class="${s.r[i]?'on':''}" onclick="kxT(${i})"><span>${e}</span>${s.r[i]?`<b>${n}</b>`:'<small>المس</small>'}</button>`).join('')}</div>
    <div class="kx-cap">${L!=null?`<b>${a.it[L][0]} ${a.it[L][1]}</b><p>${a.it[L][2]}</p>`:'<p>المس كل دائرة لتعرف ما فيها</p>'}</div>${all&&a.end?`<p class="kx-end">${a.end}</p>`:''}`,all]},
 /* صنّف في سلّتين */
-sort(a,s){if(!s.o){s.o=kxSh(a.it.map((_,i)=>i));s.i=0;s.c=[0,0]}const done=s.i>=s.o.length,it=done?null:a.it[s.o[s.i]];
+sort(a,s){if(!s.o){s.o=kxSh(a.it.map((_,i)=>i));s.i=0;s.c=a.b.map(()=>0)}const done=s.i>=s.o.length,it=done?null:a.it[s.o[s.i]];
   const tilt=a.scale?Math.max(-14,Math.min(14,(s.c[0]-s.c[1])*5)):0;
   return [`${a.scale?`<svg class="kx-scale" viewBox="-12 0 264 120"><rect x="116" y="30" width="8" height="80" rx="3" class="kx-st"/><rect x="80" y="108" width="80" height="8" rx="4" class="kx-st"/>
      <g style="transform:rotate(${tilt}deg);transform-origin:120px 34px;transition:transform .5s"><rect x="20" y="30" width="200" height="6" rx="3" class="kx-st"/>
      <path d="M30 36 l-18 36 h56 z" class="kx-pan b"/><path d="M210 36 l-18 36 h56 z" class="kx-pan a"/><text x="40" y="64" class="kx-pt">${AR(s.c[1])}</text><text x="220" y="64" class="kx-pt">${AR(s.c[0])}</text></g></svg>`:''}
    ${done?'':`<div class="kx-card ${s.fk==='no'?'kx-shk':''}" key="${s.i}-${s.fq||0}"><span>${it[1]}</span><b>${it[0]}</b></div>`}
-   <div class="kx-bins">${a.b.map(([e,n],j)=>`<button onclick="kxSo(${j})" ${done?'disabled':''}><span>${e}</span><b>${n}</b><small>${AR(s.c[j])}</small></button>`).join('')}</div>
+   <div class="kx-bins" style="grid-template-columns:repeat(${Math.min(a.b.length,4)},1fr)">${a.b.map(([e,n],j)=>`<button onclick="kxSo(${j})" ${done?'disabled':''}><span>${e}</span><b>${n}</b><small>${AR(s.c[j])}</small></button>`).join('')}</div>
    <p class="kx-fb ${s.fk||''}">${s.fb||`${AR(Math.min(s.i+1,s.o.length))} من ${AR(s.o.length)}`}</p>${done&&a.end?`<p class="kx-end">${a.end}</p>`:''}`,done]},
 /* رتّب */
 seq(a,s){if(!s.o){s.o=kxSh(a.it.map((_,i)=>i));s.d=[]}const done=s.d.length===a.it.length;
-  return [`<div class="kx-track">${a.it.map((x,i)=>`<div class="${i<s.d.length?'on':''}"><i>${AR(i+1)}</i>${i<s.d.length?x[0]:'…'}</div>`).join('')}</div>
+  return [`<div class="kx-track">${a.it.map((x,i)=>`<div class="${i<s.d.length?'on':''}"><i>${AR(i+1)}</i>${i<s.d.length?a.it[s.d[i]][0]:'…'}</div>`).join('')}</div>
    <div class="kx-tiles">${s.o.filter(i=>!s.d.includes(i)).map(i=>`<button class="${s.fk==='no'&&s.w===i?'kx-shk':''}" onclick="kxSq(${i})">${a.it[i][0]}</button>`).join('')}</div>
    <p class="kx-fb ${s.fk||''}">${s.fb||'المس ما يأتي أولًا'}</p>${done&&a.end?`<p class="kx-end">${a.end}</p>`:''}`,done]},
 /* صِل */
@@ -17067,10 +17071,10 @@ const KX_DOOR={in:{e:'🚻',f:'l',z:['بسم الله، اللهم إني أعو
  shoeOn:{e:'👟',f:'r'},shoeOff:{e:'👟',f:'l'},dressOn:{e:'👕',f:'r'}};
 function kxBoard(a,s){const N=a.it.length,p=s.i+(s.a!=null&&a.it[s.i]&&a.it[s.i][2][s.a][1]?1:0);return `<div class="kx-board">${Array.from({length:N+1},(_,i)=>`<i class="${i<p?'ok':''}">${i===N?'🏡':''}</i>`).join('')}<b style="right:${p/N*92}%">⭐</b></div>`}
 /* المعالجات */
-const KXA=()=>KXD[KL.id][KL.xa],KXT=()=>KXA();
+const KXA=()=>KXC?KXC.acts[KXC.xa]:KXD[KL.id][KL.xa],KXT=()=>KXA();
 function kxT(i){const s=kxS();s.r=s.r||{};s.r[i]=1;s.last=i;sound('flip');kxR()}
 function kxSo(j){const a=KXA(),s=kxS(),it=a.it[s.o[s.i]];if(it[2]===j){s.c[j]++;s.i++;kxFb('✓ صحيح!',1)}else kxFb('🤔 فكّر مرة أخرى'+(it[3]?': '+it[3]:''),0);kxR()}
-function kxSq(i){const s=kxS();if(i===s.d.length){s.d.push(i);kxFb('✓',1)}else{s.w=i;kxFb('🤔 ليس هذا الآن',0)}kxR()}
+function kxSq(i){const s=kxS(),a=KXA(),e=s.d.length;if(i===e||(a.it[i][1]!=null&&a.it[i][1]===a.it[e][1])){s.d.push(i);kxFb('✓',1)}else{s.w=i;kxFb('🤔 ليس هذا الآن',0)}kxR()}
 function kxML(i){const s=kxS();s.l=i;s.fb='';s.fk='';sound('flip');kxR()}
 function kxMR(j){const s=kxS();if(s.l==null){s.fb='المس من اليمين أولًا';kxR();return}if(s.l===j){s.m[j]=1;s.l=null;kxFb('✓ صحيح!',1)}else{s.w=j;kxFb('🤔 حاول مرة أخرى',0)}kxR()}
 function kxPk(j){const a=KXA(),s=kxS();s.a=j;const ok=a.it[s.i][2][j][1];try{sound(ok?'ok':'bad')}catch(e){}kxR()}
@@ -17096,7 +17100,7 @@ function kxKn(){const s=kxS();s.k++;sound('flip');kxR()}
 function kxKa(j){const s=kxS();if(s.r===0){if(j===0){s.r=1;s.k=0;kxFb('✓ أحسنت، أرجع ولا أغضب. لنجرّب بابًا آخر…',1)}else kxFb('🤔 لا أدخل بلا إذن',0)}else{s.r=2;kxFb('✓',1)}kxR()}
 function kxAk(){const s=kxS();s.n++;sound(s.n===10?'win':'flip');kxR()}
 function kxSe(){const s=kxS();s.n++;sound('lit');kxR()}
-function kxView(l){const U=KID_U[l.ui],acts=KXD[l.id]||[],a=acts[KL.xa],s=kxS();
+function kxView(l){KXC=null;const U=KID_U[l.ui],acts=KXD[l.id]||[],a=acts[KL.xa],s=kxS();
   if(!a){KL.st='game';return kGameStart()}
   const [h,done]=KXF[a.t](a,s),last=KL.xa>=acts.length-1;
   $('#app').innerHTML=`<div class="k-top" style="--c:${U.c}"><span>${U.ic} ${U.n} · الدرس ${AR(l.li+1)} من ${AR(U.ls.length)}</span><h1>${l.t}</h1></div>${kxStg('try')}
@@ -17109,6 +17113,56 @@ const _vKL_kx=vKLesson;vKLesson=function(){const l=KIDL.find(x=>x.id===route.id)
   _vKL_kx();if(!KL||!l)return;const app=document.getElementById('app'),top=app&&app.querySelector('.k-top');if(top&&!app.querySelector('.kx-stg'))top.insertAdjacentHTML('afterend',kxStg(KL.st==='game'?'game':KL.st==='learn'?'learn':'done'));
   if(KL.st==='learn'&&KXD[l.id]){const b=app.querySelector('button[onclick*="kGameStart"]');if(b){b.setAttribute('onclick','kxStart()');b.innerHTML='🧩 هيا نجرّب بأيدينا!'}}};
 const _kGame_kx=kGame;kGame=function(G){const r=_kGame_kx.apply(this,arguments);try{if(KL&&KL.st==='game'&&KXD[KL.id]){const app=document.getElementById('app');if(app&&!app.querySelector('.kx-stg'))app.insertAdjacentHTML('afterbegin',kxStg('game'))}}catch(e){}return r};
+
+/* ============ «طبّق بنفسك» في دروس المستويات: نشاط يُبنى من نوع الدرس — ولا يظهر حيث لا يلزم ============ */
+const AX_SEQ=new Set(['i9','s1','s5','s6','s3','k1','a5','u9']);/* خطوات ترتيبها مقصود */
+const AXB={/* أنشطة خاصة تُقدَّم على المولّد */
+ 'salah:s1':[{t:'wudu',p:'توضأ بنفسك على الرسم: كل عضو بترتيبه وعدده'}],
+ 'salah:s4':[{t:'naq',p:'هل انتقض وضوئي؟ اختر ما حدث، وانظر الحكم في المذاهب'}],
+ 'salah:s6':[{t:'tym',p:'تيمّم بنفسك على الرسم'}],
+ 'salah:s8':[{t:'qibla',p:'استقبال القبلة: أدِر السهم نحو الكعبة'}],
+ 'adhkar:a2':[{t:'count',p:'التسبيح بعد الصلاة: اضبط العدد الصحيح لكل ذكر',it:[['سبحان الله',33],['الحمد لله',33],['الله أكبر',33],['لا إله إلا الله وحده لا شريك له… (تمام المئة)',1]],end:'«من سبّح الله في دبر كل صلاة ثلاثًا وثلاثين، وحمد الله ثلاثًا وثلاثين، وكبّر الله ثلاثًا وثلاثين… وقال تمام المئة: لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير، غُفرت خطاياه وإن كانت مثل زبد البحر» (مسلم ٥٩٧)'}],
+ 'salah:s7':[{t:'sky',p:'أين الشمس وقت كل صلاة؟'}]};
+const axU=a=>{const v=a.map(x=>x[1]);return new Set(v).size===v.length&&v.every(Boolean)};
+const axT=t=>String(t||'').replace(/<[^>]+>/g,'').trim();
+function axActs(tid,l){const v=l.vis||{},it=(v.items||[]).filter(Boolean),A=(AXB[tid+':'+l.id]||[]).slice();
+  const M=(p,pairs)=>{pairs=pairs.map(([a,b])=>[axT(a),axT(b)]).filter(([a,b])=>a&&b);if(pairs.length>=3&&axU(pairs))A.push({t:'match',p,it:pairs.slice(0,7)})};
+  switch(v.type){
+   case 'ladder':if(it.length>=3)A.push({t:'build',p:'ابنِ المراتب من الأساس إلى القمة',roof:axT(l.t).slice(0,22),it:it.map(x=>[axT(x[0])])});M('صِل كل مرتبة بمعناها',it.map(x=>[x[0],x[1]]));break;
+   case 'pillars':A.push({t:'build',p:'ابنِ الأعمدة بترتيبها',roof:v.roof||'',it:it.map(x=>[axT(x[0])])});M('صِل كل عمود بمعناه',it.map(x=>[x[0],x[1]]));break;
+   case 'circles':M('صِل كل ركن بمعناه',it.map(x=>[(v.center?v.center+' ':'')+x[0],x[1]]));break;
+   case 'cards':if(it.length&&/^﴿/.test(axT(it[0][1])))A.push({t:'seq',p:'رتّب الآيات كما في المصحف',it:it.map(x=>[axT(x[1])])});else M('صِل كل عنوان بمعناه',it.map(x=>[x[1],x[2]]));break;
+   case 'timeline':{const dt=it.every(x=>/[٠-٩0-9]|هـ|قبل|بعد|عهد|خلافة|أول|خاتم/.test(axT(x[0])));if(it.length>=3)A.push({t:'seq',p:'رتّبها زمنيًا',it:it.map(x=>dt?[axT(x[1]),axT(x[0])]:[axT(x[0])])});if(!dt)M('صِل كل واحد بما يناسبه',it.map(x=>[x[0],x[1]]));break}
+   case 'steps':if(AX_SEQ.has(l.id)&&it.length>=3)A.push({t:'seq',p:'رتّب الخطوات',it:it.map(x=>[axT(x[1])])});M('صِل كل عنصر بشرحه',it.map(x=>[x[1],x[2]]));break;
+   case 'sunarc':M('صِل كل صلاة بوقتها',it.map(x=>[x[0],x[1]]));break;
+   case 'bars':A.push({t:'count',p:'كم ركعة في كل صلاة؟',it:it.map(x=>[axT(x[0]),+x[1]])});break;
+   case 'letters':{const P=[];it.forEach((x,j)=>axT(x[1]).split(/\s+/).filter(Boolean).slice(0,3).forEach(h=>P.push(['نون ساكنة أو تنوين، بعدها حرف «'+h+'»','',j])));A.push({t:'sort',p:'حكم النون الساكنة والتنوين قبل هذا الحرف؟',b:it.map(x=>['',axT(x[0])]),it:P});break}
+   case 'scene':{const st=(v.steps||[]).filter(s=>s.t);if(st.length>=3)A.push({t:'seq',p:'رتّب الأحداث كما وقعت',it:st.map(s=>[axT(s.t)+(s.y?' ('+axT(s.y)+')':'')])});break}
+   case 'counter':{const w=axT(v.text).split(/\s+/),n=Math.min(6,Math.max(3,Math.ceil(w.length/3))),k=Math.ceil(w.length/n),ch=[];for(let i=0;i<w.length;i+=k)ch.push([w.slice(i,i+k).join(' ')]);if(ch.length>=3)A.push({t:'seq',p:'رتّب الذكر كلمة كلمة حتى تحفظه',it:ch});break}
+   case 'dodont':A.push({t:'sort',p:'افعل أم اجتنب؟',b:[['✅','افعل'],['⛔','اجتنب']],it:(v.do||[]).map(x=>[axT(x),'',0]).concat((v.dont||[]).map(x=>[axT(x),'',1]))});break;
+   case 'laqab':{const ps=[...new Set(it.map(x=>axT(x[1])))];if(ps.length>=2&&ps.length<=4)A.push({t:'sort',p:'لمن هذا اللقب أو الوصف؟',b:ps.map(n=>['⭐',n]),it:it.map(x=>[axT(x[0]),'',ps.indexOf(axT(x[1])),axT(x[2]).slice(0,120)])});
+     else if(ps.length===1)A.push({t:'tap',p:'المس كل لقب لتعرف سببه',it:it.map(x=>['🏷',axT(x[0]),axT(x[2])])});else M('صِل اللقب بصاحبه',it.map(x=>[x[0],x[1]]));break}
+   case 'madh':{const m=v.m||{};M('صِل كل مذهب بقوله',FQM.filter(([k])=>m[k]).map(([k,n])=>[n,m[k][0]]));break}
+  }
+  return A}
+/* أنشطة خاصة للكبار */
+KXF.naq=(a,s)=>{const o=FQST('ad').w.nq=FQST('ad').w.nq||{};return [fqNaq('ad','nq',o),(o.h||[]).length>=3]};
+KXF.tym=(a,s)=>{const o=FQST('ad').w.ty=FQST('ad').w.ty||{};return [wdSim('ad','ty',o,1,()=>axPaint()),!!o.fin]};
+const _wudu_ax=KXF.wudu;KXF.wudu=(a,s)=>{if(!KXC)return _wudu_ax(a,s);const o=FQST('ad').w.wd=FQST('ad').w.wd||{};return [wdSim('ad','wd',o,0,()=>axPaint()),!!o.fin]};
+const _fqRe_ax=fqRe;fqRe=function(){if(KXC&&route.v==='lesson')return axPaint();return _fqRe_ax()};
+const AXS={};
+function axKey(){return route.tid+':'+route.lid}
+function axPaint(){const box=document.getElementById('axBox');if(!box)return;const tr=findTrack(route.tid),l=tr&&tr.lessons.find(x=>x.id===route.lid);if(!l)return;
+  const acts=axActs(route.tid,l);if(!acts.length){box.remove();return}const st=AXS[axKey()]=AXS[axKey()]||{xa:0,xs:{}};st.xa=Math.min(st.xa,acts.length-1);
+  KXC={acts,xa:st.xa,xs:st.xs,re:axPaint};const a=acts[st.xa];let h,done;try{[h,done]=KXF[a.t](a,st.xs)}catch(e){box.remove();return}
+  box.innerHTML=`<div class="kx-hd"><b>🧩 طبّق بنفسك: ${a.p||''}</b>${acts.length>1?`<small>${AR(st.xa+1)} / ${AR(acts.length)}</small>`:''}</div>${h}
+   <div class="row" style="gap:8px;margin-top:10px">${done&&st.xa<acts.length-1?`<button class="btn gold grow" onclick="axNext()">النشاط التالي ←</button>`:''}${done&&st.xa===acts.length-1?'<span class="hj-ok grow">✓ أتممت التطبيق</span>':''}<button class="btn ghost sm" onclick="axReset()">↺</button></div>`;
+  if(done&&!st.xs.won){st.xs.won=1;try{sound('win')}catch(e){}}}
+function axNext(){const st=AXS[axKey()];st.xa++;st.xs={};axPaint()}
+function axReset(){const st=AXS[axKey()];st.xs={};['wd','ty','nq'].forEach(k=>{try{delete FQST('ad').w[k]}catch(e){}});axPaint()}
+const _vLesson_ax=vLesson;vLesson=function(){_vLesson_ax.apply(this,arguments);KXC=null;try{const tr=findTrack(route.tid),l=tr&&tr.lessons.find(x=>x.id===route.lid);if(!l||!axActs(route.tid,l).length)return;
+  const q=document.querySelector('#app button[onclick*="pquiz"]');const host=q||document.querySelector('#app .lesson');if(!host)return;
+  const d=document.createElement('div');d.id='axBox';d.className='kx kxa';q?q.before(d):host.appendChild(d);axPaint()}catch(e){}};
 
 
 
