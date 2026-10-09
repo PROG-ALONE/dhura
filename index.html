@@ -2283,7 +2283,7 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .ms-ph{display:flex;justify-content:space-between;font-size:11.5px;color:#9a7b3a;border-bottom:1px solid rgba(201,150,47,.3);padding-bottom:4px;margin-bottom:6px;font-family:Amiri,serif}
 .ms-pf{text-align:center;font-size:12px;color:#9a7b3a;margin-top:4px}
 .ms-tx{font-family:DhuraQuran,'Amiri Quran',Amiri,serif;font-size:var(--fs,22px);line-height:2.15;text-align:justify;text-align-last:center;word-spacing:1px}
-.ms-wrap.two .ms-tx{font-size:calc(var(--fs,22px)*.72);line-height:2}.ms-two{display:grid;gap:8px}@media (min-width:760px){.ms-two{grid-template-columns:1fr 1fr;direction:ltr}.ms-two>*{direction:rtl}}
+.ms-wrap.two .ms-tx{font-size:calc(var(--fs,22px)*.72);line-height:2}.ms-two{display:grid;gap:8px}
 .ms-a{cursor:pointer;border-radius:6px;transition:background .2s}.ms-a:hover{background:rgba(201,150,47,.1)}.ms-a.on{background:rgba(242,185,56,.35);box-shadow:0 0 0 2px rgba(242,185,56,.35)}
 .ms-a.bm .ms-n{background:#c9962f;color:#fff}.ms-a.nt .ms-n{box-shadow:0 0 0 2px #3a9b7a}
 .ms-n{display:inline-grid;place-items:center;min-width:1.35em;height:1.35em;padding:0 2px;margin:0 2px;border:1.5px solid #c9962f;border-radius:50%;font-family:Tajawal,sans-serif;font-size:.48em;color:#8a6a24;vertical-align:middle;line-height:1}
@@ -2314,6 +2314,31 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .fm-in{display:flex;gap:6px;margin-top:8px}.fm-in textarea{flex:1;border:1px solid var(--line);border-radius:12px;padding:8px;background:var(--card);color:var(--ink);font:inherit;resize:none}
 .fm-mini{padding:4px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
 .hm-q{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}.hm-q button{display:flex;flex-direction:column;align-items:center;gap:3px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:10px;font:inherit;cursor:pointer;box-shadow:var(--shadow)}.hm-q span{font-size:24px}.hm-q small{color:var(--muted);font-size:11.5px}
+/* ---- طراز المصحف الجديد: ورق دافئ وإطار مزخرف ---- */
+.ms-pg{position:relative;background:radial-gradient(ellipse at 50% 0%,#fffdf6,#fbf3dd 70%,#f4e7c3);border:0;border-radius:6px;padding:18px 18px 10px;box-shadow:0 2px 10px rgba(80,55,10,.15),inset 0 0 0 3px #fbf3dd,inset 0 0 0 4px #b8862b,inset 0 0 0 7px #fbf3dd,inset 0 0 0 8px #2f6b55,inset 0 0 0 10px #fbf3dd,inset 0 0 0 11px #b8862b}
+.ms-pg::before,.ms-pg::after{content:'❁';position:absolute;top:6px;color:#b8862b;font-size:13px}.ms-pg::before{right:8px}.ms-pg::after{left:8px}
+:root[data-theme="dark"] .ms-pg{background:radial-gradient(ellipse at 50% 0%,#211b10,#15110a 70%);box-shadow:inset 0 0 0 3px #15110a,inset 0 0 0 4px #8a6a24,inset 0 0 0 7px #15110a,inset 0 0 0 8px #2f6b55,inset 0 0 0 10px #15110a,inset 0 0 0 11px #8a6a24}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ms-pg{background:radial-gradient(ellipse at 50% 0%,#211b10,#15110a 70%);box-shadow:inset 0 0 0 3px #15110a,inset 0 0 0 4px #8a6a24,inset 0 0 0 7px #15110a,inset 0 0 0 8px #2f6b55,inset 0 0 0 10px #15110a,inset 0 0 0 11px #8a6a24}}
+.ms-ph{border-bottom:0;color:#2f6b55;font-weight:700;padding:0 10px}
+.ms-sh{position:relative;border:0;border-radius:4px;padding:8px;margin:10px 4px 6px;color:#fff8e6;background:linear-gradient(90deg,#1f5443,#2f6b55 20%,#2f6b55 80%,#1f5443);box-shadow:inset 0 0 0 2px #b8862b,inset 0 0 0 4px #2f6b55,inset 0 0 0 5px #e9cf8f}
+.ms-sh::before,.ms-sh::after{content:'۞';position:absolute;top:50%;transform:translateY(-50%);color:#e9cf8f;font-size:18px}.ms-sh::before{right:12px}.ms-sh::after{left:12px}.ms-sh small{color:#e9cf8f}
+.ms-n{border:0;border-radius:0;background:radial-gradient(circle,#fffaf0 52%,transparent 54%),conic-gradient(#b8862b 0 12.5%,#2f6b55 0 25%,#b8862b 0 37.5%,#2f6b55 0 50%,#b8862b 0 62.5%,#2f6b55 0 75%,#b8862b 0 87.5%,#2f6b55 0);clip-path:polygon(50% 0,62% 12%,80% 8%,82% 26%,100% 30%,90% 50%,100% 70%,82% 74%,80% 92%,62% 88%,50% 100%,38% 88%,20% 92%,18% 74%,0 70%,10% 50%,0 30%,18% 26%,20% 8%,38% 12%);min-width:1.6em;height:1.6em;color:#5a4214;font-weight:700}
+.ms-pf{display:block;width:34px;margin:6px auto 0;border-radius:50%;background:#2f6b55;color:#fff8e6;font-size:11px;line-height:22px}
+.ms-wrap.turn-n .ms-pg{animation:msTurnN .42s ease-out}.ms-wrap.turn-p .ms-pg{animation:msTurnP .42s ease-out}
+@keyframes msTurnN{from{transform:translateX(40%) rotateY(-25deg);opacity:.2}to{transform:none;opacity:1}}@keyframes msTurnP{from{transform:translateX(-40%) rotateY(25deg);opacity:.2}to{transform:none;opacity:1}}
+.ms-two{direction:rtl}
+@media (min-width:760px){.ms-two{grid-template-columns:1fr 1fr;direction:rtl}}
+/* ألوان التجويد (اصطلاح مصاحف التجويد الملوّنة) */
+tajweed.ham_wasl,tajweed.laam_shamsiyah,tajweed.slnt,.tj-ham_wasl{color:#9a9a9a}
+tajweed.madda_normal,.tj-madda_normal{color:#c58a00}tajweed.madda_permissible,.tj-madda_permissible{color:#e86a10}tajweed.madda_obligatory,.tj-madda_obligatory{color:#d0281c}tajweed.madda_necessary,.tj-madda_necessary{color:#8b0a0a}
+tajweed.qalaqah,.tj-qalaqah{color:#1e7fd8}tajweed.ghunnah,.tj-ghunnah{color:#13a35a}tajweed.ikhafa,tajweed.ikhafa_shafawi,.tj-ikhafa{color:#8e2fb5}tajweed.iqlab,.tj-iqlab{color:#0aa6b8}
+tajweed.idgham_ghunnah,tajweed.idgham_shafawi,.tj-idgham_ghunnah{color:#0f7a4a}tajweed.idgham_wo_ghunnah,tajweed.idgham_mutajanisayn,tajweed.idgham_mutaqaribayn,.tj-idgham_wo_ghunnah{color:#6b6b6b}
+.ms-lg{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:11px;margin:0 0 8px;color:var(--muted)}.ms-lg i{display:inline-block;width:9px;height:9px;border-radius:50%;background:currentColor;margin-left:4px;vertical-align:middle}.ms-lg span{display:inline-flex;align-items:center}
+.ms-lg .tj-ham_wasl{color:#9a9a9a}
+/* يومي في وضع القراءة */
+.ro-g{font-family:Amiri,serif;font-size:22px;margin:4px 0 10px}.ro-ms{display:flex;gap:12px;align-items:center;width:100%;text-align:right;border:0;border-radius:20px;padding:16px;margin-bottom:10px;color:#fff8e6;background:radial-gradient(circle at 10% -30%,#2a8a73,#0b3a30 70%);font:inherit;cursor:pointer;box-shadow:var(--shadow)}
+.ro-ms b{font-family:Amiri,serif;font-size:21px;display:block}.ro-ms small{display:block;opacity:.85;font-size:12px;margin:2px 0}.ro-ms .crs-bar{background:rgba(255,255,255,.15);margin:6px 0}.ro-ic{font-size:34px}
+.ro-h .hm-q{grid-template-columns:1fr 1fr}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -13942,7 +13967,7 @@ const MPG=[0,1,8,13,24,32,37,45,56,65,69,77,84,91,96,101,109,113,120,127,134,142
 /* ============ المصحف: أوضاع القراءة، والطبقات، والتفسير عند الضغط، وختمة على الإيقاع، والسجل والتقرير ============ */
 let MSC=null,MTJ={},MTF={},MPL={on:false,id:0,q:[]},MTK=0,MVIS=0;
 const MTFS=[[16,'الميسر'],[91,'السعدي'],[14,'ابن كثير'],[15,'الطبري'],[90,'القرطبي'],[94,'البغوي'],[93,'الوسيط']];
-function MS(){S.mus=S.mus||{};const m=S.mus;m.p=m.p||1;m.mode=m.mode||'pg';m.lay=m.lay||{};m.rc=m.rc||'husary:t';m.tf=m.tf||16;m.kh=m.kh||[];m.cur=m.cur||{st:today(),pg:[]};m.log=m.log||{};m.bm=m.bm||[];m.nt=m.nt||{};m.goal=m.goal||30;m.fs=m.fs||22;m.spp=m.spp||160;return m}
+function MS(){S.mus=S.mus||{};const m=S.mus;m.p=m.p||1;m.mode=m.mode||'pg';m.lay=m.lay||{};m.rc=m.rc||'husary:t';m.tf=m.tf||16;m.kh=m.kh||[];m.cur=m.cur||{st:today(),pg:[]};m.log=m.log||{};m.bm=m.bm||[];m.nt=m.nt||{};m.goal=m.goal||30;m.fs=m.fs||22;if(m.lay.tj==null)m.lay.tj=true;m.spp=m.spp||160;return m}
 function mInit(cb){hzLoadFull(()=>{if(!MSC){MSC=[1];QFULL.forEach((s,i)=>MSC.push(MSC[i]+s.length))}cb()})}
 function mSA(id){let lo=0,hi=114;while(lo<hi){const md=(lo+hi+1)>>1;if(MSC[md]<=id)lo=md;else hi=md-1}return [lo+1,id-MSC[lo]+1]}
 const mID=(s,a)=>MSC[s-1]+a-1;
@@ -13967,8 +13992,9 @@ function vMushaf(){mInit(()=>{const m=MS(),p=m.p,app=$('#app');let body='';
    <div class="ms-modes">${[['pg','صفحة'],['two','صفحتان'],['scr','متصل'],['ay','آية آية']].map(([k,n])=>`<button class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();vMushaf()">${n}</button>`).join('')}<span class="grow"></span>
     <button class="${m.lay.tj?'on':''}" onclick="mLay('tj')">🎨 تجويد</button></div>
    <div class="ms-kh"><i><u style="width:${kp/604*100}%"></u></i><small>الختمة ${AR(m.kh.length+1)}: ${AR(kp)} من ٦٠٤ صفحة · وِرد اليوم ${AR(Math.min(td.length,wird))}/${AR(wird)}</small></div>
+   ${m.lay.tj?`<div class="ms-lg">${[['madda_necessary','مد لازم ٦'],['madda_obligatory','مد واجب ٤–٥'],['madda_permissible','مد جائز'],['madda_normal','مد طبيعي ٢'],['ghunnah','غنة'],['ikhafa','إخفاء'],['idgham_ghunnah','إدغام بغنة'],['idgham_wo_ghunnah','إدغام بلا غنة'],['iqlab','إقلاب'],['qalaqah','قلقلة'],['ham_wasl','لا يُنطق']].map(([c,n])=>`<span><i class="tj-${c}"></i>${n}</span>`).join('')}</div>`:''}
    <div class="ms-wrap ${m.mode}" id="msWrap" style="--fs:${m.fs}px">${body}</div>
-   <div class="ms-nav"><button class="btn" onclick="mGo(${m.mode==='two'?2:1})">‹ التالية</button><button class="btn gold" onclick="mPlay()">${MPL.on?'⏸ إيقاف':'🎧 ختمة على الإيقاع'}</button><button class="btn" onclick="mGo(-${m.mode==='two'?2:1})">السابقة ›</button></div>
+   <div class="ms-nav"><button class="btn" onclick="mGo(-${m.mode==='two'?2:1})">→ السابقة</button><button class="btn gold" onclick="mPlay()">${MPL.on?'⏸ إيقاف':'🎧 ختمة على الإيقاع'}</button><button class="btn" onclick="mGo(${m.mode==='two'?2:1})">التالية ←</button></div>
    <div id="msBar">${mBar()}</div>`;
   mBind();if(m.lay.tj)mLoadTj(p,m.mode==='two'?p+1:m.mode==='scr'?p+3:p);if(m.mode==='ay')mFocusTf();mTrack()})}
 function mBar(){if(!MPL.on)return '';const id=MPL.q[MPL.id],[s,a]=id?mSA(id):[1,1],m=MS(),left=604-m.cur.pg.length;
@@ -13976,10 +14002,10 @@ function mBar(){if(!MPL.on)return '';const id=MPL.q[MPL.id],[s,a]=id?mSA(id):[1,
    <div class="row" style="gap:6px">${[1,1.25,1.5].map(r=>`<button class="btn sm ${(m.rate||1)===r?'gold':''}" onclick="MS().rate=${r};save();hzEl().playbackRate=${r};document.getElementById('msBar').innerHTML=mBar()">${AR(r)}×</button>`).join('')}<button class="btn sm" onclick="mPlay()">⏸</button></div></div>`}
 function mBind(){const w=document.getElementById('msWrap');if(!w)return;let x0=null,y0=0;
   w.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
-  w.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){e.stopPropagation();const st=MS().mode==='two'?2:1;mGo(dx>0?st:-st)}});
+  w.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){e.stopPropagation();const st=MS().mode==='two'?2:1;mGo(dx<0?st:-st)}});
   const more=document.getElementById('msMore');if(more)new IntersectionObserver((en,ob)=>{if(en[0].isIntersecting){ob.disconnect();const m=MS(),last=+[...w.querySelectorAll('.ms-pg')].pop().dataset.p;if(last<604){more.insertAdjacentHTML('beforebegin',[1,2,3].map(i=>last+i<=604?mPageHTML(last+i):'').join(''));mBind2(more)}}}).observe(more)}
 function mBind2(more){new IntersectionObserver((en,ob)=>{if(en[0].isIntersecting){ob.disconnect();const w=document.getElementById('msWrap'),last=+[...w.querySelectorAll('.ms-pg')].pop().dataset.p;if(last<604){more.insertAdjacentHTML('beforebegin',[1,2,3].map(i=>last+i<=604?mPageHTML(last+i):'').join(''));mBind2(more)}}}).observe(more)}
-function mGo(d){const m=MS();m.p=clamp(m.p+d,1,604);m.ai=0;save();sound('flip');vMushaf();window.scrollTo(0,0)}
+function mGo(d){const m=MS(),np=clamp(m.p+d,1,604);if(np===m.p)return;m.p=np;m.ai=0;save();sound('flip');vMushaf();window.scrollTo(0,0);const w=document.getElementById('msWrap');if(w){w.classList.add(d>0?'turn-n':'turn-p');setTimeout(()=>w.classList.remove('turn-n','turn-p'),450)}}
 function mGoto(p){const m=MS();m.p=clamp(p,1,604);m.ai=0;save();closeModal();go('mushaf')}
 function mAy(d){const m=MS(),n=mIds(m.p).length;m.ai=(m.ai||0)+d;if(m.ai>=n){if(m.p<604){m.p++;m.ai=0}else m.ai=n-1}else if(m.ai<0){if(m.p>1){m.p--;m.ai=mIds(m.p).length-1}else m.ai=0}save();vMushaf()}
 function mLay(k){const m=MS();m.lay[k]=!m.lay[k];save();vMushaf()}
@@ -14056,6 +14082,11 @@ const _renderNav95=renderNav;renderNav=function(){_renderNav95();const nav=docum
   if(RO()){if(t)t.outerHTML=ms}else if(!nav.querySelector('[data-ms]')){const h=nav.querySelector('[data-hall]');if(h)h.insertAdjacentHTML('beforebegin',ms)}
   if(['mushaf','muslog'].includes(route.v))nav.querySelectorAll('button:not([data-ms])').forEach(b=>b.classList.remove('on'))};
 const _bkMine95=bkMine;bkMine=function(id){if(RO())return !!BKM[id];return _bkMine95(id)};
+/* ---- يومي في وضع القراءة فقط: بلا خطط ولا سجل ولا مسار ولا مراجعة ---- */
+const _vHome96=vHome;vHome=function(){if(!RO()||(S.profile||{}).kid)return _vHome96();const m=MS(),me=ME(),wird=Math.ceil(604/m.goal),td=(m.log[today()]||{pg:[]}).pg.length,kp=m.cur.pg.length;
+  $('#app').innerHTML=`${typeof roBanner==='function'?roBanner():''}<div class="ro-h"><div class="ro-g">السلام عليكم${me.name||S.settings.name?'، '+esc(me.name||S.settings.name):''}</div>
+   <button class="ro-ms" onclick="go('mushaf')"><span class="ro-ic">📖</span><div class="grow"><b>تابع القراءة</b><small>${MSC?SUR_N[mSA(MPG[m.p])[0]-1]+' · ':''}صفحة ${AR(m.p)}</small><i class="crs-bar"><u style="width:${Math.min(100,td/wird*100)}%"></u></i><small>وِرد اليوم ${AR(Math.min(td,wird))} من ${AR(wird)} · الختمة ${AR(m.kh.length+1)}: ${AR(kp)}/٦٠٤</small></div></button>
+   <div class="hm-q"><button onclick="go('adhkar')"><span>🤲</span><b>الأذكار والأدعية</b></button><button onclick="go('hall')"><span>📚</span><b>المكتبة</b></button><button onclick="go('fam')">${famAv(me.photo,me.name||S.settings.name,30)}<b>${FG.gist?esc(FG.name):'ملفي'}</b></button><button onclick="go('muslog')"><span>📊</span><b>سجل المصحف</b></button></div></div>${typeof khatiraHTML==='function'?khatiraHTML():''}`};
 
 /* ============ ملفي ومجموعة العائلة: ملف شخصي، وأعضاء يرى بعضهم تفاصيل بعض، ومحادثة، وترتيب ============ */
 const FGK='dhura_grp';let FG={};try{FG=JSON.parse(localStorage.getItem(FGK)||'{}')||{}}catch(e){FG={}}
