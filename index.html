@@ -2188,6 +2188,88 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .sf-g{grid-template-columns:repeat(2,minmax(0,1fr))}
 .tj-stage,.tj-pn,.sf-c,.mn-c{max-width:100%;overflow:hidden}
 .mn-k{color:#c9962f;font-weight:700;cursor:pointer;text-decoration:underline dotted;text-underline-offset:6px}
+/* ============ التجويد: التبويبات الموضوعية، ومختبر رحلة الصوت، والصفات الحية ============ */
+.tj-hero small{opacity:.8;font-size:12px}.tj-hero .t{text-align:right;font-size:21px}.tj-hero .crs-bar{margin-top:8px;background:rgba(255,255,255,.12)}
+/* شريط المواضيع */
+.tju-bar{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;margin:0 -4px 6px;scrollbar-width:none;scroll-snap-type:x proximity}.tju-bar::-webkit-scrollbar{display:none}
+.tju-bar button{flex:0 0 auto;scroll-snap-align:center;min-width:96px;max-width:132px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 8px 8px;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s}
+.tju-bar button span{font-size:20px;line-height:1}.tju-bar button b{font-size:12px;line-height:1.35;text-align:center;font-weight:700}
+.tju-bar button i{display:block;width:100%;height:4px;border-radius:3px;background:rgba(127,127,127,.18);overflow:hidden}.tju-bar button i u{display:block;height:100%;background:var(--gold)}
+.tju-bar button.on{border-color:var(--gold);background:linear-gradient(160deg,var(--card),rgba(201,150,47,.16));transform:translateY(-2px)}
+.tju-bar button.ok span{color:var(--green)}.tju-bar button.lk{opacity:.5}
+.tju-head{display:flex;gap:10px;align-items:center;background:radial-gradient(circle at 10% -40%,#2a8a73,#0b3a30 70%);color:#f3ead2;border-radius:18px;padding:12px 14px;margin-bottom:8px}
+.tju-head b{font-family:Amiri,serif;font-size:21px;display:block}.tju-head small{opacity:.85;font-size:12px;line-height:1.5;display:block}
+.tju-ic{font-size:30px;width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.08);display:grid;place-items:center}.tju-p{font-size:13px;background:rgba(242,185,56,.2);border-radius:12px;padding:4px 8px}
+.tju-sec{margin:12px 0}.tju-sec h4{margin:0 0 6px;font-size:14px;color:var(--muted);font-weight:700}
+.tju-s{display:flex;align-items:center;gap:8px;width:100%;text-align:right;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:10px;margin-bottom:6px;font:inherit;cursor:pointer}
+.tju-s .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(201,150,47,.15);font-size:13px;flex:0 0 auto}
+.tju-s.ok .n{background:var(--green);color:#fff}.tju-s.lk{opacity:.55}.tju-s .ic{font-size:18px}.tju-s b{display:block;font-size:14px}.tju-s small{display:block;color:var(--muted);font-size:12px;line-height:1.45;margin-top:2px}
+.tju-v{background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:8px;margin:-2px 0 8px}.tju-v .yt{display:block;text-align:center;margin-top:6px;text-decoration:none}
+.tju-v .vd-fr{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000}.tju-v iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tjx-h{font-family:Amiri,serif;font-size:19px;text-align:center;margin:4px 0 10px;color:var(--ink)}
+/* أنواع الأسئلة */
+.opts.tf{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opts .opt.on{border-color:var(--gold);background:rgba(201,150,47,.15)}.opts .opt.used{opacity:.4}.opts .opt.x{opacity:.55}
+.ord-ans{display:flex;flex-wrap:wrap;gap:6px;min-height:40px;padding:8px;border:1px dashed var(--line);border-radius:12px;margin-bottom:8px}.ord-ans span{background:rgba(201,150,47,.15);border-radius:10px;padding:4px 10px;font-size:14px}.ord-ans.ok{border-color:var(--green)}
+.mt-g{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mt-g>div{display:flex;flex-direction:column;gap:6px}.mt-g .opt{font-size:13px;padding:9px 8px}
+.mt-ok{font-size:13px;margin:4px 0}
+/* مختبر رحلة الصوت */
+.tr-views{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;margin-bottom:6px}.tr-views::-webkit-scrollbar{display:none}
+.tr-views button,.tr-sp button,.bl-seg button,.bl-mk button,.sf-keys button,.md-c button{flex:0 0 auto;border:1px solid rgba(201,150,47,.4);background:var(--card);color:var(--ink);border-radius:14px;padding:6px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+.tr-views button.on,.tr-sp button.on,.bl-seg button.on,.bl-mk button.on,.sf-keys button.on,.md-c button.on{background:linear-gradient(#f5dc95,#c9962f);color:#2a1a05;border-color:#c9962f;font-weight:800}
+.tr-stage{position:relative;background:radial-gradient(ellipse at 60% 35%,#173a33,#0a1c18);border-radius:20px;overflow:hidden;box-shadow:inset 0 0 40px rgba(0,0,0,.5);touch-action:none}
+.tr-wrap{aspect-ratio:1/0.92;max-height:60vh;width:100%}.tr-svg{width:100%;height:100%;display:block;cursor:grab}
+.tr-back{fill:#5a3038;opacity:.55}.tr-air{fill:#2c1a20;opacity:.85}.tr-nasal{fill:#2c1a20;stroke:#7fa9c4;stroke-width:1.2;opacity:.9}.tr-turb path{fill:#b56473;opacity:.6}
+.tr-bone{fill:#efe6d2;stroke:#c9bf9f;stroke-width:1}.tr-bone.jaw{fill:none;stroke:#e6dcc0;stroke-width:6;stroke-linecap:round}
+.tr-tooth{fill:#fbf8ee;stroke:#c9c2a8;stroke-width:1}.tr-epi{fill:#d98c8c;stroke:#a85a60;stroke-width:1}.tr-cart{fill:#bcd8e2;opacity:.85;stroke:#7fa3ae}.tr-fold{fill:#f2b938}
+.tr-trach path{fill:none;stroke:#bcd8e2;stroke-width:2.2}.tr-bron{fill:none;stroke:#bcd8e2;stroke-width:3;stroke-linecap:round;opacity:.8}
+.tr-lung{fill:url(#trLung);opacity:.8;stroke:#c86f7c;stroke-width:1.5}.tr-diaph{fill:none;stroke:#c2505f;stroke-width:9;stroke-linecap:round;opacity:.9}
+.tr-vel{fill:none;stroke:#e08e98;stroke-width:9;stroke-linecap:round}.tr-uv{fill:#e08e98}
+.tr-tg{fill:url(#trTgG);stroke:#9a3e54;stroke-width:1.2}.tr-lip{fill:url(#trLip);stroke:#a84a58;stroke-width:1}
+.tr-lbl{font-size:9.5px}.tr-lbl text{fill:#b8d4cc;text-anchor:middle;font-family:Tajawal,sans-serif;paint-order:stroke;stroke:#0a1c18}
+.tr-h{cursor:pointer}.tr-hit{fill:transparent}.tr-dot{fill:#f2b938;stroke:#fff6d6;stroke-width:1.2;opacity:.85}.tr-h.seen .tr-dot{fill:#7be0a8}.tr-h.on .tr-dot{fill:#fff;r:5.5}
+.tr-h .tr-dot{animation:trPulse 2.4s ease-in-out infinite}@keyframes trPulse{50%{opacity:.45}}
+.tr-p{transition:none}.tr-p.v{fill:#ffcf5a}.tr-p.h{fill:#8fd3ff}
+.ring{fill:none;stroke-width:1.6}.ring.v{stroke:#ffcf5a}.ring.h{stroke:#8fd3ff;stroke-dasharray:2 3}
+.tr-glotw{position:absolute;top:8px;right:8px;width:74px;background:rgba(10,28,24,.82);border:1px solid rgba(242,185,56,.3);border-radius:12px;padding:3px;transition:box-shadow .3s}
+.tr-glotw.hot{box-shadow:0 0 0 2px #f2b938,0 0 18px rgba(242,185,56,.5)}
+.tr-glot{width:100%;display:block}.tr-glot .g-bg{fill:#2c1a20}.tr-glot .g-f{fill:#e8a0a6;stroke:#fff3;stroke-width:.8}.tr-glot .g-ant{fill:#bcd8e2}.tr-glot text{fill:#cfe3dc;font-size:8.5px;text-anchor:middle}
+.tr-frontw{position:absolute;bottom:8px;right:8px;width:112px}.tr-frontw:empty{display:none}
+.tr-front{width:100%;display:block;background:rgba(10,28,24,.86);border:1px solid rgba(242,185,56,.3);border-radius:12px}
+.tr-front .f-lip{fill:#d26b78;stroke:#a84a58}.tr-front .f-tooth{fill:#fbf8ee;stroke:#c9c2a8;stroke-width:.6}.tr-front .f-cav{fill:#2c1a20}.tr-front .f-tg{fill:#d9667c}
+.tr-front .f-hit{fill:none;stroke:#f2b938;stroke-width:3;stroke-linecap:round;animation:trPulse 1.2s infinite}.tr-front .f-edge{fill:none;stroke:#f2b938;stroke-width:4;stroke-linecap:round}.tr-front .f-edge.r{opacity:.45}
+.tr-front text{fill:#cfe3dc;font-size:7.5px;text-anchor:middle}
+.tr-meter{position:absolute;top:8px;left:8px;width:98px;background:rgba(10,28,24,.82);border:1px solid rgba(242,185,56,.25);border-radius:12px;padding:5px 6px;color:#cfe3dc}
+.tr-meter small{display:block;font-size:9px;opacity:.85}.tr-meter i{display:block;height:6px;border-radius:4px;background:rgba(255,255,255,.12);margin:2px 0 4px;overflow:hidden}.tr-meter i u{display:block;height:100%;width:0;background:linear-gradient(90deg,#f2b938,#ff7a5a)}
+.tr-meter svg{width:100%;height:24px;display:block}.tr-meter path{fill:none;stroke:#ffcf5a;stroke-width:1.5}
+.tr-bar{display:flex;align-items:center;gap:8px;margin:8px 0}.tr-pp{width:40px;height:40px;border-radius:50%;border:0;background:linear-gradient(#f5dc95,#c9962f);font-size:16px;cursor:pointer;flex:0 0 auto}
+.tr-tl{flex:1;position:relative}.tr-tl input{width:100%;accent-color:#c9962f}.tr-tl div{position:relative;height:14px}.tr-tl i{position:absolute;transform:translateX(50%);font-style:normal;font-size:10px;color:var(--muted)}.tr-tl i.on{color:var(--gold);font-weight:800}
+.tr-sp{display:flex;gap:4px}.tr-sp button{padding:5px 8px}
+.tr-cap{background:var(--card);border:1px solid var(--line);border-right:4px solid var(--gold);border-radius:12px;padding:8px 12px;margin-bottom:8px;min-height:70px}.tr-cap>b{display:block;font-size:14px;color:var(--gold)}.tr-cap p b{color:var(--gold)}.tr-cap p{margin:4px 0 0;font-size:13.5px;line-height:1.7}
+.tr-stage.qz .tr-wrap{aspect-ratio:1/0.9}
+.tr-teeth{margin-top:8px}.tr-teeth svg{width:100%;max-width:300px;display:block;margin:auto}.tth{stroke:#fff8;stroke-width:1;cursor:pointer;transition:r .2s}.tth.on{stroke:#fff;stroke-width:3}.tt-l{fill:var(--muted);font-size:9px;text-anchor:middle}
+#trTT{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}#trTT button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:4px 8px;font:inherit;font-size:12px;cursor:pointer}#trTT i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-left:4px;vertical-align:middle}
+.tj-sfc span{display:inline-block;border:1px solid var(--line);border-radius:12px;padding:3px 9px;margin:2px;font-size:12px}
+/* مُركِّب الحروف */
+.bl-goal{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:8px 12px;margin-bottom:8px}.bl-goal b{font-size:18px}
+.bl-pn{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;margin-top:8px}.bl-r{margin-bottom:8px}.bl-r>small{display:block;color:var(--muted);margin-bottom:4px}
+.bl-seg{display:flex;gap:6px;flex-wrap:wrap}.bl-seg button{flex:1}.bl-mk{display:flex;flex-wrap:wrap;gap:5px}.bl-mk button{font-size:11.5px;padding:5px 8px}
+.bl-res{display:flex;gap:10px;align-items:center;margin-top:8px;padding:10px;border-radius:14px;background:var(--card);border:2px solid var(--line)}.bl-res.ok{border-color:var(--green);animation:blPop .5s}.bl-res.no{border-color:var(--red)}
+.bl-res b{display:block}.bl-res small{display:block;color:var(--muted);font-size:12.5px;line-height:1.5}@keyframes blPop{40%{transform:scale(1.04)}}
+/* الصفات الحية */
+.sfx-g{display:grid;gap:10px}.sfx{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:var(--shadow)}.sfx.seen{border-color:rgba(46,160,110,.6)}
+.sfx-h{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}.sfx-h b{font-family:Amiri,serif;font-size:19px}.sfx-h .sf-mn{color:var(--gold);font-size:13px}.sfx-h i{margin-inline-start:auto;color:var(--green);font-style:normal}
+.sfx-cv{width:100%;aspect-ratio:320/180;border-radius:14px;display:block;touch-action:none}
+.sfx-ctl{margin:8px 0 4px}.sfx p{font-size:13.5px;line-height:1.75;margin:6px 0}.sfx .sf-l small{display:block;font-size:12px;color:var(--muted)}
+.sf-keys{display:flex;flex-wrap:wrap;gap:8px}.sf-keys span{display:flex;gap:4px;flex-wrap:wrap}.sf-keys button{min-width:38px;font-size:17px;padding:6px 10px;user-select:none;-webkit-user-select:none;touch-action:none}
+.sf-keys button.wide{font-size:13px;display:flex;flex-direction:column;align-items:center}.sf-keys button.wide small{font-size:11px;opacity:.8}.sf-keys button.bad{border-color:var(--red)}
+.sf-keys button.hold:active{transform:scale(.94)}.sf-rng{width:100%;accent-color:#c9962f;margin:4px 0 8px}
+.tf-r{display:grid;grid-template-columns:1.3fr .8fr 1fr;gap:8px;align-items:center;font-size:13px;margin:6px 0}.tf-r i{display:block;height:8px;border-radius:5px;background:rgba(127,127,127,.18);overflow:hidden}.tf-r i u{display:block;height:100%;background:linear-gradient(90deg,#8fd3ff,#c9962f)}
+/* مِسطرة المدود */
+.md-r{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;display:grid;gap:10px}.md-w{font-size:28px;text-align:center}
+.md-c{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}.md-b{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.md-b i{height:34px;border-radius:10px;border:1px dashed var(--line);transition:all .15s}.md-b i.u{border-style:solid;border-color:var(--gold)}.md-b i.on{background:linear-gradient(#f5dc95,#c9962f);transform:scale(1.05)}
+.tj-pn .tj-er ul{margin:6px 0;padding-inline-start:18px}.tj-pn .tj-er li{font-size:13.5px;line-height:1.7}
+.tr-svg.playing .tr-h{opacity:.18}.tr-svg .tr-h{transition:opacity .4s}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -12950,6 +13032,862 @@ const _itemDone80=itemDone;itemDone=function(it){if(it.t==='tjlab'&&it.m==='vd')
 const _tabMeta80=tabMeta;tabMeta=function(it){if(it.t==='tjlab'&&it.m==='vd'){const n=TJ_VID.filter(v=>v.g===it.g).length;return ['🎬','الدروس المرئية: '+TJ_VG[it.g],AR(n)+' حلقات من شرح «التجويد المصور» بصوت مؤلفه، ولكل حلقة اختبار',`go('tjlab',{m:'vd',g:'${it.g}'})`]}return _tabMeta80(it)};
 const _tabItemHTML80=tabItemHTML;tabItemHTML=function(it,o){if(!(it.t==='tjlab'&&it.m==='vd'))return _tabItemHTML80(it,o);const [a,b]=itemProg(it);return `<div class="tj-card"><p>${tabMeta(it)[2]}</p><i class="crs-bar"><u style="width:${b?a/b*100:0}%"></u></i><button class="btn ${itemDone(it)?'ghost':'gold'}" style="width:100%;margin-top:8px" onclick="go('tjlab',{m:'vd',g:'${it.g}'})">${itemDone(it)?'↺ الحلقات':'شاهد واختبر ←'}</button></div>`};
 (()=>{const T=(DLVM.D2&&DLVM.D2.tabs||[]).find(T=>T.k==='tjw');if(!T)return;const at=(l,it)=>{const j=T.items.findIndex(i=>i.t==='crsl'&&i.c==='tajweed'&&i.l===l);if(j>=0)T.items.splice(j+1,0,it)};at(2,{t:'tjlab',m:'vd',g:'sf'});at(1,{t:'tjlab',m:'vd',g:'mk'});at(0,{t:'tjlab',m:'vd',g:'in'})})();
+
+/* ============ التجويد على ترتيب «التجويد المصور»: الوحدات، والدروس الجديدة، والحلقات، وبنوك الأسئلة ============ */
+TJS.s='أيمن رشدي سويد، التجويد المصور (اتبعنا ترتيب فصوله منهجًا، والشرح بعبارتنا)';
+TJS.z='الزركشي، البرهان في علوم القرآن';TJS.y='السيوطي، الإتقان في علوم القرآن';TJS.d='أبو عمرو الداني، المقنع في رسم مصاحف الأمصار';TJS.b='النووي، التبيان في آداب حملة القرآن';
+/* ---- الدروس الجديدة (فصول لم تكن في الدورة) ---- */
+const TJ_NL={
+ n_quran:{id:'n_quran',t:'القرآن الكريم: تعريفه ونزوله وجمعه وآداب تلاوته',
+  body:`<p><b>القرآن</b>: كلام الله تعالى، المنزّل على نبيه محمد ﷺ، المتعبَّد بتلاوته، المعجز بأقصر سورة منه، المنقول إلينا بالتواتر، المكتوب في المصاحف من أول الفاتحة إلى آخر سورة الناس.</p>
+  <p><b>نزوله</b>: بدأ نزوله في غار حراء بقوله تعالى: ${Q('ٱقۡرَأۡ بِٱسۡمِ رَبِّكَ ٱلَّذِي خَلَقَ')} [العلق: ١]، ثم نزل مفرّقًا على النبي ﷺ نحو ثلاث وعشرين سنة بحسب الوقائع والأحوال، قال تعالى: ${Q('وَقُرۡءَانٗا فَرَقۡنَٰهُ لِتَقۡرَأَهُۥ عَلَى ٱلنَّاسِ عَلَىٰ مُكۡثٖ')} [الإسراء: ١٠٦].</p>
+  <p><b>جمعه</b>: كان محفوظًا في الصدور ومكتوبًا في عهد النبي ﷺ على الرقاع والعُسُب واللِّخاف. ثم جمعه أبو بكر رضي الله عنه في صحف بعد استشهاد كثير من القراء يوم اليمامة، بإشارة عمر، وتولّى ذلك زيد بن ثابت. ثم نسخ عثمان رضي الله عنه المصاحف وأرسلها إلى الأمصار، فاجتمعت الأمة عليها.</p>
+  <p><b>الأحرف والقراءات</b>: قال النبي ﷺ: «إن هذا القرآن أُنزل على سبعة أحرف، فاقرؤوا ما تيسر منه» (البخاري ومسلم). والقراءات المتواترة عشر، ونقرأ في هذه الدورة برواية <b>حفص عن عاصم</b> من طريق الشاطبية، وهي أشهر الروايات اليوم.</p>
+  <p><b>من آداب التلاوة</b>: الإخلاص، والطهارة (واتفق الأئمة الأربعة على اشتراط الوضوء لمسّ المصحف، وخالف في ذلك الظاهرية وغيرهم)، واستقبال القبلة إن تيسر، والاستعاذة، والترتيل، والتدبر، وتحسين الصوت بلا تكلّف ولا تمطيط يخرج عن قواعد الأداء.</p>
+  <p><b>فضله</b>: قال النبي ﷺ: «خيركم من تعلّم القرآن وعلّمه» (البخاري)، وقال: «اقرؤوا القرآن فإنه يأتي يوم القيامة شفيعًا لأصحابه» (مسلم).</p>`,
+  pts:['القرآن: كلام الله المنزّل على محمد ﷺ، المتعبد بتلاوته، المعجز، المنقول بالتواتر.','بدأ نزوله بـ«اقرأ» في غار حراء، ونزل مفرّقًا نحو ٢٣ سنة.','جُمع في صحف زمن أبي بكر، ثم نُسخت المصاحف زمن عثمان.','القراءات المتواترة عشر، وندرس رواية حفص عن عاصم.','من آدابه: الإخلاص والطهارة والاستعاذة والترتيل والتدبر.'],
+  why:[['لماذا نزل القرآن مفرّقًا؟','تثبيتًا لقلب النبي ﷺ، وتيسيرًا لحفظه وفهمه، ومراعاةً للوقائع والتدرج في التشريع.']],
+  mist:['الظن أن «الأحرف السبعة» هي القراءات السبع؛ والصحيح أنهما شيئان مختلفان عند المحققين.','التكلف في التطريب حتى تُمَطّ الحروف أو تُزاد فيها حركات.'],
+  tip:'اختر وقتًا ثابتًا للتلاوة كل يوم، ولو صفحة واحدة بتدبر.',
+  src:[TJS.s,TJS.z,TJS.y,TJS.b],
+  quiz:[{t:'mcq',q:'ما أول ما نزل من القرآن على الراجح؟',o:['«اقرأ باسم ربك الذي خلق»','الفاتحة','«يا أيها المدثر»','آية الكرسي'],w:'نزلت في غار حراء.'},
+   {t:'mcq',q:'من الذي جمع القرآن في صحف بعد معركة اليمامة؟',o:['أبو بكر الصديق بإشارة عمر، وتولاه زيد بن ثابت','عثمان بن عفان','علي بن أبي طالب','معاوية بن أبي سفيان'],w:'ثم نسخ عثمان المصاحف وأرسلها إلى الأمصار.'},
+   {t:'tf',q:'نزل القرآن مفرّقًا نحو ثلاث وعشرين سنة.',a:true,w:'﴿وَقُرۡءَانٗا فَرَقۡنَٰهُ...﴾.'},
+   {t:'tf',q:'الأحرف السبعة هي القراءات السبع نفسها.',a:false,w:'هما شيئان مختلفان عند المحققين.'},
+   {t:'mcq',q:'الرواية التي ندرسها في هذه الدورة:',o:['حفص عن عاصم','ورش عن نافع','قالون عن نافع','الدوري عن أبي عمرو'],w:'من طريق الشاطبية.'},
+   {t:'order',q:'رتّب مراحل حفظ القرآن وكتابته زمنيًا:',o:['الحفظ والكتابة في عهد النبي ﷺ','الجمع في صحف زمن أبي بكر','نسخ المصاحف زمن عثمان'],w:'هذا تسلسلها التاريخي.'}]},
+ n_huruf:{id:'n_huruf',t:'الحروف العربية: عددها وأنواعها والحركات',
+  body:`<p><b>الحروف الهجائية</b> ثمانية وعشرون حرفًا على المشهور، وهي تسعة وعشرون إذا عُدّت الألف المدية حرفًا مستقلًا عن الهمزة. فالهمزة حرف صحيح يقبل الحركات، أما الألف فلا تكون إلا ساكنة مفتوحًا ما قبلها.</p>
+  <p><b>الحروف الأصلية والفرعية</b>: الأصلية هي حروف الهجاء المعروفة. والفرعية حروف تتولد منها بأحكام معينة في القراءة، كالنون والميم المخفاتين، والهمزة المسهّلة في ﴿ءَا۬عۡجَمِيّٞ﴾ [فصلت: ٤٤]، والألف الممالة في ﴿مَجۡر۪ىٰهَا﴾ [هود: ٤١]. وتأتي في مواضعها.</p>
+  <p><b>الحركات</b> ثلاث: الفتحة والضمة والكسرة، و<b>السكون</b> عدم الحركة. والتنوين نون ساكنة زائدة تلحق آخر الاسم لفظًا لا خطًا. والشدة علامة حرفين: أولهما ساكن والثاني متحرك.</p>
+  <p><b>الحرف والحركة</b>: الحركة بعض حرف المد؛ فالفتحة بعض الألف، والضمة بعض الواو، والكسرة بعض الياء. ولذلك إذا أُشبعت الحركة تولّد منها حرف مد، وهو خطأ يأتي التنبيه عليه في «إتمام الحركات».</p>`,
+  pts:['حروف الهجاء ٢٨، و٢٩ بعدّ الألف مستقلة عن الهمزة.','الهمزة تقبل الحركات، والألف لا تكون إلا ساكنة بعد فتح.','الحروف الفرعية تتولد بأحكام: الإخفاء والتسهيل والإمالة.','الحركات ثلاث، والسكون عدم الحركة.','الحركة بعض حرف المد: إشباعها يولّد حرفًا.'],
+  why:[['لماذا نفرق بين الألف والهمزة؟','لأن الهمزة حرف حلقي شديد يقبل الحركات، والألف حرف مد جوفي لا يقبلها، ولكلٍّ أحكامه.']],
+  mist:['نطق الألف المدية همزة، أو تسهيل الهمزة في غير مواضع التسهيل.','عدّ التنوين حرفًا مكتوبًا؛ وإنما هو نون ملفوظة غير مكتوبة.'],
+  tip:'اكتب الحروف التسعة والعشرين، وضع تحت كل حرف لا يقبل الحركة خطًا.',
+  src:[TJS.s,TJS.h,TJS.n],
+  quiz:[{t:'mcq',q:'كم عدد الحروف إذا عُدّت الألف المدية مستقلة عن الهمزة؟',o:['تسعة وعشرون','ثمانية وعشرون','سبعة عشر','ستة وعشرون'],w:'٢٨ على المشهور، و٢٩ بالتفريق.'},
+   {t:'tf',q:'الألف المدية تقبل الفتح والضم والكسر.',a:false,w:'لا تكون إلا ساكنة مفتوحًا ما قبلها.'},
+   {t:'mcq',q:'التنوين:',o:['نون ساكنة زائدة تلحق آخر الاسم لفظًا لا خطًا','حرف مد','حركة رابعة','همزة وصل'],w:'تُنطق ولا تُكتب نونًا.'},
+   {t:'mcq',q:'من الحروف الفرعية في رواية حفص:',o:['الألف الممالة في «مجريها»','الباء المتحركة','اللام القمرية','التاء المربوطة'],w:'وكذلك الهمزة المسهلة في «ءاعجمي».'},
+   {t:'mcq',q:'الشدة علامة على:',o:['حرفين: الأول ساكن والثاني متحرك','حرف ممدود','حرف مخفى','حركة طويلة'],w:'لذلك يُمكث على المشدد.'}]},
+ n_aada:{id:'n_aada',t:'أعضاء النطق: من الرئتين إلى الشفتين',
+  body:`<p><b>الرئتان والحجاب الحاجز</b>: مصدر الهواء. يرتفع الحجاب الحاجز في الزفير فيدفع الهواء من الرئتين إلى القصبة الهوائية، ولا يتكون صوت إلا على هواء الزفير.</p>
+  <p><b>الحنجرة والوتران الصوتيان</b>: الحنجرة في أعلى القصبة، وفيها الوتران. إذا تقاربا واهتزا مع مرور الهواء خرج الحرف <b>مجهورًا</b>، وإذا تباعدا وجرى الهواء بينهما بلا اهتزاز خرج <b>مهموسًا</b>. ومن أقصى الحلق مما يلي الحنجرة تخرج الهمزة والهاء.</p>
+  <p><b>الحلق</b>: ثلاثة أقسام: أقصاه (مما يلي الصدر) ووسطه وأدناه (مما يلي الفم). وفوقه <b>اللهاة</b> في آخر <b>الحنك اللين</b>، وهو يرتفع فيسد طريق الأنف، وينخفض فيجري الصوت في <b>الخيشوم</b> كما في الغنة.</p>
+  <p><b>اللسان</b>: أهم أعضاء النطق؛ له أقصى ووسط وحافتان وطرف. ويسمى طرفه المستدق «الأسَلة»، وحدّه «الذَّلَق». ويقابله <b>الحنك الأعلى</b>: لحمي في الخلف، وعظمي (الغار) في الأمام، ثم <b>اللثة</b> خلف الأسنان.</p>
+  <p><b>الأسنان</b> اثنان وثلاثون غالبًا: <b>الثنايا</b> أربع (اثنتان علويتان واثنتان سفليتان)، ثم <b>الرَّباعيات</b> أربع، ثم <b>الأنياب</b> أربعة، ثم <b>الأضراس</b> عشرون: الضواحك أربعة، والطواحن اثنا عشر، والنواجذ أربعة.</p>
+  <p><b>الشفتان</b>: منهما الباء والميم بانطباقهما، والواو بانضمامهما، والفاء من بطن الشفة السفلى مع أطراف الثنايا العليا.</p>`,
+  pts:['الصوت يتكون على هواء الزفير.','الوتران: يهتزان في المجهور ويتباعدان في المهموس.','الحلق ثلاثة: أقصى ووسط وأدنى.','الحنك اللين يرتفع فيسد الأنف، وينخفض للغنة.','الأسنان ٣٢: ثنايا ورباعيات وأنياب وأضراس (ضواحك وطواحن ونواجذ).'],
+  why:[['لماذا ندرس أعضاء النطق قبل المخارج؟','لأن المخرج موضع على عضو من هذه الأعضاء، فمن لم يعرف أسماءها لم يفهم وصف المخرج.']],
+  mist:['الخلط بين الثنايا والرباعيات في وصف مخارج الحروف.','الظن أن الهمزة تخرج من الصدر؛ وإنما الصدر مصدر الهواء فقط.'],
+  tip:'ضع أصابعك على حنجرتك وانطق «زززز» ثم «سسسس»، وحِسّ الاهتزاز في الأولى دون الثانية.',
+  src:[TJS.s,TJS.h,TJS.g],
+  quiz:[{t:'order',q:'رتّب طريق الهواء عند النطق:',o:['الرئتان','القصبة الهوائية','الحنجرة والوتران','الحلق','الفم أو الأنف'],w:'من الداخل إلى الخارج.'},
+   {t:'mcq',q:'ماذا يحدث للوترين في الحرف المجهور؟',o:['يتقاربان ويهتزان','يتباعدان بلا اهتزاز','ينطبقان انطباقًا تامًا دائمًا','لا علاقة لهما بالجهر'],w:'وفي المهموس يتباعدان فيجري النفَس.'},
+   {t:'mcq',q:'كم عدد الأضراس؟',o:['عشرون','اثنا عشر','ستة عشر','ثمانية'],w:'الضواحك ٤، والطواحن ١٢، والنواجذ ٤.'},
+   {t:'tf',q:'ينخفض الحنك اللين فيجري الصوت في الخيشوم كما في الغنة.',a:true,w:'ويرتفع في غيرها فيسد طريق الأنف.'},
+   {t:'mcq',q:'«الأسَلة» هي:',o:['طرف اللسان المستدق','أقصى اللسان','حافة اللسان','اللهاة'],w:'ومنه سميت الصاد والزاي والسين «أسلية».'},
+   {t:'mcq',q:'الثنايا عددها:',o:['أربع','ثنتان','ثمانٍ','ست'],w:'ثنتان علويتان وثنتان سفليتان.'}]},
+ n_itmam:{id:'n_itmam',t:'إتمام الحركات: لا نقص ولا زيادة',
+  body:`<p><b>إتمام الحركة</b>: أن تُعطى حقها كاملًا عند النطق: فالفتحة بانفتاح الفم، والضمة بضم الشفتين ضمًا تامًا، والكسرة بانخفاض الفك السفلي. وهي من أدق ما يتفاضل فيه القراء.</p>
+  <p><b>النقص</b>: أن تُنطق الحركة ناقصة، كضمّ الشفتين ضمًا ضعيفًا فتقترب الضمة من الكسرة، أو تُختلس الحركة فلا يظهر إلا بعضها. وهذا خطأ إلا في مواضع مروية، كإخفاء حركة النون الأولى في ﴿تَأۡمَ۫نَّا﴾ [يوسف: ١١] على أحد الوجهين.</p>
+  <p><b>الزيادة</b>: أن تُشبع الحركة حتى يتولد منها حرف مد: ﴿مَلِكِ﴾ تصير «مالكي»، و﴿إِيَّاكَ﴾ تصير «إييّاك». وكذلك تمطيط الحركة في التطريب.</p>
+  <p><b>الحركة والحرف المفخم</b>: الفتحة على المفخم تُنطق مفخمة، وعلى المرقق مرققة، ولا تُمال الفتحة نحو الكسرة إلا في الموضع المروي لحفص: ﴿مَجۡر۪ىٰهَا﴾.</p>
+  <p><b>مقدار الحركة</b>: زمن نطقها، وبه تُقاس المدود؛ فالمد الطبيعي حركتان، أي ضعف زمن الحركة الواحدة، ويأتي تفصيله في المدود.</p>`,
+  pts:['الإتمام: إعطاء الحركة حقها بلا نقص ولا زيادة.','الفتحة بانفتاح الفم، والضمة بضم الشفتين، والكسرة بخفض الفك.','النقص: اختلاس الحركة أو ضعف الضم.','الزيادة: إشباع الحركة حتى يتولد حرف مد.','الحركة وحدة قياس زمن المدود.'],
+  why:[['لماذا كان ضمّ الشفتين مهمًا في الضمة؟','لأن الضمة بعض الواو، والواو تخرج بضم الشفتين، فإذا نقص الضم خرجت الضمة مشوبة بغيرها.']],
+  mist:['نطق الضمة مثل الكسرة في نحو ﴿يَقُولُ﴾.','إشباع الكسرة في ﴿بِسۡمِ﴾ حتى تُسمع ياء.','إمالة الفتحة في غير «مجريها» لتأثر باللهجة.'],
+  tip:'اقرأ ﴿قُلۡ هُوَ ٱللَّهُ أَحَدٌ﴾ أمام المرآة، وراقب ضمّ شفتيك في كل ضمة.',
+  src:[TJS.s,TJS.h,TJS.n],
+  quiz:[{t:'mcq',q:'إتمام الضمة يكون بـ:',o:['ضم الشفتين ضمًا تامًا','فتح الفم','خفض الفك','إطالة الصوت'],w:'لأنها بعض الواو.'},
+   {t:'mcq',q:'نطق ﴿مَلِكِ﴾ «مالكي» خطأ من نوع:',o:['الزيادة: إشباع الحركة','النقص: الاختلاس','الإمالة','الإخفاء'],w:'تولّد من الفتحة ألف ومن الكسرة ياء.'},
+   {t:'tf',q:'إمالة الفتحة جائزة لحفص في كل موضع.',a:false,w:'الإمالة الكبرى لحفص في موضع واحد: «مجريها».'},
+   {t:'mcq',q:'في أي كلمة يجوز إخفاء الحركة (الاختلاس) لحفص على أحد الوجهين؟',o:['﴿تَأۡمَنَّا﴾','﴿ٱلرَّحۡمَٰنِ﴾','﴿يَقُولُ﴾','﴿مَالِكِ﴾'],w:'والوجه الآخر الإشمام.'},
+   {t:'mcq',q:'المد الطبيعي مقداره:',o:['حركتان','حركة واحدة','أربع حركات','ست حركات'],w:'ضعف زمن الحركة الواحدة.'}]},
+ n_nabr:{id:'n_nabr',t:'أبحاث متفرقة: النبر',
+  body:`<p><b>النبر</b>: إبراز مقطع أو حرف في الكلمة بضغط يسير في الصوت، فيُسمع أوضح مما حوله. وهو من الأبحاث التي عُني بها المعاصرون في وصف الأداء، ويؤخذ بالتلقي من المشايخ لا بالقياس.</p>
+  <p><b>من مواضعه</b>: الحرف المشدد عند الوقف عليه، نحو ﴿ٱلۡحَقُّ﴾ و﴿مُسۡتَقَرّٞ﴾، فيُضغط عليه يسيرًا لئلا يضيع التشديد فيُسمع كأنه حرف واحد.</p>
+  <p>ومنها: الحرف المشدد بعد حرف المد نحو ﴿دَآبَّةٖ﴾ و﴿ٱلضَّآلِّينَ﴾؛ لئلا يذوب التشديد في المد.</p>
+  <p>ومنها: ألف التثنية التي تُحذف لفظًا في الوصل لالتقاء الساكنين، نحو ﴿وَقَالَا ٱلۡحَمۡدُ لِلَّهِ﴾ [النمل: ١٥] و﴿ذَاقَا ٱلشَّجَرَةَ﴾ [الأعراف: ٢٢]، فيُنبر على الحرف قبلها ليُفهم أن الفعل للمثنى لا للمفرد.</p>
+  <p><b>ضابطه</b>: أن يكون يسيرًا لا يبلغ حد الشدة ولا يولّد حركة أو همزة أو سكتًا. وما زاد على ذلك فهو تكلف مذموم.</p>`,
+  pts:['النبر: إبراز حرف أو مقطع بضغط يسير.','يُضبط بالتلقي من المشايخ.','من مواضعه: المشدد الموقوف عليه.','والمشدد بعد حرف المد.','وألف التثنية المحذوفة وصلًا: «وقالا الحمد لله».'],
+  why:[['ما فائدة النبر في «وقالا الحمد لله»؟','تُحذف الألف لفظًا لالتقاء الساكنين، فيُنبر ليتبين أن الفعل لاثنين لا لواحد.']],
+  mist:['المبالغة في النبر حتى يتولد همز أو سكت.','ترك النبر في المشدد الموقوف عليه فيُسمع كالمخفف.'],
+  tip:'قارن قراءتك لـ﴿ٱلۡحَقُّ﴾ موقوفًا عليها مع قراءة الحصري في المصحف المعلم.',
+  src:[TJS.s,TJS.h],
+  quiz:[{t:'mcq',q:'النبر هو:',o:['إبراز حرف أو مقطع بضغط يسير في الصوت','مد الحرف ست حركات','الوقف بالروم','قلب النون ميمًا'],w:'ويؤخذ بالتلقي.'},
+   {t:'mcq',q:'لماذا يُنبر في ﴿وَقَالَا ٱلۡحَمۡدُ لِلَّهِ﴾؟',o:['ليُفهم أن الفعل للمثنى بعد حذف الألف لفظًا','لأن فيها قلقلة','لأنها موضع سكت','لأن فيها مدًا لازمًا'],w:'تُحذف ألف التثنية وصلًا لالتقاء الساكنين.'},
+   {t:'tf',q:'المبالغة في النبر حتى يتولد همز مقبولة.',a:false,w:'يشترط أن يكون يسيرًا.'},
+   {t:'mcq',q:'من مواضع النبر:',o:['المشدد الموقوف عليه نحو ﴿ٱلۡحَقُّ﴾','كل حرف مفخم','كل همزة','كل نون ساكنة'],w:'لئلا يضيع التشديد.'}]},
+ n_alifat:{id:'n_alifat',t:'الألفات السبعة',
+  body:`<p>في المصحف سبع كلمات كُتبت في آخرها ألف <b>تُحذف في الوصل</b> و<b>تثبت في الوقف</b> لحفص، وتسمى «الألفات السبعة». وفائدتها: ألّا يُغترّ برسم الألف فتُمدّ وصلًا.</p>
+  <ol><li>﴿أَنَا۠﴾ حيث وقعت، نحو ﴿أَنَا۠ خَيۡرٞ مِّنۡهُ﴾.</li><li>﴿لَّٰكِنَّا۠ هُوَ ٱللَّهُ رَبِّي﴾ [الكهف: ٣٨].</li><li>﴿ٱلظُّنُونَا۠﴾ [الأحزاب: ١٠].</li><li>﴿ٱلرَّسُولَا۠﴾ [الأحزاب: ٦٦].</li><li>﴿ٱلسَّبِيلَا۠﴾ [الأحزاب: ٦٧].</li><li>﴿سَلَٰسِلَا۠﴾ [الإنسان: ٤].</li><li>﴿قَوَارِيرَا۠﴾ الأولى [الإنسان: ١٥].</li></ol>
+  <p><b>حكمها لحفص</b>: تُحذف الألف وصلًا في السبع. وتثبت وقفًا، إلا ﴿سَلَٰسِلَا۠﴾ ففيها عند الوقف وجهان: إثبات الألف، أو حذفها مع إسكان اللام.</p>
+  <p>أما ﴿قَوَارِيرَا۟﴾ الثانية [الإنسان: ١٦] فتُحذف ألفها وصلًا ووقفًا، وعليها في مصحف المدينة <b>الصفر المستدير</b> الدالّ على الزيادة وصلًا ووقفًا. أما الألفات السبع فعليها <b>الصفر المستطيل القائم</b> الدالّ على زيادتها وصلًا لا وقفًا.</p>`,
+  pts:['سبع كلمات ألفها تُحذف وصلًا وتثبت وقفًا.','أنا، لكنا، الظنونا، الرسولا، السبيلا، سلاسلا، قواريرا الأولى.','«سلاسلا» لها عند الوقف وجهان.','«قواريرا» الثانية تُحذف وصلًا ووقفًا (الصفر المستدير).','علامة السبع: الصفر المستطيل القائم فوق الألف.'],
+  why:[['لماذا كُتبت الألف ما دامت لا تُنطق وصلًا؟','لأنها تثبت في الوقف، والرسم العثماني يراعي حال الوقف.']],
+  mist:['مدّ ألف ﴿أَنَا۠﴾ في الوصل: «أنا خير» بألف ممدودة.','الوقف على ﴿قَوَارِيرَا۟﴾ الثانية بالألف.'],
+  tip:'ضع علامة عند الألفات السبع في مصحفك، واقرأ كل موضع وصلًا ثم وقفًا.',
+  src:[TJS.s,TJS.m,TJS.n],
+  quiz:[{t:'mcq',q:'ألف ﴿أَنَا۠﴾ في الوصل:',o:['تُحذف','تُمد حركتين','تُمد ستًا','تُهمز'],w:'وتثبت عند الوقف.'},
+   {t:'mcq',q:'أي الكلمات لها عند الوقف وجهان (إثبات الألف وحذفها)؟',o:['﴿سَلَٰسِلَا﴾','﴿ٱلرَّسُولَا﴾','﴿أَنَا﴾','﴿ٱلظُّنُونَا﴾'],w:'في سورة الإنسان: ٤.'},
+   {t:'tf',q:'﴿قَوَارِيرَا﴾ الثانية تُحذف ألفها وصلًا ووقفًا.',a:true,w:'وعليها الصفر المستدير.'},
+   {t:'mcq',q:'ثلاث من الألفات السبع في سورة:',o:['الأحزاب','الكهف','الإنسان','النساء'],w:'الظنونا والرسولا والسبيلا.'},
+   {t:'mcq',q:'علامة الألفات السبع في مصحف المدينة:',o:['الصفر المستطيل القائم فوق الألف','الصفر المستدير','الميم الصغيرة','النقطة المعينة'],w:'يدل على زيادتها وصلًا لا وقفًا، أما المستدير فزيادة وصلًا ووقفًا.'}]},
+ n_qat:{id:'n_qat',t:'همزة القطع',
+  body:`<p><b>همزة القطع</b>: همزة تثبت في الابتداء وفي الوصل، وتُكتب على ألف أو واو أو ياء أو منفردة، نحو ﴿أَنعَمۡتَ﴾ و﴿يُؤۡمِنُونَ﴾ و﴿سُئِلَ﴾ و﴿شَيۡءٖ﴾. أما همزة الوصل فتثبت في الابتداء وتسقط في الوصل.</p>
+  <p><b>مواضعها</b>: في الأسماء كلها إلا أسماء معدودة همزتها وصل، منها في القرآن: «ابن، ابنة، امرؤ، امرأة، اثنان، اثنتان، اسم». وفي الأفعال: همزة الماضي الرباعي وأمره ومصدره (أكرمَ، أكرِمْ، إكرام)، وهمزة المضارع للمتكلم (أقول). وفي الحروف كلها إلا «ال» التعريف.</p>
+  <p><b>حكمها لحفص</b>: التحقيق، أي النطق بها همزة خالصة من أقصى الحلق، ساكنةً كانت أو متحركة. واستُثني من ذلك:</p>
+  <ul><li>﴿ءَا۬عۡجَمِيّٞ﴾ [فصلت: ٤٤]: بتسهيل الهمزة الثانية بين الهمزة والألف.</li><li>همزة الاستفهام إذا دخلت على همزة وصل في كلمة فيها «ال»: ﴿ءَآلذَّكَرَيۡنِ﴾ (موضعا الأنعام) و﴿ءَآلۡـَٰٔنَ﴾ (موضعا يونس) و﴿ءَآللَّهُ﴾ (يونس والنمل): فيها وجهان: إبدال همزة الوصل ألفًا مع المد اللازم ست حركات، أو تسهيلها.</li></ul>
+  <p><b>من أخطائها</b>: تسهيل الهمزة الساكنة كما في العامية «يُومنون»، أو قلبها عينًا، أو المبالغة فيها حتى تشبه السعلة.</p>`,
+  pts:['همزة القطع تثبت ابتداءً ووصلًا.','في الأسماء إلا المستثناة، وفي الحروف إلا «ال».','في الأفعال: الماضي الرباعي وأمره ومصدره، وهمزة المتكلم.','حفص يحققها إلا في «ءاعجمي» بالتسهيل.','«ءالذكرين، ءالآن، ءالله»: الإبدال مع المد ستًا أو التسهيل.'],
+  why:[['ما الفرق العملي بين همزة القطع والوصل؟','همزة القطع تُنطق في الوصل: ﴿وَأَنزَلۡنَا﴾، وهمزة الوصل تسقط: ﴿وَٱسۡتَعِينُواْ﴾.']],
+  mist:['تسهيل الهمزة الساكنة: «يومنون» بدل ﴿يُؤۡمِنُونَ﴾.','إسقاط همزة القطع في الوصل كأنها همزة وصل.'],
+  tip:'ابحث في صفحة من المصحف عن همزات القطع والوصل، وصنّفها.',
+  src:[TJS.s,TJS.h,TJS.n],
+  quiz:[{t:'mcq',q:'همزة القطع:',o:['تثبت في الابتداء والوصل','تثبت في الابتداء فقط','تسقط دائمًا','تُبدل ألفًا دائمًا'],w:'بخلاف همزة الوصل.'},
+   {t:'mcq',q:'الموضع الذي سهّل فيه حفص الهمزة الثانية:',o:['﴿ءَا۬عۡجَمِيّٞ﴾','﴿ءَأَنذَرۡتَهُمۡ﴾','﴿أَءِلَٰهٞ﴾','﴿يُؤۡمِنُونَ﴾'],w:'في فصلت: ٤٤.'},
+   {t:'mcq',q:'في ﴿ءَآلذَّكَرَيۡنِ﴾ لحفص:',o:['الإبدال مع المد ست حركات، أو التسهيل','الحذف فقط','التحقيق فقط','المد حركتين فقط'],w:'همزة استفهام دخلت على همزة وصل.'},
+   {t:'tf',q:'همزة «أكرمَ» (الماضي الرباعي) همزة قطع.',a:true,w:'وكذلك أمره ومصدره.'},
+   {t:'mcq',q:'أي هذه همزته همزة وصل؟',o:['ابن','أب','أخ','أم'],w:'من الأسماء المستثناة.'}]},
+ n_marahil:{id:'n_marahil',t:'مراحل كتابة المصحف وضبطه',
+  body:`<p><b>في عهد النبي ﷺ</b>: كان للنبي ﷺ كتّاب للوحي منهم زيد بن ثابت، يكتبون ما ينزل على ما تيسر من الرقاع والعُسُب واللِّخاف والأكتاف، مع حفظه في الصدور.</p>
+  <p><b>في عهد أبي بكر</b>: بعد معركة اليمامة سنة ١٢هـ واستشهاد كثير من القراء، أشار عمر بجمع القرآن، فجمعه زيد بن ثابت في صحف مرتبة.</p>
+  <p><b>في عهد عثمان</b>: نحو سنة ٢٥هـ، لما اختلف الناس في الأداء، أمر عثمان بنسخ المصاحف عن صحف أبي بكر، وتولّى ذلك زيد بن ثابت وعبد الله بن الزبير وسعيد بن العاص وعبد الرحمن بن الحارث بن هشام، وأُرسلت المصاحف إلى الأمصار. وكانت خالية من النقط والشكل.</p>
+  <p><b>نقط الإعراب</b>: وضعه أبو الأسود الدؤلي، نقاطًا ملونة تدل على الحركات. ثم <b>نقط الإعجام</b> الذي يميز الحروف المتشابهة كالباء والتاء والثاء، ويُنسب إلى نصر بن عاصم ويحيى بن يعمر في زمن الحجاج.</p>
+  <p><b>الشكل المعروف اليوم</b>: وضعه الخليل بن أحمد الفراهيدي، فجعل الفتحة ألفًا صغيرة مضطجعة، والضمة واوًا صغيرة، والكسرة ياءً صغيرة مردودة، ثم زاد علامات الشدة والسكون وغيرها. ثم جاءت المطابع فالمصاحف المضبوطة الحديثة، ومنها مصحف المدينة النبوية.</p>`,
+  pts:['عهد النبي ﷺ: الحفظ في الصدور والكتابة على الرقاع والعسب.','أبو بكر: جمعه في صحف بعد اليمامة (١٢هـ).','عثمان: نسخ المصاحف وإرسالها للأمصار (نحو ٢٥هـ).','أبو الأسود: نقط الإعراب، ونصر ويحيى: نقط الإعجام.','الخليل بن أحمد: الشكل المعروف اليوم.'],
+  why:[['لماذا كانت المصاحف العثمانية بلا نقط ولا شكل؟','لأن العرب كانوا يقرؤون بالسليقة والتلقي، ولتحتمل الكلمة ما صح من القراءات.']],
+  mist:['الظن أن عثمان جمع القرآن من الصفر؛ وإنما نسخه عن صحف أبي بكر.'],
+  tip:'افتح آخر مصحف المدينة واقرأ «التعريف بالمصحف» لترى بيان ضبطه.',
+  src:[TJS.s,TJS.d,TJS.z,TJS.y],
+  quiz:[{t:'order',q:'رتّب المراحل زمنيًا:',o:['الكتابة في عهد النبي ﷺ','جمع أبي بكر','نسخ عثمان','نقط الإعراب (أبو الأسود)','الشكل (الخليل بن أحمد)'],w:'هذا تسلسلها.'},
+   {t:'mcq',q:'من وضع نقط الإعراب؟',o:['أبو الأسود الدؤلي','الخليل بن أحمد','زيد بن ثابت','سيبويه'],w:'نقاطًا ملونة تدل على الحركات.'},
+   {t:'mcq',q:'من وضع الشكل المعروف اليوم (الفتحة ألفًا صغيرة...)؟',o:['الخليل بن أحمد الفراهيدي','أبو الأسود الدؤلي','نصر بن عاصم','ابن الجزري'],w:'وزاد علامات الشدة والسكون.'},
+   {t:'tf',q:'كانت المصاحف العثمانية منقوطة مشكولة.',a:false,w:'كانت خالية منهما.'},
+   {t:'mcq',q:'ما الذي دفع أبا بكر إلى جمع القرآن؟',o:['استشهاد كثير من القراء يوم اليمامة','اختلاف الناس في القراءة','طلب أهل الأمصار','وفاة زيد بن ثابت'],w:'بإشارة عمر رضي الله عنه.'}]},
+ n_rasm:{id:'n_rasm',t:'الرسم العثماني',
+  body:`<p><b>الرسم العثماني</b>: الطريقة التي كُتبت بها كلمات القرآن في المصاحف العثمانية، وفيها مخالفة للرسم الإملائي في مواضع لحِكَم، منها احتمال القراءات والدلالة على الأصل.</p>
+  <p><b>من أصوله</b>:</p>
+  <ul><li><b>الحذف</b>: كحذف الألف في ﴿ٱلرَّحۡمَٰنِ﴾ و﴿ٱلۡعَٰلَمِينَ﴾، ويُدل عليها بألف صغيرة.</li><li><b>الزيادة</b>: كزيادة الألف في ﴿لَا۠ أَذۡبَحَنَّهُۥٓ﴾ [النمل: ٢١]، والياء في ﴿بِأَيۡيْدٖ﴾ [الذاريات: ٤٧].</li><li><b>البدل</b>: كرسم الألف واوًا في ﴿ٱلصَّلَوٰةَ﴾ و﴿ٱلزَّكَوٰةَ﴾، ورسم التاء مفتوحة في مواضع نحو ﴿رَحۡمَتَ﴾.</li><li><b>الوصل والفصل</b>: كوصل ﴿أَلَّا﴾ في مواضع وفصل ﴿أَن لَّا﴾ في أخرى.</li><li><b>الهمز</b>: وصور كتابة الهمزة على ألف أو واو أو ياء أو منفردة.</li><li><b>ما فيه قراءتان</b>: كتب على إحداهما بما يحتمل الأخرى، نحو ﴿مَٰلِكِ﴾.</li></ul>
+  <p><b>حكم اتباعه</b>: ذهب جمهور العلماء إلى وجوب كتابة المصحف بالرسم العثماني، وسُئل الإمام مالك: أيُكتب المصحف على ما أحدث الناس من الهجاء؟ فقال: لا، إلا على الكتبة الأولى. ورأى بعض المتأخرين جواز كتابته بالإملاء الحديث للتعليم، مع حفظ الرسم في المصاحف.</p>
+  <p><b>صلته بالتجويد</b>: يُوقف على الكلمة بحسب رسمها: فما كُتب بالتاء المفتوحة يوقف عليه بالتاء لحفص، وما كُتب مفصولًا جاز الوقف على الجزء الأول اضطرارًا أو اختبارًا.</p>`,
+  pts:['الرسم العثماني: كتابة الكلمات على هيئة المصاحف العثمانية.','أصوله: الحذف والزيادة والهمز والبدل والوصل والفصل وما فيه قراءتان.','الصلاة والزكاة: الألف رُسمت واوًا.','الجمهور على وجوب اتباعه في المصحف.','الوقف يتبع الرسم: التاء المفتوحة يوقف عليها تاءً.'],
+  why:[['ما حكمة رسم ﴿مَٰلِكِ﴾ بلا ألف؟','ليحتمل القراءتين المتواترتين: «مالك» و«ملك».']],
+  mist:['نطق الواو في ﴿ٱلصَّلَوٰةَ﴾ اتباعًا للرسم.','الوقف بالهاء على ﴿رَحۡمَتَ﴾ المرسومة بالتاء.'],
+  tip:'اجمع من صفحة واحدة ثلاث كلمات خالف رسمها الإملاء، وصنّفها على الأصول الستة.',
+  src:[TJS.s,TJS.d,TJS.y],
+  quiz:[{t:'mcq',q:'رسم الألف واوًا في ﴿ٱلصَّلَوٰةَ﴾ من باب:',o:['البدل','الحذف','الزيادة','الوصل'],w:'وتُنطق ألفًا.'},
+   {t:'mcq',q:'حذف الألف في ﴿مَٰلِكِ﴾ حكمته:',o:['احتمال القراءتين: مالك وملك','التخفيف فقط','الخطأ من الكاتب','لا حكمة فيه'],w:'كلتاهما متواترة.'},
+   {t:'tf',q:'يوقف لحفص على ﴿رَحۡمَتَ﴾ المرسومة بالتاء المفتوحة بالتاء.',a:true,w:'الوقف يتبع الرسم.'},
+   {t:'mcq',q:'جمهور العلماء في كتابة المصحف:',o:['يجب اتباع الرسم العثماني','يجب الإملاء الحديث','يجوز أي رسم بلا قيد','يُكتب بلا نقط'],w:'وقول مالك: «إلا على الكتبة الأولى».'},
+   {t:'mcq',q:'زيادة الياء في ﴿بِأَيۡيْدٖ﴾ من باب:',o:['الزيادة','البدل','الحذف','الفصل'],w:'الذاريات: ٤٧.'}]},
+ n_hifz:{id:'n_hifz',t:'حفظ القرآن الكريم وتعاهده',
+  body:`<p><b>فضله</b>: قال النبي ﷺ: «مثل الذي يقرأ القرآن وهو حافظ له مع السفرة الكرام البررة، ومثل الذي يقرأ وهو يتعاهده وهو عليه شديد فله أجران» (البخاري).</p>
+  <p><b>قبل الحفظ</b>: صحّح التلاوة على شيخ أو قارئ متقن، فإن الخطأ إذا حُفظ ثبت. والتزم مصحفًا واحدًا بطبعة واحدة، فإن الذاكرة البصرية تحفظ مواضع الآيات في الصفحة.</p>
+  <p><b>أثناء الحفظ</b>: قسّم المقدار اليومي بحسب طاقتك، واستمع إلى قارئ متقن قبل الحفظ، وكرر الآية حتى تثبت ثم اربطها بما قبلها، وصلِّ بما حفظت.</p>
+  <p><b>بعد الحفظ</b>: المراجعة أهم من الحفظ الجديد. قال ﷺ: «تعاهدوا القرآن، فوالذي نفسي بيده لهو أشد تفصّيًا من الإبل في عُقُلها» (البخاري ومسلم). فاجعل لك وردًا للقريب ووردًا للبعيد، ولا تتجاوز ما ضعف حفظه.</p>
+  <p><b>العمل به</b>: الحفظ وسيلة، والغاية الفهم والعمل؛ فاقرأ تفسير ما تحفظ ولو مختصرًا.</p>`,
+  pts:['صحّح التلاوة قبل الحفظ.','الزم مصحفًا واحدًا.','قسّم الورد، وكرر، واربط الآية بما قبلها.','المراجعة أهم من الجديد: «تعاهدوا القرآن».','الحفظ وسيلة إلى الفهم والعمل.'],
+  why:[['لماذا يُنصح بمصحف واحد؟','لأن الذاكرة البصرية تحفظ مواضع الآيات، فتغيير الطبعة يشوش ذلك.']],
+  mist:['الإكثار من الجديد مع إهمال المراجعة.','الحفظ قبل تصحيح التلاوة.'],
+  tip:'اجعل وردك من «حفظ القرآن» في ذُرى بعد صلاة الفجر، والمراجعة بعد العصر.',
+  src:[TJS.s,TJS.b],
+  quiz:[{t:'mcq',q:'أول خطوة قبل الحفظ:',o:['تصحيح التلاوة على متقن','الإكثار من المقدار','تغيير المصحف كل مرة','الحفظ دون استماع'],w:'لأن الخطأ المحفوظ يثبت.'},
+   {t:'mcq',q:'«تعاهدوا القرآن فوالذي نفسي بيده لهو أشد تفصّيًا...» تدل على:',o:['أهمية المراجعة','فضل الإسراع','ترك الحفظ','حفظ التفسير'],w:'متفق عليه.'},
+   {t:'tf',q:'يُنصح بالتنقل بين طبعات المصاحف أثناء الحفظ.',a:false,w:'الزم مصحفًا واحدًا.'},
+   {t:'mcq',q:'الماهر بالقرآن (الحافظ المتقن):',o:['مع السفرة الكرام البررة','له أجر واحد','لا فضل له','مع الصديقين فقط'],w:'رواه البخاري.'}]}
+};
+/* ---- الوحدات: موضوع كل تبويب، بترتيب «التجويد المصور» ---- */
+const TJU=[
+ {k:'in',lv:'D2',ic:'🕋',n:'المدخل',ch:'الفصول ١–٣: القرآن الكريم، وعلم التجويد، والتعوذ والبسملة',goal:'أن تعرف القرآن ونزوله وجمعه، وما التجويد وحكمه، وكيف تبدأ التلاوة.',ls:['n_quran','t1','t1b','t2'],vd:[1,2,14],lab:[],mn:[]},
+ {k:'hr',lv:'D2',ic:'🫁',n:'الحروف وأعضاء النطق',ch:'الفصلان ٤–٥: الحروف العربية، وأعضاء النطق',goal:'أن تعرف الحروف وأنواعها، وأعضاء النطق من الرئتين إلى الشفتين.',ls:['n_huruf','n_aada'],vd:[],lab:['org'],mn:[]},
+ {k:'mk',lv:'D2',ic:'👄',n:'المخارج',ch:'الفصل ٦: مخارج الحروف',goal:'أن تعرف المخارج السبعة عشر، وتشاهد كل حرف يخرج من موضعه.',ls:['t3','t4','t5','t6','t7'],vd:[3,4,5,6],lab:['mk'],mn:['alqab']},
+ {k:'sf1',lv:'D2',ic:'⚖',n:'الصفات: الهمس والجهر والشدة',ch:'الفصل ٧ (أوله): الهمس والجهر، والشدة والتوسط والرخاوة',goal:'أن تميّز جريان النفَس وانحباسه، وجريان الصوت وانحباسه، وتبني الحرف بنفسك.',ls:['t8'],vd:[7,8],lab:['sf1','bld1'],mn:['hms','shd','tws']},
+ {k:'sf2',lv:'D3',ic:'⛰',n:'الصفات: الاستعلاء والإطباق والتفخيم',ch:'الفصل ٧ (تتمة الصفات المتضادة، والتفخيم والترقيق)',goal:'أن تعرف الاستعلاء والإطباق والإذلاق وأضدادها، وأحكام التفخيم والترقيق.',ls:['t9','t11','t12','t13','t12b','t13b'],vd:[10,11],lab:['sf2','tf','bld2'],mn:['sti','itb','dhl','lam']},
+ {k:'sf3',lv:'D3',ic:'🌀',n:'الصفات التي لا ضد لها',ch:'الفصل ٧ (آخره): الصفير والقلقلة واللين والانحراف والتكرير والتفشي والاستطالة والغنة',goal:'أن تتقن الصفات المنفردة، وتعرف قوة الحروف وضعفها.',ls:['t10','t18','t10b'],vd:[13,16],lab:['sf3'],mn:['qlq','sfr','lin']},
+ {k:'err',lv:'D3',ic:'⚠️',n:'أبرز الأخطاء',ch:'الفصل ٨: أبرز الأخطاء عند نطق حروف الهجاء',goal:'أن تعرف الأخطاء الشائعة في كل حرف وتتجنبها.',ls:['t7b'],vd:[],lab:['err'],mn:[]},
+ {k:'ltq',lv:'D3',ic:'🔗',n:'الحرفان الملتقيان',ch:'الفصل ٩: المثلان والمتجانسان والمتقاربان',goal:'أن تعرف حكم الحرفين إذا التقيا: الإظهار أو الإدغام.',ls:['t19','t19b','t19c'],vd:[22],lab:[],mn:[]},
+ {k:'nm',lv:'D3',ic:'〰',n:'الميم والنون',ch:'الفصل ١٠: أحكام النون الساكنة والتنوين والميم الساكنة',goal:'أن تتقن الإظهار والإدغام والإقلاب والإخفاء ومراتب الغنة.',ls:['t14','t15','t16','t17','t17b'],vd:[24,25,26],lab:['gn'],mn:['izh','idg','idg2','ikh']},
+ {k:'md',lv:'D3',ic:'〽',n:'المدود',ch:'الفصل ١١: المدود',goal:'أن تعرف أنواع المد ومقاديرها وتقيسها بالحركات.',ls:['t20','t21','t22','t23','t23b','t23c','t23d'],vd:[27,28,29,30,31,33,34],lab:['md'],mn:['madd','muq6','muq2']},
+ {k:'itm',lv:'D4',ic:'◌ُ',n:'إتمام الحركات',ch:'الفصل ١٢: إتمام الحركات',goal:'أن تنطق الحركات تامة بلا نقص ولا إشباع.',ls:['t1c','n_itmam'],vd:[18],lab:[],mn:[]},
+ {k:'sak',lv:'D4',ic:'⚡',n:'الساكنان الملتقيان',ch:'الفصل ١٣: التقاء الساكنين',goal:'أن تعرف التقاء الساكنين في كلمة وفي كلمتين وكيف يُتخلص منه.',ls:['t29'],vd:[],lab:[],mn:[]},
+ {k:'nbr',lv:'D4',ic:'📢',n:'أبحاث متفرقة والنبر',ch:'الفصلان ١٤–١٥: أبحاث متفرقة، والنبر',goal:'أن تعرف النبر ومواضعه وضابطه.',ls:['n_nabr'],vd:[],lab:[],mn:[]},
+ {k:'hfs',lv:'D4',ic:'📗',n:'كلمات حفص',ch:'الفصل ١٦: كلمات لها وضع خاص في رواية حفص',goal:'أن تعرف السكتات والإمالة والإشمام والتسهيل وما فيه وجهان.',ls:['t26','t27','t28'],vd:[37],lab:[],mn:[]},
+ {k:'wqf',lv:'D4',ic:'⏸',n:'الوقف والابتداء',ch:'الفصلان ١٧–١٨: الوقف والابتداء، والروم والإشمام',goal:'أن تعرف أقسام الوقف وعلاماته، وكيفيته بالسكون والروم والإشمام.',ls:['t24','t25','t25b'],vd:[19,20,38,39],lab:[],mn:[]},
+ {k:'hmz',lv:'D4',ic:'ء',n:'الألفات السبع والهمزتان',ch:'الفصول ١٩–٢١: الألفات السبعة، وهمزة الوصل، وهمزة القطع',goal:'أن تعرف الألفات السبع، وأحكام همزتي الوصل والقطع.',ls:['n_alifat','t25c','n_qat'],vd:[40],lab:[],mn:[]},
+ {k:'msh',lv:'D4',ic:'📜',n:'المصحف وحفظه',ch:'الفصول ٢٢–٢٤: مراحل كتابة المصحف، والرسم، وحفظ القرآن',goal:'أن تعرف تاريخ المصحف ورسمه وضبطه، ومنهج حفظه، وتطبّق على الفاتحة.',ls:['n_marahil','t25d','n_rasm','n_hifz','t30'],vd:[45],lab:[],mn:[]}];
+/* ---- الحلقات المرئية (القناة الرسمية «د. أيمن سويد Dr. Ayman Swaid»، تحققنا من كل رابط) ---- */
+const TJ_VID2=[
+ {n:1,u:'in',id:'H6WTnSZ6G-0',t:'مقدمة في علم التجويد (١)',ls:['t1'],b:'intro'},
+ {n:2,u:'in',id:'ChtM254qsdU',t:'مقدمة في علم التجويد (٢)',ls:['t1b','t2'],b:'intro'},
+ {n:14,u:'in',id:'Y7Y7g3GIl7Y',t:'نصائح لأهل القرآن الكريم',ls:['n_quran'],b:'nas'},
+ {n:3,u:'mk',id:'Es_a0IGHofc',t:'باب المخارج: الجوف',ls:['t3'],b:'jw',mk:['jawf']},
+ {n:4,u:'mk',id:'2BFpfzbBBVo',t:'باب المخارج: الحلق',ls:['t4'],mk:['h1','h2','h3']},
+ {n:5,u:'mk',id:'vwaWWcV0Z5M',t:'باب المخارج: اللسان (١)',ls:['t5'],mk:['q','k','wl','dd','lm']},
+ {n:6,u:'mk',id:'8zIZQkaySyQ',t:'باب المخارج: اللسان (٢)',ls:['t6'],mk:['nn','rr','td','sf','th']},
+ {n:7,u:'sf1',id:'aYO2mrrHqPo',t:'الصفات المتضادة: الهمس والجهر',ls:['t8'],sf:['hms','jhr']},
+ {n:8,u:'sf1',id:'5q5rI3qBLx0',t:'الشدة والرخاوة والبينية',ls:['t8'],sf:['shd','tws','rkh']},
+ {n:10,u:'sf2',id:'xh_MHe1YOdA',t:'الاستعلاء والاستفال',ls:['t9'],sf:['sti','stf']},
+ {n:11,u:'sf2',id:'MTkmsbjK0Tc',t:'حكم الألف واللام والراء',ls:['t11','t12','t13'],b:'tfk'},
+ {n:13,u:'sf3',id:'KgotHP9a7-o',t:'القلقلة',ls:['t18'],sf:['qlq']},
+ {n:16,u:'sf3',id:'I3-IOD49WgE',t:'الغنة من حيث كونها صفة',ls:['t17b'],sf:['gna'],b:'gna'},
+ {n:22,u:'ltq',id:'Z9hDuv7DYMQ',t:'الحرفان الملتقيان',ls:['t19','t19c'],b:'ltq'},
+ {n:24,u:'nm',id:'gyrtmirqn_M',t:'أحكام الميم الساكنة',ls:['t17'],b:'mim'},
+ {n:25,u:'nm',id:'LYOO-6f3s0U',t:'أحكام النون الساكنة والتنوين',ls:['t14','t15'],b:'nun'},
+ {n:26,u:'nm',id:'1mydlMCh9eg',t:'النون الساكنة والتنوين: الإخفاء',ls:['t16'],b:'ikh'},
+ {n:27,u:'md',id:'3tL5YYdjnTw',t:'المدود: تعريف المد',ls:['t20'],b:'mad'},
+ {n:28,u:'md',id:'bfbB-YxuDpw',t:'قياس أزمنة المدود',ls:['t20'],b:'zmn'},
+ {n:29,u:'md',id:'d_W1cbLbwM0',t:'المد الطبيعي',ls:['t20'],b:'tab'},
+ {n:30,u:'md',id:'VVoZxsr8uiQ',t:'المد الجائز المنفصل',ls:['t21'],b:'mnf'},
+ {n:31,u:'md',id:'5za4w-bg6-U',t:'الحروف المقطعة في القرآن',ls:['t23d'],b:'mqt'},
+ {n:33,u:'md',id:'lbDV5QSj_vY',t:'المد العارض للسكون ومد اللين',ls:['t23'],b:'ard'},
+ {n:34,u:'md',id:'1P32Jelgu0A',t:'قاعدة أقوى السببين',ls:['t23c'],b:'aqw'},
+ {n:18,u:'itm',id:'-LxbHpJs9bw',t:'إتمام الحركات',ls:['t1c','n_itmam'],b:'itm'},
+ {n:37,u:'hfs',id:'qBWCZZWsz7I',t:'كلمات لها وضع خاص في رواية حفص',ls:['t26','t27','t28'],b:'hfs'},
+ {n:19,u:'wqf',id:'tOW9ZVAI0eU',t:'باب الوقف والابتداء',ls:['t24'],b:'wqf'},
+ {n:20,u:'wqf',id:'bteuCHz-mRM',t:'الوقف والابتداء: تنبيهات',ls:['t25'],b:'wqf'},
+ {n:38,u:'wqf',id:'9MS2pHBYU_s',t:'الروم والإشمام',ls:['t25b'],b:'rwm'},
+ {n:39,u:'wqf',id:'QBa2UXeN-TE',t:'ما لا يدخله الروم ولا الإشمام',ls:['t25b'],b:'rwm'},
+ {n:40,u:'hmz',id:'WqudUBqqlZQ',t:'الألفات السبعة',ls:['n_alifat'],b:'alf'},
+ {n:45,u:'msh',id:'0pVF5wcFOJ8',t:'حفظ القرآن الكريم',ls:['n_hifz'],b:'hfz'}];
+/* ---- بنوك أسئلة الحلقات (تُضاف إلى أسئلة الدروس والأسئلة المولّدة) ---- */
+const TJ_VB={
+ intro:TJ_VQ.intro.map(q=>({t:'mcq',q:q.q,o:q.o,w:q.w})).concat([
+  {t:'tf',q:'حق الحرف: صفاته اللازمة التي لا تفارقه كالجهر والشدة.',a:true,w:'ومستحقه ما ينشأ عنها كالتفخيم والإخفاء.'},
+  {t:'match',q:'صِل كل مرتبة بوصفها:',p:[['التحقيق','بطء وطمأنينة للتعليم'],['التدوير','توسط بين التحقيق والحدر'],['الحدر','إسراع مع مراعاة الأحكام']],w:'مراتب القراءة الثلاث.'},
+  {t:'order',q:'رتّب ما يقوله القارئ عند ابتداء سورة من أولها:',o:['الاستعاذة','البسملة','أول السورة'],w:'إلا سورة التوبة فلا بسملة في أولها.'},
+  {t:'mcq',q:'ابتداء سورة التوبة من أولها:',o:['بالاستعاذة دون البسملة','بالبسملة دون الاستعاذة','بهما معًا','بلا استعاذة ولا بسملة'],w:'لا بسملة في أول براءة.'}]),
+ nas:[{t:'mcq',q:'أعظم ما يوصى به أهل القرآن:',o:['الإخلاص والعمل بما يقرؤون','كثرة الختمات بلا تدبر','تحسين الصوت فقط','حفظ الأرقام'],w:'القرآن حجة لك أو عليك.'},
+  {t:'tf',q:'«خيركم من تعلم القرآن وعلمه» رواه البخاري.',a:true,w:'صحيح البخاري.'},
+  {t:'multi',q:'اختر كل ما هو من آداب التلاوة:',o:['الاستعاذة','الترتيل','التدبر','التمطيط والتكلف في النغم','الطهارة'],ok:['الاستعاذة','الترتيل','التدبر','الطهارة'],w:'التكلف في النغم مذموم.'},
+  {t:'mcq',q:'القرآن يؤخذ أصلًا بـ:',o:['التلقي من المتقنين','القراءة من الكتب فقط','السماع العابر','الاجتهاد الشخصي'],w:'والقواعد عون على ذلك.'}],
+ jw:TJ_VQ.jw.map(q=>({t:'mcq',q:q.q,o:q.o,w:q.w})).concat([{t:'multi',q:'اختر الكلمات التي فيها حرف مد:',o:['﴿قَالَ﴾','﴿يَقُولُ﴾','﴿قِيلَ﴾','﴿وَلَدٌ﴾','﴿بَيْتٌ﴾'],ok:['﴿قَالَ﴾','﴿يَقُولُ﴾','﴿قِيلَ﴾'],w:'الواو في «ولد» متحركة، والياء في «بيت» لينة لا مدية.'},{t:'tf',q:'الألف المدية لا يكون قبلها إلا فتح.',a:true,w:'وهي ساكنة دائمًا.'}]),
+ tfk:TJ_VQ.tfk.map(q=>({t:'mcq',q:q.q,o:q.o,w:q.w})).concat([{t:'tf',q:'اللام في غير لفظ الجلالة مرققة دائمًا لحفص.',a:true,w:'مثل ﴿وَلَا ٱلضَّآلِّينَ﴾.'},{t:'match',q:'صِل الكلمة بحكم الراء فيها:',p:[['﴿رِجَالٌ﴾','ترقيق (مكسورة)'],['﴿رَبِّ﴾','تفخيم (مفتوحة)'],['﴿فِرۡعَوۡنَ﴾','ترقيق (ساكنة بعد كسر أصلي)']],w:'لكل راء حكمها بحسب حركتها وما قبلها.'}]),
+ gna:[{t:'order',q:'رتّب مراتب الغنة من الأكمل إلى الأنقص:',o:['المشدد','المدغم','المخفى','الساكن المظهر','المتحرك'],w:'على ما اختاره المحققون.'},{t:'mcq',q:'مقدار الغنة في النون والميم المشددتين:',o:['حركتان','حركة','أربع حركات','لا غنة'],w:'نحو ﴿إِنَّ﴾ و﴿ثُمَّ﴾.'},{t:'tf',q:'الغنة صفة لازمة للنون والميم ولو كانتا متحركتين.',a:true,w:'لكنها في المتحرك أنقص.'}],
+ ltq:[{t:'match',q:'صِل كل نوع بتعريفه:',p:[['المثلان','اتفقا مخرجًا وصفة'],['المتجانسان','اتفقا مخرجًا واختلفا صفة'],['المتقاربان','تقاربا مخرجًا أو صفة']],w:'أقسام الحرفين الملتقيين.'},{t:'mcq',q:'﴿قَد تَّبَيَّنَ﴾ الدال والتاء:',o:['متجانسان: إدغام','مثلان: إظهار','متقاربان: إظهار','متباعدان'],w:'من مخرج واحد واختلفا صفة.'},{t:'mcq',q:'﴿ٱضۡرِب بِّعَصَاكَ﴾:',o:['إدغام المثلين الصغير','إظهار','إخفاء شفوي','إقلاب'],w:'الأول ساكن والثاني متحرك.'},{t:'tf',q:'في ﴿بَسَطتَ﴾ يُدغم الطاء في التاء إدغامًا ناقصًا مع بقاء صفة الإطباق.',a:true,w:'من إدغام المتجانسين.'}],
+ mim:[{t:'match',q:'صِل حكم الميم الساكنة بحرفه:',p:[['الإخفاء الشفوي','الباء'],['إدغام المثلين','الميم'],['الإظهار الشفوي','بقية الحروف']],w:'ثلاثة أحكام للميم الساكنة.'},{t:'mcq',q:'﴿تَرۡمِيهِم بِحِجَارَةٖ﴾ حكم الميم:',o:['إخفاء شفوي','إظهار شفوي','إدغام','إقلاب'],w:'ميم ساكنة بعدها باء.'},{t:'mcq',q:'يشتد الإظهار الشفوي عند:',o:['الواو والفاء','الباء','الميم','اللام'],w:'لقرب المخرج أو اتحاده.'}],
+ nun:[{t:'match',q:'صِل الحكم بحروفه:',p:[['الإظهار الحلقي','ء ه ع ح غ خ'],['الإدغام','ي ر م ل و ن'],['الإقلاب','ب'],['الإخفاء','بقية الحروف (١٥)']],w:'أحكام النون الساكنة والتنوين.'},{t:'mcq',q:'﴿مَن يَقُولُ﴾:',o:['إدغام بغنة','إدغام بغير غنة','إظهار','إخفاء'],w:'من حروف «ينمو».'},{t:'mcq',q:'﴿مِن رَّبِّهِمۡ﴾:',o:['إدغام بغير غنة','إدغام بغنة','إخفاء','إظهار'],w:'اللام والراء بلا غنة.'},{t:'tf',q:'﴿دُنۡيَا﴾ تُدغم فيها النون في الياء.',a:false,w:'الإدغام لا يكون في كلمة واحدة: إظهار مطلق.'}],
+ ikh:[{t:'mcq',q:'كم حرفًا للإخفاء الحقيقي؟',o:['خمسة عشر','ستة','أربعة','عشرة'],w:'أوائل «صف ذا ثنا كم جاد شخص...».'},{t:'mcq',q:'الإخفاء: حالة بين:',o:['الإظهار والإدغام','المد والقصر','الوقف والوصل','التفخيم والترقيق'],w:'مع بقاء الغنة.'},{t:'tf',q:'تُفخم الغنة في الإخفاء إذا كان بعد النون حرف مفخم كما في ﴿مِن قَبۡلُ﴾.',a:true,w:'الغنة تتبع ما بعدها.'}],
+ mad:[{t:'mcq',q:'المد لغة:',o:['الزيادة','الحبس','الضم','الإسراع'],w:'واصطلاحًا: إطالة الصوت بحرف المد.'},{t:'match',q:'صِل حرف المد بشرطه:',p:[['الألف','ساكنة بعد فتح'],['الواو','ساكنة بعد ضم'],['الياء','ساكنة بعد كسر']],w:'حروف المد الثلاثة.'},{t:'multi',q:'اختر أسباب المد الفرعي:',o:['الهمز','السكون','الإدغام في المثل فقط','الوقف على المتحرك'],ok:['الهمز','السكون'],w:'سببان: الهمز والسكون.'}],
+ zmn:[{t:'mcq',q:'الحركة في قياس المدود:',o:['زمن نطق حركة واحدة','ثانية واحدة','قبض الأصبع دائمًا','لا تُقاس'],w:'وتختلف سرعة الحركة بمرتبة القراءة.'},{t:'tf',q:'يجب أن تتساوى المدود المتماثلة في المجلس الواحد.',a:true,w:'التسوية بين المدود المتماثلة.'},{t:'order',q:'رتّب المقادير من الأقصر إلى الأطول:',o:['حركتان','أربع حركات','خمس حركات','ست حركات'],w:'مقادير المدود.'}],
+ tab:[{t:'mcq',q:'سُمّي المد الطبيعي طبيعيًا لأن:',o:['صاحب الطبيعة السليمة لا ينقصه ولا يزيده','يكون في آخر الآية','يمد ستًا','يكون بعده همز'],w:'مقداره حركتان.'},{t:'multi',q:'اختر ما يلحق بالمد الطبيعي:',o:['مد العوض','مد الصلة الصغرى','مد البدل','المد المتصل'],ok:['مد العوض','مد الصلة الصغرى','مد البدل'],w:'كلها حركتان.'}],
+ mnf:[{t:'mcq',q:'المد المنفصل:',o:['حرف مد في آخر كلمة وهمز في أول التالية','حرف مد وهمز في كلمة واحدة','حرف مد بعده سكون أصلي','حرف لين'],w:'نحو ﴿يَٰٓأَيُّهَا﴾ و﴿إِنَّآ أَنزَلۡنَٰهُ﴾.'},{t:'mcq',q:'مقدار المنفصل لحفص من طريق الشاطبية:',o:['أربع أو خمس حركات','حركتان فقط','ست حركات','ثلاث'],w:'التوسط أو فويقه.'},{t:'tf',q:'المد المتصل يجوز قصره لحفص من الشاطبية.',a:false,w:'المتصل واجب: ٤ أو ٥.'}],
+ mqt:[{t:'match',q:'صِل الحروف المقطعة بمقدار مدها:',p:[['ن ق ص ع س ل ك م','ست حركات (إلا العين: ٤ أو ٦)'],['ح ي ط ه ر','حركتان'],['الألف','لا مد']],w:'«نقص عسلكم» و«حي طهر».'},{t:'mcq',q:'العين في ﴿كٓهيعٓصٓ﴾ و﴿حمٓ عٓسٓقٓ﴾:',o:['التوسط أو الإشباع','حركتان فقط','لا تمد','ست فقط'],w:'لأن وسطها حرف لين.'}],
+ ard:[{t:'mcq',q:'المد العارض للسكون:',o:['حرف مد بعده سكون عارض للوقف','حرف مد بعده سكون أصلي','همز بعد حرف مد','حرف لين وصلًا'],w:'نحو الوقف على ﴿نَسۡتَعِينُ﴾.'},{t:'mcq',q:'مقدار العارض للسكون:',o:['٢ أو ٤ أو ٦ حركات','٢ فقط','٦ فقط','٥ فقط'],w:'القصر والتوسط والإشباع.'},{t:'mcq',q:'مد اللين:',o:['واو أو ياء ساكنتان بعد فتح، يوقف بعدهما','حرف مد بعد ضم','همزة بعد ألف','ميم مشددة'],w:'نحو الوقف على ﴿خَوۡفٍ﴾ و﴿ٱلۡبَيۡتِ﴾.'}],
+ aqw:[{t:'order',q:'رتّب المدود من الأقوى إلى الأضعف:',o:['اللازم','المتصل','العارض للسكون','المنفصل','البدل'],w:'قاعدة أقوى السببين.'},{t:'mcq',q:'إذا اجتمع سببان للمد في حرف واحد:',o:['يُعمل بالأقوى ويُلغى الأضعف','يُجمع بينهما','يُعمل بالأضعف','يُقصر'],w:'قاعدة أقوى السببين.'},{t:'mcq',q:'الوقف على ﴿يَشَآءُ﴾ بالسكون: المد فيها:',o:['متصل يُعامل بأقوى السببين: ٤ أو ٥ أو ٦','بدل','طبيعي','لين'],w:'اجتمع المتصل والعارض.'}],
+ itm:[{t:'mcq',q:'الضمة الناقصة سببها غالبًا:',o:['ضعف ضم الشفتين','فتح الفم كثيرًا','رفع اللسان','الغنة'],w:'فتشبه الكسرة.'},{t:'tf',q:'إشباع الكسرة حتى تتولد ياء خطأ.',a:true,w:'هذا من الزيادة.'}],
+ hfs:[{t:'match',q:'صِل الكلمة بالحكم الخاص بها لحفص:',p:[['﴿مَجۡر۪ىٰهَا﴾','إمالة كبرى'],['﴿ءَا۬عۡجَمِيّٞ﴾','تسهيل'],['﴿تَأۡمَ۫نَّا﴾','إشمام أو روم'],['﴿عِوَجَاۜ قَيِّمٗا﴾','سكت']],w:'من الكلمات الخاصة برواية حفص.'},{t:'mcq',q:'كم موضعًا للسكت الواجب لحفص من الشاطبية؟',o:['أربعة','اثنان','ستة','عشرة'],w:'عوجا، مرقدنا، من راق، بل ران.'},{t:'mcq',q:'﴿وَيَبۡصُۜطُ﴾ في البقرة تُقرأ لحفص:',o:['بالسين','بالصاد','بالوجهين','بالزاي'],w:'وفي الأعراف ﴿بَصۜۡطَةٗ﴾ بالسين كذلك.'}],
+ wqf:[{t:'match',q:'صِل القسم بوصفه:',p:[['الاضطراري','لانقطاع النفس أو عطاس'],['الاختباري','لسؤال ممتحن'],['الاختياري','باختيار القارئ'],['الانتظاري','لعطف قراءة على أخرى']],w:'أقسام الوقف.'},{t:'mcq',q:'علامة «قلى» تعني:',o:['الوقف أولى','الوصل أولى','الوقف لازم','الوقف ممنوع'],w:'من علامات مصحف المدينة.'},{t:'mcq',q:'علامة «م» تعني:',o:['الوقف لازم','الوقف ممنوع','الوصل أولى','جواز الأمرين'],w:'لو وُصل لأوهم معنى غير المراد.'},{t:'tf',q:'علامة «لا» تعني منع الوقف.',a:true,w:'إلا لضرورة ثم يُعاد.'}],
+ rwm:[{t:'mcq',q:'الروم:',o:['النطق ببعض الحركة بصوت خفي','ضم الشفتين بلا صوت','إسكان الحرف','إطالة الصوت'],w:'يكون في المضموم والمكسور.'},{t:'mcq',q:'الإشمام:',o:['ضم الشفتين بعيد الإسكان بلا صوت','النطق ببعض الحركة','الإبدال','الإدغام'],w:'يكون في المضموم فقط.'},{t:'multi',q:'اختر ما لا يدخله الروم ولا الإشمام:',o:['ميم الجمع','هاء التأنيث','المفتوح','المضموم'],ok:['ميم الجمع','هاء التأنيث','المفتوح'],w:'المضموم يدخله الروم والإشمام.'},{t:'tf',q:'الروم يدخل المفتوح لحفص.',a:false,w:'لا روم في المفتوح ولا المنصوب.'}],
+ alf:[{t:'multi',q:'اختر الكلمات التي من الألفات السبع:',o:['﴿أَنَا﴾','﴿ٱلظُّنُونَا﴾','﴿سَلَٰسِلَا﴾','﴿قَالَا﴾','﴿ٱلسَّبِيلَا﴾'],ok:['﴿أَنَا﴾','﴿ٱلظُّنُونَا﴾','﴿سَلَٰسِلَا﴾','﴿ٱلسَّبِيلَا﴾'],w:'«قالا» ألف تثنية تثبت.'}],
+ hfz:[{t:'order',q:'رتّب خطوات حفظ المقطع:',o:['تصحيح التلاوة والاستماع','تكرار الآية حتى تثبت','ربطها بما قبلها','المراجعة بعد ذلك'],w:'منهج متدرج.'},{t:'mcq',q:'إذا تعارض الحفظ الجديد مع المراجعة:',o:['تُقدَّم المراجعة','يُقدَّم الجديد دائمًا','يُترك الاثنان','لا فرق'],w:'«تعاهدوا القرآن».'}]};
+/* ---- العبارات الجامعة: كل مجموعة في المستوى الذي تُدرس فيه ---- */
+const TJ_MN2={
+ alqab:{n:'ألقاب الحروف بحسب مواضعها',it:[['الجوفية','ا و ي','واي','حروف المد من الجوف'],['الحلقية','ء ه ع ح غ خ','ءهعحغخ','من الحلق'],['اللهويتان','ق ك','قك','قرب اللهاة'],['الشجرية','ج ش ي','جشي','من شجر الفم'],['الأسلية','ص ز س','صزس','من أسلة اللسان'],['النطعية','ط د ت','طدت','من نطع الغار'],['اللثوية','ظ ذ ث','ظذث','قرب اللثة'],['الذلقية','ل ن ر','لنر','من ذلق اللسان'],['الشفوية','ف و ب م','فوبم','من الشفتين']]},
+ hms:{n:'حروف الهمس',it:[['الهمس','فحثه شخص سكت','فحثهشخصسكت','يجري معها النفَس، وما سواها مجهور']]},
+ shd:{n:'حروف الشدة',it:[['الشدة','أجد قط بكت','أجدقطبكت','ينحبس معها الصوت']]},
+ tws:{n:'حروف التوسط',it:[['التوسط','لن عمر','لنعمر','بين الشدة والرخاوة، وما سواها رخو']]},
+ sti:{n:'حروف الاستعلاء',it:[['الاستعلاء','خص ضغط قظ','خصضغطقظ','تُفخَّم دائمًا، وما سواها مستفل']]},
+ itb:{n:'حروف الإطباق',it:[['الإطباق','صاد ضاد طاء ظاء','صضطظ','أعلى درجات التفخيم']]},
+ dhl:{n:'حروف الإذلاق',it:[['الإذلاق','فر من لب','فرمنلب','تخرج من ذلق اللسان والشفة بخفة']]},
+ lam:{n:'لام «ال» التعريف',it:[['اللام القمرية','ابغ حجك وخف عقيمه','ابغحجكوخفعقيمه','تظهر معها اللام، والباقي شمسية تُدغم']]},
+ qlq:{n:'حروف القلقلة',it:[['القلقلة','قطب جد','قطبجد','تقلقل إذا سكنت، وأقواها عند الوقف']]},
+ sfr:{n:'حروف الصفير',it:[['الصفير','صاد زاي سين','صزس','أقواها الصاد ثم الزاي ثم السين']]},
+ lin:{n:'حرفا اللين',it:[['اللين','واو وياء ساكنتان بعد فتح','وي','نحو ﴿خَوۡفٍ﴾ و﴿بَيۡتِ﴾']]},
+ izh:{n:'الإظهار الحلقي',it:[['حروف الإظهار','أخي هاك علمًا حازه غير خاسر','ءهعحغخ','أوائل كلماتها حروف الحلق الستة']]},
+ idg:{n:'حروف الإدغام',it:[['الإدغام','يرملون','يرملون','النون الساكنة والتنوين تُدغم فيها']]},
+ idg2:{n:'الإدغام بغنة',it:[['بغنة','ينمو','ينمو','وبغير غنة في اللام والراء']]},
+ ikh:{n:'حروف الإخفاء',it:[['الإخفاء','صف ذا ثنا كم جاد شخص قد سما * دم طيبًا زد في تقى ضع ظالما','صذثكجشقسدطزفتضظ','أوائل كلمات هذا البيت من «تحفة الأطفال»']]},
+ madd:{n:'حروف المد',it:[['المد','واي','واي','الألف والواو والياء الساكنة بعد حركة تجانسها']]},
+ muq6:{n:'فواتح السور: ست حركات',it:[['المد اللازم الحرفي','نقص عسلكم','نقصعسلكم','تُمد ستًا (والعين: أربعًا أو ستًا)']]},
+ muq2:{n:'فواتح السور: حركتان',it:[['المد الطبيعي الحرفي','حي طهر','حيطهر','تُمد حركتين، والألف لا تُمد']]}};
+/* ---- أعضاء النطق في المختبر ---- */
+const TJ_ORG=[
+ {k:'lung',n:'الرئتان',d:'مخزن الهواء. لا يتكون الصوت إلا على هواء الزفير الخارج منهما.',x:180,y:640},
+ {k:'diaph',n:'الحجاب الحاجز',d:'عضلة تحت الرئتين، ترتفع في الزفير فتدفع الهواء إلى الأعلى، وتنخفض في الشهيق.',x:180,y:728},
+ {k:'trach',n:'القصبة الهوائية',d:'أنبوب غضروفي حلقي يحمل الهواء من الرئتين إلى الحنجرة.',x:180,y:450},
+ {k:'lar',n:'الحنجرة والوتران',d:'فيها الوتران الصوتيان: يهتزان في المجهور، ويتباعدان في المهموس، وينطبقان انطباقًا تامًا ثم ينفتحان في الهمزة.',x:180,y:352,l:'ءه'},
+ {k:'epi',n:'لسان المزمار',d:'غطاء يحمي مجرى التنفس عند البلع، ولا يشارك في تمييز الحروف.',x:186,y:306},
+ {k:'h1',n:'أقصى الحلق',d:'أبعد الحلق مما يلي الصدر: مخرج الهمزة والهاء.',x:162,y:322,l:'ءه'},
+ {k:'h2',n:'وسط الحلق',d:'مخرج العين والحاء: يضيق الحلق عندهما.',x:157,y:266,l:'عح'},
+ {k:'h3',n:'أدنى الحلق',d:'أقربه إلى الفم: مخرج الغين والخاء.',x:166,y:222,l:'غخ'},
+ {k:'vel',n:'الحنك اللين واللهاة',d:'يرتفع فيسد طريق الأنف فيخرج الصوت من الفم، وينخفض في الغنة فيجري الصوت في الخيشوم. ومن أقصى اللسان مع ما يقابله منه القاف.',x:196,y:170,l:'ق'},
+ {k:'hp',n:'الحنك الصلب (الغار)',d:'سقف الفم العظمي: يقابله وسط اللسان في الجيم والشين والياء، وتلتصق به أجزاء اللسان في الإطباق.',x:262,y:156,l:'جشي'},
+ {k:'alv',n:'اللثة',d:'اللحم النابت حول أصول الأسنان العليا: عندها مخارج اللام والنون والراء.',x:313,y:172,l:'لنر'},
+ {k:'tgb',n:'أقصى اللسان',d:'مما يلي الحلق: منه القاف والكاف، ويرتفع في حروف الاستعلاء.',x:206,y:214,l:'قك'},
+ {k:'tgm',n:'وسط اللسان',d:'مع ما يحاذيه من الحنك: الجيم والشين والياء.',x:250,y:200,l:'جشي'},
+ {k:'tgt',n:'طرف اللسان',d:'أكثر الأعضاء عملًا: منه أحد عشر حرفًا من ستة مخارج.',x:304,y:206,l:'لنرطدتصزسظذث'},
+ {k:'teeth',n:'الأسنان',d:'الثنايا والرباعيات والأنياب والأضراس: تشارك في الفاء والثاء والذال والظاء والصاد والزاي والسين والضاد.',x:322,y:192,l:'فثذظصزسض'},
+ {k:'lips',n:'الشفتان',d:'تنطبقان في الباء والميم، وتنضمان في الواو، وتلتقي السفلى بأطراف الثنايا العليا في الفاء.',x:346,y:204,l:'بمفو'},
+ {k:'nose',n:'التجويف الأنفي والخيشوم',d:'أقصى الأنف من الداخل: مخرج الغنة في النون والميم.',x:280,y:112,l:'نم'}];
+const TJ_TEETH=[['الثنايا',4,'في المقدمة: ثنتان فوق وثنتان تحت'],['الرَّباعيات',4,'بجانب الثنايا'],['الأنياب',4,'بعد الرباعيات'],['الضواحك',4,'أول الأضراس'],['الطواحن',12,'في وسط الأضراس'],['النواجذ',4,'أقصى الأضراس (أضراس العقل)']];
+Object.assign(TJ_VB,{sak:[{t:'mcq',q:'إذا التقى ساكنان والأول حرف مد في كلمتين:',o:['يُحذف حرف المد لفظًا','يُمد ستًا','يُحرَّك الأول بالكسر','يُدغم'],w:'نحو ﴿وَقَالَا ٱلۡحَمۡدُ﴾ و﴿فِي ٱلۡأَرۡضِ﴾.'},{t:'mcq',q:'إذا كان الساكن الأول صحيحًا في كلمتين، الأصل أن:',o:['يُحرَّك بالكسر','يُحذف','يُمد','يُسكَّن'],w:'نحو ﴿قُمِ ٱلَّيۡلَ﴾.'},{t:'tf',q:'التقاء الساكنين في كلمة واحدة والأول حرف مد يُعالج بالمد اللازم.',a:true,w:'نحو ﴿ٱلضَّآلِّينَ﴾.'},{t:'mcq',q:'ميم الجمع إذا لقيها ساكن تُحرَّك بـ:',o:['الضم','الكسر','الفتح','لا تُحرَّك'],w:'نحو ﴿عَلَيۡهِمُ ٱلذِّلَّةُ﴾.'}],
+ nbr:[{t:'tf',q:'النبر يؤخذ بالتلقي من المشايخ.',a:true,w:'لا بالقياس وحده.'},{t:'mcq',q:'في ﴿ذَاقَا ٱلشَّجَرَةَ﴾ يُنبر لـ:',o:['بيان أن الفعل لاثنين بعد حذف الألف لفظًا','بيان القلقلة','بيان الغنة','الوقف'],w:'ألف التثنية تسقط وصلًا.'},{t:'mcq',q:'ضابط النبر الصحيح:',o:['يسير لا يولّد همزًا ولا حركة ولا سكتًا','قوي حتى يُسمع كالهمزة','مدٌّ زائد','سكت قصير'],w:'وما زاد فهو تكلف.'}]});
+
+/* ============ مختبر «رحلة الصوت»: الجهاز التنفسي والصوتي كاملًا، بحركة متسلسلة حقيقية ============ */
+/* مواضع المخارج على المقطع الجانبي الجديد */
+const TRP={jawf:[240,188],h1:[179,344],h2:[158,266],h3:[170,214],q:[198,172],k:[220,163],wl:[258,161],dd:[282,166],lm:[312,174],nn:[315,177],rr:[308,172],td:[317,181],sf:[319,201],th:[327,199],fa:[328,201],sh:[350,202],kh:[288,116]};
+const TR_REST=[[184,314],[178,282],[184,250],[200,222],[228,204],[262,198],[292,202],[313,212]];
+const TR_POSE={jawf:{3:[200,226],4:[228,213],5:[262,209],6:[292,211],7:[313,214]},h2:{1:[169,276],2:[178,248]},h3:{2:[182,236],3:[192,212],4:[220,202]},
+ q:{2:[186,238],3:[198,176],4:[224,188],5:[258,198]},k:{3:[204,194],4:[221,166],5:[254,190]},wl:{4:[232,186],5:[258,164],6:[288,190],7:[312,210]},
+ dd:{3:[204,196],4:[232,172],5:[262,167],6:[292,174],7:[310,198]},lm:{5:[264,192],6:[300,184],7:[312,177]},nn:{6:[302,188],7:[315,180]},rr:{6:[298,181],7:[308,175]},
+ td:{6:[304,188],7:[317,184]},sf:{6:[306,183],7:[318,203]},th:{6:[314,194],7:[330,199]}};
+const TR_D=7000,TR_PH=[[0,'الزفير'],[1300,'الحنجرة'],[2500,'الطريق'],[3500,'المخرج'],[5300,'الانطلاق']];
+const TRV={full:[0,60,420,740],chest:[10,470,340,300],larynx:[118,282,132,124],head:[118,78,292,256]};
+const TR_PATH={L:[[112,650],[140,590],[176,530]],R:[[248,650],[220,590],[184,530]],T:[[180,522],[180,392],[180,358],[178,332],[170,302],[164,264],[166,228]],
+ O:[[176,206],[198,192],[226,183],[260,178],[292,183],[313,192],[323,202],[346,202],[372,202],[402,202]],N:[[162,190],[164,152],[190,128],[240,119],[300,119],[340,129],[366,143],[398,151]]};
+let TR={ch:null,cfg:null,t:0,play:false,speed:1,follow:true,vb:TRV.head.slice(),man:null,raf:0,last:0,mode:'mk',org:null,lbl:true,aud:0,sel:null};
+const TRF={};/* سمات كل حرف */
+TJ_LS.forEach(c=>{const sf=tjSfOf(c).map(s=>s.k);TRF[c]={v:sf.includes('jhr'),m:sf.includes('shd')?'stop':sf.includes('tws')?'mid':'fric',sti:sf.includes('sti'),itb:sf.includes('itb'),qlq:sf.includes('qlq'),sfr:sf.includes('sfr'),tfs:sf.includes('tfs'),stt:sf.includes('stt')}});
+const trMk=ch=>ch==='ا'?'jawf':(TJ_MK.find(m=>m.k!=='kh'&&m.k!=='jawf'&&m.l.includes(ch))||TJ_MK[0]).k;
+/* بناء إعدادات الحرف: المخرج، والجهر، وطريقة الخروج، ووضع اللسان والشفتين والحنك اللين */
+function trCfg(o){const mk=o.mk,P=TR_REST.map(p=>p.slice()),pose=TR_POSE[mk]||{};Object.entries(pose).forEach(([i,v])=>P[i]=v.slice());
+  const ch=o.ch||'',m=o.m;
+  if(mk==='wl'&&m==='fric')P[5][1]+=4;if(mk==='wl'&&ch==='ي')P[5][1]+=8;
+  if(o.sti){P[3][1]=Math.min(P[3][1],188);P[4][1]=Math.min(P[4][1],180)}
+  if(o.itb){P[3][1]=Math.min(P[3][1],186);P[4][1]=Math.min(P[4][1],170);P[5][1]=Math.min(P[5][1],166);P[6][1]=Math.min(P[6][1],mk==='sf'?178:174)}
+  let lip={uy:194,ly:210,ux:0,lx:0};if(mk==='sh'&&ch!=='و'){lip={uy:202,ly:202,ux:0,lx:0}}if(ch==='و'){lip={uy:198,ly:206,ux:7,lx:7};P[3]=[200,204]}
+  if(mk==='fa')lip={uy:192,ly:199,ux:0,lx:-11};if(mk==='th')lip={uy:191,ly:212,ux:0,lx:0};if(mk==='jawf'&&ch==='ا')lip={uy:190,ly:216,ux:0,lx:0};
+  const nasal=!!o.nasal,glot=mk==='h1'?(ch==='ء'||(o.m==='stop')?'stop':'fric'):(o.v?'vib':'open');
+  return Object.assign({ch,mk,P,lip,nasal,glot,place:TRP[mk]||TRP.jawf,lat:ch==='ل'||(o.lat),tap:ch==='ر',free:mk==='jawf'},o)}
+function trArt(ch){if(ch==='ا'||ch==='و_'||ch==='ي_'){return trCfg({ch:'ا',mk:'jawf',v:true,m:'free'})}const f=TRF[ch];return trCfg({ch,mk:trMk(ch),v:f.v,m:f.m,sti:f.sti,itb:f.itb,qlq:f.qlq,sfr:f.sfr,tfs:f.tfs,stt:f.stt,nasal:'نم'.includes(ch)})}
+/* ---- أدوات هندسية ---- */
+const lerp=(a,b,f)=>a+(b-a)*f,ease=f=>f<0?0:f>1?1:f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2,clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+function crPath(pts){let d=`M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;for(let i=0;i<pts.length-1;i++){const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+  d+=` C${(p1[0]+(p2[0]-p0[0])/6).toFixed(1)},${(p1[1]+(p2[1]-p0[1])/6).toFixed(1)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(1)},${(p2[1]-(p3[1]-p1[1])/6).toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`}return d}
+function polyLen(P){let L=[0];for(let i=1;i<P.length;i++)L.push(L[i-1]+Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]));return L}
+function polyAt(P,L,s){if(s<=0)return P[0];const T=L[L.length-1];if(s>=T)return P[P.length-1];let i=1;while(L[i]<s)i++;const f=(s-L[i-1])/(L[i]-L[i-1]);return [lerp(P[i-1][0],P[i][0],f),lerp(P[i-1][1],P[i][1],f)]}
+function polyNear(P,L,pt){let best=0,bd=1e9;const T=L[L.length-1];for(let s=0;s<=T;s+=2){const q=polyAt(P,L,s),d=Math.hypot(q[0]-pt[0],q[1]-pt[1]);if(d<bd){bd=d;best=s}}return best}
+/* ---- الرسم الثابت ---- */
+function trSVG(){const hot=TR.mode==='org'?TJ_ORG.map(o=>`<g class="tr-h ${TR.org===o.k?'on':''} ${(TJST().org||[]).includes(o.k)?'seen':''}" onclick="trOrg('${o.k}')"><circle cx="${o.x}" cy="${o.y}" r="12" class="tr-hit"/><circle cx="${o.x}" cy="${o.y}" r="4.5" class="tr-dot"/></g>`).join('')
+   :TJ_MK.filter(m=>TRP[m.k]).map(m=>{const [x,y]=TRP[m.k];return `<g class="tr-h ${TR.cfg&&TR.cfg.mk===m.k?'on':''} ${TJST().mk.includes(m.k)?'seen':''}" onclick="trPickMk('${m.k}')"><circle cx="${x}" cy="${y}" r="9" class="tr-hit"/><circle cx="${x}" cy="${y}" r="3.6" class="tr-dot"/></g>`}).join('');
+  const rings=[];for(let y=398;y<520;y+=12)rings.push(`<path d="M168,${y} Q180,${y+4} 192,${y}"/>`);
+  return `<svg id="trSvg" class="tr-svg" viewBox="${TR.vb.join(' ')}" preserveAspectRatio="xMidYMid meet">
+  <defs><radialGradient id="trGlow"><stop offset="0" stop-color="#fff3c4"/><stop offset=".4" stop-color="#f2b938" stop-opacity=".9"/><stop offset="1" stop-color="#f2b938" stop-opacity="0"/></radialGradient>
+   <linearGradient id="trTgG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e07a8a"/><stop offset="1" stop-color="#b9506a"/></linearGradient>
+   <linearGradient id="trTis" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0b9b4"/><stop offset="1" stop-color="#d98c8c"/></linearGradient>
+   <radialGradient id="trLung" cx=".5" cy=".4"><stop offset="0" stop-color="#f6c6c6"/><stop offset="1" stop-color="#d98a92"/></radialGradient>
+   <linearGradient id="trLip" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d26b78"/><stop offset="1" stop-color="#e58f98"/></linearGradient></defs>
+  <g class="tr-st">
+   <path class="tr-back" d="M104,92 C126,86 150,96 160,108 C154,150 150,200 152,256 C154,300 160,340 164,384 L148,392 C128,330 112,250 106,180 Z"/>
+   <path class="tr-air" d="M164,152 L220,160 L262,159 L300,164 L314,174 L318,180 L322,199 L321,205 L318,236 L300,256 L250,272 L215,284 L196,300 L198,330 L196,358 L166,358 L162,330 L156,300 L152,250 L150,200 L152,165 Z"/>
+   <path class="tr-nasal" d="M164,150 C166,118 190,98 222,94 L300,92 C332,94 354,114 368,142 L332,148 L300,149 L260,146 L220,151 Z"/>
+   <g class="tr-turb"><path d="M214,104 Q250,98 300,106 Q262,114 214,104Z"/><path d="M206,120 Q256,114 316,124 Q262,132 206,120Z"/><path d="M212,136 Q258,132 322,140 Q262,146 212,136Z"/></g>
+   <path class="tr-bone" d="M220,150 L260,146 L300,148 L318,158 L318,170 L313,175 L300,165 L262,160 L222,162 Z"/>
+   <path class="tr-bone jaw" d="M318,238 C316,252 300,270 270,280 C240,290 214,296 202,302"/><ellipse class="tr-bone" cx="202" cy="305" rx="7" ry="4"/>
+   <path class="tr-tooth" d="M313,170 L322,169 L327,195 L323,199 L318,196 Z"/><path class="tr-tooth" d="M317,237 L324,237 L323,209 L320,205 L316,210 Z"/>
+   <path class="tr-epi" d="M190,318 C182,306 172,296 170,288 C176,288 186,298 194,312 Z"/>
+   <path class="tr-cart" d="M196,320 L210,326 L210,374 L198,382 L196,382 Z"/><path class="tr-cart" d="M164,336 L172,332 L172,380 L164,384 Z"/>
+   <path class="tr-fold" id="trFoldS" d="M198,355 L184,357 L198,360 Z"/>
+   <g class="tr-trach"><path d="M168,384 L168,522 M192,384 L192,522"/>${rings.join('')}</g>
+   <path class="tr-bron" d="M180,522 L150,560 L128,604 M150,560 L170,600 M180,522 L210,560 L232,604 M210,560 L190,600 M128,604 L108,650 M128,604 L140,660 M232,604 L252,650 M232,604 L220,660"/>
+   <g id="trLungs"><path class="tr-lung" d="M168,528 C120,518 72,560 64,640 C58,702 82,738 122,740 C152,742 166,722 168,692 Z"/><path class="tr-lung" d="M192,528 C240,518 288,560 296,640 C302,702 278,738 238,740 C208,742 194,722 192,692 Z"/></g>
+   <path class="tr-diaph" id="trDia" d="M40,752 Q180,700 320,752"/>
+   <path class="tr-vel" id="trVel" d=""/><circle class="tr-uv" id="trUv" r="5"/>
+   <path class="tr-tg" id="trTg" d=""/>
+   <path class="tr-lip" id="trLipU" d=""/><path class="tr-lip" id="trLipL" d=""/>
+  </g>
+  <g class="tr-lbl" ${TR.lbl?'':'style="display:none"'}><text x="262" y="84">التجويف الأنفي</text><text x="132" y="140">البلعوم</text><text x="262" y="142">الحنك الصلب</text><text x="246" y="232">اللسان</text><text x="372" y="192">الشفتان</text><text x="226" y="352">الحنجرة</text><text x="226" y="366">والوتران</text><text x="226" y="460">القصبة الهوائية</text><text x="114" y="700">الرئة</text><text x="246" y="700">الرئة</text><text x="180" y="776">الحجاب الحاجز</text><text x="208" y="300">لسان المزمار</text></g>
+  <circle id="trGlow" cx="0" cy="0" r="0" fill="url(#trGlow)"/><circle id="trGlow2" cx="${TRP.kh[0]}" cy="${TRP.kh[1]}" r="0" fill="url(#trGlow)"/>
+  <g id="trRings"></g><g id="trAir"></g><g id="trHot">${hot}</g></svg>`}
+/* ---- النافذتان: الوتران من أعلى، والفم من الأمام (لبعض الحروف) ---- */
+function trGlotSVG(){return `<svg viewBox="0 0 90 92" class="tr-glot"><ellipse cx="45" cy="44" rx="40" ry="38" class="g-bg"/><path id="gfL" class="g-f"/><path id="gfR" class="g-f"/><circle cx="45" cy="14" r="3" class="g-ant"/><text x="45" y="88">الوتران من أعلى</text></svg>`}
+const TR_FRONT={'ف':'fa','ب':'bm','م':'bm','و':'w','ث':'th','ذ':'th','ظ':'th','ض':'dd'};
+function trFrontSVG(k){if(!k)return '';const teethU=[0,1,2,3,4,5].map(i=>`<rect x="${32+i*10}" y="30" width="9" height="${i===2||i===3?15:12}" rx="3" class="f-tooth"/>`).join(''),teethL=[0,1,2,3,4,5].map(i=>`<rect x="${32+i*10}" y="${k==='fa'?58:54}" width="9" height="11" rx="3" class="f-tooth"/>`).join('');
+  const A={fa:`${teethU}<path class="f-lip" d="M16,22 Q60,6 104,22 Q60,28 16,22Z"/><path class="f-lip" d="M18,46 Q60,40 102,46 Q96,72 60,74 Q24,72 18,46Z"/><path class="f-hit" d="M34,45 L86,45"/><text x="60" y="86">الشفة السفلى تحت أطراف الثنايا العليا</text>`,
+   bm:`<path class="f-lip" d="M14,40 Q60,14 106,40 Q60,44 14,40Z"/><path class="f-lip" d="M14,40 Q60,44 106,40 Q60,70 14,40Z"/><path class="f-hit" d="M18,40 Q60,45 102,40"/><text x="60" y="86">انطباق الشفتين</text>`,
+   w:`<ellipse cx="60" cy="42" rx="26" ry="22" class="f-lip"/><ellipse cx="60" cy="42" rx="9" ry="7" class="f-cav"/><text x="60" y="86">انضمام الشفتين مع بقاء فرجة</text>`,
+   th:`<path class="f-lip" d="M10,24 Q60,8 110,24 Q60,30 10,24Z"/><path class="f-cav" d="M14,28 Q60,32 106,28 L106,62 Q60,66 14,62Z"/>${teethU}${teethL}<path class="f-tg" d="M38,62 Q60,40 82,62Z"/><path class="f-hit" d="M44,48 Q60,40 76,48"/><path class="f-lip" d="M10,64 Q60,70 110,64 Q60,84 10,64Z"/><text x="60" y="90">طرف اللسان بين أطراف الثنايا</text>`,
+   dd:`<path class="f-cav" d="M6,22 Q60,6 114,22 L114,64 Q60,78 6,64Z"/>${[0,1,2,3,4,5,6,7,8,9].map(i=>`<rect x="${10+i*10.2}" y="22" width="9" height="${i>2&&i<7?12:9}" rx="3" class="f-tooth"/>`).join('')}<path class="f-tg" d="M12,66 Q16,34 60,32 Q104,34 108,66 Z"/><path class="f-edge l" d="M16,52 Q18,36 30,32"/><path class="f-edge r" d="M104,52 Q102,36 90,32"/><text x="60" y="88">حافتا اللسان مع الأضراس العليا (اليسرى أيسر)</text>`};
+  return `<svg viewBox="0 0 120 92" class="tr-front">${A[k]||''}</svg>`}
+/* ---- الإطار الزمني: كل شيء دالة في الزمن ليمكن السحب والإبطاء ---- */
+function trFrame(t){const svg=document.getElementById('trSvg');if(!svg)return;const c=TR.cfg;
+  /* الحجاب والرئتان */
+  const ex=ease(t/1500),dia=lerp(0,-26,ex);svg.querySelector('#trDia').setAttribute('d',`M40,752 Q180,${700+dia} 320,752`);
+  svg.querySelector('#trLungs').setAttribute('transform',`translate(180 640) scale(${lerp(1,.94,ex)}) translate(-180 -640)`);
+  if(!c){trArtic(null,0);return}
+  /* الحركة نحو المخرج ثم العودة */
+  const tR=c.m==='stop'?(c.mk==='h1'?4300:4700):6000,go=ease((t-2600)/800)*(1-ease((t-5800)/900));let open=0;
+  if(c.m==='stop'&&t>tR){const dt=t-tR;open=c.qlq?Math.min(1,dt/120)*(1+1.4*Math.exp(-dt/260)*Math.sin(dt/38)):Math.min(1,dt/180)}
+  if(c.tap&&t>3700&&t<4300)open=.6*Math.sin((t-3700)/600*Math.PI);
+  trArtic(c,go,open,t);
+  /* الوتران */
+  const g=document.getElementById('gfL');if(g){let gap=c.glot==='open'||c.glot==='fric'?15:2;if(t<1300)gap=10;
+    if(c.glot==='vib'&&t>1300&&t<6400&&!(c.m==='stop'&&t>3500&&t<tR&&!c.v))gap=2+2.6*Math.abs(Math.sin(t/14));if(c.glot==='stop')gap=t>1300&&t<4300?0:t>=4300&&t<4500?16:10;
+    const pts=[[45,14],[45-gap/2-1,76],[45-gap/2-15,76],[24,40],[41,14]],D=f=>`M${f(pts[0])} L${f(pts[1])} L${f(pts[2])} Q${f(pts[3])} ${f(pts[4])} Z`;
+    g.setAttribute('d',D(p=>p[0].toFixed(1)+','+p[1]));document.getElementById('gfR').setAttribute('d',D(p=>(90-p[0]).toFixed(1)+','+p[1]));
+    const gw=document.querySelector('.tr-glotw');if(gw)gw.classList.toggle('hot',t>1300&&t<2600)}
+  /* الجسيمات */
+  trAir(c,t,tR);
+  /* التوهج */
+  const gl=svg.querySelector('#trGlow');const on=t>3400&&t<6300;gl.setAttribute('cx',c.place[0]);gl.setAttribute('cy',c.place[1]);gl.setAttribute('r',on?(c.free?34:15)+4*Math.sin(t/120):0);
+  svg.querySelector('#trGlow2').setAttribute('r',c.nasal&&on?13+3*Math.sin(t/110):0);
+  /* حلقات الصوت عند المخرج */
+  const R=svg.querySelector('#trRings');let rh='';const ex0=c.nasal?[370,146]:[362,202],st=c.m==='stop'?tR:3800;
+  if(t>st&&t<6800){for(let k=0;k<3;k++){const ph=((t-st)/700+k/3)%1;rh+=`<circle cx="${ex0[0]}" cy="${ex0[1]}" r="${4+ph*30}" class="ring ${c.v?'v':'h'}" opacity="${(1-ph)*.8}"/>`}}R.innerHTML=rh;
+  /* المؤشرات */
+  let pr=0;if(c.m==='stop'){pr=t>3500&&t<tR?(t-3500)/(tR-3500):t>=tR&&t<tR+200?1-(t-tR)/200:0}else if(t>3500&&t<6200)pr=c.m==='fric'?.45:c.m==='mid'?.3:.12;
+  const pb=document.getElementById('trPr');if(pb)pb.style.width=(pr*100)+'%';
+  const wv=document.getElementById('trWave');if(wv){let d='M0,15';const voice=c.v&&t>1300&&t<6400,flow=t>2400&&t<6600&&!(c.m==='stop'&&t>3500&&t<tR);
+    for(let x=0;x<=120;x+=2){let y=15;if(voice)y+=((c.m==='stop'&&t>3500&&t<tR)?3:9)*Math.sin(x/4+t/40);else if(flow)y+=6*Math.sin(x*12.9898+t*.7)*Math.sin(x*3.1+t*.13);d+=` L${x},${y.toFixed(1)}`}wv.setAttribute('d',d)}
+  /* الكاميرا */
+  if(TR.follow&&!TR.man)trCam(t);
+  /* النص */
+  const ph=TR_PH.filter(p=>t>=p[0]).length-1;const cap=document.getElementById('trCap');if(cap&&cap.dataset.ph!=String(ph)){cap.dataset.ph=ph;cap.innerHTML=`<b>${AR(ph+1)} · ${TR_PH[ph][1]}${ph===3?': '+(TJ_MK.find(m=>m.k===c.mk)||{}).n:''}</b><p>${trCaption(c,ph)}</p>`;document.querySelectorAll('.tr-tl i').forEach((e,i)=>e.classList.toggle('on',i<=ph))}
+  const sl=document.getElementById('trSl');if(sl&&!TR.drag)sl.value=t;
+  /* الصوت الحقيقي عند الانطلاق */
+  if(TR.play&&!TR.aud&&t>=5300&&c.ch){TR.aud=1;if(TR.mode!=='bld'||c.ch)tjPlayEx(c.ch)}}
+function trArtic(c,go,open,t){const svg=document.getElementById('trSvg');if(!svg)return;
+  const P=TR_REST.map((p,i)=>c?[lerp(p[0],c.P[i][0],go),lerp(p[1],c.P[i][1],go)]:p.slice());
+  if(c&&open){/* انفصال العضوين عند الانطلاق */const near=P.map((p,i)=>i).filter(i=>c.P[i]!==TR_REST[i]&&(c.P[i][0]!==TR_REST[i][0]||c.P[i][1]!==TR_REST[i][1]));near.forEach(i=>{P[i][1]+=7*open})}
+  if(c&&c.tap&&t>3700&&t<4300){P[7][1]+=5*Math.sin((t-3700)/600*Math.PI)}
+  const tip=P[7],under=[[tip[0]-3,tip[1]+11],[292,238],[256,258],[220,276],[196,300],P[0]];
+  svg.querySelector('#trTg').setAttribute('d',crPath(P)+' '+crPath([tip].concat(under)).replace(/^M[^C]+/,'')+' Z');
+  /* الحنك اللين */
+  const vo=c&&c.nasal?ease((t-2600)/600)*(1-ease((t-6000)/600)):0,R=[220,158],T=[lerp(166,190,vo),lerp(166,208,vo)],C=[lerp(192,210,vo),lerp(150,186,vo)];
+  svg.querySelector('#trVel').setAttribute('d',`M${R[0]},${R[1]} Q${C[0]},${C[1]} ${T[0]},${T[1]}`);const uv=svg.querySelector('#trUv');uv.setAttribute('cx',T[0]);uv.setAttribute('cy',T[1]+3);
+  /* الشفتان */
+  const L0={uy:194,ly:210,ux:0,lx:0},L1=c?c.lip:L0,f=c?go:0;let uy=lerp(L0.uy,L1.uy,f),ly=lerp(L0.ly,L1.ly,f);const ux=lerp(0,L1.ux,f),lx=lerp(0,L1.lx,f);
+  if(c&&c.mk==='sh'&&c.m==='stop'&&open){uy-=4*open;ly+=4*open}
+  svg.querySelector('#trLipU').setAttribute('d',`M322,164 C336,158 ${352+ux},166 ${355+ux},${uy-8} C${356+ux},${uy-2} ${346+ux},${uy+1} ${336+ux*.5},${uy} C330,${uy} 325,${uy-2} 322,${uy-4} Z`);
+  svg.querySelector('#trLipL').setAttribute('d',`M${320+Math.min(0,lx)*.3},${ly+3} C${326+lx*.5},${ly} ${334+lx},${ly-1} ${342+lx},${ly} C${352+lx},${ly+2} ${355+lx},${ly+10} ${352+lx*.6},${ly+22} C346,${ly+36} 330,${ly+40} 320,${ly+36} Z`)}
+let TR_PC=null;
+function trAir(c,t,tR){const air=document.getElementById('trAir');if(!air)return;const N=34;
+  const key=c.mk+(c.nasal?'n':'o');if(!TR_PC||TR_PC.key!==key){const paths=['L','R'].map(sd=>{const P=TR_PATH[sd].concat(TR_PATH.T,c.nasal?TR_PATH.N:TR_PATH.O),L=polyLen(P);return {P,L}});
+    const glot=c.mk==='h1';const sc=paths.map(p=>glot?polyNear(p.P,p.L,[180,358]):c.nasal?polyNear(p.P,p.L,[166,228]):polyNear(p.P,p.L,c.place));TR_PC={key,paths,sc,sg:paths.map(p=>polyNear(p.P,p.L,[180,358]))}}
+  if(air.childElementCount!==N){air.innerHTML='';for(let i=0;i<N;i++){const e=document.createElementNS('http://www.w3.org/2000/svg','circle');e.setAttribute('r',2.6);air.appendChild(e)}}
+  const ds=air.children;let piled=[0,0];
+  for(let i=0;i<N;i++){const pa=TR_PC.paths[i%2],s_c=TR_PC.sc[i%2],T=pa.L[pa.L.length-1],v=s_c/3200,ti=150+i*92;let s=(t-ti)*v,op=1;
+    if(s<0){ds[i].setAttribute('opacity',0);continue}
+    if(c.m==='stop'&&t<tR&&s>s_c-2){const r=piled[i%2]++;s=s_c-2-r*2.4}
+    else if(c.m==='stop'&&t>=tR&&(t-ti)*v>s_c-2){const r=Math.max(0,(t-ti)*v-s_c);s=s_c+(t-tR)*v*2.4+r*.15}
+    if(c.m==='mid'&&!c.nasal&&!c.lat&&!c.tap&&i%2&&s>s_c){op=Math.max(0,1-(s-s_c)/12)}
+    if(s>T){op=0}
+    let [x,y]=polyAt(pa.P,pa.L,s);
+    if(c.m==='fric'&&Math.abs(s-s_c)<22){const k=1-Math.abs(s-s_c)/22;y+=k*4*Math.sin(t/23+i*1.7);x+=k*2*Math.cos(t/31+i)}
+    if(c.lat&&s>s_c-14&&s<s_c+16){y+=(i%4<2?-1:1)*6*Math.sin(Math.PI*(s-s_c+14)/30)}
+    const after=s>TR_PC.sg[i%2];
+    if(c.v&&after&&s<T)y+=1.4*Math.sin(t/18+i);
+    ds[i].setAttribute('cx',x.toFixed(1));ds[i].setAttribute('cy',y.toFixed(1));ds[i].setAttribute('opacity',op);ds[i].setAttribute('class','tr-p '+(c.v&&after?'v':'h'))}}
+function trCaption(c,ph){const L=c.ch?TJ_LN[c.ch]||c.ch:'الحرف',m=TJ_MK.find(x=>x.k===c.mk)||{};
+  if(ph===0)return 'يرتفع الحجاب الحاجز وتنقبض الرئتان، فيُدفع هواء الزفير إلى القصبة الهوائية. لا يتكون الصوت إلا على هذا الهواء.';
+  if(ph===1)return c.glot==='stop'?'ينطبق الوتران انطباقًا تامًا فيُحبس الهواء خلفهما، ثم ينفتحان فجأة: هذه الهمزة، مجهورة شديدة.':c.glot==='fric'?'يتباعد الوتران ويحتك الهواء في أقصى الحلق: الهاء مهموسة رخوة.':c.v?`يتقارب الوتران ويهتزان، فيتحول الهواء صوتًا: ${L} <b>مجهور</b>، ينحبس معه النفَس.`:`يتباعد الوتران فيجري النفَس بينهما بلا اهتزاز: ${L} <b>مهموس</b>، يجري معه النفَس.`;
+  if(ph===2)return (c.nasal?'ينخفض الحنك اللين فينفتح طريق الأنف إلى الخيشوم. ':'يرتفع الحنك اللين فيسد طريق الأنف، فيتجه الهواء إلى الفم. ')+(c.sti?'ويرتفع أقصى اللسان إلى الحنك (<b>استعلاء</b>) فيمتلئ الفم بالصدى فيُفخَّم. ':'')+(c.itb?'وينطبق اللسان على الحنك الأعلى (<b>إطباق</b>) فينحصر الصوت بينهما. ':'')+(c.free?'ولا يعتمد اللسان على موضع محدد.':'');
+  if(ph===3){if(c.free)return 'مخرج تقديري: يجري الصوت في الجوف (خلاء الحلق والفم) حتى ينقطع النفَس.';
+    const base=c.m==='stop'?'يلتقي العضوان التقاءً محكمًا فينحبس الصوت (<b>شدة</b>)، ويرتفع الضغط خلف المخرج.':c.m==='fric'?'يتقارب العضوان ويبقى مجرى ضيق يجري فيه الصوت (<b>رخاوة</b>).':'ينحبس الصوت في المخرج ولا ينحبس كله (<b>توسط</b>).';
+    const ex=c.sfr?' ويضيق المجرى فيحدث <b>صفير</b>.':c.tfs?' وينتشر الريح في الفم (<b>تفشٍّ</b>).':c.stt?' ويمتد الصوت على حافة اللسان حتى يتصل بمخرج اللام (<b>استطالة</b>).':c.nasal?' ويجري الصوت من الخيشوم: <b>الغنة</b>.':c.lat?' ويجري الصوت من جانبي اللسان (<b>انحراف</b>).':c.tap?' يطرق طرف اللسان اللثة طرقة واحدة محكمة دون ارتعاد (يُجتنب <b>التكرير</b>).':c.mk==='h2'&&c.ch==='ع'?' يضيق وسط الحلق ويجري بعض الصوت.':'';
+    return `${m.n}. ${base}${ex}`}
+  return c.m==='stop'?'ينفصل العضوان فجأة فينطلق الصوت المحبوس.'+(c.qlq?' ومع السكون يضطرب المخرج فتُسمع نبرة قوية: <b>القلقلة</b>.':''):`يخرج الصوت ${c.nasal?'من الأنف':'من الفم'}${c.ch&&TJ_EX[c.ch]?`، وتسمعه الآن في ﴿${TJ_EX[c.ch][3]}﴾`:''}.`}
+/* ---- الكاميرا ---- */
+function trPlaceV(c){if(c.mk==='h1')return TRV.larynx;if(c.free)return [180,120,200,180];const [x,y]=c.place,w=200,h=184;return [clamp(x-w*.5,100,420-w),clamp(y-h*.48,60,780-h),w,h]}
+function trCam(t){const c=TR.cfg;const K=[[0,TRV.chest],[1000,TRV.chest],[1700,TRV.larynx],[2500,TRV.larynx],[3100,TRV.head],[3700,trPlaceV(c)],[5500,trPlaceV(c)],[6300,TRV.head]];
+  let i=0;while(i<K.length-1&&K[i+1][0]<=t)i++;const a=K[i],b=K[i+1]||a,f=b===a?1:ease((t-a[0])/(b[0]-a[0]));TR.vb=a[1].map((v,j)=>lerp(v,b[1][j],f));trApplyVB()}
+function trApplyVB(){const s=document.getElementById('trSvg');if(!s)return;s.setAttribute('viewBox',TR.vb.map(v=>v.toFixed(1)).join(' '));const l=s.querySelector('.tr-lbl');if(l){const k=TR.vb[2]/292;l.style.fontSize=(9.5*k).toFixed(2)+'px';l.style.strokeWidth=(3*k).toFixed(2)+'px'}s.style.setProperty('--k',TR.vb[2]/292)}
+function trView(k){const tgt=k==='place'?(TR.cfg?trPlaceV(TR.cfg):TRV.head):TRV[k];if(!tgt)return;TR.man=1;TR.follow=false;const from=TR.vb.slice(),t0=performance.now();
+  (function an(n){const f=ease((n-t0)/450);TR.vb=from.map((v,j)=>lerp(v,tgt[j],f));trApplyVB();if(f<1)requestAnimationFrame(an)})(t0);trBar()}
+function trZoom(f){const [x,y,w,h]=TR.vb,cx=x+w/2,cy=y+h/2,nw=clamp(w*f,60,420),nh=nw*h/w;TR.vb=[cx-nw/2,cy-nh/2,nw,nh];TR.man=1;TR.follow=false;trApplyVB();trBar()}
+function trBindPan(){const s=document.getElementById('trSvg');if(!s)return;const pts=new Map();let st=null;
+  s.addEventListener('pointerdown',e=>{if(e.target.closest('.tr-h'))return;pts.set(e.pointerId,[e.clientX,e.clientY]);s.setPointerCapture(e.pointerId);st={vb:TR.vb.slice(),pts:new Map(pts)}});
+  s.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId)||!st)return;pts.set(e.pointerId,[e.clientX,e.clientY]);const r=s.getBoundingClientRect(),k=st.vb[2]/r.width;
+    if(pts.size===1){const [a]=[...st.pts.values()],b=pts.get(e.pointerId);if(!a)return;const dx=(b[0]-a[0])*k,dy=(b[1]-a[1])*k;if(Math.abs(dx)+Math.abs(dy)<2)return;TR.vb=[st.vb[0]-dx,st.vb[1]-dy,st.vb[2],st.vb[3]]}
+    else if(pts.size===2){const A=[...st.pts.values()],B=[...pts.values()];if(A.length<2)return;const d0=Math.hypot(A[0][0]-A[1][0],A[0][1]-A[1][1]),d1=Math.hypot(B[0][0]-B[1][0],B[0][1]-B[1][1]);const f=clamp(d0/d1,.3,3),nw=clamp(st.vb[2]*f,60,420),nh=nw*st.vb[3]/st.vb[2];TR.vb=[st.vb[0]+(st.vb[2]-nw)/2,st.vb[1]+(st.vb[3]-nh)/2,nw,nh]}
+    TR.man=1;TR.follow=false;trApplyVB()});
+  const up=e=>{pts.delete(e.pointerId);st=pts.size?{vb:TR.vb.slice(),pts:new Map(pts)}:null;trBar()};s.addEventListener('pointerup',up);s.addEventListener('pointercancel',up);
+  s.addEventListener('wheel',e=>{e.preventDefault();trZoom(e.deltaY>0?1.12:.89)},{passive:false})}
+/* ---- التشغيل ---- */
+function trLoop(n){const sv=document.getElementById('trSvg');if(sv)sv.classList.toggle('playing',TR.play&&TR.t>1000&&TR.t<6600);if(!TR.play)return;const dt=Math.min(64,n-(TR.last||n));TR.last=n;TR.t+=dt*TR.speed;if(TR.t>=TR_D){TR.t=TR_D;TR.play=false;trBar()}trFrame(TR.t);if(TR.play)TR.raf=requestAnimationFrame(trLoop)}
+function trPlay(from0){if(!TR.cfg)return;if(from0||TR.t>=TR_D){TR.t=0;TR.aud=0}if(TR.mode!=='org'||1){TR.man=TR.follow?0:TR.man}TR.play=true;TR.last=0;cancelAnimationFrame(TR.raf);TR.raf=requestAnimationFrame(trLoop);trBar()}
+function trPause(){TR.play=false;cancelAnimationFrame(TR.raf);trBar()}
+function trScrub(v){TR.drag=1;TR.play=false;TR.t=+v;if(TR.t<5300)TR.aud=0;trFrame(TR.t);trBar()}
+function trBar(){const b=document.getElementById('trBar');if(!b)return;b.innerHTML=`<button class="tr-pp" onclick="${TR.play?'trPause()':'trPlay()'}">${TR.play?'⏸':'▶'}</button>
+  <div class="tr-tl"><input id="trSl" type="range" min="0" max="${TR_D}" step="10" value="${TR.t}" oninput="trScrub(this.value)" onchange="TR.drag=0"><div>${TR_PH.map((p,i)=>`<i style="right:${p[0]/TR_D*100}%" class="${TR.t>=p[0]?'on':''}">${AR(i+1)}</i>`).join('')}</div></div>
+  <div class="tr-sp">${[[1,'١×'],[.5,'½'],[.25,'¼']].map(([v,n])=>`<button class="${TR.speed===v?'on':''}" onclick="TR.speed=${v};trBar()">${n}</button>`).join('')}</div>`;
+  const vw=document.getElementById('trViews');if(vw)vw.innerHTML=`<button class="${TR.follow?'on':''}" onclick="TR.follow=!TR.follow;TR.man=0;if(TR.follow)trCam(TR.t);trBar()">🎥 تتبّع</button>${[['full','الكامل'],['chest','الصدر'],['larynx','الحنجرة'],['head','الرأس'],['place','المخرج']].map(([k,n])=>`<button onclick="trView('${k}')">${n}</button>`).join('')}<button onclick="trZoom(.8)">＋</button><button onclick="trZoom(1.25)">－</button><button class="${TR.lbl?'on':''}" onclick="TR.lbl=!TR.lbl;document.querySelector('.tr-lbl').style.display=TR.lbl?'':'none';trBar()">🏷</button>`}
+function trStage(){return `<div class="tr-views" id="trViews"></div><div class="tr-stage"><div class="tr-wrap">${trSVG()}</div>
+   <div class="tr-glotw">${trGlotSVG()}</div><div class="tr-frontw" id="trFront">${TR.cfg&&TR_FRONT[TR.cfg.ch]?trFrontSVG(TR_FRONT[TR.cfg.ch]):''}</div>
+   <div class="tr-meter"><small>الضغط خلف المخرج</small><i><u id="trPr"></u></i><small>الصوت</small><svg viewBox="0 0 120 30"><path id="trWave" d="M0,15 L120,15"/></svg></div></div>
+  <div class="tr-bar" id="trBar"></div><div class="tr-cap" id="trCap" data-ph="-1"><b>👆 اختر حرفًا</b><p>ستشاهد رحلة الهواء كاملة: من الرئتين إلى الحنجرة، ثم إلى مخرج الحرف، ثم يخرج صوتًا. ويمكنك الإيقاف والسحب والإبطاء والتقريب بإصبعين.</p></div>`}
+function trMount(){trBar();trBindPan();trFrame(TR.t);if(TR.cfg&&!TR.play&&TR.t===0)trPlay(true)}
+function trSet(cfg){trPause();TR.cfg=cfg;TR.t=0;TR.aud=0;TR_PC=null;TR.man=0;if(!TR.follow){}const f=document.getElementById('trFront');if(f)f.innerHTML=cfg&&TR_FRONT[cfg.ch]?trFrontSVG(TR_FRONT[cfg.ch]):'';
+  const hs=document.querySelectorAll('#trHot .tr-h');hs.forEach(h=>h.classList.remove('on'));trPlay(true)}
+/* ---- مختبر المخارج ---- */
+function trPickCh(ch){const x=TJST();if(!x.lt.includes(ch)){x.lt.push(ch)}const mk=trMk(ch);if(!x.mk.includes(mk))x.mk.push(mk);save();TR.ch=ch;TJV.sel={mk,ch};tjRender();setTimeout(()=>trSet(trArt(ch)),40);sound('lit')}
+function trPickMk(k){if(TR.mode==='bld'){BLD.mk=k;bldRender();return}const m=TJ_MK.find(x=>x.k===k);if(k==='kh')return trPickCh('ن');trPickCh(m.l[0]==='ا'?'ا':m.l[0])}
+function trLabMk(){const x=TJST(),S2=TJV.sel;
+  return `${tjTabs()}${trStage()}
+   <div class="tj-letters">${TJ_LS.concat(['ا']).map(c=>`<button class="${S2&&S2.ch===c?'on':''} ${x.lt.includes(c)?'seen':''}" onclick="trPickCh('${c}')">${c}</button>`).join('')}</div>
+   <div class="tj-prog">اكتشفت ${AR(Math.min(17,x.mk.length))} من ١٧ مخرجًا · ${AR(x.lt.length)} من ٢٩ حرفًا</div>${trPanel()}`}
+function trPanel(){const S2=TJV.sel;if(!S2)return `<div class="tj-pn tj-hint"><b>👆 اضغط حرفًا أو نقطة على الرسم</b><p>كل نقطة مخرج. وفي أعلى الرسم: الوتران من أعلى، وتظهر نافذة الفم من الأمام في الحروف التي تحتاجها فقط.</p></div>`;
+  const m=TJ_MK.find(x=>x.k===S2.mk),ch=S2.ch,sf=ch&&ch!=='ا'?tjSfOf(ch):[],ex=TJ_EX[ch];
+  return `<div class="tj-pn"><div class="tj-ph"><span class="tj-big">${ch}</span><div class="grow"><b>${TJ_LN[ch]||''}</b><small>${m.g} ← ${m.n}</small></div>${ex?`<button class="tj-snd" onclick="tjPlayEx('${ch}')">🔊</button>`:''}<button class="tj-snd" onclick="trPlay(true)">↻</button></div>
+   ${m.l.length>1?`<div class="tj-sib">حروف هذا المخرج: ${m.l.map(c=>`<button class="${c===ch?'on':''}" onclick="trPickCh('${c}')">${c}</button>`).join('')}</div>`:''}
+   <p class="tj-d">${m.d}</p>${ex?`<div class="tj-ex">🎧 مثال: <span class="qtx">${ex[3]}</span> <small>(${SUR_N[ex[0]-1]}: ${AR(ex[1])})</small></div>`:''}
+   ${sf.length?`<div class="tj-sfc">${sf.map(s=>`<span>${s.n}</span>`).join('')}</div>`:''}
+   ${ch&&ch!=='ا'?`<div class="tj-cmp"><b>🎙 قارن نطقك</b><div class="row" style="gap:6px;flex-wrap:wrap">${ex?`<button class="btn sm" onclick="tjPlayEx('${ch}')">▶ القارئ</button>`:''}<span id="tjRecW">${recBtnHTML('tj:'+ch)}</span></div><small class="muted">سجّل الكلمة نفسها ثم قارن بأذنك.</small></div>`:''}</div>`}
+/* ---- مختبر أعضاء النطق ---- */
+function trOrg(k){const x=TJST();x.org=x.org||[];if(!x.org.includes(k)){x.org.push(k);save()}TR.org=k;const o=TJ_ORG.find(z=>z.k===k);
+  document.getElementById('trOrgP').innerHTML=trOrgPanel();document.querySelectorAll('#trHot .tr-h').forEach((h,i)=>{h.classList.toggle('on',TJ_ORG[i].k===k);if(TJ_ORG[i].k===k)h.classList.add('seen')});
+  const v=['lung','diaph'].includes(k)?'chest':k==='trach'?'full':['lar','epi','h1'].includes(k)?'larynx':'head';trView(v);sound('lit');const pg=document.getElementById('trOrgN');if(pg)pg.textContent=AR(x.org.length)}
+function trOrgPanel(){const o=TJ_ORG.find(z=>z.k===TR.org);if(!o)return `<div class="tj-pn tj-hint"><b>👆 اضغط أي نقطة على الرسم</b><p>تعرّف على كل عضو ودوره في النطق، ثم اضغط «▶» لتشاهد رحلة النفَس من الرئتين إلى الشفتين.</p></div>`;
+  return `<div class="tj-pn"><div class="tj-ph"><span class="tj-big" style="font-size:22px">🫁</span><div class="grow"><b>${o.n}</b></div></div><p class="tj-d">${o.d}</p>
+   ${o.l?`<div class="tj-sib">حروفه: ${[...o.l].map(c=>`<button onclick="TR.mode='org';trSet(trArt('${c}'))">${c}</button>`).join('')}</div>`:''}${o.k==='teeth'?trTeeth():''}</div>`}
+function trTeeth(){const types=[['ث',0,1,'#f2b938'],['ر',2,2,'#7ec8b0'],['ن',3,3,'#9fb7e8'],['ض',4,4,'#e8a07e'],['ط',5,7,'#c9a0e8'],['ج',8,8,'#e88fae']];let h='';
+  for(let side of [-1,1])for(let i=0;i<9;i++){const ty=types.find(t=>i>=t[1]&&i<=t[2]);const a=(i+.5)/9*Math.PI*.95,x=110+side*Math.sin(a)*80,y=20+(1-Math.cos(a))*70;h+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i<3?7:i<5?8:9}" fill="${ty[3]}" class="tth" data-t="${types.indexOf(ty)}" onclick="trTooth(${types.indexOf(ty)})"/>`}
+  return `<div class="tr-teeth"><svg viewBox="0 0 220 120">${h}<text x="110" y="60" class="tt-l">الفك العلوي من أسفل</text></svg><div id="trTT">${TJ_TEETH.map((t,i)=>`<button onclick="trTooth(${i})"><i style="background:${types[i][3]}"></i>${t[0]} <b>${AR(t[1])}</b></button>`).join('')}</div><small class="muted">المجموع اثنان وثلاثون: نصفها في الفك العلوي.</small></div>`}
+function trTooth(i){document.querySelectorAll('.tth').forEach(c=>c.classList.toggle('on',+c.dataset.t===i));const t=TJ_TEETH[i];toast(`${t[0]}: ${AR(t[1])} — ${t[2]}`);sound('flip')}
+function trLabOrg(){const x=TJST();x.org=x.org||[];return `${tjTabs()}${trStage()}<div class="tj-prog">تعرّفت على <span id="trOrgN">${AR(x.org.length)}</span> من ${AR(TJ_ORG.length)} عضوًا</div><div id="trOrgP">${trOrgPanel()}</div>`}
+/* ---- مُركِّب الحروف: ابنِ الحرف بنفسك ---- */
+let BLD={v:null,mk:null,m:null,sti:false,itb:false,lv:1,goal:null,res:null};
+const BLD_FX={'sh|0|stop':'صوت P في اللغات الأجنبية (پ)','fa|1|fric':'صوت V في اللغات الأجنبية (ڤ)','k|1|stop':'صوت G كالجيم القاهرية','wl|1|fric':'الجيم المعطّشة الشامية (ʒ)','wl|0|stop':'صوت «تش» (ch)','td|0|stop':'','q|0|stop':'','h3|1|stop':''};
+function bldMatch(o){return TJ_LS.filter(c=>{const f=TRF[c];if(trMk(c)!==o.mk)return false;if(f.v!==o.v||f.m!==o.m)return false;if(o.lv>1&&(f.sti!==o.sti||f.itb!==o.itb))return false;return true})}
+function bldGoal(){const pool=TJ_LS.filter(c=>c!=='ا'&&(BLD.lv>1||!(TRF[c].sti||TRF[c].itb)||true));let g;do{g=pool[Math.floor(Math.random()*pool.length)]}while(g===BLD.goal);BLD.goal=g;BLD.res=null;bldRender()}
+function bldGo(){const o=BLD;if(o.v==null||!o.mk||!o.m){toast('اختر الوترين والمخرج وطريقة جريان الصوت');return}
+  const ms=bldMatch(o);const rep=ms.length===1?ms[0]:ms.find(c=>c===o.goal)||ms[0]||'';
+  const cfg=trCfg({ch:ms.length===1?rep:'',mk:o.mk,v:o.v,m:o.m,sti:o.lv>1&&o.sti,itb:o.lv>1&&o.itb,nasal:o.mk==='nn'&&o.m==='mid'||(o.mk==='sh'&&o.m==='mid'),qlq:ms.length===1&&TRF[rep].qlq,sfr:o.mk==='sf'&&o.m==='fric',lat:o.mk==='lm'&&o.m==='mid',tap:o.mk==='rr'&&o.m==='mid'});
+  const hit=o.goal&&ms.includes(o.goal)&&(o.lv>1?ms.length===1||ms.every(c=>c===o.goal):true);
+  BLD.res={ms,hit};if(hit){const x=TJST();x.bld=x.bld||{};x.bld[o.lv]=(x.bld[o.lv]||0)+1;save();sound('win')}else sound(ms.length?'ok':'bad');
+  bldRender();setTimeout(()=>trSet(cfg),40)}
+function bldRender(){const app=document.getElementById('app');if(route.v!=='tjlab')return;const o=BLD,x=TJST();x.bld=x.bld||{};const n=x.bld[o.lv]||0;
+  const seg=(lbl,key,opts)=>`<div class="bl-r"><small>${lbl}</small><div class="bl-seg">${opts.map(([v,t])=>`<button class="${o[key]===v?'on':''}" onclick="BLD.${key}=${JSON.stringify(v).replace(/"/g,"'")};bldRender()">${t}</button>`).join('')}</div></div>`;
+  const mks=TJ_MK.filter(m=>m.k!=='jawf'&&m.k!=='kh');
+  let res='';if(o.res){const {ms,hit}=o.res,k=`${o.mk}|${o.v?1:0}|${o.m}`;
+    res=ms.length?`<div class="bl-res ${hit?'ok':''}"><span class="tj-big">${ms.join(' ')}</span><div class="grow"><b>${ms.length===1?'بنيت حرف '+TJ_LN[ms[0]]:'بنيت أحد هذه الحروف'}</b><small>${ms.length>1&&o.lv===1?'يفرّق بينها الاستعلاء والإطباق، وتبنيهما في المستوى الثالث.':ms.length>1?'غيّر الاستعلاء أو الإطباق لتصل إلى حرف واحد.':ms.map(c=>tjSfOf(c).map(s=>s.n).join('، ')).join('')}</small>${o.goal?`<small>${hit?'🏆 أصبت الهدف!':'🎯 الهدف كان ﴿'+o.goal+'﴾ — جرّب مرة أخرى'}</small>`:''}</div>${ms.length===1&&TJ_EX[ms[0]]?`<button class="tj-snd" onclick="tjPlayEx('${ms[0]}')">🔊</button>`:''}</div>`
+     :`<div class="bl-res no"><span class="tj-big">؟</span><div class="grow"><b>لا يوجد في العربية حرف بهذه الصفات</b><small>${BLD_FX[k]?'هذا يشبه '+BLD_FX[k]+'، وليس من حروف القرآن.':'غيّر أحد الاختيارات وجرّب.'}</small></div></div>`}
+  TR.mode='bld';app.innerHTML=`${tjTabs()}<div class="bl-goal">🎯 التحدي: ابنِ حرف <b>﴿${o.goal||'…'}﴾</b><span class="grow"></span><small>أصبت ${AR(Math.min(n,5))} من ٥</small><button class="btn sm ghost" onclick="bldGoal()">↻ هدف آخر</button></div>
+   ${trStage()}${res}
+   <div class="bl-pn">${seg('١. الوتران الصوتيان','v',[[true,'يهتزان (مجهور)'],[false,'مفتوحان (مهموس)']])}
+    <div class="bl-r"><small>٢. المخرج (أو اضغط نقطة على الرسم)</small><div class="bl-mk">${mks.map(m=>`<button class="${o.mk===m.k?'on':''}" onclick="BLD.mk='${m.k}';bldRender()">${m.n.replace(/\s*\(.*\)/,'').replace('مع ما يحاذيه من الحنك الأعلى','')}</button>`).join('')}</div></div>
+    ${seg('٣. الصوت في المخرج','m',[['stop','ينحبس (شدة)'],['mid','بين بين (توسط)'],['fric','يجري (رخاوة)']])}
+    ${o.lv>1?seg('٤. أقصى اللسان','sti',[[true,'يرتفع (استعلاء)'],[false,'ينخفض (استفال)']])+seg('٥. اللسان والحنك','itb',[[true,'منطبقان (إطباق)'],[false,'منفتحان (انفتاح)']]):''}
+    <button class="btn gold" style="width:100%;margin-top:8px" onclick="bldGo();window.scrollTo({top:0,behavior:'smooth'})">🔊 انطق ما بنيت</button></div>`;
+  trMount()}
+
+/* ============ الصفات تجارب حية: اضغط مطولًا، اسحب، بدّل… وكل مشهد يمثل الصفة نفسها ============ */
+const SFC={bg:'#11362f',bg2:'#0c2925',ink:'#f4efe3',mut:'#9fc1b9',gold:'#f2b938',br:'#8fd3ff',vo:'#ffcf5a',tis:'#e58f98',tg:'#d9667c',bone:'#efe6d2',bad:'#ff7a7a',ok:'#7be0a8'};
+let SFS={},SF_RAF=0;
+const SF_GROUP={sf1:['hj','sr'],sf2:['is','it','dh'],sf3:['sfr','qlq','lin','inh','tkr','tfs','stt','gna'],gn:['gna']};
+/* ---- رسم مقطع مبسّط للفم (لمشاهد الصفات) ---- */
+function sfHead(x,o){const b=o.back||0,p=o.press||0,tp=o.tip||0,v=o.vel||0;
+  x.fillStyle='rgba(255,255,255,.05)';x.beginPath();x.moveTo(60,22);x.quadraticCurveTo(170,6,270,40);x.lineTo(262,58);x.quadraticCurveTo(170,40,72,56);x.closePath();x.fill();/* الأنف */
+  x.strokeStyle=SFC.bone;x.lineWidth=7;x.lineCap='round';x.beginPath();x.moveTo(92,60);x.quadraticCurveTo(170,46,250,58);x.quadraticCurveTo(262,62,264,72);x.stroke();/* الحنك */
+  x.strokeStyle=SFC.tis;x.lineWidth=8;x.beginPath();x.moveTo(92,60);x.quadraticCurveTo(lerp(74,84,v),lerp(60,80,v),lerp(60,76,v),lerp(76,102,v));x.stroke();/* الحنك اللين */
+  x.strokeStyle='rgba(229,143,152,.55)';x.lineWidth=10;x.beginPath();x.moveTo(52,30);x.lineTo(46,175);x.stroke();/* جدار الحلق */
+  x.fillStyle=SFC.bone;x.fillRect(266,70,8,24);x.fillRect(266,106,8,22);/* الأسنان */
+  x.fillStyle=SFC.tis;x.beginPath();x.ellipse(290,o.lips?98:84,14,10,0,0,7);x.fill();x.beginPath();x.ellipse(290,o.lips?102:120,14,11,0,0,7);x.fill();/* الشفتان */
+  const P=[[70,178],[64,138],[84,108-b*30],[132,100-b*22-p*30],[186,100-p*34],[232,104-p*26-tp*18],[260,112-tp*34]];
+  x.fillStyle=SFC.tg;x.beginPath();x.moveTo(P[0][0],P[0][1]);for(let i=1;i<P.length;i++){const a=P[i-1],c=P[i];x.quadraticCurveTo(a[0],a[1],(a[0]+c[0])/2,(a[1]+c[1])/2)}x.lineTo(P[6][0],P[6][1]);x.quadraticCurveTo(262,126,240,140);x.quadraticCurveTo(170,166,96,178);x.closePath();x.fill();return P}
+function sfTxt(x,s,X,Y,c,sz,al){x.fillStyle=c||SFC.ink;x.font=`${sz||13}px Tajawal, sans-serif`;x.textAlign=al||'center';x.direction='rtl';x.fillText(s,X,Y)}
+function sfFlame(x,X,Y,lean,t){const f=Math.sin(t/60)*.08+Math.sin(t/23)*.05;x.save();x.translate(X,Y);x.fillStyle='#6b4b2e';x.fillRect(-4,0,8,34);
+  const g=x.createRadialGradient(0,-10,2,0,-14,22);g.addColorStop(0,'#fff6c8');g.addColorStop(.5,'#ffb43a');g.addColorStop(1,'rgba(255,90,40,0)');x.fillStyle=g;
+  x.beginPath();x.moveTo(-8,0);x.quadraticCurveTo(-10-lean*22,-16,(lean*30)+f*20,-34+lean*10);x.quadraticCurveTo(10-lean*8,-14,8,0);x.closePath();x.fill();x.restore()}
+/* ---- المشاهد ---- */
+const SFX={
+ hj:{n:'الهمس والجهر',mn:'«فَحَثَّهُ شَخۡصٌ سَكَتۡ»',ks:['hms','jhr'],d:'اضغط مطولًا على الحرف وراقب اللهب والوترين: في المهموس يجري النفَس فيميل اللهب بقوة، وفي المجهور يهتز الوتران فينحبس النفَس.',
+  ctl:()=>`<div class="sf-keys">${[['س','ز'],['ث','ذ'],['ت','د'],['ش','ج'],['ك','ق']].map(p=>`<span>${p.map(c=>`<button data-sf="hj" data-c="${c}" class="hold ${SFS.hj.sel===c?'on':''}">${c}</button>`).join('')}</span>`).join('')}</div>`,
+  draw(x,t,s){const c=s.sel||'س',h=!TRF[c].v,on=s.on;s.lv=lerp(s.lv||0,on?(h?1:.12):0,.08);
+   /* الوتران من أعلى */
+   x.save();x.translate(56,92);x.fillStyle='rgba(255,255,255,.08)';x.beginPath();x.ellipse(0,0,34,40,0,0,7);x.fill();const gap=on?(h?14:2+3*Math.abs(Math.sin(t/16))):9;
+   x.fillStyle=SFC.tis;[-1,1].forEach(sd=>{x.beginPath();x.moveTo(0,-30);x.lineTo(sd*(gap/2+1),30);x.lineTo(sd*(gap/2+14),30);x.quadraticCurveTo(sd*20,0,sd*4,-30);x.fill()});x.restore();
+   sfTxt(x,'الوتران',56,150,SFC.mut,11);
+   /* مجرى الهواء */
+   x.strokeStyle='rgba(255,255,255,.18)';x.lineWidth=2;x.beginPath();x.moveTo(98,78);x.lineTo(214,78);x.moveTo(98,106);x.lineTo(214,106);x.stroke();
+   if(on){for(let i=0;i<(h?16:7);i++){const ph=((t/(h?380:520))+i/(h?16:7))%1,X=100+ph*150,Y=92+(h?Math.sin(i*7.1)*9:Math.sin(ph*30+t/40)*6);x.fillStyle=h?SFC.br:SFC.vo;x.globalAlpha=1-ph*.7;x.beginPath();x.arc(X,Y,h?3:4,0,7);x.fill()}x.globalAlpha=1}
+   sfFlame(x,262,110,s.lv,t);
+   /* مقياس الاهتزاز */
+   x.strokeStyle=SFC.vo;x.lineWidth=2;x.beginPath();for(let i=0;i<=80;i++){const y=165+(on&&!h?6*Math.sin(i/2+t/30):on?1.5*Math.sin(i*9.7+t):0);i?x.lineTo(30+i*1.6,y):x.moveTo(30,y)}x.stroke();sfTxt(x,'اهتزاز الحنجرة',290,169,SFC.mut,11,'right');
+   sfTxt(x,on?(h?`${c}: مهموس — يجري النفَس فيميل اللهب`:`${c}: مجهور — يهتز الوتران وينحبس النفَس`):'اضغط مطولًا على حرف',160,26,on?(h?SFC.br:SFC.vo):SFC.mut,14)}},
+ sr:{n:'الشدة والتوسط والرخاوة',mn:'«أَجِدۡ قَطٍ بَكَتۡ» · «لِنۡ عُمَرۡ»',ks:['shd','tws','rkh'],d:'اضغط مطولًا وحاول أن «تمد» الحرف: حرف الشدة ينحبس صوته فورًا، وحرف الرخاوة يجري ما دمت تضغط، وحرف التوسط يجري بعضه.',
+  ctl:()=>`<div class="sf-keys">${[['أ','ج','د','ق','ط','ب','ك','ت'],['ل','ن','ع','م','ر'],['س','ش','ف','ز','ح','ه','ث']].map(g=>`<span>${g.map(c=>`<button data-sf="sr" data-c="${c}" class="hold ${SFS.sr.sel===c?'on':''}">${c}</button>`).join('')}</span>`).join('')}</div>`,
+  draw(x,t,s){const c=s.sel||'د',m=TRF[c==='أ'?'ء':c].m;const el=s.on?t-s.t0:(s.t1?s.t1-s.t0:0);
+   const len=m==='stop'?Math.min(el,90)/90*26:Math.min(el,2600)/2600*190*(m==='mid'?.9:1);
+   /* العضوان عند المخرج */
+   const X=74;x.fillStyle=SFC.tg;const gap=m==='stop'?0:m==='mid'?3:8;x.fillRect(X-14,52,28,40-gap);x.fillRect(X-14,92+gap,28,40);
+   if(m==='mid'){x.fillStyle=SFC.vo;x.globalAlpha=.6;x.fillRect(X-14,91,28,2);x.globalAlpha=1}
+   /* الضغط قبل الانطلاق */
+   if(m==='stop'&&s.on){for(let i=0;i<10;i++){x.fillStyle=SFC.vo;x.beginPath();x.arc(X-22-(i%3)*7,80+Math.floor(i/3)*7+Math.sin(t/40+i),2.6,0,7);x.fill()}sfTxt(x,'انحبس الصوت',X,40,SFC.bad,12)}
+   /* شريط الصوت */
+   const y=92;x.fillStyle=m==='mid'?'rgba(255,207,90,.55)':SFC.vo;x.fillRect(X+20,y-(m==='mid'?4:7),len,m==='mid'?8:14);
+   if(s.on&&m!=='stop'){for(let i=0;i<8;i++){const ph=(t/400+i/8)%1;x.fillStyle=SFC.vo;x.globalAlpha=(1-ph)*.8;x.beginPath();x.arc(X+20+ph*Math.max(20,len),y+Math.sin(i*5+t/50)*(m==='mid'?3:6),2.4,0,7);x.fill()}x.globalAlpha=1}
+   if(!s.on&&s.t1&&m==='stop'&&t-s.t1<500){const r=(t-s.t1)/500*40;x.strokeStyle=SFC.vo;x.globalAlpha=1-r/40;x.beginPath();x.arc(X+16,92,r,-1,1);x.stroke();x.globalAlpha=1}
+   sfTxt(x,s.on||s.t1?`${c}: ${m==='stop'?'شديد — لا يمتد صوته':m==='mid'?'متوسط — يجري بعض صوته':'رخو — يجري صوته ويمتد'}`:'اضغط مطولًا على حرف',190,26,m==='stop'?SFC.bad:m==='mid'?SFC.vo:SFC.ok,14);
+   sfTxt(x,'المخرج',X,150,SFC.mut,11);sfTxt(x,'امتداد الصوت ←',300,150,SFC.mut,11,'right')}},
+ is:{n:'الاستعلاء والاستفال',mn:'«خُصَّ ضَغۡطٍ قِظۡ»',ks:['sti','stf'],d:'اسحب المؤشر أو اضغط حرفًا: كلما ارتفع أقصى اللسان ضاق الفراغ فوقه وامتلأ الفم بالصدى، فخرج الحرف مفخمًا.',
+  ctl:()=>`<input type="range" min="0" max="100" value="${Math.round((SFS.is.v||0)*100)}" class="sf-rng" data-sf="is"><div class="sf-keys">${[['ق','ك'],['ص','س'],['ط','ت'],['ظ','ذ'],['خ','ح']].map(p=>`<span>${p.map(c=>`<button data-sf="is" data-c="${c}" class="${SFS.is.sel===c?'on':''}">${c}</button>`).join('')}</span>`).join('')}</div>`,
+  draw(x,t,s){s.v=lerp(s.v||0,s.tg!=null?s.tg:(s.v||0),.07);const P=sfHead(x,{back:s.v,press:0});
+   /* موجات الصدى في التجويف */
+   for(let i=0;i<5;i++){const ph=(t/900+i/5)%1;x.strokeStyle=`rgba(${Math.round(lerp(143,242,s.v))},${Math.round(lerp(211,150,s.v))},${Math.round(lerp(255,40,s.v))},${(1-ph)*.8})`;x.lineWidth=2+s.v*3;x.beginPath();x.arc(150,92-s.v*14,10+ph*lerp(70,40,s.v),Math.PI*1.05,Math.PI*1.95);x.stroke()}
+   x.fillStyle='rgba(255,255,255,.1)';x.fillRect(40,150,240,10);const g=x.createLinearGradient(40,0,280,0);g.addColorStop(0,SFC.br);g.addColorStop(1,SFC.gold);x.fillStyle=g;x.fillRect(40,150,240*s.v,10);
+   sfTxt(x,'مرقق',40,174,SFC.br,12,'left');sfTxt(x,'مفخم',280,174,SFC.gold,12,'right');sfTxt(x,s.v>.5?`${s.sel||''} مستعلٍ: يمتلئ الفم بالصدى`:`${s.sel||''} مستفل: ينخفض اللسان فيترقق`,170,22,s.v>.5?SFC.gold:SFC.br,14)}},
+ it:{n:'الإطباق والانفتاح',mn:'«ص ض ط ظ»',ks:['itb','inf'],d:'بدّل بين الحرفين: في الإطباق ينطبق اللسان على الحنك كالغطاء فينحصر الصوت بينهما ويتردد، وفي الانفتاح يتجافى فيخرج الريح.',
+  ctl:()=>`<div class="sf-keys">${[['س','ص'],['ت','ط'],['ذ','ظ'],['د','ض']].map(p=>`<span>${p.map(c=>`<button data-sf="it" data-c="${c}" class="${SFS.it.sel===c?'on':''}">${c}</button>`).join('')}</span>`).join('')}</div>`,
+  draw(x,t,s){const on='صضطظ'.includes(s.sel||'س');s.p=lerp(s.p||0,on?1:0,.08);sfHead(x,{back:s.p*.8,press:s.p});
+   if(s.p>.6){x.strokeStyle=SFC.gold;x.lineWidth=2.5;x.beginPath();for(let i=0;i<=40;i++){const X=100+i*3.6,Y=72+Math.abs(Math.sin(i/2.2+t/90))*8;i?x.lineTo(X,Y):x.moveTo(X,Y)}x.stroke();sfTxt(x,'الصوت محصور بين اللسان والحنك',170,150,SFC.gold,12)}
+   else{for(let i=0;i<6;i++){const ph=(t/700+i/6)%1;x.fillStyle=SFC.br;x.globalAlpha=1-ph;x.beginPath();x.arc(100+ph*200,84+Math.sin(i)*5,3,0,7);x.fill()}x.globalAlpha=1;sfTxt(x,'يتجافى اللسان فيخرج الريح',170,150,SFC.br,12)}
+   sfTxt(x,`${s.sel||'س'}: ${on?'مُطبَق':'مُنفتِح'}${s.sel==='ط'?' — وأقوى حروف الإطباق الطاء':''}`,170,22,on?SFC.gold:SFC.br,14)}},
+ dh:{n:'الإذلاق والإصمات',mn:'«فِرَّ مِنۡ لُبّ»',ks:['dhl','smt'],d:'اضغط حرفًا وراقب رحلته: حروف الإذلاق تخرج من ذَلَق اللسان أو الشفة (طرفهما) بخفة وسرعة، وحروف الإصمات أبعد وأثقل.',
+  ctl:()=>`<div class="sf-keys"><span>${'فرمنلب'.split('').map(c=>`<button data-sf="dh" data-c="${c}">${c}</button>`).join('')}</span><span>${'قعطجخص'.split('').map(c=>`<button data-sf="dh" data-c="${c}">${c}</button>`).join('')}</span></div>`,
+  draw(x,t,s){sfHead(x,{});const dz=[[262,108],[290,92]];dz.forEach(([X,Y])=>{const g=x.createRadialGradient(X,Y,1,X,Y,18);g.addColorStop(0,'rgba(242,185,56,.7)');g.addColorStop(1,'rgba(242,185,56,0)');x.fillStyle=g;x.beginPath();x.arc(X,Y,18,0,7);x.fill()});
+   sfTxt(x,'الذَّلَق',276,140,SFC.gold,11);
+   if(s.sel){const dl='فرمنلب'.includes(s.sel),D=dl?380:1100,ph=Math.min(1,(t-s.t0)/D),to=dl?('فمب'.includes(s.sel)?[290,94]:[258,104]):({ق:[100,82],ع:[56,120],ط:[255,76],ج:[180,66],خ:[70,90],ص:[258,110]}[s.sel]||[150,80]);
+    const X=lerp(46,to[0],ease(ph)),Y=lerp(170,to[1],ease(ph));x.fillStyle=dl?SFC.gold:SFC.br;x.beginPath();x.arc(X,Y,6,0,7);x.fill();
+    sfTxt(x,`${s.sel}: ${dl?'مُذلَق — خفيف سريع':'مُصمَت — أبعد وأثقل'}`,170,22,dl?SFC.gold:SFC.br,14)}else sfTxt(x,'اضغط حرفًا',170,22,SFC.mut,14)}},
+ sfr:{n:'الصفير',mn:'«ص ز س»',ks:['sfr'],d:'يضيق المجرى بين طرف اللسان والثنايا فيندفع الهواء بقوة ويحدث صوت كصفير الطائر. أقواها الصاد لاستعلائها وإطباقها، ثم الزاي لجهرها، ثم السين.',
+  ctl:()=>`<div class="sf-keys"><span>${'صزس'.split('').map(c=>`<button data-sf="sfr" data-c="${c}" class="${SFS.sfr.sel===c?'on':''}">${c}</button>`).join('')}</span></div>`,
+  draw(x,t,s){const c=s.sel||'ص',A={ص:1,ز:.75,س:.55}[c];x.fillStyle=SFC.tg;x.beginPath();x.moveTo(20,130);x.lineTo(180,104);x.lineTo(180,112);x.lineTo(20,150);x.fill();x.fillStyle=SFC.bone;x.beginPath();x.moveTo(20,40);x.lineTo(180,96);x.lineTo(180,92);x.lineTo(20,28);x.fill();
+   for(let i=0;i<14;i++){const ph=(t/500+i/14)%1,X=20+ph*170,Y=lerp(90,100,ph)+Math.sin(i*3)*lerp(26,1,ph);x.fillStyle=SFC.br;x.globalAlpha=.8;x.beginPath();x.arc(X,Y,2.4,0,7);x.fill()}x.globalAlpha=1;
+   for(let k=0;k<4;k++){const ph=(t/350+k/4)%1;x.strokeStyle=SFC.gold;x.globalAlpha=(1-ph)*A;x.lineWidth=1+A*2;x.beginPath();for(let i=0;i<=30;i++){const X=190+ph*110+i*0,Y=100+(i-15)*2.6*A*(.4+ph);const xx=190+ph*110+Math.sin(i/1.6+t/30)*4*A;i?x.lineTo(xx,Y):x.moveTo(xx,Y)}x.stroke()}x.globalAlpha=1;
+   x.fillStyle='rgba(255,255,255,.1)';x.fillRect(200,160,100,8);x.fillStyle=SFC.gold;x.fillRect(200,160,100*A,8);sfTxt(x,'قوة الصفير',196,168,SFC.mut,11,'right');sfTxt(x,`${c}: ${c==='ص'?'أقوى صفيرًا':c==='ز'?'متوسط':'أخفّها'}`,170,22,SFC.gold,14)}},
+ qlq:{n:'القلقلة',mn:'«قُطۡبُ جَدٍّ»',ks:['qlq'],d:'حرف شديد مجهور ساكن: يُحبس الصوت والنفَس معًا، فيضطرب المخرج عند الانفصال فتُسمع نبرة قوية. ومراتبها بحسب السكون والتشديد.',
+  ctl:()=>`<div class="sf-keys"><span>${[['sm','صغرى','﴿يَقۡطَعُونَ﴾'],['md','كبرى','﴿خَلَقَ﴾ وقفًا'],['lg','أكبر','﴿ٱلۡحَقّ﴾ وقفًا']].map(([k,n,e])=>`<button data-sf="qlq" data-c="${k}" class="wide ${SFS.qlq.sel===k?'on':''}">${n}<small class="qtx">${e}</small></button>`).join('')}<button data-sf="qlq" data-c="no" class="wide bad ${SFS.qlq.sel==='no'?'on':''}">بلا قلقلة<small>خطأ</small></button></span></div>`,
+  draw(x,t,s){const k=s.sel||'md',A={sm:.4,md:.75,lg:1,no:0}[k],T=(t%2200),rel=900;let gap=0;if(T>rel){const d=T-rel;gap=Math.min(1,d/140)*14+(A?A*16*Math.exp(-d/280)*Math.sin(d/42):0)}
+   x.fillStyle=SFC.tg;x.fillRect(110,40,100,50-Math.max(0,gap)/2);x.fillRect(110,90+Math.max(0,gap)/2,100,50);if(T<rel){x.fillStyle=SFC.vo;for(let i=0;i<8;i++){x.beginPath();x.arc(96-(i%3)*7,80+Math.floor(i/3)*8,2.4,0,7);x.fill()}}
+   if(T>rel&&A){for(let r=0;r<3;r++){const ph=((T-rel)/700+r*.25);if(ph>1)continue;x.strokeStyle=SFC.gold;x.globalAlpha=(1-ph)*A;x.lineWidth=2;x.beginPath();x.arc(214,90,8+ph*70*A,-1.2,1.2);x.stroke()}x.globalAlpha=1}
+   sfTxt(x,k==='no'?'خطأ: صوت مبتور بلا نبرة':`قلقلة ${({sm:'صغرى',md:'كبرى',lg:'أكبر'})[k]}`,160,24,k==='no'?SFC.bad:SFC.gold,14);sfTxt(x,T<rel?'انحباس الصوت والنفَس':'انفصال واضطراب المخرج',160,170,SFC.mut,12)}},
+ lin:{n:'اللين',mn:'«وَ يۡ ساكنتان بعد فتح»',ks:['lin'],d:'تخرج الواو والياء الساكنتان بعد فتح بسهولة وبلا كلفة: ينتقل الفم من الفتحة إليهما انتقالًا ناعمًا، ولا تُشدَّدان ولا تُمدّان في الوصل.',
+  ctl:()=>`<div class="sf-keys"><span>${[['w','﴿خَوۡفٍ﴾'],['y','﴿ٱلۡبَيۡتِ﴾']].map(([k,e])=>`<button data-sf="lin" data-c="${k}" class="wide qtx ${SFS.lin.sel===k?'on':''}">${e}</button>`).join('')}</span></div>`,
+  draw(x,t,s){const w=(s.sel||'w')==='w',ph=(Math.sin(t/700)+1)/2;sfHead(x,{back:w?ph*.35:0,tip:0,lips:0});if(w){x.fillStyle=SFC.tis;x.beginPath();x.ellipse(292+ph*6,92,8+ph*4,14-ph*6,0,0,7);x.fill()}
+   else{x.fillStyle='rgba(242,185,56,.5)';x.beginPath();x.arc(186,80+ph*6,8,0,7);x.fill()}
+   x.strokeStyle=SFC.ok;x.lineWidth=2;x.beginPath();for(let i=0;i<=60;i++){const X=40+i*4,Y=168-Math.sin(i/60*Math.PI)*12;i?x.lineTo(X,Y):x.moveTo(X,Y)}x.stroke();sfTxt(x,'انتقال ناعم بلا كلفة',170,24,SFC.ok,14)}},
+ inh:{n:'الانحراف',mn:'«ل ر»',ks:['inh'],d:'منظر من أعلى: في اللام يلتصق طرف اللسان باللثة فيميل الصوت ويجري من جانبيه، وفي الراء يميل إلى ظهر اللسان وفيه ميل إلى اللام.',
+  ctl:()=>`<div class="sf-keys"><span>${'لر'.split('').map(c=>`<button data-sf="inh" data-c="${c}" class="${SFS.inh.sel===c?'on':''}">${c}</button>`).join('')}</span></div>`,
+  draw(x,t,s){const l=(s.sel||'ل')==='ل';x.strokeStyle=SFC.bone;x.lineWidth=6;x.beginPath();x.moveTo(60,30);x.quadraticCurveTo(300,26,300,92);x.quadraticCurveTo(300,158,60,154);x.stroke();
+   x.fillStyle=SFC.tg;x.beginPath();x.ellipse(170,92,118,46,0,0,7);x.fill();x.fillStyle=SFC.gold;x.beginPath();x.arc(284,92,7,0,7);x.fill();
+   for(let i=0;i<10;i++){const ph=(t/900+i/10)%1,side=i%2?1:-1;let X,Y;if(l){X=60+ph*240;Y=92+side*Math.sin(Math.min(1,ph*1.2)*Math.PI*.55)*58*Math.min(1,ph*3)}else{X=60+ph*200;Y=92+side*10*Math.sin(ph*3)}x.fillStyle=SFC.vo;x.globalAlpha=1-ph*.6;x.beginPath();x.arc(X,Y,3,0,7);x.fill()}x.globalAlpha=1;
+   sfTxt(x,l?'اللام: يجري الصوت من جانبي اللسان':'الراء: يميل إلى ظهر اللسان',170,24,SFC.vo,14);sfTxt(x,'طرف اللسان',284,120,SFC.mut,11)}},
+ tkr:{n:'التكرير',mn:'«الراء»',ks:['tkr'],d:'التكرير ارتعاد طرف اللسان عند الراء. يُعرف ليُجتنب: يُلصق طرف اللسان باللثة لصقًا محكمًا فتخرج الراء بطرقة واحدة.',
+  ctl:()=>`<div class="sf-keys"><span><button data-sf="tkr" data-c="bad" class="wide bad ${SFS.tkr.sel==='bad'?'on':''}">مكرَّرة (خطأ)</button><button data-sf="tkr" data-c="ok" class="wide ${SFS.tkr.sel!=='bad'?'on':''}">طرقة واحدة (صواب)</button></span></div>`,
+  draw(x,t,s){const bad=s.sel==='bad',T=t%1800;let y=0,n=0;if(bad){y=T<900?Math.abs(Math.sin(T/60))*16:16;n=Math.min(4,Math.floor(T/190)+1)}else{y=T<300?16-T/300*16:T<700?0:Math.min(16,(T-700)/200*16);n=1}
+   x.fillStyle=SFC.bone;x.fillRect(60,40,200,22);x.fillStyle=SFC.tg;x.beginPath();x.moveTo(40,150);x.quadraticCurveTo(160,110,250,66+y);x.lineTo(256,80+y);x.quadraticCurveTo(170,140,40,170);x.fill();
+   sfTxt(x,`${bad?'✗ '+AR(n)+' طرقات: تكرير ظاهر':'✓ طرقة واحدة محكمة'}`,170,24,bad?SFC.bad:SFC.ok,14);sfTxt(x,'اللثة',160,56,'#333',11)}},
+ tfs:{n:'التفشي',mn:'«الشين»',ks:['tfs'],d:'منظر من أعلى: في الشين ينتشر الريح في الفم حتى يتصل بمخرج الظاء، وفي السين يجري في مجرى ضيق في الوسط.',
+  ctl:()=>`<div class="sf-keys"><span>${'شس'.split('').map(c=>`<button data-sf="tfs" data-c="${c}" class="${(SFS.tfs.sel||'ش')===c?'on':''}">${c}</button>`).join('')}</span></div>`,
+  draw(x,t,s){const sh=(s.sel||'ش')==='ش';x.fillStyle=SFC.tg;x.beginPath();x.ellipse(170,92,118,46,0,0,7);x.fill();
+   for(let i=0;i<24;i++){const ph=(t/1100+i/24)%1,a=(i/24-.5)*(sh?2.2:.25);const X=90+ph*200,Y=92+Math.sin(a)*ph*(sh?60:30);x.fillStyle=SFC.br;x.globalAlpha=1-ph*.5;x.beginPath();x.arc(X,Y,2.6,0,7);x.fill()}x.globalAlpha=1;
+   sfTxt(x,sh?'الشين: ينتشر الريح في الفم كله':'السين: مجرى ضيق في الوسط',170,24,SFC.br,14)}},
+ stt:{n:'الاستطالة',mn:'«الضاد»',ks:['stt'],d:'منظر من أعلى: في الضاد يمتد الصوت على حافة اللسان من أولها إلى آخرها حتى يتصل بمخرج اللام، والحافة اليسرى أيسر. أما الدال فمن طرف اللسان فقط.',
+  ctl:()=>`<div class="sf-keys"><span>${'ضد'.split('').map(c=>`<button data-sf="stt" data-c="${c}" class="${(SFS.stt.sel||'ض')===c?'on':''}">${c}</button>`).join('')}</span></div>`,
+  draw(x,t,s){const d=(s.sel||'ض')==='ض',ph=(t%2000)/2000;x.strokeStyle=SFC.bone;x.lineWidth=6;x.beginPath();x.moveTo(60,30);x.quadraticCurveTo(300,26,300,92);x.quadraticCurveTo(300,158,60,154);x.stroke();
+   x.fillStyle=SFC.tg;x.beginPath();x.ellipse(170,92,118,46,0,0,7);x.fill();
+   if(d){[[-1,1],[1,.45]].forEach(([sd,al])=>{x.strokeStyle=SFC.gold;x.globalAlpha=al;x.lineWidth=6;x.beginPath();x.ellipse(170,92,118,46,0,sd<0?Math.PI*1.05:Math.PI*.95-Math.PI*.9*ph,sd<0?Math.PI*1.05+Math.PI*.9*ph:Math.PI*.95,false);x.stroke()});x.globalAlpha=1;sfTxt(x,'الحافة اليسرى',90,26,SFC.gold,11)}
+   else{x.fillStyle=SFC.gold;x.beginPath();x.arc(286,92,7+2*Math.sin(t/100),0,7);x.fill()}
+   sfTxt(x,d?'الضاد: يستطيل الصوت على حافة اللسان':'الدال: من طرف اللسان فقط',190,172,SFC.gold,13)}},
+ gna:{n:'الغنة',mn:'«ن م»',ks:['gna'],d:'صوت أغنّ يخرج من الخيشوم: ينخفض الحنك اللين فيجري الصوت في الأنف. اسحب المؤشر لترى مراتب الغنة من الأنقص إلى الأكمل.',
+  ctl:()=>`<input type="range" min="0" max="4" step="1" value="${SFS.gna.v||4}" class="sf-rng" data-sf="gna">`,
+  draw(x,t,s){const v=s.v==null?4:+s.v,L=[['المتحرك','﴿نَعۡبُدُ﴾',.2],['الساكن المظهر','﴿مَنۡ ءَامَنَ﴾',.4],['المخفى','﴿مِن قَبۡلُ﴾',.75],['المدغم','﴿مَن يَقُولُ﴾',.9],['المشدد','﴿إِنَّ﴾',1]][v];
+   sfHead(x,{vel:1,lips:'م'===s.sel});for(let k=0;k<3;k++){const ph=(t/600+k/3)%1;x.strokeStyle=SFC.gold;x.globalAlpha=(1-ph)*L[2];x.lineWidth=2;x.beginPath();x.arc(272,40,6+ph*36,-1.3,1);x.stroke()}x.globalAlpha=1;
+   x.fillStyle='rgba(255,255,255,.1)';x.fillRect(40,156,240,10);x.fillStyle=SFC.gold;x.fillRect(40,156,240*L[2],10);sfTxt(x,`${L[0]}: ${L[1]}`,170,24,SFC.gold,14);sfTxt(x,v===4||v===3||v===2?'غنة كاملة: حركتان':'غنة أنقص بلا مد',170,148,SFC.mut,11)}}};
+function sfInit(){Object.keys(SFX).forEach(k=>{SFS[k]=SFS[k]||{}})}
+sfInit();
+function sfCards(keys){const x=TJST();x.sfi=x.sfi||{};return `<div class="sfx-g">${keys.map(k=>{const S1=SFX[k];return `<div class="sfx ${x.sfi[k]?'seen':''}" id="sfx-${k}"><div class="sfx-h"><b>${S1.n}</b><span class="sf-mn">${S1.mn}</span>${x.sfi[k]?'<i>✓</i>':''}</div>
+   <canvas class="sfx-cv" data-k="${k}" width="320" height="180"></canvas><div class="sfx-ctl">${S1.ctl()}</div><p>${S1.d}</p>
+   <div class="sf-l">${S1.ks.map(sk=>{const s=TJ_SF.find(z=>z.k===sk);return `<small><b>${s.n}:</b> ${[...s.l].join(' ')}</small>`}).join('')}</div></div>`}).join('')}</div>`}
+function sfMark(k){const x=TJST();x.sfi=x.sfi||{};if(!x.sfi[k]){x.sfi[k]=1;SFX[k].ks.forEach(s=>{if(!x.sf.includes(s))x.sf.push(s)});save();const c=document.getElementById('sfx-'+k);if(c){c.classList.add('seen');const h=c.querySelector('.sfx-h');if(h&&!h.querySelector('i'))h.insertAdjacentHTML('beforeend','<i>✓</i>')}}}
+function sfMount(){cancelAnimationFrame(SF_RAF);const cvs=[...document.querySelectorAll('.sfx-cv')];if(!cvs.length)return;
+  cvs.forEach(cv=>{const r=window.devicePixelRatio||1,w=cv.clientWidth||320;cv.width=w*r;cv.height=w*180/320*r;cv._s=w/320*r});
+  document.querySelectorAll('.sfx-ctl').forEach(box=>{
+    box.querySelectorAll('button[data-sf]').forEach(b=>{const k=b.dataset.sf,c=b.dataset.c,S1=SFS[k];
+      const down=e=>{e.preventDefault();S1.sel=c;S1.on=true;S1.t0=performance.now();S1.t1=0;if(k==='is')S1.tg=TRF[c]&&TRF[c].sti?1:.08;if(k==='dh')S1.t0=performance.now();
+        box.querySelectorAll('button').forEach(z=>z.classList.toggle('on',z===b));sfMark(k);sound('flip')};
+      const up=()=>{if(S1.on){S1.on=false;S1.t1=performance.now()}};
+      if(b.classList.contains('hold')){b.addEventListener('pointerdown',down);b.addEventListener('pointerup',up);b.addEventListener('pointerleave',up);b.addEventListener('pointercancel',up)}
+      else b.addEventListener('click',down)});
+    box.querySelectorAll('input.sf-rng').forEach(r=>r.addEventListener('input',()=>{const k=r.dataset.sf,S1=SFS[k];if(k==='is'){S1.tg=r.value/100;S1.sel=''}else S1.v=+r.value;sfMark(k)}))});
+  const loop=n=>{const live=cvs.filter(c=>c.isConnected);if(!live.length)return;live.forEach(cv=>{const k=cv.dataset.k,x=cv.getContext('2d');x.setTransform(cv._s,0,0,cv._s,0,0);
+      const g=x.createLinearGradient(0,0,0,180);g.addColorStop(0,SFC.bg);g.addColorStop(1,SFC.bg2);x.fillStyle=g;x.fillRect(0,0,320,180);try{SFX[k].draw(x,n,SFS[k])}catch(e){}});SF_RAF=requestAnimationFrame(loop)};SF_RAF=requestAnimationFrame(loop)}
+
+/* ============ التجويد بتبويبات موضوعية: لكل موضوع شرحه ودروسه المرئية ومختبره وعباراته واختباره ============ */
+/* ---- ١) إعادة بناء مستويات الدورة على الوحدات ---- */
+(()=>{const all={};TAJ_LV.forEach(L=>L.lessons.forEach(l=>all[l.id]=l));Object.assign(all,TJ_NL);
+  const NEW=TJU.map(u=>({id:'tju_'+u.k,n:u.n,goal:u.goal,lessons:u.ls.map(id=>all[id]).filter(Boolean)}));
+  TAJ_LV.splice(0,TAJ_LV.length,...NEW);const C=CRS.tajweed;C.levels=TAJ_LV;C.sub='على ترتيب فصول «التجويد المصور»: من المدخل وأعضاء النطق والمخارج والصفات، إلى الأحكام والوقف والمصحف وحفظه.';
+  TAJ_LV.forEach((L,i)=>{CRSL[L.id]={id:L.id,ic:C.ic,n:C.n+' — '+L.n,lessons:L.lessons,c:C.id,li:i};
+    L.lessons.forEach(l=>{PATHS['mtl:'+L.id+':'+l.id]={id:'mtl:'+L.id+':'+l.id,title:l.t,stations:[],levels:[{k:'l',n:'درس: '+l.t,st:[],quiz:l.quiz}],final:{n:'',order:{o:[]},mix:0}}});
+    const lq=[];L.lessons.forEach(l=>l.quiz.slice(0,3).forEach(q=>lq.push(q)));PATHS['crs:'+C.id+':'+L.id]={id:'crs:'+C.id+':'+L.id,title:'اختبار: '+L.n,stations:[],levels:[{k:'q',n:L.n,st:[],quiz:lq}],final:{n:'',order:{o:[]},mix:0}}})})();
+/* ---- ٢) تبويب التجويد في كل مستوى: وحدات بدل المراحل ---- */
+(()=>{['D2','D3','D4'].forEach(lv=>{const L=DLVM[lv];if(!L||!L.tabs)return;let T=L.tabs.find(T=>T.k==='tjw');
+  const units=TJU.filter(u=>u.lv===lv).map(u=>({t:'tju',u:u.k}));
+  if(!T){T={k:'tjw',ic:'📖',n:'التجويد',items:[]};const hi=L.tabs.findIndex(x=>x.k==='hfq');L.tabs.splice(hi<0?L.tabs.length:hi,0,T)}
+  const rest=T.items.filter(it=>it.t!=='crsl'&&it.t!=='tjlab');if(lv==='D4'&&!rest.some(it=>it.t==='shelf'))rest.push({t:'shelf',lv:'D4',tk:'tjw'});
+  T.items=units.concat(rest)})})();
+/* ---- ٣) الحالة والإنجاز ---- */
+const TJUM={};TJU.forEach(u=>TJUM[u.k]=u);
+const TJVM={};TJ_VID2.forEach(v=>TJVM[v.n]=v);
+function TJX0(){const x=TJST();x.org=x.org||[];x.bld=x.bld||{};x.sfi=x.sfi||{};x.mn2=x.mn2||{};x.drill=x.drill||{};x.vd=x.vd||{};return x}
+const TJL2={org:['🫁','رحلة الصوت: أعضاء النطق','الجهاز كاملًا من الرئتين إلى الشفتين: اضغط كل عضو واعرف دوره'],mk:['👄','مختبر المخارج','كل حرف برحلته كاملة: الزفير ثم الوتران ثم المخرج ثم الصوت، مع التقريب والإبطاء'],
+ sf1:['⚖','تجارب الهمس والجهر والشدة','اضغط مطولًا وراقب اللهب والوترين وامتداد الصوت'],bld1:['🧩','مُركِّب الحروف (١)','ابنِ الحرف بنفسك: الوتران والمخرج وجريان الصوت'],
+ sf2:['⛰','تجارب الاستعلاء والإطباق والإذلاق','اسحب أقصى اللسان وبدّل بين المطبق والمنفتح'],tf:['🎚','مقياس التفخيم والترقيق','مراتب التفخيم، وأحكام الألف واللام والراء بالتطبيق'],bld2:['🧩','مُركِّب الحروف (٢)','أضف الاستعلاء والإطباق لتفرّق بين المتشابهات'],
+ sf3:['🌀','تجارب الصفات التي لا ضد لها','الصفير والقلقلة واللين والانحراف والتكرير والتفشي والاستطالة والغنة'],err:['⚠️','مختبر الأخطاء الشائعة','شاهد المخرج الصحيح، واعرف أبرز الأخطاء في كل حرف، ثم تدرّب'],
+ gn:['〰','مختبر الغنة وأحكام النون','مراتب الغنة، وتصنيف الكلمات بحسب حكم النون'],md:['〽','مِسطرة المدود','قِس المد بالحركات بإيقاع التحقيق أو التدوير أو الحدر، ثم تدرّب']};
+function tjLabDone(m){if(RO())return true;const x=TJX0();switch(m){case 'org':return x.org.length>=TJ_ORG.length;case 'mk':return x.mk.length>=17;case 'bld1':return (x.bld[1]||0)>=5;case 'bld2':return (x.bld[2]||0)>=5;
+  case 'sf1':case 'sf2':case 'sf3':return SF_GROUP[m].every(k=>x.sfi[k]);default:return !!x.drill[m]}}
+function tjLabProg(m){const x=TJX0();switch(m){case 'org':return [x.org.length,TJ_ORG.length];case 'mk':return [Math.min(17,x.mk.length),17];case 'bld1':return [Math.min(5,x.bld[1]||0),5];case 'bld2':return [Math.min(5,x.bld[2]||0),5];
+  case 'sf1':case 'sf2':case 'sf3':return [SF_GROUP[m].filter(k=>x.sfi[k]).length,SF_GROUP[m].length];default:return [x.drill[m]?1:0,1]}}
+function tjuSteps(u){const st=[];u.ls.forEach(id=>st.push({k:'ls',id}));u.vd.forEach(n=>st.push({k:'vd',n}));u.lab.forEach(m=>st.push({k:'lab',m}));u.mn.forEach(s=>st.push({k:'mn',s}));st.push({k:'qz'});return st}
+function tjuStepDone(u,s){if(RO())return true;const x=TJX0();switch(s.k){case 'ls':return MTS('tju_'+u.k).done.includes(s.id);case 'vd':return !!(x.vd[s.n]||{}).pass;case 'lab':return tjLabDone(s.m);case 'mn':return !!x.mn2[s.s];case 'qz':return !!CS('tajweed').lv['tju_'+u.k]}}
+function tjuDone(k){const u=TJUM[k];return tjuSteps(u).every(s=>tjuStepDone(u,s))}
+function tjuProg(k){const u=TJUM[k],S1=tjuSteps(u);return [S1.filter(s=>tjuStepDone(u,s)).length,S1.length]}
+function tjuLoc(k){const u=TJUM[k],L=DLVM[u.lv];return {l:u.lv,t:L.tabs.findIndex(T=>T.k==='tjw')}}
+const _itemDone90=itemDone;itemDone=function(it){if(it.t==='tju')return tjuDone(it.u);return _itemDone90(it)};
+const _itemProg90=itemProg;itemProg=function(it){if(it.t==='tju')return tjuProg(it.u);return _itemProg90(it)};
+const _tabMeta90=tabMeta;tabMeta=function(it){if(it.t==='tju'){const u=TJUM[it.u],p=tjuLoc(it.u);return [u.ic,'التجويد: '+u.n,u.ch,`go('lvtab',{l:'${p.l}',t:${p.t},u:'${u.k}'})`]}return _tabMeta90(it)};
+const _tabItemHTML90=tabItemHTML;tabItemHTML=function(it,o){if(it.t!=='tju')return _tabItemHTML90(it,o);const [a,b]=tjuProg(it.u),m=tabMeta(it);return `<div class="tj-card"><p>${m[2]}</p><i class="crs-bar"><u style="width:${b?a/b*100:0}%"></u></i><button class="btn gold" style="width:100%;margin-top:8px" onclick="${m[3]}">افتح الموضوع ←</button></div>`};
+/* ---- ٤) صفحة التبويب: شريط مواضيع، وتحته كل ما يخص الموضوع ---- */
+let TJU_SEL={},TJU_V=null;
+const _vLvTab90=vLvTab;
+vLvTab=function(){const L=DLVM[route.l],j=+route.t,T=L&&L.tabs&&L.tabs[j];if(!T||!T.items.some(i=>i.t==='tju'))return _vLvTab90();
+  if(!lvOpen(L.i)||!tabOpen(L,j))return go('muslim');LASTLV=L.k;LASTTAB={l:L.k,t:j};const key=L.k+':'+j,its=T.items;
+  const open=i=>RO()||i===0||itemDone(its[i-1])||itemDone(its[i]);
+  let sel=route.u!=null?its.findIndex(it=>(it.u||it.t)===route.u):TJU_SEL[key]!=null?TJU_SEL[key]:its.findIndex((it,i)=>open(i)&&!itemDone(it));if(sel<0)sel=0;if(!open(sel))sel=0;TJU_SEL[key]=sel;
+  const it=its[sel],d=tabDone(T),nx=L.tabs[j+1],[pa,pb]=v1Prog(T);
+  $('#app').innerHTML=`<div class="hero"><div class="row"><div class="grow"><div class="t">${T.ic} ${T.n}</div><div style="font-size:13px;opacity:.85">${L.ic} ${L.n} · على ترتيب «التجويد المصور» · ${AR(its.filter(itemDone).length)} من ${AR(its.length)}</div></div>${ring(d?1:pb?pa/pb:0)}</div></div>
+   <div class="tju-bar" id="tjuBar">${its.map((x,i)=>{const o=open(i),dn=itemDone(x),u=x.t==='tju'?TJUM[x.u]:null,m=u?null:tabMeta(x);
+     return `<button class="${i===sel?'on':''} ${dn?'ok':''} ${o?'':'lk'}" onclick="${o?`TJU_SEL['${key}']=${i};route.u=null;TJU_V=null;vLvTab();sound('flip')`:`toast('🔒 أتمّ الموضوع الذي قبله أولًا')`}"><span>${dn?'✓':o?(u?u.ic:m[0]):'🔒'}</span><b>${u?u.n:String(m[1]).replace(/^.*?:\s*/,'')}</b>${u?`<i><u style="width:${(p=>p[1]?p[0]/p[1]*100:0)(tjuProg(u.k))}%"></u></i>`:''}</button>`}).join('')}</div>
+   <div id="tjuBody">${it.t==='tju'?tjuBody(TJUM[it.u],key):`<div class="panel"><h3 style="margin-top:0">${tabMeta(it)[0]} ${tabMeta(it)[1]}</h3><p class="muted">${tabMeta(it)[2]||''}</p>${tabItemHTML(it,true)}</div>`}</div>
+   ${d?`<div class="panel done"><div class="big">✓</div><b>أتممت «${T.n}» في هذا المستوى</b>${nx?`<p class="muted">فُتح التالي: ${nx.ic} ${nx.n}</p><button class="btn gold" onclick="go('lvtab',{l:'${L.k}',t:${j+1}})">${nx.ic} ${nx.n} ←</button>`:''}</div>`:''}
+   <button class="btn ghost" style="width:100%" onclick="go('muslim',{l:'${L.k}',lit:1})">⟵ بوابة «${L.n}»</button>`;
+  route.u=null;const b=document.querySelector('#tjuBar .on');if(b)b.scrollIntoView({inline:'center',block:'nearest'})};
+function v1Prog(T){let a=0,b=0;T.items.forEach(it=>{const [x,y]=itemProg(it);a+=x;b+=y});return [a,b]}
+function tjuBody(u,key){const S1=tjuSteps(u),x=TJX0(),[a,b]=tjuProg(u.k);const op=i=>RO()||i===0||tjuStepDone(u,S1[i-1])||tjuStepDone(u,S1[i]);let n=0;
+  const row=(s,i,ic,t,sub,act)=>{const o=op(i),dn=tjuStepDone(u,s);n++;return `<button class="tju-s ${dn?'ok':''} ${o?'':'lk'}" onclick="${o?act:`toast('🔒 أتمّ ما قبله أولًا')`}"><span class="n">${dn?'✓':o?AR(n):'🔒'}</span><span class="ic">${ic}</span><div class="grow"><b>${t}</b>${sub?`<small>${sub}</small>`:''}</div><span class="chev">‹</span></button>`};
+  const sec=(ic,t,html)=>html?`<div class="tju-sec"><h4>${ic} ${t}</h4>${html}</div>`:'';
+  const C=CRSL['tju_'+u.k];let h='';
+  h+=sec('📖','الشرح',S1.map((s,i)=>s.k!=='ls'?'':(()=>{const l=C.lessons.find(z=>z.id===s.id);return row(s,i,'📖',l.t,l.pts&&l.pts[0],`go('lesson',{tid:'tju_${u.k}',lid:'${s.id}'})`)})()).join(''));
+  h+=sec('🎬','الدروس المرئية — شرح مؤلف الكتاب د. أيمن سويد',S1.map((s,i)=>{if(s.k!=='vd')return '';const v=TJVM[s.n],st=x.vd[s.n]||{},o=op(i),cur=TJU_V===s.n&&o;
+    return row(s,i,'🎬','الحلقة '+AR(v.n)+': '+v.t,st.pass?'اجتزت اختبارها':st.w?'شاهدتها · بقي الاختبار (١٠ أسئلة)':'شاهد ثم اختبر نفسك',`TJU_V=${cur?'null':s.n};vLvTab()`)+(cur?tjuVid(v,u):'')}).join(''));
+  h+=sec('🔬','المختبر',S1.map((s,i)=>{if(s.k!=='lab')return '';const M=TJL2[s.m],[p,q]=tjLabProg(s.m);return row(s,i,M[0],M[1],M[2]+(q>1?` · ${AR(p)} من ${AR(q)}`:''),`TJ_BACK={l:'${u.lv}',t:tjuLoc('${u.k}').t,u:'${u.k}'};go('tjlab',{m:'${s.m}'})`)}).join(''));
+  h+=sec('💡','العبارات الجامعة',S1.map((s,i)=>{if(s.k!=='mn')return '';const M=TJ_MN2[s.s];return row(s,i,'💡',M.n,M.it.map(z=>'«'+z[1]+'»').join(' · ').slice(0,90),`tjMnOpen('${s.s}','${u.k}')`)}).join(''));
+  h+=sec('🎯','اختبار الموضوع',S1.map((s,i)=>s.k!=='qz'?'':row(s,i,'🎯','اختبار: '+u.n,'أسئلة متنوعة من الدروس والمختبر · يلزم ١٠٠٪',`tjuTest('${u.k}')`)).join(''));
+  return `<div class="tju-head"><div class="tju-ic">${u.ic}</div><div class="grow"><b>${u.n}</b><small>📘 من «التجويد المصور»: ${u.ch}</small></div><div class="tju-p">${AR(a)}/${AR(b)}</div></div>
+   <p class="ls-cs">🎯 ${u.goal}</p>${h}`}
+function tjuVid(v,u){const st=TJX0().vd[v.n]||{};return `<div class="tju-v"><div class="vd-fr"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}?rel=0" title="${v.t}" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+  <a class="btn ghost sm yt" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">▶ افتح الحلقة في يوتيوب</a>
+  <div class="row" style="gap:8px;margin-top:8px"><button class="btn ${st.w?'ghost':'gold'} grow" onclick="TJX0().vd[${v.n}]=Object.assign(TJX0().vd[${v.n}]||{},{w:1});save();vLvTab()">${st.w?'✓ شاهدتها':'شاهدتها ✓'}</button><button class="btn ${st.w?'gold':''} grow" ${st.w||RO()?'':'disabled'} onclick="tjVidTest(${v.n})">🎯 اختبار الحلقة</button></div>
+  <small class="muted">المصدر: القناة الرسمية «د. أيمن سويد Dr. Ayman Swaid» على يوتيوب · إن لم يظهر المشغّل فافتحها في يوتيوب.</small></div>`}
+/* ---- ٥) محرك الاختبارات المتنوعة ---- */
+let TJX=null;const shf=a=>a.slice().sort(()=>Math.random()-.5),rnd=a=>a[Math.floor(Math.random()*a.length)];
+function tjQNorm(q){q=Object.assign({},q);if(q.t==='mcq'||q.t==='odd'||q.t==='ear'){q.ok=q.ok!=null?q.ok:q.o[0];q.o=shf(q.o)}if(q.t==='order')q.sh=shf(q.o.map((_,i)=>i));if(q.t==='match')q.r=shf(q.p.map((_,i)=>i));if(q.t==='multi')q.o=shf(q.o);return q}
+function tjXStart(qs,o){TJX=Object.assign({qs:qs.map(tjQNorm),i:0,ok:0,ans:null,sel:[],mp:{}},o);TJX.gen=o.gen;tjXR()}
+function tjXR(){const Q=TJX,q=Q.qs[Q.i],app=document.getElementById('app');window.scrollTo(0,0);
+  if(!q){const pass=Q.ok===Q.qs.length;if(pass&&Q.onPass)Q.onPass();save();
+    app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(Q.ok)} من ${AR(Q.qs.length)}</h2><p class="muted">${pass?(Q.passMsg||'أحسنت! اجتزت بنسبة ١٠٠٪.'):'يلزم ١٠٠٪، والأسئلة تتغير في كل محاولة. راجع ما فاتك ثم أعد.'}</p>
+     <div class="row" style="gap:8px;justify-content:center">${pass?'':`<button class="btn gold" onclick="tjXStart(TJX.gen(),{title:TJX.title,gen:TJX.gen,onPass:TJX.onPass,back:TJX.back,passMsg:TJX.passMsg})">↻ أعد</button>`}<button class="btn ${pass?'gold':''}" onclick="${Q.back}">العودة ←</button></div></div>`;sound(pass?'win':'lit');return}
+  const T={mcq:'اختر',tf:'صواب أم خطأ؟',order:'رتّب',pick:'اختر حرفًا',multi:'اختر كل ما ينطبق',mk:'اضغط على الرسم',match:'صِل',odd:'الدخيل',ear:'استمع'}[q.t]||'';let body='';
+  if(q.t==='mcq'||q.t==='odd')body=`<div class="opts">${q.o.map((o,i)=>`<button class="opt" onclick="tjXA(this,${i})">${o}</button>`).join('')}</div>`;
+  else if(q.t==='ear')body=`<button class="btn gold" style="width:100%;margin-bottom:8px" onclick="tjPlayEx('${q.ch}')">🔊 استمع للكلمة</button><div class="opts">${q.o.map((o,i)=>`<button class="opt" onclick="tjXA(this,${i})">${o}</button>`).join('')}</div>`;
+  else if(q.t==='tf')body=`<div class="opts tf"><button class="opt" onclick="tjXA(this,true)">✓ صواب</button><button class="opt" onclick="tjXA(this,false)">✗ خطأ</button></div>`;
+  else if(q.t==='pick')body=`<div class="tj-letters qz">${TJ_LS.map(c=>`<button onclick="tjXA(this,'${c}')">${c}</button>`).join('')}</div>`;
+  else if(q.t==='multi')body=`<div class="opts ml">${q.o.map((o,i)=>`<button class="opt ${Q.sel.includes(i)?'on':''}" onclick="tjXTog(${i})">${o}</button>`).join('')}</div><button class="btn gold" style="width:100%;margin-top:8px" ${Q.ans!=null?'disabled':''} onclick="tjXA(null,'multi')">تحقّق</button>`;
+  else if(q.t==='order')body=`<div class="ord-ans">${Q.sel.map(i=>`<span>${q.o[i]}</span>`).join('')||'<small class="muted">اضغط العناصر بالترتيب الصحيح</small>'}</div><div class="opts">${q.sh.map(i=>`<button class="opt ${Q.sel.includes(i)?'used':''}" ${Q.sel.includes(i)?'disabled':''} onclick="tjXOrd(${i})">${q.o[i]}</button>`).join('')}</div>${Q.sel.length?`<button class="btn ghost sm" onclick="TJX.sel=[];tjXR()">↺ ابدأ الترتيب من جديد</button>`:''}`;
+  else if(q.t==='match')body=`<div class="mt-g"><div>${q.p.map((p,i)=>`<button class="opt ${Q.mp.L===i?'on':''} ${Q.mp[i]!=null?'used':''}" onclick="TJX.mp.L=${i};tjXR()">${p[0]}</button>`).join('')}</div><div>${q.r.map(j=>`<button class="opt ${Object.values(Q.mp).includes(j)&&Q.mp.L!==undefined&&false?'':''} ${Object.keys(Q.mp).some(k=>k!=='L'&&Q.mp[k]===j)?'used':''}" onclick="tjXMatch(${j})">${q.p[j][1]}</button>`).join('')}</div></div>`;
+  else if(q.t==='mk'){TR.mode='qz';TR.cfg=null;TR.vb=TRV.head.slice();body=`<div class="tr-stage qz"><div class="tr-wrap">${trSVG().replace(/onclick="trPickMk\('([^']+)'\)"/g,`onclick="tjXA(this,'$1')"`)}</div></div>`}
+  app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel"><div class="row"><small class="muted grow">السؤال ${AR(Q.i+1)} من ${AR(Q.qs.length)} · ${T}</small><small class="pill">✓ ${AR(Q.ok)}</small></div><i class="crs-bar"><u style="width:${Q.i/Q.qs.length*100}%"></u></i><h3 style="margin:10px 0">${q.q}</h3>${body}<div id="tjFb"></div></div>
+   <button class="btn ghost" style="width:100%" onclick="${Q.back}">⟵ خروج</button>`;if(q.t==='mk')setTimeout(()=>trFrame(0),10)}
+function tjXTog(i){const s=TJX.sel;if(TJX.ans!=null)return;const j=s.indexOf(i);j<0?s.push(i):s.splice(j,1);tjXR()}
+function tjXOrd(i){if(TJX.ans!=null)return;TJX.sel.push(i);const q=TJX.qs[TJX.i];if(TJX.sel.length===q.o.length){tjXR();tjXA(null,'order')}else tjXR()}
+function tjXMatch(j){const Q=TJX,q=Q.qs[Q.i];if(Q.mp.L==null||Q.ans!=null)return;if(Q.mp.L!==j){Q.bad=1}Q.mp[Q.mp.L]=j;delete Q.mp.L;const done=q.p.every((_,i)=>Q.mp[i]!=null);tjXR();if(done)tjXA(null,'match')}
+function tjXA(el,v){const Q=TJX,q=Q.qs[Q.i];if(Q.ans!=null)return;let ok;
+  if(q.t==='mcq'||q.t==='odd'||q.t==='ear')ok=q.o[v]===q.ok;else if(q.t==='tf')ok=v===q.a;else if(q.t==='pick')ok=q.ok.includes(v);else if(q.t==='mk')ok=Array.isArray(q.ok)?q.ok.includes(v):q.ok===v;
+  else if(q.t==='multi'){const S2=Q.sel.map(i=>q.o[i]);ok=S2.length===q.ok.length&&q.ok.every(o=>S2.includes(o))}
+  else if(q.t==='order')ok=Q.sel.every((i,k)=>i===k);else if(q.t==='match')ok=!Q.bad&&q.p.every((_,i)=>Q.mp[i]===i);
+  Q.ans=v;if(ok)Q.ok++;if(el)el.classList.add(ok?'ok':'no');sound(ok?'ok':'bad');
+  if(!ok&&(q.t==='mcq'||q.t==='odd'||q.t==='ear'))document.querySelectorAll('.opts .opt').forEach((b,i)=>{if(q.o[i]===q.ok)b.classList.add('ok')});
+  if(q.t==='multi')document.querySelectorAll('.opts.ml .opt').forEach((b,i)=>b.classList.add(q.ok.includes(q.o[i])?'ok':Q.sel.includes(i)?'no':'x'));
+  const right=q.t==='order'?`<div class="ord-ans ok">${q.o.map(o=>`<span>${o}</span>`).join('')}</div>`:q.t==='match'?`<div class="mt-ok">${q.p.map(p=>`<div>${p[0]} ← ${p[1]}</div>`).join('')}</div>`:q.t==='tf'?`<b>${q.a?'العبارة صحيحة':'العبارة خاطئة'}</b>`:'';
+  document.getElementById('tjFb').innerHTML=`<div class="tj-fb ${ok?'ok':'no'}">${ok?'✓ أحسنت':'✗ ليس كذلك'} ${right} ${q.w?'— '+q.w:''}</div><button class="btn gold" style="width:100%;margin-top:8px" onclick="TJX.i++;TJX.ans=null;TJX.sel=[];TJX.mp={};TJX.bad=0;tjXR()">التالي ←</button>`}
+/* ---- ٦) توليد الأسئلة ---- */
+function tjLessonQs(id){const C=Object.values(CRSL).find(L=>L.c==='tajweed'&&L.lessons.some(l=>l.id===id));const l=C&&C.lessons.find(z=>z.id===id);return l?(l.quiz||[]).map(q=>Object.assign({},q)):[]}
+function tjGenMk(keys){const Q=[],M=keys.map(k=>TJ_MK.find(m=>m.k===k));
+  M.forEach(m=>{const ch=rnd(m.l.filter(c=>c!=='ا')).replace('ا','ء')||m.l[0];
+    Q.push({t:'mcq',q:`من أين يخرج ﴿${ch}﴾؟`,o:[m.n,...shf(TJ_MK.filter(z=>z.k!==m.k&&z.k!=='kh').map(z=>z.n)).slice(0,3)],w:`${TJ_LN[ch]||ch}: ${m.n}`});
+    if(m.k!=='jawf'){const c2=rnd(m.l);Q.push({t:'mk',q:`اضغط على مخرج ﴿${c2}﴾ في الرسم`,ok:m.k,w:`${TJ_LN[c2]}: ${m.n}`})}
+    if(m.l.length>1&&m.k!=='jawf')Q.push({t:'pick',q:`أعطني حرفًا يخرج من «${m.n}»`,ok:m.l,w:`حروفه: ${m.l.join(' ')}`});
+    const ex=TJ_EX[m.l[0]];if(ex&&m.k!=='jawf')Q.push({t:'ear',ch:m.l[0],q:'استمع للكلمة: ما الحرف الساكن فيها؟',o:[m.l[0],...shf(TJ_LS.filter(c=>c!==m.l[0]&&TJ_EX[c])).slice(0,3)],w:`الكلمة ﴿${ex[3]}﴾، والحرف الساكن ${TJ_LN[m.l[0]]} من ${m.n}`})});
+  if(M.length>2){const P=shf(M.filter(m=>m.k!=='jawf')).slice(0,3);if(P.length===3)Q.push({t:'match',q:'صِل الحرف بمخرجه:',p:P.map(m=>[m.l.join(' '),m.n.replace(/\s*\(.*\)/,'')]),w:'المخارج التفصيلية.'});
+    const m=rnd(M.filter(z=>z.l.length>1&&z.k!=='jawf'));if(m){const out=rnd(TJ_LS.filter(c=>!m.l.includes(c)));Q.push({t:'odd',q:`أيّ هذه الحروف لا يخرج من «${m.n}»؟`,o:[out,...m.l.slice(0,3)],ok:out,w:`حروف ${m.n}: ${m.l.join(' ')}`})}}
+  return Q}
+function tjGenSf(keys){const Q=[];keys.forEach(k=>{const s=TJ_SF.find(z=>z.k===k),L=[...s.l];
+  Q.push({t:'pick',q:`أعطني حرفًا من حروف «${s.n}»`,ok:L,w:`${s.n}: ${s.mn}`});
+  const inn=rnd(L),out=rnd(TJ_LS.filter(c=>!L.includes(c)));Q.push({t:'mcq',q:`أيّ الحرفين من حروف «${s.n}»؟`,o:[inn,out],ok:inn,w:`${s.n}: ${L.join(' ')}`});
+  const ins=shf(L).slice(0,Math.min(3,L.length)),outs=shf(TJ_LS.filter(c=>!L.includes(c))).slice(0,3);if(L.length<20)Q.push({t:'multi',q:`اختر كل حروف «${s.n}» من هذه:`,o:ins.concat(outs),ok:ins,w:`${s.n}: ${L.join(' ')}`});
+  Q.push({t:'tf',q:`${s.n}: ${s.d.split('.')[0]}.`,a:true,w:s.mn});
+  const other=rnd(TJ_SF.filter(z=>z.k!==k));Q.push({t:'tf',q:`${s.n}: ${other.d.split('.')[0]}.`,a:false,w:`هذا تعريف «${other.n}». و${s.n}: ${s.d.split('.')[0]}.`});
+  if(s.op){const o=TJ_SF.find(z=>z.k===s.op);Q.push({t:'mcq',q:`ما ضد «${s.n}»؟`,o:[o.n,...shf(TJ_SF.filter(z=>z.k!==k&&z.k!==s.op)).slice(0,3).map(z=>z.n)],w:`${s.n} ↔ ${o.n}`})}});
+  return Q}
+function tjMix(pool,n){const by={};shf(pool).forEach(q=>{(by[q.t]=by[q.t]||[]).push(q)});const out=[];let ks=Object.keys(by);while(out.length<n&&ks.length){ks.forEach(k=>{if(out.length<n&&by[k].length)out.push(by[k].shift())});ks=ks.filter(k=>by[k].length)}return shf(out)}
+function tjVidQs(v){let pool=[].concat(TJ_VB[v.b]||[],...v.ls.map(tjLessonQs),v.mk?tjGenMk(v.mk):[],v.sf?tjGenSf(v.sf):[]);
+  if(pool.length<10){const u=TJUM[v.u];pool=pool.concat(shf([].concat(...u.ls.filter(id=>!v.ls.includes(id)).map(tjLessonQs),...TJ_VID2.filter(z=>z.u===v.u&&z.b&&z.b!==v.b).map(z=>TJ_VB[z.b]||[]),u.k==='nm'?tjDrillQs('gn'):[],u.k==='md'?tjDrillQs('md'):[],TJ_VB[{wqf:'wqf',hfs:'hfs',itm:'itm'}[u.k]]||[])).slice(0,10-pool.length))}
+  return tjMix(pool,10)}
+function tjVidTest(n){const v=TJVM[n],u=TJUM[v.u],p=tjuLoc(u.k);TJU_V=n;
+  tjXStart(tjVidQs(v),{title:`🎬 اختبار الحلقة ${AR(n)}: ${v.t}`,gen:()=>tjVidQs(v),back:`go('lvtab',{l:'${p.l}',t:${p.t},u:'${u.k}'})`,passMsg:'اجتزت اختبار الحلقة، وفُتح ما بعدها.',onPass:()=>{const x=TJX0();x.vd[n]=Object.assign(x.vd[n]||{},{w:1,pass:1});logAct('q');TJU_V=null}})}
+function tjuQs(k){const u=TJUM[k],pool=[];u.ls.forEach(id=>shf(tjLessonQs(id)).slice(0,2).forEach(q=>pool.push(q)));
+  if(k==='mk')pool.push(...shf(tjGenMk(['h1','h2','q','wl','td','sf','th','fa','sh'])).slice(0,4));if(k==='hr')pool.push(...TJ_ORG.slice(0,6).map(o=>({t:'mcq',q:`«${o.d.split('.')[0]}» — أي عضو هذا؟`,o:[o.n,...shf(TJ_ORG.filter(z=>z.k!==o.k).map(z=>z.n)).slice(0,3)],w:o.d})).slice(0,3));
+  const SK={sf1:['hms','jhr','shd','tws','rkh'],sf2:['sti','itb','dhl'],sf3:['sfr','qlq','lin','inh','tkr','tfs','stt','gna']}[k];if(SK)pool.push(...shf(tjGenSf(SK)).slice(0,4));
+  if(k==='err')pool.push(...tjErrQs().slice(0,4));if(k==='nm')pool.push(...GN_W.slice(0,0),...tjDrillQs('gn').slice(0,3));if(k==='md')pool.push(...tjDrillQs('md').slice(0,3));
+  u.mn.forEach(s=>pool.push(...tjMnQs(s).slice(0,1)));if(pool.length<8){u.ls.forEach(id=>tjLessonQs(id).forEach(q=>{if(!pool.some(z=>z.q===q.q))pool.push(q)}));pool.push(...(TJ_VB[{sak:'sak',nbr:'nbr',itm:'itm'}[k]]||[]))}return tjMix(pool,Math.min(12,Math.max(8,pool.length)))}
+function tjuTest(k){const u=TJUM[k],p=tjuLoc(k);tjXStart(tjuQs(k),{title:`🎯 اختبار: ${u.n}`,gen:()=>tjuQs(k),back:`go('lvtab',{l:'${p.l}',t:${p.t},u:'${k}'})`,passMsg:`أتممت موضوع «${u.n}».`,onPass:()=>{CS('tajweed').lv['tju_'+k]=true;logAct('q')}})}
+/* ---- ٧) العبارات الجامعة: بطاقات تفاعلية ثم تدريب ---- */
+function tjMnHL(ph,ls,first){return ph.split(/(\s+|\*)/).map(w=>{if(!/[ء-ي]/.test(w))return w;return [...w].map((c,i)=>{const nc=c.replace(/[أإآ]/,'ء'),on=first?(i===0&&(ls.includes(c)||ls.includes(nc))):ls.includes(c)||ls.includes(nc);return on?`<span class="mn-k" onclick="toast('${TJ_LN[nc==='ا'?'ا':nc]||c}: ${(TJ_MK.find(m=>m.k!=='kh'&&m.l.includes(nc))||{n:''}).n}')">${c}</span>`:c}).join('')}).join('')}
+function tjMnOpen(s,uk){const M=TJ_MN2[s],u=TJUM[uk],p=tjuLoc(uk),first=s==='izh'||s==='ikh',done=!!TJX0().mn2[s];
+  document.getElementById('app').innerHTML=`<div class="tjx-h">💡 ${M.n}</div><p class="muted" style="font-size:13px">كل حرف ملوّن يختزل حكمًا؛ اضغطه لتعرف اسمه ومخرجه. ثم اختبر حفظك للعبارة.</p>
+   ${M.it.map(([n,ph,ls,d])=>`<div class="mn-c"><b>${n}</b><div class="mn-ph">${tjMnHL(ph,ls,first)}</div><small>${d}</small></div>`).join('')}
+   <button class="btn ${done?'ghost':'gold'}" style="width:100%" onclick="tjXStart(tjMnQs('${s}'),{title:'💡 ${M.n}',gen:()=>tjMnQs('${s}'),back:\`tjMnOpen('${s}','${uk}')\`,onPass:()=>{TJX0().mn2['${s}']=1}})">${done?'✓ أعد التدريب':'🎯 اختبر حفظها'}</button>
+   <button class="btn ghost" style="width:100%;margin-top:8px" onclick="go('lvtab',{l:'${p.l}',t:${p.t},u:'${uk}'})">⟵ العودة إلى «${u.n}»</button>`;sound('flip')}
+function tjMnQs(s){const M=TJ_MN2[s],Q=[];
+  if(s==='alqab'){const P=shf(M.it).slice(0,4);Q.push({t:'match',q:'صِل اللقب بحروفه:',p:P.slice(0,3).map(z=>[z[0],z[1]]),w:'ألقاب الحروف.'});P.forEach(z=>Q.push({t:'mcq',q:`حروف «${z[1]}» تسمى:`,o:[z[0],...shf(M.it.filter(y=>y!==z).map(y=>y[0])).slice(0,3)],w:z[3]}));return Q}
+  M.it.forEach(([n,ph,ls,d])=>{const words=ph.replace(/\*/g,' ').split(/\s+/).filter(Boolean);
+    if(words.length>1&&words.length<=7)Q.push({t:'order',q:`رتّب كلمات عبارة «${n}»:`,o:words,w:`«${ph}»`});
+    else if(words.length>7){const a=words.slice(0,5);Q.push({t:'order',q:`رتّب أول العبارة:`,o:a,w:`«${ph}»`})}
+    const L=[...new Set([...ls])].filter(c=>TJ_LS.includes(c)||c==='ا'),ins=shf(L).slice(0,Math.min(4,L.length)),outs=shf(TJ_LS.filter(c=>!L.includes(c))).slice(0,4);
+    Q.push({t:'multi',q:`اختر كل الحروف التي في «${n}» من هذه:`,o:ins.concat(outs),ok:ins,w:`«${ph}»`});
+    const out=rnd(TJ_LS.filter(c=>!L.includes(c)));Q.push({t:'odd',q:`أي هذه الحروف ليس من «${n}»؟`,o:[out,...shf(L).slice(0,3)],ok:out,w:`«${ph}»`});
+    Q.push({t:'mcq',q:`«${ph.length>30?ph.slice(0,30)+'…':ph}» تجمع:`,o:[n,...shf(Object.values(TJ_MN2).flatMap(m=>m.it.map(z=>z[0])).filter(z=>z!==n)).slice(0,3)],w:d})});
+  return shf(Q).slice(0,6)}
+/* ---- ٨) تدريبات المختبر: التفخيم، والأخطاء، والغنة، والمدود ---- */
+const TF_W=[['﴿رَبِّ﴾','تفخيم','راء مفتوحة'],['﴿رِجَالٌ﴾','ترقيق','راء مكسورة'],['﴿فِرۡعَوۡنَ﴾','ترقيق','ساكنة بعد كسر أصلي وليس بعدها استعلاء'],['﴿قِرۡطَاسٖ﴾','تفخيم','ساكنة بعد كسر وبعدها حرف استعلاء غير مكسور'],['﴿ٱرۡجِعُوٓاْ﴾','تفخيم','ساكنة بعد كسر عارض (همزة الوصل)'],['﴿مَرۡيَمَ﴾','تفخيم','ساكنة بعد فتح'],['﴿قَالَ ٱللَّهُ﴾ (اللام)','تفخيم','لام الجلالة بعد فتح'],['﴿بِسۡمِ ٱللَّهِ﴾ (اللام)','ترقيق','لام الجلالة بعد كسر'],['﴿قَالَ﴾ (الألف)','تفخيم','الألف تتبع ما قبلها: القاف مفخمة'],['﴿كَانَ﴾ (الألف)','ترقيق','الألف تتبع ما قبلها: الكاف مرققة'],['﴿خَيۡرٌ﴾ وقفًا','ترقيق','ساكنة للوقف بعد ياء ساكنة'],['﴿ٱلصِّرَٰطَ﴾ (الصاد)','تفخيم','حرف استعلاء مكسور: أدنى مراتب التفخيم'],['﴿وَلَا ٱلضَّآلِّينَ﴾ (اللام)','ترقيق','اللام في غير لفظ الجلالة مرققة']];
+const GN_W=[['﴿مَنۡ ءَامَنَ﴾','الإظهار الحلقي'],['﴿مِنۡ خَيۡرٍ﴾','الإظهار الحلقي'],['﴿عَلِيمٌ حَكِيمٌ﴾','الإظهار الحلقي'],['﴿مَن يَقُولُ﴾','الإدغام بغنة'],['﴿مِن وَالٍ﴾','الإدغام بغنة'],['﴿مِن نِّعۡمَةٖ﴾','الإدغام بغنة'],['﴿هُدٗى لِّلۡمُتَّقِينَ﴾','الإدغام بغير غنة'],['﴿مِن رَّبِّهِمۡ﴾','الإدغام بغير غنة'],['﴿مِنۢ بَعۡدِ﴾','الإقلاب'],['﴿سَمِيعُۢ بَصِيرٞ﴾','الإقلاب'],['﴿مِن قَبۡلُ﴾','الإخفاء'],['﴿أَنتُمۡ﴾','الإخفاء'],['﴿عَذَابٞ شَدِيدٞ﴾','الإخفاء'],['﴿يَنۡهَوۡنَ﴾','الإظهار الحلقي']];
+const MD_T=[['الطبيعي','﴿قَالَ﴾',[2]],['المتصل','﴿جَآءَ﴾',[4,5]],['المنفصل','﴿بِمَآ أُنزِلَ﴾',[4,5]],['اللازم','﴿ٱلضَّآلِّينَ﴾',[6]],['العارض للسكون','﴿ٱلرَّحِيمِ﴾ وقفًا',[2,4,6]],['اللين','﴿خَوۡفٍ﴾ وقفًا',[2,4,6]],['البدل','﴿ءَامَنُواْ﴾',[2]],['العوض','﴿عَلِيمٗا﴾ وقفًا',[2]],['الصلة الصغرى','﴿إِنَّهُۥ هُوَ﴾',[2]],['الصلة الكبرى','﴿مَالَهُۥٓ أَخۡلَدَهُۥ﴾',[4,5]]];
+function tjErrQs(){const Q=[],ks=shf(Object.keys(TJ_ERR));ks.slice(0,5).forEach(ch=>{const e=rnd(TJ_ERR[ch]);Q.push({t:'mcq',q:`«${e.replace(/:.*$/,'')}» — هذا خطأ في نطق أي حرف؟`,o:[TJ_LN[ch],...shf(Object.keys(TJ_ERR).filter(c=>c!==ch).map(c=>TJ_LN[c])).slice(0,3)],w:e})});
+  ks.slice(5,9).forEach((ch,i)=>{const e=rnd(TJ_ERR[ch]),other=ks[(i+12)%ks.length],sw=i%2;Q.push({t:'tf',q:`من أبرز الأخطاء في نطق ${TJ_LN[sw?other:ch]}: «${e.replace(/:.*$/,'')}»`,a:!sw,w:`هذا من أخطاء ${TJ_LN[ch]}: ${e}`})});
+  ks.slice(9,12).forEach(ch=>{const m=TJ_MK.find(x=>x.k!=='kh'&&x.k!=='jawf'&&x.l.includes(ch));if(m)Q.push({t:'mk',q:`يخطئ بعضهم في مخرج ﴿${ch}﴾. اضغط مخرجها الصحيح:`,ok:m.k,w:`${TJ_LN[ch]}: ${m.n}`})});return shf(Q)}
+function tjDrillQs(m){if(m==='tf')return shf(TF_W).slice(0,10).map(([w,a,r])=>({t:'mcq',q:`${w}: تفخيم أم ترقيق؟`,o:[a,a==='تفخيم'?'ترقيق':'تفخيم'],ok:a,w:r}));
+  if(m==='err')return tjErrQs().slice(0,10);
+  if(m==='gn'){const R=['الإظهار الحلقي','الإدغام بغنة','الإدغام بغير غنة','الإقلاب','الإخفاء'];return shf(GN_W).slice(0,10).map(([w,a])=>({t:'mcq',q:`ما حكم النون الساكنة أو التنوين في ${w}؟`,o:[a,...R.filter(r=>r!==a)],ok:a,w:a}))}
+  if(m==='md'){const Q=[];shf(MD_T).slice(0,6).forEach(([n,w,c])=>{Q.push({t:'mcq',q:`ما نوع المد في ${w}؟`,o:[n,...shf(MD_T.filter(z=>z[0]!==n).map(z=>z[0])).slice(0,3)],ok:n,w:`${n}: ${c.map(AR).join(' أو ')} حركات`})});
+    shf(MD_T).slice(0,4).forEach(([n,w,c])=>{const right=c.map(AR).join(' أو ');const opts=[...new Set([right,'حركتان فقط','٦ فقط','٤ أو ٥','٢ أو ٤ أو ٦'].map(o=>o==='٢'?'حركتان فقط':o))];Q.push({t:'mcq',q:`كم يُمد ${n} في ${w}؟`,o:[right,...opts.filter(o=>o!==right&&!(right==='٢'&&o==='حركتان فقط'))].slice(0,4),ok:right,w:`المد ${n}: ${right}`})});return shf(Q)}
+  return []}
+/* ---- ٩) صفحات المختبر ---- */
+let TJ_BACK=null;
+tjTabs=function(){const m=route.m||'mk',M=TJL2[m]||['🔬','مختبر التجويد',''],B=TJ_BACK;return `<div class="tj-hero"><div class="row" style="align-items:center"><div class="grow"><div class="t">${M[0]} ${M[1]}</div><small>${M[2]}</small></div>${B?`<button class="btn sm ghost" onclick="go('lvtab',{l:'${B.l}',t:${B.t},u:'${B.u}'})">⟵ الموضوع</button>`:''}</div>${(p=>p[1]>1?`<i class="crs-bar"><u style="width:${p[0]/p[1]*100}%"></u></i>`:'')(tjLabProg(m))}</div>`};
+tjRender=function(){const app=document.getElementById('app');if(route.v!=='tjlab')return;const m=route.m||'mk';TJX0();
+  if(m==='mk'){TR.mode='mk';app.innerHTML=trLabMk();recBind&&TJV.sel&&recBind('tj:'+TJV.sel.ch);trMount();return}
+  if(m==='org'){TR.mode='org';if(!TR.cfg||TR.cfg.ch!=='ا'){TR.cfg=trArt('ا');TR.t=0}app.innerHTML=trLabOrg();trMount();return}
+  if(m==='bld1'||m==='bld2'){BLD.lv=m==='bld2'?2:1;if(!BLD.goal)BLD.goal=rnd(TJ_LS);return bldRender()}
+  if(m==='sf1'||m==='sf2'||m==='sf3'){app.innerHTML=`${tjTabs()}${sfCards(SF_GROUP[m])}`;sfMount();return}
+  if(m==='err'){TR.mode='mk';const ch=TJV.sel&&TJV.sel.ch,er=ch&&TJ_ERR[ch];app.innerHTML=`${tjTabs()}${trStage()}<div class="tj-letters">${TJ_LS.map(c=>`<button class="${ch===c?'on':''}" onclick="TJV.sel={ch:'${c}',mk:trMk('${c}')};tjRender();setTimeout(()=>trSet(trArt('${c}')),40)">${c}</button>`).join('')}</div>
+    ${er?`<div class="tj-pn"><div class="tj-ph"><span class="tj-big">${ch}</span><div class="grow"><b>${TJ_LN[ch]}</b><small>الصواب: ${(TJ_MK.find(m=>m.k===trMk(ch))||{}).n}</small></div>${TJ_EX[ch]?`<button class="tj-snd" onclick="tjPlayEx('${ch}')">🔊</button>`:''}</div><div class="tj-er"><b>⚠️ أبرز الأخطاء</b><ul>${er.map(e=>`<li>${e}</li>`).join('')}</ul></div><div class="tj-cmp"><b>🎙 قارن نطقك</b><span id="tjRecW">${recBtnHTML('tj:'+ch)}</span></div></div>`:`<div class="tj-pn tj-hint"><b>👆 اختر حرفًا</b><p>تشاهد مخرجه الصحيح بالحركة، وتقرأ أبرز الأخطاء فيه، ثم تتدرّب.</p></div>`}${tjDrillBtn('err')}`;
+    if(ch&&recBind)recBind('tj:'+ch);trMount();return}
+  if(m==='tf'){app.innerHTML=`${tjTabs()}${sfCards(['is'])}<div class="panel"><h3 style="margin-top:0">مراتب التفخيم الخمس</h3>${[['المفتوح وبعده ألف','﴿قَالَ﴾',1],['المفتوح وليس بعده ألف','﴿قَتَلَ﴾',.85],['المضموم','﴿قُتِلَ﴾',.7],['الساكن','﴿يَقۡطَعُ﴾',.55],['المكسور','﴿قِتَالٌ﴾',.4]].map(([n,e,v])=>`<div class="tf-r"><span>${n}</span><span class="qtx">${e}</span><i><u style="width:${v*100}%"></u></i></div>`).join('')}<small class="muted">على مذهب من جعلها خمسًا، ومن العلماء من جعلها ثلاثًا أو أربعًا.</small></div>${tjDrillBtn('tf')}`;sfMount();return}
+  if(m==='gn'){app.innerHTML=`${tjTabs()}${sfCards(['gna'])}${tjDrillBtn('gn')}`;sfMount();return}
+  if(m==='md'){app.innerHTML=`${tjTabs()}${mdRuler()}${tjDrillBtn('md')}`;mdMount();return}
+  app.innerHTML=`${tjTabs()}<p class="muted">اختر المختبر من موضوعه في تبويب التجويد.</p>`};
+function tjDrillBtn(m){const d=!!TJX0().drill[m];return `<button class="btn ${d?'ghost':'gold'}" style="width:100%;margin-top:10px" onclick="tjXStart(tjDrillQs('${m}'),{title:'${TJL2[m][0]} تدريب: ${TJL2[m][1]}',gen:()=>tjDrillQs('${m}'),back:\`go('tjlab',{m:'${m}'})\`,onPass:()=>{TJX0().drill['${m}']=1}})">${d?'✓ أعد التدريب':'🎯 ابدأ التدريب (١٠٠٪)'}</button>`}
+const _gq90=window.gqStart;
+/* ---- مِسطرة المدود ---- */
+let MDR={i:0,c:null,sp:550,t0:0,raf:0};
+function mdRuler(){const T=MD_T[MDR.i],c=MDR.c||T[2][0];return `<div class="md-r"><div class="sf-keys"><span>${MD_T.map((z,i)=>`<button class="${i===MDR.i?'on':''}" onclick="MDR.i=${i};MDR.c=null;tjRender()">${z[0]}</button>`).join('')}</span></div>
+  <div class="md-w qtx">${T[1]}</div><div class="md-c">${T[2].map(n=>`<button class="${n===c?'on':''}" onclick="MDR.c=${n};tjRender()">${AR(n)} حركات</button>`).join('')}</div>
+  <div class="md-b" id="mdB">${Array.from({length:6},(_,i)=>`<i class="${i<c?'u':''}"></i>`).join('')}</div>
+  <div class="sf-keys"><span>${[[700,'تحقيق'],[550,'تدوير'],[400,'حدر']].map(([v,n])=>`<button class="${MDR.sp===v?'on':''}" onclick="MDR.sp=${v};tjRender()">${n}</button>`).join('')}</span></div>
+  <button class="btn gold" style="width:100%" onclick="MDR.t0=performance.now();mdMount()">▶ قِس المد</button><small class="muted">الحركة: زمن نطق حركة واحدة بالسرعة التي تقرأ بها. والتسوية بين المدود المتماثلة واجبة في القراءة الواحدة.</small></div>`}
+function mdMount(){cancelAnimationFrame(MDR.raf);const B=document.getElementById('mdB');if(!B||!MDR.t0)return;const c=MDR.c||MD_T[MDR.i][2][0];
+  const lp=n=>{const k=Math.floor((n-MDR.t0)/MDR.sp);[...B.children].forEach((e,i)=>e.classList.toggle('on',i<=k&&i<c));if(k<c&&document.getElementById('mdB'))MDR.raf=requestAnimationFrame(lp);else MDR.t0=0};MDR.raf=requestAnimationFrame(lp)}
+/* ---- ١٠) إكمال الحرف المكتشف بالغنة والجوف ---- */
+const _trPickCh90=trPickCh;trPickCh=function(ch){const x=TJST();if('نم'.includes(ch)&&!x.mk.includes('kh'))x.mk.push('kh');_trPickCh90(ch)};
+/* بطاقات قديمة للمختبر لم تعد مستعملة: نحوّلها إلى الصفحات الجديدة */
+const _go90=go;go=function(v,o){if(v==='tjlab'&&o&&['sf','mn','qz','vd'].includes(o.m)){o=Object.assign({},o,{m:o.m==='sf'?'sf1':'mk'})}if(v!=='tjlab'&&v!=='lvtab'&&v!=='lesson'&&v!=='pquiz')TJ_BACK=TJ_BACK;return _go90(v,o)};
+
 
 
 /* ---- الشهادة الصغيرة لكل وحدة ---- */
