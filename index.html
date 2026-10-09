@@ -2269,7 +2269,8 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .md-c{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}.md-b{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
 .md-b i{height:34px;border-radius:10px;border:1px dashed var(--line);transition:all .15s}.md-b i.u{border-style:solid;border-color:var(--gold)}.md-b i.on{background:linear-gradient(#f5dc95,#c9962f);transform:scale(1.05)}
 .tj-pn .tj-er ul{margin:6px 0;padding-inline-start:18px}.tj-pn .tj-er li{font-size:13.5px;line-height:1.7}
-.tr-svg.playing .tr-h{opacity:.18}.tr-svg .tr-h{transition:opacity .4s}
+.tr-svg.playing .tr-h{opacity:0;pointer-events:none}.tr-svg .tr-h{transition:opacity .4s}
+.tr-flash{fill:#fff;stroke:#f2b938;stroke-width:1.2;filter:drop-shadow(0 0 3px #fff6c4)}.tr-burst{fill:none;stroke:#fff3c4;stroke-width:1.4}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -13328,10 +13329,10 @@ Object.assign(TJ_VB,{sak:[{t:'mcq',q:'إذا التقى ساكنان والأو�
 
 /* ============ مختبر «رحلة الصوت»: الجهاز التنفسي والصوتي كاملًا، بحركة متسلسلة حقيقية ============ */
 /* مواضع المخارج على المقطع الجانبي الجديد */
-const TRP={jawf:[240,188],h1:[179,344],h2:[158,266],h3:[170,214],q:[198,172],k:[220,163],wl:[258,161],dd:[282,166],lm:[312,174],nn:[315,177],rr:[308,172],td:[317,181],sf:[319,201],th:[327,199],fa:[328,201],sh:[350,202],kh:[288,116]};
+const TRP={jawf:[240,188],h1:[179,344],h2:[158,266],h3:[172,186],q:[198,161],k:[221,163],wl:[258,161],dd:[282,166],lm:[312,174],nn:[315,177],rr:[308,172],td:[317,181],sf:[319,201],th:[327,199],fa:[328,201],sh:[350,202],kh:[288,116]};
 const TR_REST=[[184,314],[178,282],[184,250],[200,222],[228,204],[262,198],[292,202],[313,212]];
-const TR_POSE={jawf:{3:[200,226],4:[228,213],5:[262,209],6:[292,211],7:[313,214]},h2:{1:[169,276],2:[178,248]},h3:{2:[182,236],3:[192,212],4:[220,202]},
- q:{2:[186,238],3:[198,176],4:[224,188],5:[258,198]},k:{3:[204,194],4:[221,166],5:[254,190]},wl:{4:[232,186],5:[258,164],6:[288,190],7:[312,210]},
+const TR_POSE={jawf:{3:[200,226],4:[228,213],5:[262,209],6:[292,211],7:[313,214]},h2:{1:[160,268],2:[172,244]},h3:{1:[176,262],2:[176,198],3:[192,192],4:[220,200]},
+ q:{2:[184,220],3:[198,165],4:[226,180],5:[258,196]},k:{3:[202,186],4:[221,166],5:[252,186]},wl:{4:[232,186],5:[258,164],6:[288,190],7:[312,210]},
  dd:{3:[204,196],4:[232,172],5:[262,167],6:[292,174],7:[310,198]},lm:{5:[264,192],6:[300,184],7:[312,177]},nn:{6:[302,188],7:[315,180]},rr:{6:[298,181],7:[308,175]},
  td:{6:[304,188],7:[317,184]},sf:{6:[306,183],7:[318,203]},th:{6:[314,194],7:[330,199]}};
 const TR_D=7000,TR_PH=[[0,'الزفير'],[1300,'الحنجرة'],[2500,'الطريق'],[3500,'المخرج'],[5300,'الانطلاق']];
@@ -13376,8 +13377,8 @@ function trSVG(){const hot=TR.mode==='org'?TJ_ORG.map(o=>`<g class="tr-h ${TR.or
    <path class="tr-nasal" d="M164,150 C166,118 190,98 222,94 L300,92 C332,94 354,114 368,142 L332,148 L300,149 L260,146 L220,151 Z"/>
    <g class="tr-turb"><path d="M214,104 Q250,98 300,106 Q262,114 214,104Z"/><path d="M206,120 Q256,114 316,124 Q262,132 206,120Z"/><path d="M212,136 Q258,132 322,140 Q262,146 212,136Z"/></g>
    <path class="tr-bone" d="M220,150 L260,146 L300,148 L318,158 L318,170 L313,175 L300,165 L262,160 L222,162 Z"/>
-   <path class="tr-bone jaw" d="M318,238 C316,252 300,270 270,280 C240,290 214,296 202,302"/><ellipse class="tr-bone" cx="202" cy="305" rx="7" ry="4"/>
-   <path class="tr-tooth" d="M313,170 L322,169 L327,195 L323,199 L318,196 Z"/><path class="tr-tooth" d="M317,237 L324,237 L323,209 L320,205 L316,210 Z"/>
+   <g id="trJaw"><path class="tr-bone jaw" d="M318,238 C316,252 300,270 270,280 C240,290 214,296 202,302"/><ellipse class="tr-bone" cx="202" cy="305" rx="7" ry="4"/>
+   <path class="tr-tooth" d="M313,170 L322,169 L327,195 L323,199 L318,196 Z"/></g><g id="trJawT"><path class="tr-tooth" d="M317,237 L324,237 L323,209 L320,205 L316,210 Z"/></g>
    <path class="tr-epi" d="M190,318 C182,306 172,296 170,288 C176,288 186,298 194,312 Z"/>
    <path class="tr-cart" d="M196,320 L210,326 L210,374 L198,382 L196,382 Z"/><path class="tr-cart" d="M164,336 L172,332 L172,380 L164,384 Z"/>
    <path class="tr-fold" id="trFoldS" d="M198,355 L184,357 L198,360 Z"/>
@@ -13390,7 +13391,7 @@ function trSVG(){const hot=TR.mode==='org'?TJ_ORG.map(o=>`<g class="tr-h ${TR.or
    <path class="tr-lip" id="trLipU" d=""/><path class="tr-lip" id="trLipL" d=""/>
   </g>
   <g class="tr-lbl" ${TR.lbl?'':'style="display:none"'}><text x="262" y="84">التجويف الأنفي</text><text x="132" y="140">البلعوم</text><text x="262" y="142">الحنك الصلب</text><text x="246" y="232">اللسان</text><text x="372" y="192">الشفتان</text><text x="226" y="352">الحنجرة</text><text x="226" y="366">والوتران</text><text x="226" y="460">القصبة الهوائية</text><text x="114" y="700">الرئة</text><text x="246" y="700">الرئة</text><text x="180" y="776">الحجاب الحاجز</text><text x="208" y="300">لسان المزمار</text></g>
-  <circle id="trGlow" cx="0" cy="0" r="0" fill="url(#trGlow)"/><circle id="trGlow2" cx="${TRP.kh[0]}" cy="${TRP.kh[1]}" r="0" fill="url(#trGlow)"/>
+  <circle id="trGlow" cx="0" cy="0" r="0" fill="url(#trGlow)"/><circle id="trBurst" cx="0" cy="0" r="0" class="tr-burst"/><circle id="trFlash" cx="0" cy="0" r="0" class="tr-flash"/><circle id="trGlow2" cx="${TRP.kh[0]}" cy="${TRP.kh[1]}" r="0" fill="url(#trGlow)"/>
   <g id="trRings"></g><g id="trAir"></g><g id="trHot">${hot}</g></svg>`}
 /* ---- النافذتان: الوتران من أعلى، والفم من الأمام (لبعض الحروف) ---- */
 function trGlotSVG(){return `<svg viewBox="0 0 90 92" class="tr-glot"><ellipse cx="45" cy="44" rx="40" ry="38" class="g-bg"/><path id="gfL" class="g-f"/><path id="gfR" class="g-f"/><circle cx="45" cy="14" r="3" class="g-ant"/><text x="45" y="88">الوتران من أعلى</text></svg>`}
@@ -13403,7 +13404,7 @@ function trFrontSVG(k){if(!k)return '';const teethU=[0,1,2,3,4,5].map(i=>`<rect 
    dd:`<path class="f-cav" d="M6,22 Q60,6 114,22 L114,64 Q60,78 6,64Z"/>${[0,1,2,3,4,5,6,7,8,9].map(i=>`<rect x="${10+i*10.2}" y="22" width="9" height="${i>2&&i<7?12:9}" rx="3" class="f-tooth"/>`).join('')}<path class="f-tg" d="M12,66 Q16,34 60,32 Q104,34 108,66 Z"/><path class="f-edge l" d="M16,52 Q18,36 30,32"/><path class="f-edge r" d="M104,52 Q102,36 90,32"/><text x="60" y="88">حافتا اللسان مع الأضراس العليا (اليسرى أيسر)</text>`};
   return `<svg viewBox="0 0 120 92" class="tr-front">${A[k]||''}</svg>`}
 /* ---- الإطار الزمني: كل شيء دالة في الزمن ليمكن السحب والإبطاء ---- */
-function trFrame(t){const svg=document.getElementById('trSvg');if(!svg)return;const c=TR.cfg;
+function trFrame(t){const svg=document.getElementById('trSvg');if(!svg)return;const c=TR.cfg;svg.classList.toggle('playing',!!c&&t>900&&t<6700&&TR.mode!=='org');
   /* الحجاب والرئتان */
   const ex=ease(t/1500),dia=lerp(0,-26,ex);svg.querySelector('#trDia').setAttribute('d',`M40,752 Q180,${700+dia} 320,752`);
   svg.querySelector('#trLungs').setAttribute('transform',`translate(180 640) scale(${lerp(1,.94,ex)}) translate(-180 -640)`);
@@ -13422,7 +13423,11 @@ function trFrame(t){const svg=document.getElementById('trSvg');if(!svg)return;co
   /* الجسيمات */
   trAir(c,t,tR);
   /* التوهج */
-  const gl=svg.querySelector('#trGlow');const on=t>3400&&t<6300;gl.setAttribute('cx',c.place[0]);gl.setAttribute('cy',c.place[1]);gl.setAttribute('r',on?(c.free?34:15)+4*Math.sin(t/120):0);
+  const gl=svg.querySelector('#trGlow');const on=t>3400&&t<6300;gl.setAttribute('cx',c.place[0]);gl.setAttribute('cy',c.place[1]);gl.setAttribute('r',on?(c.free?30:9)+2*Math.sin(t/120):0);
+  const fl=svg.querySelector('#trFlash'),bu=svg.querySelector('#trBurst'),tc=3400;/* لحظة الالتقاء ثم الانطلاق */
+  const fk=t<tc?0:t<tc+180?(t-tc)/180:t<tR?1-.35*((t-tc-180)/Math.max(1,tR-tc-180)):t<tR+250?1:Math.max(0,1-(t-tR-250)/500);
+  fl.setAttribute('cx',c.place[0]);fl.setAttribute('cy',c.place[1]);fl.setAttribute('r',c.free?0:(2.2+2.2*fk)*(TR.vb[2]/292));fl.setAttribute('opacity',fk);
+  const bk=c.m==='stop'?(t-tR)/450:(t-tc)/600;bu.setAttribute('cx',c.place[0]);bu.setAttribute('cy',c.place[1]);bu.setAttribute('r',bk>0&&bk<1&&!c.free?(3+bk*18)*(TR.vb[2]/292):0);bu.setAttribute('opacity',1-bk);
   svg.querySelector('#trGlow2').setAttribute('r',c.nasal&&on?13+3*Math.sin(t/110):0);
   /* حلقات الصوت عند المخرج */
   const R=svg.querySelector('#trRings');let rh='';const ex0=c.nasal?[370,146]:[362,202],st=c.m==='stop'?tR:3800;
@@ -13445,6 +13450,7 @@ function trArtic(c,go,open,t){const svg=document.getElementById('trSvg');if(!svg
   if(c&&c.tap&&t>3700&&t<4300){P[7][1]+=5*Math.sin((t-3700)/600*Math.PI)}
   const tip=P[7],under=[[tip[0]-3,tip[1]+11],[292,238],[256,258],[220,276],[196,300],P[0]];
   svg.querySelector('#trTg').setAttribute('d',crPath(P)+' '+crPath([tip].concat(under)).replace(/^M[^C]+/,'')+' Z');
+  const ja=c?(c.free?4:lerp(3.2,c.mk==='sh'||c.mk==='fa'||c.mk==='th'||c.mk==='sf'?0:1.2,go)):2.4;['#trJaw','#trJawT'].forEach(q=>svg.querySelector(q).setAttribute('transform',`rotate(${ja} 196 252)`));
   /* الحنك اللين */
   const vo=c&&c.nasal?ease((t-2600)/600)*(1-ease((t-6000)/600)):0,R=[220,158],T=[lerp(166,190,vo),lerp(166,208,vo)],C=[lerp(192,210,vo),lerp(150,186,vo)];
   svg.querySelector('#trVel').setAttribute('d',`M${R[0]},${R[1]} Q${C[0]},${C[1]} ${T[0]},${T[1]}`);const uv=svg.querySelector('#trUv');uv.setAttribute('cx',T[0]);uv.setAttribute('cy',T[1]+3);
