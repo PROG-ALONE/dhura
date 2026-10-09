@@ -2903,6 +2903,96 @@ img.fm-av{display:inline-block;border-radius:50%;object-fit:cover;-webkit-clip-p
 .nq-ev{display:grid;grid-template-columns:1fr 1fr;gap:6px}.nq-ev button{display:flex;gap:6px;align-items:center;text-align:right;padding:9px;border-radius:12px;border:1px solid var(--line);background:rgba(127,127,127,.06);color:var(--ink);font:inherit;font-size:12.5px}
 .nq-ev button.on{border-color:var(--gold)}.nq-ev span{font-size:17px}
 .wdx{display:block!important}.wdx .fq-stn{display:flex;gap:3px;margin:6px 0}.wdx .fq-stn i{flex:1;height:4px;border-radius:3px;background:rgba(127,127,127,.2)}.wdx .fq-stn i.ok{background:var(--ok)}.wdx .fq-stn i.on{background:var(--gold)}
+.kx-stg{display:flex;align-items:center;justify-content:center;gap:4px;margin:8px 0}
+.kx-stg span{display:flex;flex-direction:column;align-items:center;font-size:11.5px;color:var(--muted);gap:2px}
+.kx-stg b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:2px solid var(--line);font-size:16px}
+.kx-stg span.on{color:var(--ink);font-weight:700}.kx-stg span.on b{border-color:#ffcf4a;background:rgba(255,207,74,.18);transform:scale(1.12)}
+.kx-stg span.ok b{background:#2fa36b;border-color:#2fa36b;color:#fff}
+.kx-stg i{width:22px;height:2px;background:var(--line);margin-bottom:16px}
+.kx{background:var(--card);border:2px solid color-mix(in srgb,var(--c) 40%,transparent);border-radius:24px;padding:14px;margin:6px 0 12px}
+.kx-hd{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}.kx-hd b{font-size:16px;line-height:1.6}.kx-hd small{color:var(--muted)}
+.kx button{font-family:inherit;cursor:pointer}
+.kx-tap{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px}
+.kx-tap button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border-radius:20px;border:2px dashed var(--line);background:rgba(127,127,127,.06);color:var(--ink);transition:transform .2s}
+.kx-tap button span{font-size:34px;transition:transform .3s}.kx-tap button small{color:var(--muted);font-size:11px}
+.kx-tap button.on{border-style:solid;border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}.kx-tap button.on span{transform:scale(1.15) rotate(-6deg)}
+.kx-tap button b{font-size:13.5px}
+.kx-cap{margin-top:10px;padding:10px 12px;border-radius:16px;background:rgba(255,207,74,.1);min-height:52px;font-size:16px;line-height:1.8}.kx-cap p{margin:0}
+.kx-end{margin:10px 0 0;padding:10px 12px;border-radius:16px;background:rgba(47,163,107,.12);border:1px solid rgba(47,163,107,.35);font-size:16px;line-height:1.9;text-align:center;font-family:Amiri,serif}
+.kx-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px;margin:4px auto 12px;max-width:280px;border-radius:22px;background:color-mix(in srgb,var(--c) 12%,var(--card));border:2px solid var(--c);text-align:center;animation:kxIn .35s}
+.kx-card span{font-size:46px}.kx-card b{font-size:18px;line-height:1.6}
+@keyframes kxIn{from{transform:translateY(-14px) scale(.9);opacity:0}}
+.kx-shk{animation:kxSh .4s!important}@keyframes kxSh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.kx-bins{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kx-bins button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 8px;border-radius:22px;border:2px solid var(--line);background:rgba(127,127,127,.06);color:var(--ink)}
+.kx-bins button span{font-size:30px}.kx-bins button b{font-size:15px}.kx-bins button small{color:var(--muted)}
+.kx-bins button.ok,.kx-opts button.ok{border-color:#2fa36b;background:rgba(47,163,107,.15)}.kx-bins button.no,.kx-opts button.no{border-color:#e05a4a;background:rgba(224,90,74,.12)}
+.kx-fb{text-align:center;min-height:1.5em;margin:10px 0 0;font-size:15px;line-height:1.8;color:var(--muted)}.kx-fb.ok{color:#2fa36b}.kx-fb.no{color:#e0864a}
+.kx-track{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.kx-track div{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:14px;border:2px dashed var(--line);color:var(--muted);font-size:16px;line-height:1.7}
+.kx-track div.on{border-style:solid;border-color:var(--c);color:var(--ink);background:color-mix(in srgb,var(--c) 10%,transparent);animation:kxIn .3s}
+.kx-track i{font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font-size:13px;flex:none}
+.kx-tiles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.kx-tiles button{padding:10px 14px;border-radius:16px;border:2px solid var(--line);background:var(--bg2,rgba(127,127,127,.08));color:var(--ink);font-size:16px;line-height:1.6;box-shadow:0 3px 0 var(--line)}
+.kx-mt{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kx-mt>div{display:flex;flex-direction:column;gap:6px}
+.kx-mt button{padding:10px 8px;border-radius:14px;border:2px solid var(--line);background:rgba(127,127,127,.06);color:var(--ink);font-size:14.5px;line-height:1.6;min-height:48px}
+.kx-mt button.on{border-color:#ffcf4a;background:rgba(255,207,74,.15)}.kx-mt button.ok{border-color:#2fa36b;background:rgba(47,163,107,.15);opacity:.8}
+.kx-q{display:flex;align-items:center;gap:10px;padding:12px;border-radius:18px;background:color-mix(in srgb,var(--c) 10%,transparent);margin-bottom:10px}.kx-q span{font-size:36px}.kx-q b{font-size:17px;line-height:1.7}
+.kx-opts{display:flex;flex-direction:column;gap:8px}.kx-opts button{padding:12px;border-radius:16px;border:2px solid var(--line);background:rgba(127,127,127,.06);color:var(--ink);font-size:16px;line-height:1.6;text-align:center}
+.kx-n{display:block;text-align:center;color:var(--muted);margin-top:6px}
+.kx-q2{text-align:center;font-size:16px;line-height:1.8;margin:8px 0}
+.kx-board{position:relative;display:flex;gap:4px;margin:4px 0 14px;padding-top:22px}.kx-board i{flex:1;height:14px;border-radius:7px;background:rgba(127,127,127,.18);font-style:normal;display:grid;place-items:center;font-size:20px}.kx-board i.ok{background:#2fa36b}
+.kx-board i:last-child{flex:none;width:30px;height:30px;background:none;margin-top:-10px}
+.kx-board b{position:absolute;top:0;font-size:20px;transition:right .6s}
+.kx-house{display:block;width:100%;max-width:360px;margin:0 auto 8px}
+.kx-base{fill:rgba(127,127,127,.35)}.kx-roof{fill:rgba(127,127,127,.12);stroke:rgba(127,127,127,.4);stroke-dasharray:6 5;transition:all .6s}
+.kx-roof.on{fill:var(--c);stroke:none;stroke-dasharray:0}.kx-rt{fill:#fff;font:700 14px Tajawal,sans-serif;text-anchor:middle}
+.kx-pil{fill:rgba(127,127,127,.25)}.kx-pil.on{fill:color-mix(in srgb,var(--c) 75%,#fff)}
+.kx-pt{fill:#fff;font:700 11px Tajawal,sans-serif;text-anchor:middle;dominant-baseline:middle;pointer-events:none}
+.kx-ct{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}.kx-ct b{flex:1;font-size:16px}
+.kx-ct button{width:42px;height:42px;border-radius:50%;border:2px solid var(--line);background:rgba(127,127,127,.06);color:var(--ink);font-size:20px}
+.kx-ct span{min-width:44px;text-align:center;font-size:22px;font-weight:800}.kx-ct span.ok{color:#2fa36b}.kx-ct span.no{color:#e05a4a}
+.kx-ct+button,.kx .k-btn{margin-top:10px}
+.kx-big{display:flex;flex-direction:column;align-items:center;justify-content:center;width:150px;height:150px;margin:6px auto;border-radius:50%;border:4px solid var(--c);background:color-mix(in srgb,var(--c) 12%,transparent);color:var(--ink)}
+.kx-big b{font-size:44px}.kx-big small{font-size:12px;padding:0 10px;line-height:1.5}.kx-big:active{transform:scale(.94)}.kx-big.ok{border-color:#2fa36b}
+.kx-bar{display:block;height:10px;border-radius:6px;background:rgba(127,127,127,.15);overflow:hidden;margin:10px 0}.kx-bar u{display:block;height:100%;background:linear-gradient(90deg,#ffcf4a,#2fa36b);transition:width .3s}
+.kx-trip{display:flex;align-items:center;gap:0;overflow-x:auto;padding:4px 0}
+.kx-trip button{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;width:70px;padding:8px 2px;border-radius:16px;border:2px dashed var(--line);background:none;color:var(--ink)}
+.kx-trip button span{font-size:28px}.kx-trip button b{font-size:11.5px}.kx-trip button.on{border-color:#ffcf4a;animation:wdP 1.3s infinite}.kx-trip button.ok{border-style:solid;border-color:#2fa36b;background:rgba(47,163,107,.12)}
+.kx-trip i{flex:1;min-width:10px;height:3px;background:var(--line)}.kx-trip i.ok{background:#2fa36b}
+.kx-story{text-align:center;animation:kxIn .4s}.kx-sc{font-size:56px;min-height:80px;display:flex;justify-content:center;gap:10px}
+.kx-sc span{display:inline-block;animation:kxPop .6s both}@keyframes kxPop{from{transform:scale(0) rotate(-20deg);opacity:0}70%{transform:scale(1.2)}}
+.kx-story p{font-size:18px;line-height:1.9;font-family:Amiri,serif;margin:8px 0}
+.kx-dots{display:flex;justify-content:center;gap:6px;margin:6px 0 10px}.kx-dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}.kx-dots i.on{background:var(--c)}
+.kx-jar{display:flex;justify-content:center;margin-bottom:10px}
+.kx-jb{position:relative;width:120px;height:130px;border:4px solid rgba(127,127,127,.5);border-top:0;border-radius:0 0 30px 30px;overflow:hidden;display:flex;flex-wrap:wrap-reverse;align-content:flex-start;justify-content:center;gap:2px;padding:6px}
+.kx-jb u{position:absolute;inset:auto 0 0 0;background:rgba(255,207,74,.25);transition:height .5s;z-index:0}.kx-jb span{position:relative;font-size:24px;animation:kxDrop .5s}
+@keyframes kxDrop{from{transform:translateY(-120px)}}
+.kx-sky{display:block;width:100%;border-radius:20px;margin-bottom:8px}
+.kx-skyb{fill:color-mix(in srgb,#7cc3ff calc(var(--d)*100%),#141b33)}
+.kx-rg{width:100%;accent-color:#ffcf4a}
+.kx-pos{fill:rgba(255,255,255,.12);stroke:#fff;stroke-width:2;stroke-dasharray:4 3;cursor:pointer}
+.kx-cmp{display:flex;justify-content:center;margin:8px 0 14px}
+.kx-dial{position:relative;width:240px;height:240px;border-radius:50%;border:4px solid var(--c);background:radial-gradient(circle,color-mix(in srgb,var(--c) 10%,transparent),transparent 70%)}
+.kx-dial>b,.kx-kb{position:absolute;left:50%;top:50%;margin:-12px 0 0 -12px;width:24px;height:24px;display:grid;place-items:center;color:var(--muted);font-size:13px}
+.kx-kb{font-size:26px;margin:-16px 0 0 -16px;width:32px;height:32px}
+.kx-arr{position:absolute;left:50%;top:50%;width:8px;height:96px;margin:-96px 0 0 -4px;border-radius:4px;background:linear-gradient(#e05a4a,#c0392b);transform-origin:50% 100%;transition:transform .35s}
+.kx-arr::before{content:'';position:absolute;top:-12px;left:-8px;border:12px solid transparent;border-bottom-color:#e05a4a;border-top:0}.kx-arr.ok{background:#2fa36b}.kx-arr.ok::before{border-bottom-color:#2fa36b}
+.kx-day{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.kx-day button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 2px;border-radius:16px;border:2px solid var(--line);color:var(--ink)}
+.kx-day button:nth-child(1){background:#1c2448;color:#fff}.kx-day button:nth-child(2){background:#5a6fae;color:#fff}.kx-day button:nth-child(3){background:#9fd2ff;color:#123}.kx-day button:nth-child(4){background:#e88a5a;color:#fff}
+.kx-day button span{font-size:26px}.kx-day button.ok{outline:3px solid #2fa36b}
+.kx-tw{position:relative;width:240px;height:240px;margin:6px auto;display:grid;place-items:center;cursor:pointer}
+.kx-ring{position:absolute;inset:0;border-radius:50%;border:3px dashed rgba(127,127,127,.4)}
+.kx-ring i{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px;border-radius:50%;background:rgba(127,127,127,.3)}.kx-ring i.on{background:#2fa36b}
+.kx-dot{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px;border-radius:50%;background:#ffcf4a;box-shadow:0 0 12px #ffcf4a;animation:kxTw 1.2s ease-in-out both}
+@keyframes kxTw{from{transform:rotate(calc(var(--n) * -51.4deg + 51.4deg)) translateY(-92px)}to{transform:rotate(calc(var(--n) * -51.4deg)) translateY(-92px)}}
+.kx-kab{font-size:70px}
+.kx-rain{position:relative;text-align:center;padding:4px 0}.kx-cloud{font-size:70px;border:0;background:none;animation:wdP 2s infinite}
+.kx-drops{font-size:22px;height:30px;animation:kxDrop .6s}.kx-gr{display:flex;justify-content:center;gap:10px;font-size:36px;border-top:6px solid #8a5a2b;padding-top:6px}
+.kx-plate{position:relative;text-align:center;font-size:90px;line-height:1.1}.kx-plate .near{position:absolute;bottom:4px;left:50%;font-size:22px;color:#2fa36b}
+.kx-door{display:flex;align-items:center;justify-content:center;gap:14px;font-size:80px}.kx-kn{display:flex;flex-direction:column;gap:4px}.kx-kn i{font-style:normal;font-size:24px;opacity:.25}.kx-kn i.on{opacity:1;animation:kxPop .4s}
+.kx-scale{display:block;width:100%;max-width:320px;margin:0 auto 6px}.kx-st{fill:rgba(150,160,190,.7)}.kx-pan.a{fill:#2fa36b}.kx-pan.b{fill:#e05a4a}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -16693,9 +16783,9 @@ function wdSVG(o,S2,ty){const st=S2[o.i]||{},cur=S2[o.i],f=r=>{const k=(o.w||{})
     <text x="110" y="241" class="wd-tx">القدمان</text>
     ${ty?`<rect x="20" y="284" width="180" height="14" rx="4" data-r="grd" class="wd-r wd-gd ${on('grd')}" style="${f('grd')}" onclick="wdTap('grd',event)"/>`:''}
    </g><g id="wdFx"></g></svg>`}
-let WDX=null;
+let WDX=null;const wdRe=()=>WDX&&WDX.re?WDX.re():fqRe();
 function fqWudu(u,k,o){return wdSim(u,k,o,0)}
-function wdSim(u,k,o,ty){const SS=ty?TY_S:WD_S;o.i=o.i||0;o.w=o.w||{};o.c=o.c||{};o.e=o.e||0;o.lt=o.lt||0;WDX={u,k,ty};const s=SS[o.i],done=o.i>=SS.length-1&&o.fin;
+function wdSim(u,k,o,ty,re){const SS=ty?TY_S:WD_S;o.i=o.i||0;o.w=o.w||{};o.c=o.c||{};o.e=o.e||0;o.lt=o.lt||0;WDX={u,k,ty,re:re||null};const s=SS[o.i],done=o.i>=SS.length-1&&o.fin;
   const mud=Math.round(o.lt*30),pc=Math.min(100,mud/750*100);
   return `<div class="nk-w wdx"><div class="wd-hd"><b>${ty?'🪨 محاكي التيمم':'💧 محاكي الوضوء'}</b><small>${AR(Math.min(o.i+1,SS.length))} / ${AR(SS.length)} · أخطاء: ${AR(o.e)}</small></div>
    <div class="fq-stn">${SS.map((x,j)=>`<i class="${j===o.i?'on':j<o.i?'ok':''}"></i>`).join('')}</div>
@@ -16711,21 +16801,21 @@ function wdMsg(t,bad){const o=wdO();o.msg=t;if(bad)o.e++;save()}
 function wdFx(ev){try{const sv=ev.target.ownerSVGElement||ev.target,pt=sv.createSVGPoint();pt.x=ev.clientX;pt.y=ev.clientY;const p=pt.matrixTransform(sv.getScreenCTM().inverse());const g=sv.querySelector('#wdFx');for(let i=0;i<3;i++){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',p.x+(i-1)*6);c.setAttribute('cy',p.y-14);c.setAttribute('r',3.2);c.setAttribute('class','wd-drop');c.style.animationDelay=i*70+'ms';g.appendChild(c);setTimeout(()=>c.remove(),900)}}catch(e){}}
 function wdTap(r,ev){const o=wdO(),SS=WDX.ty?TY_S:WD_S,s=SS[o.i];if(!s)return;
   const hr=r==='heelR'?'footR':r==='heelL'?'footL':r;
-  if(s.b===1){wdMsg('ابدأ بالنية أولًا: «إنما الأعمال بالنيات» (البخاري ١ ومسلم ١٩٠٧).',1);return fqRe()}
+  if(s.b===1){wdMsg('ابدأ بالنية أولًا: «إنما الأعمال بالنيات» (البخاري ١ ومسلم ١٩٠٧).',1);return wdRe()}
   if(s.r===r||(s.h===r)){
-    if(s.h===r){if((o.c[o.i]||0)<s.c){wdMsg('أكمل غسل الرجل أولًا.');return fqRe()}o.w[r]=1;o.lt++;wdMsg('✓ استوعبت العقب. «ويل للأعقاب من النار» (البخاري ٦٠ ومسلم ٢٤١).')}
+    if(s.h===r){if((o.c[o.i]||0)<s.c){wdMsg('أكمل غسل الرجل أولًا.');return wdRe()}o.w[r]=1;o.lt++;wdMsg('✓ استوعبت العقب. «ويل للأعقاب من النار» (البخاري ٦٠ ومسلم ٢٤١).')}
     else{const n=(o.c[o.i]=(o.c[o.i]||0)+1);o.w[r]=Math.max(o.w[r]||0,n);o.lt++;
       if(n>s.c){o.c[o.i]=s.c;wdMsg(s.m?(WDX.ty?'المسح في التيمم مرة.':'مسح الرأس مرة عند الجمهور، ويُسنّ تثليثه عند الشافعية.'):'الزيادة على الثلاث خلاف السنة: «فمن زاد على هذا فقد أساء وتعدّى وظلم» (النسائي ١٤٠ وابن ماجه ٤٢٢، وصححه الألباني).',!s.m||WDX.ty?1:0)}
       else wdMsg(s.m?'✓ '+(r==='head'?'مسحت الرأس مُقبلًا ومُدبرًا.':r==='ear'?'مسحت الأذنين بماء الرأس.':'تمّ المسح.'):s.mn?['✓ المضمضة والاستنشاق الأولى','✓ الثانية','✓ الثالثة — «وبالغ في الاستنشاق إلا أن تكون صائمًا» (أبو داود ١٤٢، وصححه الألباني).'][n-1]:`✓ الغسلة ${['الأولى','الثانية','الثالثة'][n-1]}${n===1?' — هي الفرض، والثانية والثالثة سنة.':''}`)}
-    try{sound('tap')}catch(e){}fqRe();setTimeout(()=>{const t=document.querySelector(`.wd-svg [data-r="${r}"]`)||document.querySelector('.wd-svg');if(ev)wdFx({target:t,clientX:ev.clientX,clientY:ev.clientY})},10);return}
-  if(s.h&&(o.c[o.i]||0)>=s.c&&!o.w[s.h]){wdMsg('توقّف! بقي العقب لم يصبه الماء: «ويل للأعقاب من النار». المس العقب المضيء.',1);return fqRe()}
+    try{sound('tap')}catch(e){}wdRe();setTimeout(()=>{const t=document.querySelector(`.wd-svg [data-r="${r}"]`)||document.querySelector('.wd-svg');if(ev)wdFx({target:t,clientX:ev.clientX,clientY:ev.clientY})},10);return}
+  if(s.h&&(o.c[o.i]||0)>=s.c&&!o.w[s.h]){wdMsg('توقّف! بقي العقب لم يصبه الماء: «ويل للأعقاب من النار». المس العقب المضيء.',1);return wdRe()}
   const j=SS.findIndex((x,i)=>i>o.i&&(x.r===hr));
-  if(j<0&&SS.findIndex(x=>x.r===hr)>=0){wdMsg(`«${WD_R[r]}» قد فرغت منه. انتقل إلى: ${s.n}.`);return fqRe()}
-  if(r==='armL'&&s.r==='armR'||r==='footL'&&s.r==='footR'){wdMsg('السنة البدء باليمين: «كان يعجبه التيمّن في تنعّله وترجّله وطهوره» (البخاري ١٦٨ ومسلم ٢٦٨). ابدأ باليمنى.',1);return fqRe()}
-  wdMsg(WDX.ty?`ليس هذا موضعه الآن؛ الخطوة: ${s.n}.`:`خالفت الترتيب: الآن «${s.n}». والترتيب فرض عند الشافعية والحنابلة، وسنة مؤكدة عند الحنفية والمالكية.`,1);fqRe()}
-function wdNext(){const o=wdO();o.i++;o.msg='';save();fqRe()}
-function wdFin(){const o=wdO();o.fin=1;o.msg='';save();try{sound('win')}catch(e){}fqRe()}
-function wdReset(){const {u,k}=WDX;delete FQST(u).w[k];save();fqRe()}
+  if(j<0&&SS.findIndex(x=>x.r===hr)>=0){wdMsg(`«${WD_R[r]}» قد فرغت منه. انتقل إلى: ${s.n}.`);return wdRe()}
+  if(r==='armL'&&s.r==='armR'||r==='footL'&&s.r==='footR'){wdMsg('السنة البدء باليمين: «كان يعجبه التيمّن في تنعّله وترجّله وطهوره» (البخاري ١٦٨ ومسلم ٢٦٨). ابدأ باليمنى.',1);return wdRe()}
+  wdMsg(WDX.ty?`ليس هذا موضعه الآن؛ الخطوة: ${s.n}.`:`خالفت الترتيب: الآن «${s.n}». والترتيب فرض عند الشافعية والحنابلة، وسنة مؤكدة عند الحنفية والمالكية.`,1);wdRe()}
+function wdNext(){const o=wdO();o.i++;o.msg='';save();wdRe()}
+function wdFin(){const o=wdO();o.fin=1;o.msg='';save();try{sound('win')}catch(e){}wdRe()}
+function wdReset(){const {u,k}=WDX;delete FQST(u).w[k];save();wdRe()}
 /* «هل انتقض وضوئي؟» — 1 ينقض، 0 لا ينقض، حسب المذهب */
 const NQ_EV=[['🚻','خرج بول أو ريح',[1,1,1,1],'بالإجماع: ﴿أَوۡ جَآءَ أَحَدٞ مِّنكُم مِّنَ ٱلۡغَآئِطِ﴾، و«لا يقبل الله صلاة أحدكم إذا أحدث حتى يتوضأ» (البخاري ٦٩٥٤ ومسلم ٢٢٥).'],
  ['😴','نام نومًا مستغرقًا مضطجعًا',[1,1,1,1],'«العين وكاء السَّه، فمن نام فليتوضأ» (أبو داود ٢٠٣، وحسنه الألباني).'],
@@ -16757,6 +16847,268 @@ let TY_MZ=null;
 /* لا نسمّي الشيء «تفاعليًا» إلا إن كان كذلك: الأسماء صريحة بلا وصف */
 tabMeta=(f=>function(it){const m=f(it);if(it.t==='fqu'){m[1]=FQU[it.u].n;m[2]=FQU[it.u].sub+' · دروس ومسائل واختبار'}return m})(tabMeta);
 if(typeof visBadge==='function')visBadge=(f=>function(v){return f(v).replace(/ ?التفاعلية| ?تفاعلية| ?تفاعلي/g,'')})(visBadge);
+
+/* ============ البراعم: «أجرّب» — نشاط عملي لكل درس بحسب نوعه (بلا رسم إنسان أو حيوان) ============ */
+const KXD={
+k1_1:[{t:'tap',p:'المس كل شيء لتعرف من خلقه',it:[['☀️','الشمس','خلقها الله لتضيء النهار'],['🌙','القمر','خلقه الله نورًا في الليل'],['⭐','النجوم','زينة السماء، خلقها الله'],['🌍','الأرض','خلقها الله لنعيش عليها'],['🌊','البحر','خلقه الله وفيه خير كثير'],['🌳','الشجرة','الله يُنبتها من الأرض']],end:'كل هذا خلقه الله… فأقول: الحمد لله'}],
+k1_2:[{t:'sky1',p:'حرّك الشريط: من الليل إلى النهار… من يقلّبهما؟',end:'﴿يُقَلِّبُ ٱللَّهُ ٱلَّيۡلَ وَٱلنَّهَارَ﴾'},{t:'sort',p:'هل يأتي هذا في النهار أم في الليل؟',b:[['☀️','النهار'],['🌙','الليل']],it:[['الشمس تُشرق','☀️',0],['القمر يُنير','🌙',1],['النجوم تلمع','⭐',1],['صلاة الظهر','🕛',0],['صلاة العشاء','🌌',1],['أذهب إلى المدرسة','🎒',0]]}],
+k1_3:[{t:'seq',p:'رتّب آيات سورة الإخلاص',it:[['قُلۡ هُوَ ٱللَّهُ أَحَدٌ','١'],['ٱللَّهُ ٱلصَّمَدُ','٢'],['لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ','٣'],['وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ','٤']]},{t:'sort',p:'صحيح أم خطأ؟',b:[['✅','صحيح'],['❌','خطأ']],it:[['الله واحد لا شريك له','☝️',0],['لله ولد','❔',1],['لا يشبهه شيء','✨',0],['يوجد إله غير الله','❔',1]]}],
+k1_4:[{t:'sort',p:'هذه عبادة أم ليست عبادة؟ (والعادة الطيبة بنية صالحة تصير عبادة)',b:[['🤲','عبادة'],['🧸','لعب وعادة']],it:[['الصلاة','🕌',0],['الدعاء','🤲',0],['قراءة القرآن','📖',0],['برّ الوالدين','💝',0],['اللعب بالكرة','⚽',1],['مشاهدة الرسوم','📺',1]]}],
+k1_5:[{t:'pick',p:'الله يراني… ماذا أفعل؟',it:[['وجدتُ قطعة حلوى لأخي ولا أحد يراني','🍬',[['أتركها لأخي، فالله يراني',1],['آكلها بسرعة',0]],'الله يرانا في كل مكان، فنفعل الخير دائمًا.'],['همستُ بدعاء صغير في قلبي','🤲',[['الله يسمعني',1],['لا أحد يسمعني',0]],'الله السميع يسمع الدعاء ولو كان سرًّا.'],['أنا وحدي في الغرفة وأستطيع أن أكذب','🚪',[['أصدق؛ لأن الله معي',1],['أكذب، لا أحد يعلم',0]],'﴿إِنَّنِي مَعَكُمَآ أَسۡمَعُ وَأَرَىٰ﴾']]}],
+k1_6:[{t:'tap',p:'المس النعمة… من رزقني إياها؟',it:[['🍞','الخبز','رزق من الله'],['🥛','الحليب','رزق من الله'],['🍎','التفاح','الله أنبته في الشجرة'],['💧','الماء','الله أنزله من السماء'],['🍯','العسل','رزق من الله فيه شفاء'],['🌾','القمح','الله أنبته من الأرض']],end:'الله هو الرزّاق… فأقول: الحمد لله'}],
+k1_7:[{t:'match',p:'صِل الاسم بمعناه',it:[['الخالق','خلق كل شيء'],['الرزّاق','يعطينا الطعام والماء'],['السميع','يسمع كل صوت'],['البصير','يرى كل شيء'],['الرحيم','يرحمنا ويحبنا']]}],
+k1_8:[{t:'pick',p:'أخطأتُ… ماذا أفعل؟',it:[['كسرتُ كوبًا ولم أخبر أحدًا','🥤',[['أقول: أستغفر الله، وأخبر أمي بصدق',1],['أخفيه',0]],'الله يفرح بتوبة عبده.'],['تكلمتُ مع أخي بكلمة سيئة','💬',[['أعتذر منه وأستغفر الله',1],['أضحك وأمشي',0]],'«كل بني آدم خطّاء، وخير الخطائين التوابون» (الترمذي ٢٤٩٩، وحسنه الألباني).']]}],
+k2_1:[{t:'tap',p:'أين أستعمل الماء؟ المس',it:[['🥤','أشرب','الماء أصل الحياة'],['💧','أتوضأ','قبل كل صلاة'],['🚿','أغتسل','أكون نظيفًا'],['🌱','أسقي النبات','فيكبر ويخضرّ']]},{t:'pick',p:'الماء نعمة',it:[['تركتُ الصنبور مفتوحًا وأنا أنظّف أسناني','🚰',[['أغلقه؛ لا أسرف في الماء',1],['أتركه، الماء كثير',0]],'كان النبي ﷺ يتوضأ بالمُدّ، أي قليل من الماء (البخاري ٢٠١ ومسلم ٣٢٥).']]}],
+k2_2:[{t:'rain',p:'المس الغيمة لينزل المطر… وانظر ماذا ينبت!',end:'وعند المطر أقول: «اللهم صيّبًا نافعًا» (البخاري ١٠٣٢)'}],
+k2_3:[{t:'match',p:'صِل النعمة بما نفعله بها',it:[['👁 العينان','أرى بهما'],['👂 الأذنان','أسمع بهما'],['🏠 البيت','أسكن فيه'],['🍽 الطعام','آكل فأكبر'],['📖 القرآن','أقرأ فأهتدي']]},{t:'count',p:'حاول أن تعدّ نِعَم الله!',it:[['نِعَم الله',999]],free:1,end:'﴿وَإِن تَعُدُّواْ نِعۡمَةَ ٱللَّهِ لَا تُحۡصُوهَآ﴾'}],
+k2_4:[{t:'sort',p:'شُكرٌ أم ليس شُكرًا؟',b:[['💚','شكر لله'],['💔','ليس شكرًا']],it:[['أقول: الحمد لله','🤲',0],['أصلي وأطيع ربي','🕌',0],['أرمي الطعام','🗑',1],['أحافظ على ألعابي وكتبي','🎒',0],['أتذمّر من كل شيء','💢',1]]}],
+k3_1:[{t:'sort',p:'الملائكة… صحيح أم خطأ؟',b:[['✅','صحيح'],['❌','خطأ']],it:[['خُلقوا من نور','✨',0],['يطيعون الله دائمًا','🤍',0],['نراهم بأعيننا كل يوم','👁',1],['يعصون الله أحيانًا','❔',1],['نؤمن بهم ولو لم نرهم','💛',0]]}],
+k3_2:[{t:'match',p:'صِل الملَك بعمله',it:[['جبريل','ينزل بالوحي'],['ميكائيل','موكّل بالمطر'],['إسرافيل','ينفخ في الصور'],['الكاتبان','يكتبان أعمالي']]}],
+k3_3:[{t:'sort',p:'أين يُكتب هذا العمل؟',b:[['📗','الحسنات'],['📕','السيئات']],scale:1,it:[['ابتسمتُ لأخي','🌼',0],['كذبتُ','💬',1],['ساعدتُ أمي','🧺',0],['قلتُ: بسم الله','🤲',0],['ضربتُ صديقي','✋',1],['صليتُ','🕌',0]],end:'فأُكثر من الحسنات ✨'}],
+k4_1:[{t:'seq',p:'رتّب من الأول: من أرسل الله أولًا؟',it:[['آدم أول الأنبياء','١'],['نوح أول الرسل','٢'],['إبراهيم','٣'],['موسى','٤'],['عيسى','٥'],['محمد ﷺ آخرهم','٦']]}],
+k4_2:[{t:'tap',p:'أولو العزم من الرسل خمسة… المس كل نجمة',it:[['⭐','نوح','صبر مئات السنين يدعو قومه'],['⭐','إبراهيم','خليل الرحمٰن'],['⭐','موسى','كليم الله'],['⭐','عيسى','روح الله وكلمته'],['🌟','محمد ﷺ','خاتم النبيين، لا نبي بعده']]}],
+k4_3:[{t:'match',p:'صِل الكتاب بالرسول الذي نزل عليه',it:[['📜 التوراة','موسى'],['📜 الإنجيل','عيسى'],['📜 الزبور','داود'],['📖 القرآن','محمد ﷺ']]}],
+k5_1:[{t:'seq',p:'رتّب نسب النبي ﷺ',it:[['محمد','١'],['بن عبد الله','٢'],['بن عبد المطلب','٣'],['من قريش','٤']]}],
+k5_2:[{t:'story',it:[['🕋🏜','وُلد النبي ﷺ في مكة المكرمة، عام الفيل.','ثم ماذا؟'],['🌙💛','مات أبوه قبل أن يولد، فكان يتيمًا.','من كفله؟'],['🏠🤲','كفله جده عبد المطلب، ثم عمه أبو طالب.','✓ فهمت']]}],
+k5_3:[{t:'pick',p:'أكون صادقًا أمينًا مثل النبي ﷺ',it:[['وجدتُ مالًا في الطريق','💰',[['أعطيه لأبي ليبحث عن صاحبه',1],['آخذه لي',0]],'المؤمن أمين لا يأخذ ما ليس له.'],['سألتني المعلمة: من كسر القلم؟ وأنا كسرته','✏️',[['أقول: أنا، وأعتذر',1],['أقول: لا أعرف',0]],'«عليكم بالصدق» (مسلم ٢٦٠٧).']]}],
+k5_4:[{t:'story',it:[['⛰🌙','كان النبي ﷺ يتعبّد في غار حراء.','المس الغار'],['✨📜','فجاءه جبريل بأول القرآن.','ماذا قال؟'],['📖','﴿ٱقۡرَأۡ بِٱسۡمِ رَبِّكَ ٱلَّذِي خَلَقَ﴾ (العلق ١).','✓ أول ما نزل']]}],
+k5_5:[{t:'tap',p:'من أوائل من آمن بالنبي ﷺ؟ المس',it:[['💛','خديجة','زوجته، أول من آمن'],['💛','أبو بكر','صاحبه الصدّيق'],['💛','علي','ابن عمه، وكان صغيرًا'],['💛','زيد بن حارثة','مولاه']]}],
+k5_6:[{t:'trip',p:'ساعد في رحلة الهجرة: المس المحطة التالية',it:[['🕋','مكة','خرج النبي ﷺ وأبو بكر'],['⛰','غار ثور','اختبآ ثلاثة أيام، و﴿لَا تَحۡزَنۡ إِنَّ ٱللَّهَ مَعَنَا﴾'],['🏜','الطريق','سارا في الصحراء والله يحفظهما'],['🕌','المدينة','استقبلهما أهلها فرحين']]}],
+k5_7:[{t:'build',p:'ابنِ المسجد النبوي: المس الحجر الصحيح',roof:'المسجد النبوي 🕌',it:[['بنى النبي ﷺ المسجد','١'],['آخى بين المهاجرين والأنصار','٢'],['صاروا إخوة يتعاونون','٣'],['انتشر الإسلام','٤']]}],
+k5_8:[{t:'sort',p:'هل كان النبي ﷺ يفعل هذا؟',b:[['💚','من خُلقه'],['✖️','ليس من خُلقه']],it:[['يسلّم على الصغار','👋',0],['يساعد أهله في البيت','🏠',0],['يغضب ويصرخ لأي سبب','💢',1],['يرحم الضعيف','🤍',0],['يكذب ليضحك الناس','💬',1]]}],
+k5_9:[{t:'pick',p:'متى أصلّي على النبي ﷺ؟',it:[['سمعتُ اسم النبي ﷺ','🔔',[['أقول: صلى الله عليه وسلم',1],['أسكت',0]],'«من صلّى عليّ واحدة صلّى الله عليه عشرًا» (مسلم ٤٠٨).']]},{t:'count',p:'صلِّ على النبي ﷺ عشر مرات: المس مع كل صلاة',it:[['اللهم صلِّ على محمد',10]],tap:1}],
+k6_1:[{t:'build',p:'ابنِ بيت الإسلام: أعمدته الخمسة بالترتيب',roof:'الإسلام',it:[['الشهادتان','١'],['الصلاة','٢'],['الزكاة','٣'],['صوم رمضان','٤'],['الحج','٥']]}],
+k6_2:[{t:'seq',p:'رتّب كلمات الشهادتين',it:[['أشهد','١'],['أن لا إله إلا الله','٢'],['وأشهد','٣'],['أن محمدًا رسول الله','٤']]},{t:'match',p:'ما معناها؟',it:[['لا إله إلا الله','لا أعبد إلا الله'],['محمد رسول الله','أطيعه وأتّبعه']]}],
+k6_3:[{t:'build',p:'أركان الإيمان ستة: ابنِها',roof:'الإيمان',it:[['الإيمان بالله','١'],['بالملائكة','٢'],['بالكتب','٣'],['بالرسل','٤'],['باليوم الآخر','٥'],['بالقدر خيره وشره','٦']]}],
+k6_4:[{t:'pick',p:'الإحسان: أتقن عملي لأن الله يراني',it:[['أصلي وحدي في غرفتي','🕌',[['أصلي بهدوء وأتقن',1],['أسرع لأنتهي',0]],'«أن تعبد الله كأنك تراه، فإن لم تكن تراه فإنه يراك» (مسلم ٨).'],['أرتّب ألعابي ولا أحد ينظر','🧸',[['أرتبها جيدًا',1],['أخبئها تحت السرير',0]],'«إن الله يحب إذا عمل أحدكم عملًا أن يتقنه» (أبو يعلى، وحسنه الألباني).']]}],
+k7_1:[{t:'tap',p:'المس لتتنظف!',it:[['🧼','أغسل يدي','قبل الطعام وبعده'],['🪥','أنظف أسناني','كل صباح ومساء'],['👕','ألبس النظيف','الله جميل يحب الجمال'],['✂️','أقص أظفاري','من الفطرة']],end:'«الطُّهور شطر الإيمان» (مسلم ٢٢٣)'}],
+k7_2:[{t:'door',p:'آداب الخلاء: اختر الرِّجل والذِّكر',it:[['أدخل الخلاء','in'],['أخرج من الخلاء','out']]}],
+k7_3:[{t:'wudu',p:'توضأ بنفسك: المس كل عضو بالترتيب'}],
+k7_4:[{t:'sort',p:'هل ينتقض وضوئي؟',b:[['💧','وضوئي باقٍ'],['💔','انتقض: أتوضأ']],it:[['ذهبتُ إلى الخلاء','🚻',1],['خرجت مني ريح','💨',1],['شربتُ ماءً','🥤',0],['لعبتُ بالكرة','⚽',0],['نمتُ نومًا عميقًا','💤',1],['قرأتُ قصة','📕',0]]}],
+k7_5:[{t:'pick',p:'متى أستاك؟',it:[['قبل الوضوء والصلاة','🪥',[['نعم، كان النبي ﷺ يحبه',1],['لا',0]],'«لولا أن أشق على أمتي لأمرتهم بالسواك عند كل صلاة» (البخاري ٨٨٧ ومسلم ٢٥٢).'],['السواك…','✨',[['مطهرة للفم مرضاة للرب',1],['مضيعة للوقت',0]],'(البخاري تعليقًا، والنسائي ٥، وصححه الألباني).']]}],
+k8_1:[{t:'sky',p:'أين الشمس في وقت كل صلاة؟'}],
+k8_2:[{t:'count',p:'كم ركعة في كل صلاة؟',it:[['الفجر',2],['الظهر',4],['العصر',4],['المغرب',3],['العشاء',4]],end:'المجموع ١٧ ركعة في اليوم'}],
+k8_3:[{t:'seq',p:'رتّب جمل الأذان',it:[['الله أكبر، الله أكبر','١'],['أشهد أن لا إله إلا الله','٢'],['أشهد أن محمدًا رسول الله','٣'],['حيّ على الصلاة','٤'],['حيّ على الفلاح','٥'],['الله أكبر، الله أكبر','٦'],['لا إله إلا الله','٧']]},{t:'pick',p:'وأردّد مع المؤذن',it:[['قال المؤذن: حيّ على الصلاة','🔔',[['لا حول ولا قوة إلا بالله',1],['حيّ على الصلاة',0]],'(مسلم ٣٨٥).']]}],
+k8_4:[{t:'qibla',p:'أدِر السهم نحو الكعبة 🕋'}],
+k8_5:[{t:'seq',p:'رتّب أفعال الصلاة',it:[['التكبير: الله أكبر','١'],['قراءة الفاتحة','٢'],['الركوع: سبحان ربي العظيم','٣'],['الرفع: سمع الله لمن حمده','٤'],['السجود: سبحان ربي الأعلى','٥'],['الجلوس بين السجدتين','٦'],['السجدة الثانية','٧'],['التشهد','٨'],['التسليم','٩']]},{t:'match',p:'ماذا أقول في…؟',it:[['الركوع','سبحان ربي العظيم'],['السجود','سبحان ربي الأعلى'],['الرفع من الركوع','ربنا ولك الحمد'],['آخر الصلاة','السلام عليكم ورحمة الله']]}],
+k8_6:[{t:'pick',p:'أحب الصلاة',it:[['سمعتُ الأذان وأنا ألعب','🔔',[['أترك اللعب وأستعد للصلاة',1],['أكمل اللعب',0]],'«أحب الأعمال إلى الله الصلاة على وقتها» (البخاري ٥٢٧ ومسلم ٨٥).']]}],
+k8_7:[{t:'door',p:'آداب المسجد: اختر الرِّجل والذِّكر',it:[['أدخل المسجد','min'],['أخرج من المسجد','mout']]},{t:'sort',p:'في المسجد…',b:[['💚','أفعل'],['✖️','لا أفعل']],it:[['أكون هادئًا','🤫',0],['أركض وأصرخ','💨',1],['أصلي ركعتين تحية المسجد','🕌',0],['أرمي الأوراق','🗑',1]]}],
+k8_8:[{t:'count',p:'صلاة الجماعة أفضل من صلاة الفذّ بكم درجة؟',it:[['درجة',27]],end:'(البخاري ٦٤٥ ومسلم ٦٥٠)'}],
+k9_1:[{t:'fast',p:'يوم في رمضان: متى نأكل؟'}],
+k9_2:[{t:'jar',p:'ضع صدقتك في الصندوق',it:[['🪙','قطعة نقود','«اتقوا النار ولو بشقّ تمرة»'],['🌼','ابتسامة','«تبسّمك في وجه أخيك صدقة»'],['💬','كلمة طيبة','«الكلمة الطيبة صدقة»'],['🪨','إماطة الأذى عن الطريق','صدقة'],['🍞','طعام لجائع','صدقة عظيمة']]}],
+k9_3:[{t:'tawaf',p:'طُف حول الكعبة سبع مرات: المس الكعبة في كل شوط'}],
+k9_4:[{t:'match',p:'صِل العيد بما يأتي بعده',it:[['🌙 عيد الفطر','بعد صيام رمضان'],['🕋 عيد الأضحى','في أيام الحج'],['📣 التكبير','نكبّر الله في العيدين']]},{t:'tap',p:'في العيد…',it:[['📣','نكبّر','الله أكبر الله أكبر لا إله إلا الله'],['🕌','نصلي العيد','مع المسلمين'],['🏠','نزور الأرحام','صلة الرحم'],['🎁','نفرح ونهدي','فرح بنعمة الله']]}],
+k10_1:[{t:'count',p:'كم حسنة في «الم»؟ (ثلاثة أحرف)',it:[['حسنة',30]],end:'«من قرأ حرفًا من كتاب الله فله به حسنة، والحسنة بعشر أمثالها… لا أقول الم حرف، ولكن ألف حرف ولام حرف وميم حرف» (الترمذي ٢٩١٠، وصححه الألباني)'}],
+k10_2:[{t:'seq',p:'رتّب ما أفعله قبل التلاوة',it:[['أتوضأ وأكون طاهرًا','١'],['أمسك المصحف باحترام','٢'],['أقول: أعوذ بالله من الشيطان الرجيم','٣'],['أقرأ بهدوء وترتيل','٤']]}],
+k10_3:[{t:'seq',p:'رتّب آيات الفاتحة',it:[['بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ','١'],['ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ','٢'],['ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ','٣'],['مَٰلِكِ يَوۡمِ ٱلدِّينِ','٤'],['إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ','٥'],['ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ','٦'],['صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ…','٧']]}],
+k10_4:[{t:'count',p:'سورة الإخلاص تعدل ثلث القرآن… فكم مرة أقرؤها لتعدل القرآن كله؟',it:[['مرة',3]],end:'(البخاري ٥٠١٣)'}],
+k10_5:[{t:'match',p:'صِل أول السورة باسمها',it:[['قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ','سورة الفلق'],['قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ','سورة الناس'],['قُلۡ هُوَ ٱللَّهُ أَحَدٌ','سورة الإخلاص']]},{t:'tap',p:'متى أقرأ المعوذتين؟',it:[['🌅','في الصباح','مع أذكار الصباح'],['🌇','في المساء','مع أذكار المساء'],['🛏','قبل النوم','أنفث في كفيّ وأمسح جسدي']]}],
+k10_6:[{t:'seq',p:'رتّب أول آية الكرسي',it:[['ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ','١'],['ٱلۡحَيُّ ٱلۡقَيُّومُ','٢'],['لَا تَأۡخُذُهُۥ سِنَةٞ وَلَا نَوۡمٞ','٣'],['لَّهُۥ مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِ','٤']]}],
+k11_1:[{t:'pick',p:'ماذا أقول؟',it:[['قبل أن آكل','🍽',[['بسم الله',1],['الحمد لله',0]],'«يا غلام، سمِّ الله، وكُل بيمينك، وكُل مما يليك» (البخاري ٥٣٧٦ ومسلم ٢٠٢٢).'],['بعد أن أنتهي','✅',[['الحمد لله',1],['بسم الله',0]],'الحمد لله على نعمة الطعام.'],['نسيتُ التسمية في أوله','❗',[['بسم الله أوله وآخره',1],['لا أقول شيئًا',0]],'(أبو داود ٣٧٦٧ والترمذي ١٨٥٨، وصححه الألباني).']]}],
+k11_2:[{t:'pick',p:'ماذا أقول؟',it:[['قبل النوم','🛏',[['باسمك اللهم أموت وأحيا',1],['الحمد لله الذي أحيانا',0]],'(البخاري ٦٣١٢).'],['حين أستيقظ','🌅',[['الحمد لله الذي أحيانا بعد ما أماتنا وإليه النشور',1],['باسمك اللهم أموت وأحيا',0]],'(البخاري ٦٣١٢).']]}],
+k11_3:[{t:'match',p:'صِل التحية بردّها',it:[['السلام عليكم','وعليكم السلام'],['السلام عليكم ورحمة الله','وعليكم السلام ورحمة الله'],['يرحمك الله','يهديكم الله ويصلح بالكم']]}],
+k11_4:[{t:'seq',p:'رتّب ذكر الخروج من البيت',it:[['بسم الله','١'],['توكلت على الله','٢'],['ولا حول ولا قوة','٣'],['إلا بالله','٤']]}],
+k11_5:[{t:'seq',p:'رتّب ما يقال عند العطاس',it:[['العاطس: الحمد لله','١'],['السامع: يرحمك الله','٢'],['العاطس: يهديكم الله ويصلح بالكم','٣']]}],
+k12_1:[{t:'pick',p:'كيف أبرّ والديّ؟',it:[['نادتني أمي وأنا ألعب','🧸',[['أقول: نعم يا أمي، وأذهب إليها',1],['أتظاهر أني لم أسمع',0]],'﴿وَبِٱلۡوَٰلِدَيۡنِ إِحۡسَٰنًا﴾'],['رأيتُ أبي يحمل أكياسًا ثقيلة','🛍',[['أساعده',1],['أتفرّج',0]],'البر خدمة الوالدين.'],['قبل النوم','🌙',[['أدعو: رب ارحمهما كما ربياني صغيرًا',1],['أنام فقط',0]],'﴿رَّبِّ ٱرۡحَمۡهُمَا كَمَا رَبَّيَانِي صَغِيرٗا﴾']]}],
+k12_2:[{t:'path',p:'طريق الصدق: كل جواب صادق يقرّبك من الجنة 🏡',it:[['سألتني أمي: هل نظّفت أسنانك؟ ولم أفعل','🪥',[['لا، سأنظفها الآن',1],['نعم',0]]],['خسرتُ في اللعبة','🎲',[['أقول: خسرت',1],['أقول: أنا فزت',0]]],['أخطأتُ في الواجب','📒',[['أعترف وأصحّح',1],['أقول: المعلمة أخطأت',0]]]],end:'«إن الصدق يهدي إلى البر، وإن البر يهدي إلى الجنة» (البخاري ٦٠٩٤ ومسلم ٢٦٠٧)'}],
+k12_3:[{t:'sort',p:'أمين أم غير أمين؟',b:[['🤝','أمانة'],['✖️','خيانة']],it:[['أعدتُ لصديقي قلمه','✏️',0],['أخذتُ لعبة أخي دون إذنه','🧸',1],['حفظتُ السرّ','🤫',0],['أعدتُ الباقي من النقود لأمي','🪙',0],['أخذتُ حلوى من المحل ولم أدفع','🍬',1]]}],
+k12_4:[{t:'sort',p:'رحمة أم قسوة؟',b:[['🤍','رحمة'],['💢','قسوة']],it:[['أسقي العصفور العطشان','💧',0],['أرمي الحجارة على القطة','🪨',1],['أساعد الصغير','🤲',0],['أحترم الكبير','🌸',0],['أسخر من الضعيف','🗯',1]],end:'«الراحمون يرحمهم الرحمٰن» (أبو داود ٤٩٤١ والترمذي ١٩٢٤، وصححه)'}],
+k12_5:[{t:'jar',p:'اجمع صدقات بلا مال!',it:[['🌼','ابتسامة','«تبسّمك في وجه أخيك صدقة» (الترمذي ١٩٥٦)'],['💬','كلمة طيبة','«والكلمة الطيبة صدقة» (البخاري ٢٩٨٩ ومسلم ١٠٠٩)'],['👋','السلام','ينشر المحبة'],['💐','شكرًا','«لا يشكر الله من لا يشكر الناس» (أبو داود ٤٨١١، وصححه الألباني)']]}],
+k12_6:[{t:'sort',p:'من الحياء أم ليس منه؟',b:[['🌸','حياء'],['✖️','ليس حياءً']],it:[['أستر نفسي بلباس جميل','👕',0],['أخفض صوتي','🤫',0],['أقول كلامًا قبيحًا','🗯',1],['أستأذن قبل الدخول','🚪',0]],end:'«الحياء لا يأتي إلا بخير» (البخاري ٦١١٧ ومسلم ٣٧)'}],
+k12_7:[{t:'pick',p:'جاري…',it:[['طبخت أمي طعامًا طيبًا','🍲',[['نهدي جارنا منه',1],['نأكله كله',0]],'«إذا طبخت مرقة فأكثر ماءها وتعاهد جيرانك» (مسلم ٢٦٢٥).'],['أريد أن ألعب بصوت عالٍ ليلًا','🥁',[['ألعب بهدوء لئلا أزعج جاري',1],['لا يهم',0]],'«من كان يؤمن بالله واليوم الآخر فلا يؤذِ جاره» (البخاري ٦٠١٨).']]}],
+k12_8:[{t:'sort',p:'تعاون على الخير أم على الشر؟',b:[['🤝','على الخير'],['✖️','على الشر']],it:[['نرتّب الصف معًا','🧹',0],['نساعد زميلنا في الدرس','📚',0],['نتفق على إخفاء حقيبة صديقنا','🎒',1],['نزرع شجرة','🌱',0]],end:'﴿وَتَعَاوَنُواْ عَلَى ٱلۡبِرِّ وَٱلتَّقۡوَىٰ وَلَا تَعَاوَنُواْ عَلَى ٱلۡإِثۡمِ وَٱلۡعُدۡوَٰنِ﴾'}],
+k13_1:[{t:'plate',p:'آداب الطعام: المس الصحيح'}],
+k13_2:[{t:'knock',p:'أستأذن ثلاث مرات'}],
+k13_3:[{t:'door',p:'باليمين أم باليسار؟',it:[['ألبس الحذاء','shoeOn'],['أخلع الحذاء','shoeOff'],['ألبس ثوبي','dressOn']]}],
+k14_1:[{t:'story',it:[['🌍✨','خلق الله آدم من طين، وهو أبو البشر.','ثم؟'],['✨🔥','أمر الله الملائكة بالسجود له فسجدوا، إلا إبليس تكبّر.','ثم؟'],['🍎💔','أكل آدم من الشجرة فأخطأ.','ماذا فعل؟'],['🤲💚','تاب آدم: ﴿رَبَّنَا ظَلَمۡنَآ أَنفُسَنَا﴾، فتاب الله عليه.','✓ أتوب مثله إذا أخطأت']]}],
+k14_2:[{t:'ark',p:'ساعد في بناء السفينة: المس الألواح'}],
+k14_3:[{t:'story',it:[['🗿🗿🗿','كان قوم إبراهيم يعبدون أصنامًا من حجارة.','المس الأصنام'],['🪓💥','كسرها إبراهيم وترك كبيرها، ليبيّن أنها لا تنفع ولا تضر.','ماذا فعلوا؟'],['🔥🔥🔥','ألقوه في النار!','ماذا قال الله؟'],['❄️🌿','﴿يَٰنَارُ كُونِي بَرۡدٗا وَسَلَٰمًا عَلَىٰٓ إِبۡرَٰهِيمَ﴾ فنجّاه الله.','✓ الله وحده ينفع ويضر']]}],
+k14_4:[{t:'build',p:'ابنِ الكعبة مع الدعاء: المس الحجارة بالترتيب',roof:'الكعبة 🕋',it:[['﴿رَبَّنَا تَقَبَّلۡ مِنَّآ﴾','١'],['﴿إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلۡعَلِيمُ﴾','٢']]}],
+k14_5:[{t:'story',it:[['🕳💧','ألقى إخوة يوسف أخاهم في البئر.','ماذا فعل يوسف؟'],['🤲🌙','صبر يوسف ولم ييأس من رحمة الله.','ثم؟'],['👑🏛','جعله الله عزيز مصر.','وإخوته؟'],['💚🤝','عفا عن إخوته: ﴿لَا تَثۡرِيبَ عَلَيۡكُمُ ٱلۡيَوۡمَ﴾.','✓ أصبر وأعفو']]}],
+k14_6:[{t:'sea',p:'المس العصا ليضرب موسى البحر'}],
+k14_7:[{t:'story',it:[['🌊🌑🌑','كان يونس في ظلمات البحر.','بماذا دعا؟'],['🤲✨','﴿لَّآ إِلَٰهَ إِلَّآ أَنتَ سُبۡحَٰنَكَ إِنِّي كُنتُ مِنَ ٱلظَّٰلِمِينَ﴾','ثم؟'],['🏖☀️','فنجّاه الله: ﴿وَكَذَٰلِكَ نُـۨجِي ٱلۡمُؤۡمِنِينَ﴾.','✓ أدعو الله في الضيق']]},{t:'seq',p:'رتّب دعاء يونس',it:[['لا إله إلا أنت','١'],['سبحانك','٢'],['إني كنت من الظالمين','٣']]}],
+k14_8:[{t:'sort',p:'عيسى عليه السلام… صحيح أم خطأ؟',b:[['✅','صحيح'],['❌','خطأ']],it:[['نبي كريم من أولي العزم','⭐',0],['وُلد من غير أب بقدرة الله','✨',0],['أمه مريم امرأة صالحة','🌸',0],['هو الله أو ابن الله','❔',1],['قال في المهد: إني عبد الله','📜',0]]}],
+k15_1:[{t:'sort',p:'﴿فَمَن يَعۡمَلۡ مِثۡقَالَ ذَرَّةٍ خَيۡرٗا يَرَهُۥ﴾ — ضع العمل في الكفة',b:[['📗','خير'],['📕','شر']],scale:1,it:[['أزلتُ حجرًا من الطريق','🪨',0],['قلتُ: سبحان الله','🤲',0],['غششتُ في الامتحان','📝',1],['سقيتُ نبتة','🌱',0],['أهنتُ صديقي','💢',1],['تصدّقتُ بقليل','🪙',0]],end:'كل عمل ولو صغيرًا يُوزن يوم القيامة'}],
+k15_2:[{t:'tap',p:'اكتشف الجنة: المس',it:[['🌊','أنهار','من ماء ولبن وعسل'],['🌳','أشجار','ظلّها لا ينتهي'],['🏰','قصور','لمن آمن وعمل صالحًا'],['✨','ما لا عين رأت','ولا أذن سمعت، ولا خطر على قلب بشر (البخاري ٣٢٤٤ ومسلم ٢٨٢٤)']]}],
+k15_3:[{t:'sort',p:'هذا يقرّبني من الجنة أم من النار؟',b:[['🏡','يقرّب من الجنة'],['🔥','يقرّب من النار']],it:[['الصلاة','🕌',0],['الكذب','💬',1],['برّ الوالدين','💝',0],['ظلم الناس','✋',1],['الصدقة','🪙',0]],end:'ونقول: اللهم أجرنا من النار'}],
+k15_4:[{t:'path',p:'طريقي إلى الجنة 🏡',it:[['حان وقت الصلاة','🕌',[['أصلي',1],['أؤجلها',0]]],['طلبت أمي مساعدتها','💝',[['أساعدها',1],['أرفض',0]]],['أمامي درس في ديني','📚',[['أتعلمه',1],['أتركه',0]]],['سألني صديقي سؤالًا','💬',[['أصدقه',1],['أكذب',0]]]],end:'«من سلك طريقًا يلتمس فيه علمًا سهّل الله له به طريقًا إلى الجنة» (مسلم ٢٦٩٩)'}],
+k16_1:[{t:'match',p:'الأسئلة الثلاثة وجوابها',it:[['من ربك؟','ربي الله'],['ما دينك؟','ديني الإسلام'],['من نبيك؟','نبيي محمد ﷺ']]}],
+k16_2:[{t:'build',p:'مراتب الدين: ابنِها من الأسفل',roof:'الدين',it:[['الإسلام','١'],['الإيمان','٢'],['الإحسان','٣']]},{t:'sort',p:'إسلام (عمل) أم إيمان (تصديق بالقلب)؟',b:[['🕌','إسلام'],['💛','إيمان']],it:[['الصلاة','🕌',0],['الإيمان بالملائكة','✨',1],['الصيام','🌙',0],['الإيمان باليوم الآخر','🌅',1],['الزكاة','🪙',0]]}],
+k16_3:[{t:'sort',p:'توحيد أم شرك؟',b:[['☝️','توحيد'],['⛔','شرك']],it:[['أدعو الله وحده','🤲',0],['أطلب الشفاء من صنم','🗿',1],['أسجد لله','🕌',0],['أحلف بالله','✋',0],['أظن أن الخرزة تحميني','🧿',1]]}],
+k16_4:[{t:'tap',p:'قبل أن أصلي أتأكد من…',it:[['💧','الطهارة','أتوضأ'],['👕','الثياب','طاهرة تسترني'],['⏰','الوقت','دخل وقت الصلاة'],['🕋','القبلة','أتجه إلى الكعبة'],['💭','النية','أنوي بقلبي']]}],
+k16_5:[{t:'seq',p:'رتّب أفعال الصلاة',it:[['التكبير','١'],['الفاتحة','٢'],['الركوع','٣'],['الرفع','٤'],['السجدتان','٥'],['التشهد','٦'],['التسليم','٧']]}],
+k16_6:[{t:'match',p:'صِل الآية بمعناها',it:[['ٱلۡحَمۡدُ لِلَّهِ','أشكر الله وأثني عليه'],['إِيَّاكَ نَعۡبُدُ','أعبد الله وحده'],['وَإِيَّاكَ نَسۡتَعِينُ','أطلب العون من الله'],['ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ','دُلّني على الطريق الصحيح']]}],
+k16_7:[{t:'count',p:'كم دقيقة تتعلم كل يوم؟ اختر هدفك',it:[['دقائق',10]],free:1,end:'«من يرد الله به خيرًا يفقّهه في الدين» (البخاري ٧١ ومسلم ١٠٣٧)'}],
+k16_8:[{t:'tap',p:'ماذا تعلمتُ في رحلتي؟ المس',it:[['☝️','ربي الله','وعرفت أسماءه ونعمه'],['🕌','ديني الإسلام','أركانه وأركان الإيمان'],['💚','نبيي محمد ﷺ','سيرته وأخلاقه'],['💧','الطهارة والصلاة','وأتوضأ وأصلي'],['📖','القرآن والأذكار','حفظت سورًا وأذكارًا'],['🌸','الأخلاق','الصدق والأمانة والبر']],end:'أنت مستعد للتأسيس ⛰'}]
+};
+
+/* ============ البراعم: محرّك «أشاهد ← أجرّب ← ألعب» ============ */
+const kxSh=a=>{const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
+const kxR=()=>vKLesson();
+function kxS(){return KL.xs=KL.xs||{}}
+function kxFb(t,ok){const s=kxS();s.fb=t;s.fk=ok?'ok':'no';s.fq=(s.fq||0)+1;try{sound(ok?'ok':'bad')}catch(e){}}
+function kxStart(){kStop();KL.st='try';KL.xa=0;KL.xs={};try{delete FQST('kid').w.kxw}catch(e){}sound('lit');kxR()}
+function kxNextAct(){KL.xa++;KL.xs={};try{delete FQST('kid').w.kxw}catch(e){}kxR()}
+function kxStg(st){const T=[['learn','👀','أشاهد'],['try','🧩','أجرّب'],['game','🎮','ألعب'],['done','⭐','أفوز']],i=T.findIndex(x=>x[0]===st);
+  return `<div class="kx-stg">${T.map(([k,ic,n],j)=>`<span class="${j===i?'on':j<i?'ok':''}"><b>${j<i?'✓':ic}</b>${n}</span>`).join('<i></i>')}</div>`}
+const KXF={
+/* المس لتكتشف */
+tap(a,s){s.r=s.r||{};const all=a.it.every((_,i)=>s.r[i]),L=s.last;
+  return [`<div class="kx-tap">${a.it.map(([e,n,f],i)=>`<button class="${s.r[i]?'on':''}" onclick="kxT(${i})"><span>${e}</span>${s.r[i]?`<b>${n}</b>`:'<small>المس</small>'}</button>`).join('')}</div>
+   <div class="kx-cap">${L!=null?`<b>${a.it[L][0]} ${a.it[L][1]}</b><p>${a.it[L][2]}</p>`:'<p>المس كل دائرة لتعرف ما فيها</p>'}</div>${all&&a.end?`<p class="kx-end">${a.end}</p>`:''}`,all]},
+/* صنّف في سلّتين */
+sort(a,s){if(!s.o){s.o=kxSh(a.it.map((_,i)=>i));s.i=0;s.c=[0,0]}const done=s.i>=s.o.length,it=done?null:a.it[s.o[s.i]];
+  const tilt=a.scale?Math.max(-14,Math.min(14,(s.c[0]-s.c[1])*5)):0;
+  return [`${a.scale?`<svg class="kx-scale" viewBox="-12 0 264 120"><rect x="116" y="30" width="8" height="80" rx="3" class="kx-st"/><rect x="80" y="108" width="80" height="8" rx="4" class="kx-st"/>
+     <g style="transform:rotate(${tilt}deg);transform-origin:120px 34px;transition:transform .5s"><rect x="20" y="30" width="200" height="6" rx="3" class="kx-st"/>
+     <path d="M30 36 l-18 36 h56 z" class="kx-pan b"/><path d="M210 36 l-18 36 h56 z" class="kx-pan a"/><text x="40" y="64" class="kx-pt">${AR(s.c[1])}</text><text x="220" y="64" class="kx-pt">${AR(s.c[0])}</text></g></svg>`:''}
+   ${done?'':`<div class="kx-card ${s.fk==='no'?'kx-shk':''}" key="${s.i}-${s.fq||0}"><span>${it[1]}</span><b>${it[0]}</b></div>`}
+   <div class="kx-bins">${a.b.map(([e,n],j)=>`<button onclick="kxSo(${j})" ${done?'disabled':''}><span>${e}</span><b>${n}</b><small>${AR(s.c[j])}</small></button>`).join('')}</div>
+   <p class="kx-fb ${s.fk||''}">${s.fb||`${AR(Math.min(s.i+1,s.o.length))} من ${AR(s.o.length)}`}</p>${done&&a.end?`<p class="kx-end">${a.end}</p>`:''}`,done]},
+/* رتّب */
+seq(a,s){if(!s.o){s.o=kxSh(a.it.map((_,i)=>i));s.d=[]}const done=s.d.length===a.it.length;
+  return [`<div class="kx-track">${a.it.map((x,i)=>`<div class="${i<s.d.length?'on':''}"><i>${AR(i+1)}</i>${i<s.d.length?x[0]:'…'}</div>`).join('')}</div>
+   <div class="kx-tiles">${s.o.filter(i=>!s.d.includes(i)).map(i=>`<button class="${s.fk==='no'&&s.w===i?'kx-shk':''}" onclick="kxSq(${i})">${a.it[i][0]}</button>`).join('')}</div>
+   <p class="kx-fb ${s.fk||''}">${s.fb||'المس ما يأتي أولًا'}</p>${done&&a.end?`<p class="kx-end">${a.end}</p>`:''}`,done]},
+/* صِل */
+match(a,s){if(!s.r){s.r=kxSh(a.it.map((_,i)=>i));s.m={}}const done=Object.keys(s.m).length===a.it.length;
+  return [`<div class="kx-mt"><div>${a.it.map(([l],i)=>`<button class="${s.m[i]?'ok':s.l===i?'on':''}" ${s.m[i]?'disabled':''} onclick="kxML(${i})">${l}</button>`).join('')}</div>
+   <div>${s.r.map(j=>`<button class="${s.m[j]?'ok':s.fk==='no'&&s.w===j?'kx-shk':''}" ${s.m[j]?'disabled':''} onclick="kxMR(${j})">${a.it[j][1]}</button>`).join('')}</div></div>
+   <p class="kx-fb ${s.fk||''}">${s.fb||'المس من اليمين، ثم ما يناسبه من اليسار'}</p>${done&&a.end?`<p class="kx-end">${a.end}</p>`:''}`,done]},
+/* ماذا أفعل؟ */
+pick(a,s){s.i=s.i||0;const done=s.i>=a.it.length;if(done)return [`<p class="kx-end">أحسنت! 🌟 ${a.end||''}</p>`,true];const [q,e,o,w]=a.it[s.i];if(!s.ord||s.oi!==s.i){s.ord=kxSh(o.map((_,j)=>j));s.oi=s.i;s.a=null}
+  return [`${a.board?kxBoard(a,s):''}<div class="kx-q"><span>${e}</span><b>${q}</b></div><div class="kx-opts">${s.ord.map(j=>`<button class="${s.a===j?(o[j][1]?'ok':'no kx-shk'):''}" ${s.a!=null&&o[s.a][1]?'disabled':''} onclick="kxPk(${j})">${o[j][0]}</button>`).join('')}</div>
+   ${s.a!=null?`<p class="kx-fb ${o[s.a][1]?'ok':'no'}">${o[s.a][1]?'✓ أحسنت! ':'🤔 فكّر مرة أخرى. '}${o[s.a][1]&&w?w:''}</p>${o[s.a][1]?`<button class="k-btn ghost" onclick="kxPn()">التالي ←</button>`:''}`:''}<small class="kx-n">${AR(s.i+1)} / ${AR(a.it.length)}</small>`,false]},
+path(a,s){a.board=1;return KXF.pick(a,s)},
+/* ابنِ */
+build(a,s){if(!s.o){s.o=kxSh(a.it.map((_,i)=>i));s.n=0}const N=a.it.length,done=s.n===N,W=300,pw=Math.min(46,(W-40)/N-8),gap=(W-40-pw*N)/(N+1);
+  return [`<svg class="kx-house" viewBox="0 0 300 200"><rect x="14" y="176" width="272" height="14" rx="4" class="kx-base"/>
+    <path d="M20 66 L150 14 L280 66Z" class="kx-roof ${done?'on':''}"/>${done?`<text x="150" y="56" class="kx-rt">${a.roof}</text>`:''}
+    ${a.it.map((x,i)=>{const X=280-gap-pw-(pw+gap)*i,on=i<s.n;return `<rect x="${X}" y="${on?70:170}" width="${pw}" height="${on?106:6}" rx="5" class="kx-pil ${on?'on':''}" style="transition:all .5s"/>${on?`<text x="${X+pw/2}" y="124" class="kx-pt" transform="rotate(-90 ${X+pw/2} 124)">${x[0].length>16?x[0].slice(0,15)+'…':x[0]}</text>`:''}`}).join('')}</svg>
+   <div class="kx-tiles">${s.o.filter(i=>i>=s.n).map(i=>`<button class="${s.fk==='no'&&s.w===i?'kx-shk':''}" onclick="kxBd(${i})">${a.it[i][0]}</button>`).join('')}</div>
+   <p class="kx-fb ${s.fk||''}">${done?'✓ اكتمل البناء!':s.fb||'المس العمود الأول'}</p>`,done]},
+/* عدّ */
+count(a,s){s.v=s.v||a.it.map(()=>0);const ok=a.free?s.v.every(v=>v>0):s.ck&&a.it.every(([n,v],i)=>s.v[i]===v);
+  if(a.tap){const v=s.v[0],n=a.it[0][1];return [`<button class="kx-big ${v>=n?'ok':''}" onclick="kxCt(0,1)"><b>${AR(Math.min(v,n))}</b><small>${a.it[0][0]}</small></button><i class="kx-bar"><u style="width:${Math.min(1,v/n)*100}%"></u></i>${v>=n?`<p class="kx-end">${a.end||'«صلّى الله عليه بها عشرًا» (مسلم ٤٠٨)'}</p>`:''}`,v>=n]}
+  return [`${a.it.map(([n],i)=>`<div class="kx-ct"><b>${n}</b><button onclick="kxCt(${i},-1)">−</button><span class="${s.ck?(a.free||s.v[i]===a.it[i][1]?'ok':'no'):''}">${a.free&&a.it[i][1]===999&&s.v[i]>=20?'∞':AR(s.v[i])}</span><button onclick="kxCt(${i},1)">+</button>${a.it[i][1]>20&&!a.free?`<button onclick="kxCt(${i},10)">+١٠</button>`:''}</div>`).join('')}
+   ${a.free?'':`<button class="k-btn ghost" onclick="kxCk()">تحقّق ✓</button>`}<p class="kx-fb ${s.fk||''}">${s.fb||''}</p>${ok&&a.end?`<p class="kx-end">${a.end}</p>`:''}`,ok]},
+/* المحطات بالترتيب */
+trip(a,s){s.n=s.n||0;const N=a.it.length,done=s.n>=N;
+  return [`<div class="kx-trip">${a.it.map(([e,n],i)=>`<button class="${i<s.n?'ok':i===s.n?'on':''}" onclick="kxTr(${i})"><span>${e}</span><b>${n}</b></button>${i<N-1?`<i class="${i<s.n-1?'ok':''}"></i>`:''}`).join('')}</div>
+   <div class="kx-cap">${s.n?`<b>${a.it[s.n-1][0]} ${a.it[s.n-1][1]}</b><p>${a.it[s.n-1][2]}</p>`:'<p>المس المحطة الأولى</p>'}</div>`,done]},
+/* قصة بالمشاهد */
+story(a,s){s.i=s.i||0;const N=a.it.length,i=Math.min(s.i,N-1),[sc,t,b]=a.it[i],done=s.i>=N;
+  return [`<div class="kx-story" key="${i}"><div class="kx-sc">${[...sc].filter(c=>c.trim()).map((c,j)=>`<span style="animation-delay:${j*.15}s">${c}</span>`).join('')}</div><p>${t}</p></div>
+   <div class="kx-dots">${a.it.map((_,j)=>`<i class="${j<=i?'on':''}"></i>`).join('')}</div>${done?'':`<button class="k-btn" onclick="kxSt()">${b}</button>`}`,done]},
+/* الصندوق */
+jar(a,s){s.r=s.r||[];const done=s.r.length===a.it.length,L=s.r[s.r.length-1];
+  return [`<div class="kx-jar"><div class="kx-jb"><u style="height:${s.r.length/a.it.length*100}%"></u>${s.r.map(i=>`<span>${a.it[i][0]}</span>`).join('')}</div></div>
+   <div class="kx-tap">${a.it.map(([e,n],i)=>`<button class="${s.r.includes(i)?'on':''}" ${s.r.includes(i)?'disabled':''} onclick="kxJr(${i})"><span>${e}</span><b>${n}</b></button>`).join('')}</div>
+   <div class="kx-cap">${L!=null?`<b>${a.it[L][1]}</b><p>${a.it[L][2]}</p>`:'<p>المس لتضعها في الصندوق</p>'}</div>`,done]},
+/* الليل والنهار */
+sky1(a,s){const v=s.v==null?0:s.v,ang=Math.PI*(1-v/100),x=150+120*Math.cos(ang),y=150-110*Math.sin(ang),done=s.lo&&s.hi;
+  return [`<svg class="kx-sky" viewBox="0 0 300 170" style="--d:${v/100}"><rect width="300" height="170" class="kx-skyb"/><circle cx="${x}" cy="${y}" r="16" fill="#ffcf4a" opacity="${v/100}"/><circle cx="${300-x}" cy="${y}" r="12" fill="#e8ecff" opacity="${1-v/100}"/>
+   ${[[30,30],[80,20],[220,40],[260,18],[180,26]].map(([a1,b1])=>`<circle cx="${a1}" cy="${b1}" r="1.8" fill="#fff" opacity="${1-v/100}"/>`).join('')}<rect y="150" width="300" height="20" fill="#3d7a4a"/></svg>
+   <input type="range" class="kx-rg" min="0" max="100" value="${v}" oninput="kxSky(+this.value)"><div class="row" style="justify-content:space-between"><small>🌙 الليل</small><small>☀️ النهار</small></div>${done?`<p class="kx-end">${a.end}</p>`:''}`,done]},
+/* أين الشمس؟ */
+sky(a,s){const P=[['الفجر','#3a4a80'],['الظهر','#7cc3ff'],['العصر','#a8d4ff'],['المغرب','#e88a5a'],['العشاء','#141b33']],POS=[[30,140],[150,30],[215,70],[265,135],[80,45]];s.i=s.i||0;const done=s.i>=5,k=s.i-1;
+  return [`<svg class="kx-sky" viewBox="0 0 300 170"><rect width="300" height="170" fill="${k>=0?P[k][1]:'#141b33'}" style="transition:fill .6s"/>${k===4?'<circle cx="80" cy="45" r="13" fill="#e8ecff"/>':k>=0?`<circle cx="${POS[k][0]}" cy="${POS[k][1]}" r="15" fill="#ffcf4a"/>`:''}
+   <rect y="150" width="300" height="20" fill="#3d7a4a"/>${done?'':POS.map(([x,y],j)=>`<circle cx="${x}" cy="${y}" r="19" class="kx-pos" onclick="kxSk(${j})"/>${j===4?`<text x="${x}" y="${y+4}" class="kx-pt">🌙</text>`:''}`).join('')}</svg>
+   <p class="kx-q2">${done?'✓ عرفت أوقات الصلوات الخمس':`أين تكون ${s.i===4?'السماء':'الشمس'} وقت <b>${P[s.i][0]}</b>؟ المس الدائرة`}</p><p class="kx-fb ${s.fk||''}">${s.fb||''}</p>`,done]},
+/* القبلة */
+qibla(a,s){if(s.t==null){s.t=Math.floor(Math.random()*12)*30;s.d=0;s.r=0}const ok=((s.d-s.t)%360+360)%360===0,done=s.r>=3;
+  return [`<div class="kx-cmp"><div class="kx-dial">${[['ش',0],['ق',90],['ج',180],['غ',270]].map(([n,d])=>`<b style="transform:rotate(${d}deg) translateY(-104px) rotate(${-d}deg)">${n}</b>`).join('')}<span class="kx-kb" style="transform:rotate(${s.t}deg) translateY(-82px) rotate(${-s.t}deg)">🕋</span><i class="kx-arr ${ok?'ok':''}" style="transform:rotate(${s.d}deg)"></i></div></div>
+   <div class="row" style="gap:8px"><button class="k-btn ghost grow" onclick="kxQb(-30)">↺</button><button class="k-btn ghost grow" onclick="kxQb(30)">↻</button></div>
+   <p class="kx-fb ${ok?'ok':''}">${done?'✓ أحسنت! هذه هي القبلة':ok?'✓ اتجهت إلى القبلة!':'أدِر السهم حتى يشير إلى الكعبة'} · ${AR(s.r)} / ٣</p>${ok&&!done?`<button class="k-btn" onclick="kxQn()">مرة أخرى ←</button>`:''}`,done]},
+/* الصوم */
+fast(a,s){const Z=[['🌌','السحور'],['🌅','الفجر'],['☀️','النهار'],['🌇','المغرب']],Q=[['متى نتسحّر؟',0,'«تسحّروا فإن في السحور بركة» (البخاري ١٩٢٣ ومسلم ١٠٩٥)'],['متى نبدأ الصيام؟',1,'من طلوع الفجر'],['متى لا نأكل ولا نشرب؟',2,'طوال النهار'],['متى نفطر؟',3,'عند غروب الشمس: المغرب']];s.i=s.i||0;const done=s.i>=Q.length;
+  return [`<div class="kx-day">${Z.map(([e,n],j)=>`<button class="${s.i>j?'ok':''}" ${done?'disabled':''} onclick="kxFs(${j})"><span>${e}</span><b>${n}</b></button>`).join('')}</div>
+   <p class="kx-q2">${done?'✓ يوم صيام كامل!':Q[s.i][0]}</p><p class="kx-fb ${s.fk||''}">${s.fb||''}</p>`,done]},
+/* الطواف */
+tawaf(a,s){s.n=s.n||0;const done=s.n>=7;
+  return [`<div class="kx-tw" onclick="${done?'':'kxTw()'}"><div class="kx-ring">${Array.from({length:7},(_,i)=>`<i class="${i<s.n?'on':''}" style="transform:rotate(${-i*51.4}deg) translateY(-92px)"></i>`).join('')}<b class="kx-dot" key="${s.n}" style="--n:${s.n}"></b></div><span class="kx-kab">🕋</span></div>
+   <p class="kx-q2">${done?'✓ طفتَ سبعة أشواط، والكعبة عن يسارك':`الشوط ${AR(s.n+1)}: المس الكعبة وقل «بسم الله، والله أكبر»`}</p><i class="kx-bar"><u style="width:${s.n/7*100}%"></u></i>`,done]},
+/* الأبواب والتيامن */
+door(a,s){s.i=s.i||0;const D=KX_DOOR,done=s.i>=a.it.length;if(done)return ['<p class="kx-end">✓ أحسنت! أبدأ باليمين في الخير، وباليسار في ضده.</p>',true];const [t,k]=a.it[s.i],d=D[k];
+  return [`<div class="kx-q"><span>${d.e}</span><b>${t}</b></div><p class="kx-q2">بأي رِجل/يد أبدأ؟</p><div class="kx-bins"><button class="${s.f==='r'?(d.f==='r'?'ok':'no'):''}" onclick="kxDf('r')"><span>👉</span><b>اليمنى</b></button><button class="${s.f==='l'?(d.f==='l'?'ok':'no'):''}" onclick="kxDf('l')"><span>👈</span><b>اليسرى</b></button></div>
+   ${s.f===d.f&&d.z?`<p class="kx-q2">وماذا أقول؟</p><div class="kx-opts">${(s.zo=s.zo||kxSh(d.z.map((_,j)=>j))).map(j=>`<button class="${s.z===j?(j===0?'ok':'no'):''}" onclick="kxDz(${j})">${d.z[j]}</button>`).join('')}</div>`:''}
+   <p class="kx-fb ${s.fk||''}">${s.fb||''}</p>${s.f===d.f&&(!d.z||s.z===0)?`<button class="k-btn ghost" onclick="kxDn()">التالي ←</button>`:''}`,false]},
+/* المطر */
+rain(a,s){s.n=s.n||0;const g=['🟫','🌱','🌿','🌷','🌳','🌳'][Math.min(s.n,5)],done=s.n>=5;
+  return [`<div class="kx-rain"><button class="kx-cloud" onclick="kxRn()">☁️</button><div class="kx-drops" key="${s.n}">${s.n&&!done?'💧 💧 💧':''}</div><div class="kx-gr">${Array.from({length:5},()=>`<span>${g}</span>`).join('')}</div></div>${done?`<p class="kx-end">${a.end}</p>`:`<p class="kx-q2">المس الغيمة (${AR(s.n)} / ٥)</p>`}`,done]},
+/* آداب الطعام */
+plate(a,s){s.i=s.i||0;const Q=[['قبل أن أبدأ أقول:',['بسم الله','لا شيء']],['آكل بيدي:',['اليمنى','اليسرى']],['آكل من…',['الجهة التي تليني','وسط الصحن','جهة غيري']],['طعام لا أحبه:',['أتركه بلا عيب','أقول: طعمه سيئ']]],done=s.i>=Q.length;
+  return [`<div class="kx-plate"><span>🍽</span>${s.i>2?'<b class="near">✓</b>':''}</div>${done?'<p class="kx-end">«يا غلام، سمِّ الله، وكُل بيمينك، وكُل مما يليك» (البخاري ٥٣٧٦ ومسلم ٢٠٢٢)، «وما عاب النبي ﷺ طعامًا قط» (البخاري ٣٥٦٣)</p>':
+   `<p class="kx-q2">${Q[s.i][0]}</p><div class="kx-opts">${Q[s.i][1].map((o,j)=>`<button class="${s.a===j?(j?'no kx-shk':'ok'):''}" onclick="kxPl(${j})">${o}</button>`).join('')}</div><p class="kx-fb ${s.fk||''}">${s.fb||''}</p>`}`,done]},
+/* الاستئذان */
+knock(a,s){s.k=s.k||0;s.r=s.r||0;const R=s.r,done=R>=2;
+  return [`<div class="kx-door"><span>🚪</span><div class="kx-kn">${Array.from({length:3},(_,i)=>`<i class="${i<s.k?'on':''}">✊</i>`).join('')}</div></div>
+   ${done?'<p class="kx-end">«الاستئذان ثلاث، فإن أُذن لك وإلا فارجع» (البخاري ٦٢٤٥ ومسلم ٢١٥٣)</p>':
+   s.k<3&&!(R===1&&s.k>=1)?`<button class="k-btn" onclick="kxKn()">✊ أطرق وأقول: السلام عليكم، أأدخل؟</button>`:
+   R===0?`<p class="kx-q2">طرقتَ ثلاثًا ولم يجبك أحد… ماذا تفعل؟</p><div class="kx-opts">${['أرجع ولا أغضب','أدخل بنفسي'].map((o,j)=>`<button onclick="kxKa(${j})">${o}</button>`).join('')}</div>`:
+   `<p class="kx-q2">«وعليكم السلام، تفضّل» ✓</p><button class="k-btn" onclick="kxKa(0)">أدخل 🚪</button>`}<p class="kx-fb ${s.fk||''}">${s.fb||''}</p>`,done]},
+/* السفينة */
+ark(a,s){s.n=s.n||0;const done=s.n>=10,fl=s.n>=8;
+  return [`<svg class="kx-sky" viewBox="0 0 300 170"><rect width="300" height="170" fill="${fl?'#43597a':'#9ccfff'}" style="transition:fill .8s"/>${fl?'<g class="kx-rn">'+Array.from({length:14},(_,i)=>`<line x1="${i*22+5}" y1="${(i*37)%60}" x2="${i*22}" y2="${(i*37)%60+12}" stroke="#cfe3ff" stroke-width="2"/>`).join('')+'</g>':''}
+   <rect y="${fl?95:150}" width="300" height="${fl?75:20}" fill="${fl?'#2f6db3':'#3d7a4a'}" style="transition:all 1s"/>
+   <g style="transform:translateY(${fl?-40:0}px);transition:transform 1s">${Array.from({length:Math.min(s.n,8)},(_,i)=>`<rect x="${70+i*20}" y="${130-(i%2)*0}" width="18" height="${18}" fill="#8a5a2b" stroke="#5e3b18"/>`).join('')}${s.n>=8?'<path d="M60 130 h180 l-20 22 h-140z" fill="#8a5a2b" stroke="#5e3b18"/><rect x="148" y="80" width="5" height="50" fill="#5e3b18"/><path d="M153 82 l40 22 h-40z" fill="#f4ead2"/>':''}</g></svg>
+   <p class="kx-q2">${s.n<8?`المس لتضع لوحًا (${AR(s.n)} / ٨)`:s.n<10?'جاء الطوفان! المس لتصعد السفينة بالمؤمنين':'✓ نجّى الله المؤمنين في السفينة'}</p>${done?'':`<button class="k-btn" onclick="kxAk()">${s.n<8?'🪵 ضع لوحًا':'⛵ اركبوا بسم الله'}</button>`}${done?'<p class="kx-end">﴿ٱرۡكَبُواْ فِيهَا بِسۡمِ ٱللَّهِ مَجۡر۪ىٰهَا وَمُرۡسَىٰهَآ﴾</p>':''}`,done]},
+/* البحر */
+sea(a,s){s.n=s.n||0;const sp=s.n>=1,cr=s.n>=2;
+  return [`<svg class="kx-sky" viewBox="0 0 300 170"><rect width="300" height="170" fill="#f0d9a8"/>
+   <rect x="0" y="0" width="152" height="170" fill="#2f6db3" style="transform:translateX(${sp?-45:0}px);transition:transform 1.2s"/><rect x="148" y="0" width="152" height="170" fill="#2f6db3" style="transform:translateX(${sp?45:0}px);transition:transform 1.2s"/>
+   ${sp?`<circle cx="150" cy="160" r="9" fill="#ffcf4a" style="transform:translateY(${cr?-140:0}px);transition:transform 2s"/>`:''}</svg>
+   <p class="kx-q2">${!sp?'المس العصا 🪄':!cr?'انشقّ البحر طريقًا يابسًا! المس لتعبروا':'✓ نجا موسى ومن معه بفضل الله'}</p>${cr?'<p class="kx-end">﴿فَأَوۡحَيۡنَآ إِلَىٰ مُوسَىٰٓ أَنِ ٱضۡرِب بِّعَصَاكَ ٱلۡبَحۡرَۖ فَٱنفَلَقَ﴾</p>':`<button class="k-btn" onclick="kxSe()">${sp?'➡️ اعبروا':'🪄 اضرب البحر'}</button>`}`,cr]},
+/* الوضوء */
+wudu(a,s){const o=FQST('kid').w.kxw=FQST('kid').w.kxw||{};return [wdSim('kid','kxw',o,0,()=>vKLesson()),!!o.fin]}
+};
+const KX_DOOR={in:{e:'🚻',f:'l',z:['بسم الله، اللهم إني أعوذ بك من الخبث والخبائث','السلام عليكم','الحمد لله']},out:{e:'🚻',f:'r',z:['غفرانك','بسم الله','أستغفر الله وأتوب إليه ثلاثًا']},
+ min:{e:'🕌',f:'r',z:['اللهم افتح لي أبواب رحمتك','اللهم إني أسألك من فضلك','غفرانك']},mout:{e:'🕌',f:'l',z:['اللهم إني أسألك من فضلك','اللهم افتح لي أبواب رحمتك','بسم الله']},
+ shoeOn:{e:'👟',f:'r'},shoeOff:{e:'👟',f:'l'},dressOn:{e:'👕',f:'r'}};
+function kxBoard(a,s){const N=a.it.length,p=s.i+(s.a!=null&&a.it[s.i]&&a.it[s.i][2][s.a][1]?1:0);return `<div class="kx-board">${Array.from({length:N+1},(_,i)=>`<i class="${i<p?'ok':''}">${i===N?'🏡':''}</i>`).join('')}<b style="right:${p/N*92}%">⭐</b></div>`}
+/* المعالجات */
+const KXA=()=>KXD[KL.id][KL.xa],KXT=()=>KXA();
+function kxT(i){const s=kxS();s.r=s.r||{};s.r[i]=1;s.last=i;sound('flip');kxR()}
+function kxSo(j){const a=KXA(),s=kxS(),it=a.it[s.o[s.i]];if(it[2]===j){s.c[j]++;s.i++;kxFb('✓ صحيح!',1)}else kxFb('🤔 فكّر مرة أخرى'+(it[3]?': '+it[3]:''),0);kxR()}
+function kxSq(i){const s=kxS();if(i===s.d.length){s.d.push(i);kxFb('✓',1)}else{s.w=i;kxFb('🤔 ليس هذا الآن',0)}kxR()}
+function kxML(i){const s=kxS();s.l=i;s.fb='';s.fk='';sound('flip');kxR()}
+function kxMR(j){const s=kxS();if(s.l==null){s.fb='المس من اليمين أولًا';kxR();return}if(s.l===j){s.m[j]=1;s.l=null;kxFb('✓ صحيح!',1)}else{s.w=j;kxFb('🤔 حاول مرة أخرى',0)}kxR()}
+function kxPk(j){const a=KXA(),s=kxS();s.a=j;const ok=a.it[s.i][2][j][1];try{sound(ok?'ok':'bad')}catch(e){}kxR()}
+function kxPn(){const s=kxS();s.i++;s.a=null;kxR()}
+function kxBd(i){const s=kxS();if(i===s.n){s.n++;kxFb('✓',1)}else{s.w=i;kxFb('🤔 ابدأ بالعمود الأول',0)}kxR()}
+function kxCt(i,d){const s=kxS(),a=KXA();s.v[i]=Math.max(0,s.v[i]+d);s.ck=0;s.fb='';try{sound('flip')}catch(e){}kxR()}
+function kxCk(){const s=kxS(),a=KXA();s.ck=1;const ok=a.it.every(([n,v],i)=>s.v[i]===v);kxFb(ok?'✓ كلها صحيحة!':'🤔 بعضها غير صحيح (الأحمر)',ok);kxR()}
+function kxTr(i){const s=kxS();if(i===s.n){s.n++;sound('flip')}else if(i>s.n)kxFb('المحطة التالية أولًا',0);kxR()}
+function kxSt(){const s=kxS();s.i=(s.i||0)+1;sound('flip');kxR()}
+function kxJr(i){const s=kxS();s.r.push(i);try{sound('ok')}catch(e){}kxR()}
+function kxSky(v){const s=kxS();s.v=v;if(v<8)s.lo=1;if(v>92)s.hi=1;const sv=document.querySelector('.kx-sky');if(sv&&!(s.lo&&s.hi&&!s.sh)){const ang=Math.PI*(1-v/100),x=150+120*Math.cos(ang),y=150-110*Math.sin(ang),c=sv.querySelectorAll('circle');c[0].setAttribute('cx',x);c[0].setAttribute('cy',y);c[0].setAttribute('opacity',v/100);c[1].setAttribute('cx',300-x);c[1].setAttribute('cy',y);c[1].setAttribute('opacity',1-v/100);[...c].slice(2).forEach(e=>e.setAttribute('opacity',1-v/100));sv.style.setProperty('--d',v/100)}else{s.sh=1;kxR()}}
+function kxSk(j){const s=kxS(),W=['الفجر: ضوء قليل قبل الشروق','الظهر: الشمس في وسط السماء ثم تميل','العصر: الشمس نزلت إلى جهة الغروب','المغرب: عند غروب الشمس','العشاء: الليل مظلم بعد ذهاب الحمرة'];if(j===s.i){s.i++;kxFb('✓ '+W[j],1)}else kxFb('🤔 ليس هنا',0);kxR()}
+function kxQb(d){const s=kxS();s.d=(s.d+d+360)%360;sound('flip');kxR()}
+function kxQn(){const s=kxS();s.r++;if(s.r<3){s.t=(s.t+90+Math.floor(Math.random()*6)*30)%360}sound('ok');kxR()}
+function kxFs(j){const s=kxS(),Q=[0,1,2,3];if(j===Q[s.i]){const W=['«تسحّروا فإن في السحور بركة» (البخاري ١٩٢٣ ومسلم ١٠٩٥)','نبدأ من طلوع الفجر','لا نأكل ولا نشرب طوال النهار','نفطر عند المغرب، ونقول: «ذهب الظمأ وابتلّت العروق وثبت الأجر إن شاء الله» (أبو داود ٢٣٥٧، وحسنه الألباني)'];s.i++;kxFb('✓ '+W[s.i-1],1)}else kxFb('🤔 ليس هذا الوقت',0);kxR()}
+function kxTw(){const s=kxS();s.n++;try{sound(s.n>=7?'win':'flip')}catch(e){}kxR()}
+function kxDf(f){const s=kxS(),d=KX_DOOR[KXA().it[s.i][1]];s.f=f;if(f===d.f)kxFb('✓ صحيح',1);else kxFb('🤔 فكّر: أبدأ باليمين في الخير والزينة، وباليسرى في الخروج من المسجد ودخول الخلاء والخلع',0);kxR()}
+function kxDz(j){const s=kxS();s.z=j;kxFb(j===0?'✓ أحسنت':'🤔 ليس هذا',j===0);kxR()}
+function kxDn(){const s=kxS();s.i++;s.f=null;s.z=null;s.zo=null;s.fb='';kxR()}
+function kxRn(){const s=kxS();s.n=(s.n||0)+1;sound('flip');kxR()}
+function kxPl(j){const s=kxS();s.a=j;if(j===0){s.i++;s.a=null;kxFb('✓ أحسنت',1)}else kxFb('🤔 فكّر مرة أخرى',0);kxR()}
+function kxKn(){const s=kxS();s.k++;sound('flip');kxR()}
+function kxKa(j){const s=kxS();if(s.r===0){if(j===0){s.r=1;s.k=0;kxFb('✓ أحسنت، أرجع ولا أغضب. لنجرّب بابًا آخر…',1)}else kxFb('🤔 لا أدخل بلا إذن',0)}else{s.r=2;kxFb('✓',1)}kxR()}
+function kxAk(){const s=kxS();s.n++;sound(s.n===10?'win':'flip');kxR()}
+function kxSe(){const s=kxS();s.n++;sound('lit');kxR()}
+function kxView(l){const U=KID_U[l.ui],acts=KXD[l.id]||[],a=acts[KL.xa],s=kxS();
+  if(!a){KL.st='game';return kGameStart()}
+  const [h,done]=KXF[a.t](a,s),last=KL.xa>=acts.length-1;
+  $('#app').innerHTML=`<div class="k-top" style="--c:${U.c}"><span>${U.ic} ${U.n} · الدرس ${AR(l.li+1)} من ${AR(U.ls.length)}</span><h1>${l.t}</h1></div>${kxStg('try')}
+   <div class="kx" style="--c:${U.c}"><div class="kx-hd"><b>🧩 ${a.p||''}</b>${acts.length>1?`<small>${AR(KL.xa+1)} / ${AR(acts.length)}</small>`:''}</div>${h}</div>
+   ${done?(last?`<button class="k-btn big" onclick="kGameStart()">🎮 هيا نلعب!</button>`:`<button class="k-btn big" onclick="kxNextAct()">النشاط التالي ←</button>`):''}
+   <div class="row" style="gap:8px;margin-top:8px"><button class="k-btn ghost grow" onclick="KL.st='learn';KL.p=0;vKLesson()">👀 أعد المشاهدة</button>${done?'':`<button class="k-btn ghost grow" onclick="kGameStart()">تخطَّ ←</button>`}</div>`;
+  if(done&&!s.won){s.won=1;try{sound('win');kBurst(document.querySelector('.kx'))}catch(e){}}}
+const _vKL_kx=vKLesson;vKLesson=function(){const l=KIDL.find(x=>x.id===route.id);
+  if(l&&KL&&KL.id===l.id&&KL.st==='try'&&KXD[l.id]){window.STEP_SWIPE=null;return kxView(l)}
+  _vKL_kx();if(!KL||!l)return;const app=document.getElementById('app'),top=app&&app.querySelector('.k-top');if(top&&!app.querySelector('.kx-stg'))top.insertAdjacentHTML('afterend',kxStg(KL.st==='game'?'game':KL.st==='learn'?'learn':'done'));
+  if(KL.st==='learn'&&KXD[l.id]){const b=app.querySelector('button[onclick*="kGameStart"]');if(b){b.setAttribute('onclick','kxStart()');b.innerHTML='🧩 هيا نجرّب بأيدينا!'}}};
+const _kGame_kx=kGame;kGame=function(G){const r=_kGame_kx.apply(this,arguments);try{if(KL&&KL.st==='game'&&KXD[KL.id]){const app=document.getElementById('app');if(app&&!app.querySelector('.kx-stg'))app.insertAdjacentHTML('afterbegin',kxStg('game'))}}catch(e){}return r};
 
 
 
