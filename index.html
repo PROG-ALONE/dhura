@@ -2880,6 +2880,29 @@ img.fm-av{display:inline-block;border-radius:50%;object-fit:cover;-webkit-clip-p
 .lv-g{margin:0;padding-inline-start:20px;line-height:2}
 .tj-miss{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
 .tj-miss a{padding:6px 10px;border-radius:12px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:12.5px;background:rgba(255,255,255,.04)}
+.wd-hd{display:flex;justify-content:space-between;align-items:center}.wd-hd small{color:var(--muted);font-size:12px}
+.wd-st{margin:8px 0;padding:10px 12px;border-radius:12px;background:rgba(64,156,255,.08);border:1px solid rgba(64,156,255,.25)}.wd-st p{margin:4px 0;line-height:1.8;font-size:14px}
+.wd-svg{display:block;width:100%;max-width:340px;margin:6px auto;touch-action:manipulation}
+.wd-tr{fill:rgba(150,160,190,.16);stroke:rgba(150,160,190,.4);stroke-width:1.2}
+.wd-r{fill:rgba(150,160,190,.22);stroke:rgba(150,160,190,.55);stroke-width:1.4;cursor:pointer;transition:fill .3s}
+.wd-ln{fill:none!important;stroke-width:5;stroke-linecap:round}
+.wd-r.wd-on{stroke:var(--gold);stroke-width:2.6;animation:wdP 1.3s infinite}
+.wd-ln.wd-on{stroke-width:6}
+.wd-hl{fill:rgba(150,160,190,.35)}.wd-gd{fill:rgba(176,140,90,.45)}
+@keyframes wdP{50%{stroke-opacity:.35}}
+.wd-tx{font:10px Tajawal,sans-serif;fill:var(--muted);text-anchor:middle;pointer-events:none}
+.wd-drop{fill:#4aa3ff;animation:wdD .9s ease-in forwards}
+@keyframes wdD{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(26px)}}
+.wd-msg{min-height:1.6em;font-size:13.5px;line-height:1.8;margin:4px 0}
+.wd-mud{margin:6px 0}.wd-mud small{color:var(--muted);font-size:12px}.wd-mud i{display:block;height:6px;border-radius:6px;background:rgba(127,127,127,.15);overflow:hidden;margin-top:4px}.wd-mud u{display:block;height:100%;background:#4aa3ff;transition:width .3s}
+.nq-st{display:flex;align-items:center;gap:10px;margin:10px 0;padding:12px;border-radius:14px;background:rgba(95,211,155,.1);border:1px solid rgba(95,211,155,.35)}
+.nq-st.off{background:rgba(255,123,107,.1);border-color:rgba(255,123,107,.4)}.nq-st>span{font-size:28px}.nq-st small{display:block;color:var(--muted);font-size:12px}
+.nq-r{padding:10px;border-radius:12px;border:1px solid var(--line);margin-bottom:10px}.nq-r small{display:block;line-height:1.8;color:var(--muted);margin-top:6px}
+.nq-4{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:8px}.nq-4 span{text-align:center;font-size:11.5px;padding:6px 2px;border-radius:10px;border:1px solid var(--line)}
+.nq-4 i{display:block;font-style:normal;font-weight:700;margin-top:2px}.nq-4 .y i{color:var(--red)}.nq-4 .n i{color:var(--ok)}.nq-4 .me{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.nq-ev{display:grid;grid-template-columns:1fr 1fr;gap:6px}.nq-ev button{display:flex;gap:6px;align-items:center;text-align:right;padding:9px;border-radius:12px;border:1px solid var(--line);background:rgba(127,127,127,.06);color:var(--ink);font:inherit;font-size:12.5px}
+.nq-ev button.on{border-color:var(--gold)}.nq-ev span{font-size:17px}
+.wdx{display:block!important}.wdx .fq-stn{display:flex;gap:3px;margin:6px 0}.wdx .fq-stn i{flex:1;height:4px;border-radius:3px;background:rgba(127,127,127,.2)}.wdx .fq-stn i.ok{background:var(--ok)}.wdx .fq-stn i.on{background:var(--gold)}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -16605,9 +16628,9 @@ function vPdfs(){const M=PDM(),ids=Object.keys(M).sort((a,b)=>(M[b].at||'').loca
 const _vHall303=vHall;vHall=function(){_vHall303();const app=document.getElementById('app');if(app&&!app.querySelector('.pd-shelf'))app.insertAdjacentHTML('afterbegin',`<button class="ah-c ah-now pd-shelf" style="margin-bottom:10px" onclick="go('pdfs')"><span class="ah-ni">📂</span><div class="grow"><b>كتبي PDF</b><small>${AR(Object.keys(PDM()).length)} كتاب على جهازك · ارفع وأقرأ</small></div><span class="ah-go">‹</span></button>`)};
 
 /* ============ إصلاحات + ملخص المستوى وأهدافه ============ */
-/* بطاقة الوحدات التفاعلية داخل تبويب المستوى (كانت لا تظهر عند الفتح) */
+/* بطاقة الوحدات الفقهية داخل تبويب المستوى (كانت لا تظهر عند الفتح) */
 const _tabItemHTML308=tabItemHTML;tabItemHTML=function(it,o){if(it.t!=='fqu')return _tabItemHTML308(it,o);const U=FQU[it.u],m=tabMeta(it),[a,b]=itemProg(it),n=FQST(it.u);
-  return `<div class="tj-card"><p>${U.sub}: ${AR(U.L.length)} دروس، لكل درس تجربة وتحقق، ثم ${AR(U.sc.length)} مسألة «ماذا لو؟» واختبار.</p><i class="crs-bar"><u style="width:${b?a/b*100:0}%"></u></i><small class="muted">${AR(a)} من ${AR(b)} دروس${n.t?' · ✓ اجتزت الاختبار':''}</small>
+  return `<div class="tj-card"><p>${U.sub}: ${AR(U.L.length)} دروس، ثم ${AR(U.sc.length)} مسألة «ماذا لو؟» واختبار.</p><i class="crs-bar"><u style="width:${b?a/b*100:0}%"></u></i><small class="muted">${AR(a)} من ${AR(b)} دروس${n.t?' · ✓ اجتزت الاختبار':''}</small>
    <button class="btn gold" style="width:100%;margin-top:8px" ${o||RO()?`onclick="${m[3]}"`:'disabled'}>${a?'تابع الوحدة ←':'ابدأ الوحدة ←'}</button></div>`};
 /* حلقات «التجويد المصور» الناقصة من قائمة السلسلة الكاملة (٤٥ حلقة) */
 const TJ_PL='PLCTifDArWwqJud0hfGmqG7OaPPwljvnCF',TJ_MISS=[9,12,15,17,21,23,32,35,36,41,42,43,44];
@@ -16630,6 +16653,110 @@ function lvSumOpen(k){const L=DLVM[k];if(!L)return;$('#sheet').classList.add('ta
 const _vMuslim309=vMuslim;vMuslim=function(){_vMuslim309();if(route.v!=='muslim'||(S.profile||{}).kid)return;const k=route.l,L=DLVM[k];if(!L||!L.tabs)return;const app=document.getElementById('app');if(!app||app.querySelector('.lv-sumb'))return;
   const [a,b]=lvStats(L);app.insertAdjacentHTML('afterbegin',`<button class="ah-c ah-now lv-sumb" onclick="lvSumOpen('${k}')"><span class="ah-ni">🎯</span><div class="grow"><b>عن مستوى «${esc(L.n)}» وأهدافه</b><small>${AR(b?Math.round(a/b*100):0)}٪ · ${esc((LVG[k]||{}).s||'').slice(0,70)}…</small></div><span class="ah-go">‹</span></button>`);
   S.lvSeen=S.lvSeen||{};if(!S.lvSeen[k]){S.lvSeen[k]=today();save();setTimeout(()=>{if(route.v==='muslim'&&route.l===k)lvSumOpen(k)},350)}};
+
+/* ============ محاكي الوضوء والتيمم، و«هل انتقض وضوئي؟» — رسم تشريحي بلا ملامح ============ */
+const WD_R={hand:'الكفّان',face:'الوجه',armR:'اليد اليمنى إلى المرفق',armL:'اليد اليسرى إلى المرفق',head:'الرأس',ear:'الأذنان',footR:'الرجل اليمنى إلى الكعب',footL:'الرجل اليسرى إلى الكعب',heelR:'العقب الأيمن',heelL:'العقب الأيسر',grd:'الصعيد الطاهر'};
+const WD_S=[{n:'النية والتسمية',b:1,t:'انوِ بقلبك رفع الحدث، وقل: بسم الله.'},
+ {n:'غسل الكفين',r:'hand',c:3,t:'اغسل كفيك ثلاثًا (سنة).'},
+ {n:'المضمضة والاستنشاق',r:'face',c:3,t:'تمضمض واستنشق واستنثر ثلاثًا بثلاث غرفات. المسها عند الفم والأنف.',mn:1},
+ {n:'غسل الوجه',r:'face',c:3,t:'من منابت الشعر إلى الذقن، ومن الأذن إلى الأذن.'},
+ {n:'اليد اليمنى',r:'armR',c:3,t:'من أطراف الأصابع إلى المرفق، والمرفق داخل.'},
+ {n:'اليد اليسرى',r:'armL',c:3,t:'كذلك ثلاثًا.'},
+ {n:'مسح الرأس',r:'head',c:1,m:1,t:'امسح بيديك من مقدّم رأسك إلى قفاك ثم ردّهما مرة واحدة.'},
+ {n:'مسح الأذنين',r:'ear',c:1,m:1,t:'بالسبّاحتين داخلهما وبالإبهامين ظاهرهما.'},
+ {n:'الرجل اليمنى',r:'footR',c:3,h:'heelR',t:'إلى الكعبين، وخلّل الأصابع، ولا تنسَ العقب.'},
+ {n:'الرجل اليسرى',r:'footL',c:3,h:'heelL',t:'كذلك ثلاثًا مع العقب.'},
+ {n:'الذكر بعده',b:2,t:'«أشهد أن لا إله إلا الله وحده لا شريك له، وأشهد أن محمدًا عبده ورسوله» — «إلا فُتحت له أبواب الجنة الثمانية يدخل من أيها شاء» (مسلم ٢٣٤).'}];
+const TY_S=[{n:'النية',b:1,t:'انوِ استباحة الصلاة بالتيمم، وقل: بسم الله.'},
+ {n:'الضرب على الصعيد',r:'grd',c:1,t:'اضرب بكفيك الأرض الطاهرة ضربة.'},
+ {n:'مسح الوجه',r:'face',c:1,m:1,t:'امسح وجهك بكفيك.'},
+ {n:'مسح الكفين',r:'hand',c:1,m:1,t:'امسح ظاهر كفيك (والجمهور: إلى المرفقين بضربة ثانية).'},
+ {n:'تمّ التيمم',b:2,t:'«إنما كان يكفيك أن تقول بيديك هكذا، ثم ضرب بيديه الأرض ضربة واحدة، ثم مسح الشمال على اليمين وظاهر كفيه ووجهه» (البخاري ٣٤٧ ومسلم ٣٦٨).'}];
+function wdSVG(o,S2,ty){const st=S2[o.i]||{},cur=S2[o.i],f=r=>{const k=(o.w||{})[r]||0,mx=r==='grd'?1:r==='head'||r==='ear'?1:3;return k?`fill:rgba(64,156,255,${.25+.6*Math.min(k,mx)/mx})`:''};
+  const on=r=>cur&&(cur.r===r||(cur.h===r&&(o.c||{})[o.i]>=cur.c))?'wd-on':'';
+  return `<svg class="wd-svg" viewBox="0 0 220 300" aria-label="رسم توضيحي بلا ملامح">
+   <g class="wd-body">
+    <path d="M70 118 Q110 100 150 118 L160 200 Q110 212 60 200Z" class="wd-tr"/>
+    <path d="M110 34 a30 34 0 1 1 -0.1 0" data-r="head" class="wd-r ${on('head')}" style="${f('head')}" onclick="wdTap('head',event)"/>
+    <ellipse cx="110" cy="76" rx="23" ry="24" data-r="face" class="wd-r ${on('face')}" style="${f('face')}" onclick="wdTap('face',event)"/>
+    <path d="M78 62 q-9 6 0 18" data-r="ear" class="wd-r wd-ln ${on('ear')}" style="${f('ear').replace('fill','stroke')}" onclick="wdTap('ear',event)"/><path d="M142 62 q9 6 0 18" class="wd-r wd-ln ${on('ear')}" style="${f('ear').replace('fill','stroke')}" onclick="wdTap('ear',event)"/>
+    <rect x="98" y="100" width="24" height="14" rx="5" class="wd-tr"/>
+    <path d="M70 120 L46 196 L60 200 L80 140Z" data-r="armR" class="wd-r ${on('armR')}" style="${f('armR')}" onclick="wdTap('armR',event)"/>
+    <path d="M150 120 L174 196 L160 200 L140 140Z" data-r="armL" class="wd-r ${on('armL')}" style="${f('armL')}" onclick="wdTap('armL',event)"/>
+    <ellipse cx="51" cy="212" rx="11" ry="15" data-r="hand" class="wd-r ${on('hand')}" style="${f('hand')}" onclick="wdTap('hand',event)"/>
+    <ellipse cx="169" cy="212" rx="11" ry="15" class="wd-r ${on('hand')}" style="${f('hand')}" onclick="wdTap('hand',event)"/>
+    <text x="51" y="240" class="wd-tx">يمين</text><text x="169" y="240" class="wd-tx">يسار</text>
+    <path d="M72 246 h34 v30 h-40 q-6 -2 -2 -10Z" data-r="footR" class="wd-r ${on('footR')}" style="${f('footR')}" onclick="wdTap('footR',event)"/>
+    <path d="M114 246 h34 l8 20 q4 8 -2 10 h-40Z" data-r="footL" class="wd-r ${on('footL')}" style="${f('footL')}" onclick="wdTap('footL',event)"/>
+    <circle cx="101" cy="270" r="7" class="wd-r wd-hl ${on('heelR')}" style="${f('heelR')}" onclick="wdTap('heelR',event)"/>
+    <circle cx="119" cy="270" r="7" class="wd-r wd-hl ${on('heelL')}" style="${f('heelL')}" onclick="wdTap('heelL',event)"/>
+    <text x="110" y="241" class="wd-tx">القدمان</text>
+    ${ty?`<rect x="20" y="284" width="180" height="14" rx="4" data-r="grd" class="wd-r wd-gd ${on('grd')}" style="${f('grd')}" onclick="wdTap('grd',event)"/>`:''}
+   </g><g id="wdFx"></g></svg>`}
+let WDX=null;
+function fqWudu(u,k,o){return wdSim(u,k,o,0)}
+function wdSim(u,k,o,ty){const SS=ty?TY_S:WD_S;o.i=o.i||0;o.w=o.w||{};o.c=o.c||{};o.e=o.e||0;o.lt=o.lt||0;WDX={u,k,ty};const s=SS[o.i],done=o.i>=SS.length-1&&o.fin;
+  const mud=Math.round(o.lt*30),pc=Math.min(100,mud/750*100);
+  return `<div class="nk-w wdx"><div class="wd-hd"><b>${ty?'🪨 محاكي التيمم':'💧 محاكي الوضوء'}</b><small>${AR(Math.min(o.i+1,SS.length))} / ${AR(SS.length)} · أخطاء: ${AR(o.e)}</small></div>
+   <div class="fq-stn">${SS.map((x,j)=>`<i class="${j===o.i?'on':j<o.i?'ok':''}"></i>`).join('')}</div>
+   <div class="wd-st"><b>${s.n}</b><p>${s.t}</p>${s.r?`<small class="muted">المس: <b>${WD_R[s.r]}</b>${s.c>1?` · ${AR(Math.min(o.c[o.i]||0,s.c))} من ${AR(s.c)}`:''}${s.h&&(o.c[o.i]||0)>=s.c&&!o.w[s.h]?` · ثم <b style="color:var(--gold)">${WD_R[s.h]}</b>`:''}</small>`:''}</div>
+   ${wdSVG(o,SS,ty)}
+   <p class="wd-msg" id="wdMsg">${o.msg||''}</p>
+   ${!ty?`<div class="wd-mud"><small>الماء المستعمل: ${AR(mud)} مل · المُدّ نحو ٧٥٠ مل</small><i><u style="width:${pc}%;${mud>750?'background:var(--red)':''}"></u></i></div>`:''}
+   ${s.b===1?`<button class="btn gold" style="width:100%" onclick="wdNext()">نويت — بسم الله ←</button>`:''}
+   ${s.b===2?(o.fin?`<p class="hj-ok">✓ ${ty?'تيمّم صحيح':'وضوء كامل على السنة'} — بأخطاء: ${AR(o.e)}.</p><button class="btn sm" onclick="wdReset()">↺ أعد المحاكاة</button>`:`<button class="btn gold" style="width:100%" onclick="wdFin()">${ty?'أتممت ✓':'قلت الذكر ✓'}</button>`):''}
+   ${s.r&&(o.c[o.i]||0)>=s.c&&(!s.h||o.w[s.h])?`<button class="btn gold" style="width:100%" onclick="wdNext()">الخطوة التالية ←</button>`:''}</div>`}
+function wdO(){const {u,k}=WDX;return FQST(u).w[k]}
+function wdMsg(t,bad){const o=wdO();o.msg=t;if(bad)o.e++;save()}
+function wdFx(ev){try{const sv=ev.target.ownerSVGElement||ev.target,pt=sv.createSVGPoint();pt.x=ev.clientX;pt.y=ev.clientY;const p=pt.matrixTransform(sv.getScreenCTM().inverse());const g=sv.querySelector('#wdFx');for(let i=0;i<3;i++){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',p.x+(i-1)*6);c.setAttribute('cy',p.y-14);c.setAttribute('r',3.2);c.setAttribute('class','wd-drop');c.style.animationDelay=i*70+'ms';g.appendChild(c);setTimeout(()=>c.remove(),900)}}catch(e){}}
+function wdTap(r,ev){const o=wdO(),SS=WDX.ty?TY_S:WD_S,s=SS[o.i];if(!s)return;
+  const hr=r==='heelR'?'footR':r==='heelL'?'footL':r;
+  if(s.b===1){wdMsg('ابدأ بالنية أولًا: «إنما الأعمال بالنيات» (البخاري ١ ومسلم ١٩٠٧).',1);return fqRe()}
+  if(s.r===r||(s.h===r)){
+    if(s.h===r){if((o.c[o.i]||0)<s.c){wdMsg('أكمل غسل الرجل أولًا.');return fqRe()}o.w[r]=1;o.lt++;wdMsg('✓ استوعبت العقب. «ويل للأعقاب من النار» (البخاري ٦٠ ومسلم ٢٤١).')}
+    else{const n=(o.c[o.i]=(o.c[o.i]||0)+1);o.w[r]=Math.max(o.w[r]||0,n);o.lt++;
+      if(n>s.c){o.c[o.i]=s.c;wdMsg(s.m?(WDX.ty?'المسح في التيمم مرة.':'مسح الرأس مرة عند الجمهور، ويُسنّ تثليثه عند الشافعية.'):'الزيادة على الثلاث خلاف السنة: «فمن زاد على هذا فقد أساء وتعدّى وظلم» (النسائي ١٤٠ وابن ماجه ٤٢٢، وصححه الألباني).',!s.m||WDX.ty?1:0)}
+      else wdMsg(s.m?'✓ '+(r==='head'?'مسحت الرأس مُقبلًا ومُدبرًا.':r==='ear'?'مسحت الأذنين بماء الرأس.':'تمّ المسح.'):s.mn?['✓ المضمضة والاستنشاق الأولى','✓ الثانية','✓ الثالثة — «وبالغ في الاستنشاق إلا أن تكون صائمًا» (أبو داود ١٤٢، وصححه الألباني).'][n-1]:`✓ الغسلة ${['الأولى','الثانية','الثالثة'][n-1]}${n===1?' — هي الفرض، والثانية والثالثة سنة.':''}`)}
+    try{sound('tap')}catch(e){}fqRe();setTimeout(()=>{const t=document.querySelector(`.wd-svg [data-r="${r}"]`)||document.querySelector('.wd-svg');if(ev)wdFx({target:t,clientX:ev.clientX,clientY:ev.clientY})},10);return}
+  if(s.h&&(o.c[o.i]||0)>=s.c&&!o.w[s.h]){wdMsg('توقّف! بقي العقب لم يصبه الماء: «ويل للأعقاب من النار». المس العقب المضيء.',1);return fqRe()}
+  const j=SS.findIndex((x,i)=>i>o.i&&(x.r===hr));
+  if(j<0&&SS.findIndex(x=>x.r===hr)>=0){wdMsg(`«${WD_R[r]}» قد فرغت منه. انتقل إلى: ${s.n}.`);return fqRe()}
+  if(r==='armL'&&s.r==='armR'||r==='footL'&&s.r==='footR'){wdMsg('السنة البدء باليمين: «كان يعجبه التيمّن في تنعّله وترجّله وطهوره» (البخاري ١٦٨ ومسلم ٢٦٨). ابدأ باليمنى.',1);return fqRe()}
+  wdMsg(WDX.ty?`ليس هذا موضعه الآن؛ الخطوة: ${s.n}.`:`خالفت الترتيب: الآن «${s.n}». والترتيب فرض عند الشافعية والحنابلة، وسنة مؤكدة عند الحنفية والمالكية.`,1);fqRe()}
+function wdNext(){const o=wdO();o.i++;o.msg='';save();fqRe()}
+function wdFin(){const o=wdO();o.fin=1;o.msg='';save();try{sound('win')}catch(e){}fqRe()}
+function wdReset(){const {u,k}=WDX;delete FQST(u).w[k];save();fqRe()}
+/* «هل انتقض وضوئي؟» — 1 ينقض، 0 لا ينقض، حسب المذهب */
+const NQ_EV=[['🚻','خرج بول أو ريح',[1,1,1,1],'بالإجماع: ﴿أَوۡ جَآءَ أَحَدٞ مِّنكُم مِّنَ ٱلۡغَآئِطِ﴾، و«لا يقبل الله صلاة أحدكم إذا أحدث حتى يتوضأ» (البخاري ٦٩٥٤ ومسلم ٢٢٥).'],
+ ['😴','نام نومًا مستغرقًا مضطجعًا',[1,1,1,1],'«العين وكاء السَّه، فمن نام فليتوضأ» (أبو داود ٢٠٣، وحسنه الألباني).'],
+ ['🪑','نعس نعاسًا يسيرًا وهو جالس متمكّن',[0,0,0,0],'«كان أصحاب رسول الله ﷺ ينامون ثم يصلّون ولا يتوضؤون» (مسلم ٣٧٦).'],
+ ['🖐','مسّ ذكره بيده بلا حائل',[0,1,1,1],'الجمهور: «من مسّ ذكره فليتوضأ» (أبو داود ١٨١ والترمذي ٨٢، وصححه)، والحنفية: «إنما هو بَضعة منك» (أبو داود ١٨٢ والترمذي ٨٥).'],
+ ['🤝','لمس امرأة أجنبية بلا شهوة',[0,0,1,0],'الشافعية بظاهر ﴿أَوۡ لَٰمَسۡتُمُ ٱلنِّسَآءَ﴾، والجمهور: لا ينقض، فقد كانت عائشة تمسّ قدمه وهو ساجد (مسلم ٤٨٦).'],
+ ['💭','لمس امرأة بشهوة',[0,1,1,1],'المالكية والحنابلة يشترطون الشهوة، والشافعية ينقض مطلقًا، والحنفية لا ينقض إلا المباشرة الفاحشة.'],
+ ['🍖','أكل لحم إبل',[0,0,0,1],'«أنتوضأ من لحوم الإبل؟ قال: نعم» (مسلم ٣٦٠)، والجمهور حملوه على غسل اليد أو أنه منسوخ.'],
+ ['🩸','سال دم كثير من جرح أو رعاف',[1,0,0,1],'الحنفية والحنابلة: ينقض الكثير، والمالكية والشافعية: لا ينقض؛ وصلّى عمر رضي الله عنه وجرحه يثعب دمًا (علّقه البخاري).'],
+ ['🤢','قاء ملء الفم',[1,0,0,1],'ينقض عند الحنفية والحنابلة (الكثير)، ولا ينقض عند المالكية والشافعية.'],
+ ['😂','قهقه في الصلاة',[1,0,0,0],'الحنفية: ينقض الوضوء، والجمهور: تبطل الصلاة ويبقى الوضوء.'],
+ ['❓','تيقّن الطهارة ثم شكّ هل أحدث',[0,1,0,0],'الجمهور: يبقى على طهارته: «فلا يخرج حتى يسمع صوتًا أو يجد ريحًا» (مسلم ٣٦٢)، والمالكية على المشهور: يتوضأ احتياطًا.'],
+ ['🍽','أكل طعامًا مسّته النار',[0,0,0,0],'لا ينقض عند الأربعة؛ «كان آخر الأمرين من رسول الله ﷺ ترك الوضوء مما مسّت النار» (أبو داود ١٩٢، وصححه الألباني).'],
+ ['🧴','قصّ أظفاره أو شعره',[0,0,0,0],'لا ينقض بالاتفاق.']];
+function fqNaq(u,k,o){const my=S.settings.madhhab,md=o.md!=null?o.md:my!=null&&my<4?my:3;o.h=o.h||[];
+  const brk=o.h.find(i=>NQ_EV[i][2][md]),last=o.h.length?o.h[o.h.length-1]:null;
+  return `<div class="nk-w nq"><div class="hj-ch">${FQM.map(([kk,nn],j)=>`<button class="${md===j?'on':''}" onclick="FQST('${u}').w['${k}'].md=${j};save();fqRe()">${nn}</button>`).join('')}</div>
+   <div class="nq-st ${brk!=null?'off':''}"><span>${brk!=null?'💔':'💧'}</span><div class="grow"><b>${brk!=null?'انتقض وضوؤك':'أنت على وضوء'}</b><small>${brk!=null?'السبب: '+NQ_EV[brk][1]+' — توضأ قبل الصلاة':'اختر ما حدث لك وانظر أثره على مذهب '+FQM[md][1]}</small></div>${o.h.length?`<button class="btn sm" onclick="FQST('${u}').w['${k}'].h=[];save();fqRe()">💧 توضأت</button>`:''}</div>
+   ${last!=null?`<div class="nq-r"><b>${NQ_EV[last][0]} ${NQ_EV[last][1]}</b><div class="nq-4">${FQM.map(([kk,nn],j)=>`<span class="${NQ_EV[last][2][j]?'y':'n'} ${j===md?'me':''}">${nn}<i>${NQ_EV[last][2][j]?'ينقض':'لا ينقض'}</i></span>`).join('')}</div><small>${NQ_EV[last][3]}</small></div>`:''}
+   <div class="nq-ev">${NQ_EV.map(([ic,t],i)=>`<button class="${o.h.includes(i)?'on':''}" onclick="const o=FQST('${u}').w['${k}'];o.h=o.h.filter(x=>x!==${i});o.h.push(${i});save();fqRe()"><span>${ic}</span>${t}</button>`).join('')}</div>
+   <details class="fq-mz"><summary>جدول المقارنة الكامل بين المذاهب</summary>${fqW(u,{id:k+'_mz',w:NQ_MZ})}</details></div>`}
+let NQ_MZ=null;
+function fqTym(u,k,o){return wdSim(u,k,o,1)+`<details class="fq-mz" style="margin-top:8px"><summary>صفة التيمم بين المذاهب</summary>${fqW(u,{id:k+'_mz',w:TY_MZ})}</details>`}
+let TY_MZ=null;
+(()=>{const T=FQU.thr.L,f=id=>T.find(x=>x.id===id);const wd=f('wd'),nq=f('nq'),tm=f('tm');
+  if(wd){wd.w={t:'fn',f:'fqWudu'};wd.b=wd.b.replace('رتّب خطوات الوضوء الكامل:','جرّب الوضوء بنفسك: المس كل عضو بترتيبه وعدده، وانتبه للعقبين، وراقب مقدار الماء:')}
+  if(nq){NQ_MZ=nq.w;nq.w={t:'fn',f:'fqNaq'}}
+  if(tm){TY_MZ=tm.w;tm.w={t:'fn',f:'fqTym'}}})();
+/* لا نسمّي الشيء «تفاعليًا» إلا إن كان كذلك: الأسماء صريحة بلا وصف */
+tabMeta=(f=>function(it){const m=f(it);if(it.t==='fqu'){m[1]=FQU[it.u].n;m[2]=FQU[it.u].sub+' · دروس ومسائل واختبار'}return m})(tabMeta);
+if(typeof visBadge==='function')visBadge=(f=>function(v){return f(v).replace(/ ?التفاعلية| ?تفاعلية| ?تفاعلي/g,'')})(visBadge);
 
 
 
@@ -17074,7 +17201,7 @@ function renderNavOld(){
 }
 function renderHeader(){
   const back=['matn','session','path','pquiz','intro','practice','srev','lesson','adhkar','course','gate','sci','log','qz','read','readrev','plan','lib','book','pt','hz','hzrev','hzpick','lx0','spec','qs','mymutun','lv','lvtab','lx','jh','tl','mountain','adklog','duas','dua','dread','klesson','kreview','kptest','kexam','kcerts'].includes(route.v);
-  const sub={hall:'خزانة ذُرى',plansetup:'وقتي وأيامي',tjlab:'مختبر التجويد',hifz:'رحلتي مع الحفظ',mlq:'ملقّن القرآن',mrec:'تسجيلاتي',zkb:'كتيّب الأذكار',myd:'أدعيتي',hjlab:'مختبر المناسك',nsk:'المناسك',fqu:'وحدة تفاعلية',pdf:'قارئ PDF',pdfs:'كتبي PDF',bkprint:'نسخة للطباعة',mushaf:'المصحف',muslog:'سجل المصحف',fam:'ملفي والمجموعة',zkr:'ركن الأذكار',lad:'سُلَّم العبادة',amal:'دراسة عملية',mw:'مختبر المواريث',sv:'مواقف السيرة',read:'القراءة',readrev:'مراجعة القراءة',plan:'خطتي',lib:'المكتبة',book:'المكتبة',pt:'شجرة الأنبياء',hz:'حفظ القرآن',hzrev:'مراجعة الحفظ',hzpick:'الحفظ الاختياري',lx0:'امتحان البراعم',spec:'مسارات التخصص',qs:'قصص القرآن',mymutun:'منظوماتي',mountain:'الطريق كاملًا',adklog:'سجل الأذكار',lv:'بوابة المستوى',lvtab:'طريق الذُّرى',lx:'الامتحان الشامل',jh:'الجواب الحاضر',tl:'التفسير على الخط الزمني',klesson:'درس البراعم',kreview:'لعبة المراجعة',kptest:'اختبار الوالدين',kexam:'الامتحان الشامل',kcerts:'شهاداتي',duas:'الأدعية والأذكار',dua:'الحفظ',dread:'قراءة اليوم',tests:'اختباراتي',qz:'اختبار ترسيخ',log:'سجلّي',gate:'بوابة العلوم',sci:'طريق العلم',course:'دورة',adhkar:'الأذكار',home:'ورد اليوم',srev:'المراجعة',muslim:(S.profile||{}).kid?'رحلة البراعم':'طريق الذُّرى',lesson:'درس',library:'المنظومات',paths:'المسارات المضيئة',books:'رفّ الكتب',intro:'المدخل',practice:'التدريب الحر',settings:'الإعدادات',matn:'المنظومة',session:'جلسة التسميع',path:'المسار المضيء',pquiz:'اختبار الفهم'}[route.v];
+  const sub={hall:'خزانة ذُرى',plansetup:'وقتي وأيامي',tjlab:'مختبر التجويد',hifz:'رحلتي مع الحفظ',mlq:'ملقّن القرآن',mrec:'تسجيلاتي',zkb:'كتيّب الأذكار',myd:'أدعيتي',hjlab:'مختبر المناسك',nsk:'المناسك',fqu:'وحدة فقهية',pdf:'قارئ PDF',pdfs:'كتبي PDF',bkprint:'نسخة للطباعة',mushaf:'المصحف',muslog:'سجل المصحف',fam:'ملفي والمجموعة',zkr:'ركن الأذكار',lad:'سُلَّم العبادة',amal:'دراسة عملية',mw:'مختبر المواريث',sv:'مواقف السيرة',read:'القراءة',readrev:'مراجعة القراءة',plan:'خطتي',lib:'المكتبة',book:'المكتبة',pt:'شجرة الأنبياء',hz:'حفظ القرآن',hzrev:'مراجعة الحفظ',hzpick:'الحفظ الاختياري',lx0:'امتحان البراعم',spec:'مسارات التخصص',qs:'قصص القرآن',mymutun:'منظوماتي',mountain:'الطريق كاملًا',adklog:'سجل الأذكار',lv:'بوابة المستوى',lvtab:'طريق الذُّرى',lx:'الامتحان الشامل',jh:'الجواب الحاضر',tl:'التفسير على الخط الزمني',klesson:'درس البراعم',kreview:'لعبة المراجعة',kptest:'اختبار الوالدين',kexam:'الامتحان الشامل',kcerts:'شهاداتي',duas:'الأدعية والأذكار',dua:'الحفظ',dread:'قراءة اليوم',tests:'اختباراتي',qz:'اختبار ترسيخ',log:'سجلّي',gate:'بوابة العلوم',sci:'طريق العلم',course:'دورة',adhkar:'الأذكار',home:'ورد اليوم',srev:'المراجعة',muslim:(S.profile||{}).kid?'رحلة البراعم':'طريق الذُّرى',lesson:'درس',library:'المنظومات',paths:'المسارات المضيئة',books:'رفّ الكتب',intro:'المدخل',practice:'التدريب الحر',settings:'الإعدادات',matn:'المنظومة',session:'جلسة التسميع',path:'المسار المضيء',pquiz:'اختبار الفهم'}[route.v];
   $('#hdr').innerHTML=(back?`<button class="back" onclick="${route.v==='sci'?`go('gate',{lit:1})`:route.v==='course'?`backSci()`:route.v==='lesson'?`crsBack('${findTrack(route.tid).c||''}')`:route.v==='lv'||route.v==='mountain'?`go('muslim')`:route.v==='adklog'?`go('home')`:route.v==='lvtab'?`go('muslim',{l:'${route.l}',lit:1})`:route.v==='read'?`go('book',{id:'${route.id}',m:'read'})`:route.v==='readrev'?`go('plan')`:route.v==='plan'?`go('home')`:route.v==='book'?`go('lib',{s:'${(BKM[route.id]||{}).s||'aqd'}'})`:route.v==='lib'?`backLv()`:route.v==='spec'?(route.k?`go('spec')`:`go('muslim')`):route.v==='hzrev'||route.v==='hzpick'?`go('home')`:['lx','lx0','jh','tl','qs','mymutun','hz','pt'].includes(route.v)?`backLv()`:route.v==='pquiz'&&/^(mlv|tl):/.test(String(route.pid))?`backLv()`:['klesson','kreview','kptest','kexam','kcerts'].includes(route.v)?`KL=null;KPT=null;kStop();go('muslim')`:route.v==='pquiz'&&route.pid==='place:basics'?`go('gate')`:route.v==='pquiz'&&String(route.pid).startsWith('dua:')?`go('duas')`:route.v==='pquiz'&&String(route.pid).startsWith('crs:')?`crsBack('${String(route.pid).split(':')[1]}')`:route.v==='pquiz'&&String(route.pid).startsWith('mtl:')?`go('lesson',{tid:'${String(route.pid).split(':')[1]}',lid:'${String(route.pid).split(':')[2]}'})`:route.v==='pquiz'?(String(route.pid).startsWith('intro:')?`go('intro',{k:'${String(route.pid).slice(6)}'})`:`go('path',{pid:'${route.pid}'})`):route.v==='matn'||route.v==='practice'||route.v==='path'||route.v==='intro'?`backSci()`:`go('${route.from||'home'}')`}">→</button>`:'')+
     `<div class="logo">ذُرى<span id="syncDot" class="sync-dot ${SY.on?(SY.err?'err':SY.dirty?'wait':'ok'):'off'}"></span></div><div class="sub">${sub}</div>`;
 }
