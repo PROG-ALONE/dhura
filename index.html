@@ -2401,6 +2401,13 @@ tajweed.idgham_ghunnah,tajweed.idgham_shafawi,.tj-idgham_ghunnah{color:#0f7a4a}t
 .ms-sh{cursor:pointer}.si-meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.si-meta span{border:1px solid var(--line);border-radius:12px;padding:3px 9px;font-size:12px}
 .si-r{line-height:1.9;margin:6px 0}.si-ax{background:radial-gradient(circle at 10% -40%,#2a8a73,#0b3a30 75%);color:#fff8e6;border-radius:14px;padding:10px 12px;margin:8px 0}.si-ax small{display:block;opacity:.8}.si-ax b{font-size:15.5px;line-height:1.8;font-weight:600}
 .si-tp{padding-inline-start:20px;line-height:1.9}.si-tp li{margin:3px 0}
+/* ============ مواقيت الصلاة ============ */
+.pq-c{background:radial-gradient(circle at 15% -30%,#2a8a73,#0b3a30 70%);color:#f3ead2;border-radius:20px;padding:12px;margin:0 0 10px;cursor:pointer;box-shadow:var(--shadow)}
+.pq-d{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}.pq-d b{font-family:Amiri,serif;font-size:19px;color:#f5dc95}.pq-d small{opacity:.8;font-size:12px}
+.pq-n{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;background:rgba(255,255,255,.07);border-radius:12px;padding:6px 10px;margin-bottom:8px}.pq-n small{opacity:.75}.pq-n b{font-size:17px}.pq-n span{margin-inline-start:auto;font-variant-numeric:tabular-nums;color:#f5dc95;font-weight:800}
+.pq-g{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}.pq-g>div{text-align:center;border-radius:10px;padding:5px 2px;background:rgba(255,255,255,.05)}.pq-g>div.on{background:rgba(242,185,56,.25);box-shadow:inset 0 0 0 1px #f2b938}
+.pq-g span{display:block;font-size:15px}.pq-g small{display:block;font-size:10.5px;opacity:.8}.pq-g b{display:block;font-size:11px;white-space:nowrap}
+.pq-g.big{grid-template-columns:repeat(3,1fr);margin:10px 0}.pq-g.big>div{background:rgba(127,127,127,.1)}.pq-g.big b{font-size:14px}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -14336,6 +14343,45 @@ NAV_ROOTS.push('lad');
 /* إدراج السلّم في ركن الأذكار */
 const _vZkr98=vZkr;vZkr=function(){_vZkr98();if(ZKT!=='home')return;const g=document.querySelector('#app .zk-g');if(!g)return;const L=LAD.salah,i=L.steps.findIndex((s,j)=>ladOpen('salah',j)&&ladDays('salah',j)<LAD_N);
   g.insertAdjacentHTML('afterend',`<button class="panel lad-card" onclick="go('lad',{k:'salah'})"><span>🪜</span><div class="grow"><b>سُلَّم الصلاة</b><small>${i<0?'بلغت الذروة، فحافظ عليها':'درجتك: '+L.steps[i].n}</small></div><span class="chev">‹</span></button>`)};
+
+/* ============ مواقيت الصلاة والتاريخ الهجري (حساب فلكي على الجهاز بلا إنترنت) ============ */
+const PT_M={mwl:['رابطة العالم الإسلامي',18,17],umm:['أم القرى',18.5,'90'],egy:['الهيئة المصرية',19.5,17.5],kar:['جامعة كراتشي',18,18],isna:['أمريكا الشمالية',15,15]};
+const PT_C=[['بغداد',33.3152,44.3661],['الرمادي',33.4258,43.2994],['الفلوجة',33.3539,43.7792],['الموصل',36.3350,43.1189],['البصرة',30.5085,47.7804],['أربيل',36.1911,44.0091],['كربلاء',32.6160,44.0249],['النجف',32.0003,44.3354],['كركوك',35.4681,44.3922],['تكريت',34.6071,43.6782],['مكة المكرمة',21.4225,39.8262],['المدينة المنورة',24.4672,39.6111],['الرياض',24.7136,46.6753],['عمّان',31.9454,35.9284],['دمشق',33.5138,36.2765],['القاهرة',30.0444,31.2357],['إسطنبول',41.0082,28.9784],['الكويت',29.3759,47.9774],['دبي',25.2048,55.2708],['الدوحة',25.2854,51.5310]];
+const PTN=[['fajr','الفجر','🌅'],['sunrise','الشروق','🌄'],['dhuhr','الظهر','☀️'],['asr','العصر','🌤'],['maghrib','المغرب','🌇'],['isha','العشاء','🌙']];
+function PTS(){S.pt=S.pt||{};const p=S.pt;p.m=p.m||'mwl';if(p.asr==null)p.asr=S.settings&&S.settings.madhhab===0?2:1;return p}
+function ptCalc(date,lat,lng,tz,m,asrF){const d2r=Math.PI/180,r2d=180/Math.PI,sin=x=>Math.sin(x*d2r),cos=x=>Math.cos(x*d2r),tan=x=>Math.tan(x*d2r),asin=x=>Math.asin(x)*r2d,acos=x=>Math.acos(Math.max(-1,Math.min(1,x)))*r2d,atan2=(y,x)=>Math.atan2(y,x)*r2d,acot=x=>Math.atan(1/x)*r2d;
+  const fix=(a,b)=>{a=a-b*Math.floor(a/b);return a<0?a+b:a};
+  let y=date.getFullYear(),mo=date.getMonth()+1,dd=date.getDate();if(mo<=2){y--;mo+=12}const A=Math.floor(y/100),B=2-A+Math.floor(A/4),jd=Math.floor(365.25*(y+4716))+Math.floor(30.6001*(mo+1))+dd+B-1524.5-lng/(15*24);
+  const sun=j=>{const D=j-2451545,g=fix(357.529+.98560028*D,360),q=fix(280.459+.98564736*D,360),L=fix(q+1.915*sin(g)+.02*sin(2*g),360),e=23.439-.00000036*D,RA=atan2(cos(e)*sin(L),cos(L))/15,eqt=q/15-fix(RA,24),decl=asin(sin(e)*sin(L));return {decl,eqt}};
+  const mid=t=>{const {eqt}=sun(jd+t/24);return fix(12-eqt,24)},T=(ang,t,dir)=>{const {decl}=sun(jd+t/24),z=mid(t),v=acos((-sin(ang)-sin(decl)*sin(lat))/(cos(decl)*cos(lat)))/15;return z+(dir<0?-v:v)};
+  const asr=(f,t)=>{const {decl}=sun(jd+t/24),ang=-acot(f+tan(Math.abs(lat-decl)));return T(ang,t,1)};
+  const M=PT_M[m]||PT_M.mwl,adj=tz-lng/15;let o={fajr:T(M[1],5,-1),sunrise:T(.833,6,-1),dhuhr:mid(12),asr:asr(asrF,13),maghrib:T(.833,18,1)};o.isha=typeof M[2]==='string'?o.maghrib+(+M[2])/60:T(M[2],18,1);
+  Object.keys(o).forEach(k=>o[k]=o[k]+adj);o.dhuhr+=1/60;o.maghrib+=1/60;return o}
+function ptToday(d){const p=PTS();if(p.lat==null)return null;d=d||new Date();const tz=-d.getTimezoneOffset()/60;return ptCalc(d,p.lat,p.lng,tz,p.m,p.asr)}
+const ptFmt=h=>{h=(h+24)%24;let H=Math.floor(h),M=Math.round((h-H)*60);if(M===60){H=(H+1)%24;M=0}const ap=H<12?'ص':'م',h12=H%12||12;return AR(h12)+':'+AR(String(M).padStart(2,'0'))+' '+ap};
+const HMN=['محرم','صفر','ربيع الأول','ربيع الآخر','جمادى الأولى','جمادى الآخرة','رجب','شعبان','رمضان','شوال','ذو القعدة','ذو الحجة'];
+function hijriTab(d){const jd=Math.floor((d.getTime()/864e5)+2440587.5+.5),l0=jd-1948440+10632,n=Math.floor((l0-1)/10631),l1=l0-10631*n+354,j=Math.floor((10985-l1)/5316)*Math.floor(50*l1/17719)+Math.floor(l1/5670)*Math.floor(43*l1/15238),l2=l1-Math.floor((30-j)/15)*Math.floor(17719*j/50)-Math.floor(j/16)*Math.floor(15238*j/43)+29,m=Math.floor(24*l2/709),day=l2-Math.floor(709*m/24),y=30*n+j-30;return AR(day)+' '+HMN[m-1]+' '+AR(y)+'هـ'}
+function hijriD(d){d=d||new Date();try{const p=new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{day:'numeric',month:'numeric',year:'numeric'}).formatToParts(d),g=t=>+((p.find(x=>x.type===t)||{}).value);const dd=g('day'),mm=g('month'),yy=g('year');if(dd&&mm&&yy&&yy>1300)return AR(dd)+' '+HMN[mm-1]+' '+AR(yy)+'هـ'}catch(e){}return hijriTab(d)}
+function ptNext(){const t=ptToday();if(!t)return null;const now=new Date(),h=now.getHours()+now.getMinutes()/60+now.getSeconds()/3600;
+  for(const [k,n] of PTN){if(k==='sunrise')continue;if(t[k]>h)return {k,n,left:t[k]-h,at:t[k]}}const t2=ptToday(new Date(Date.now()+864e5));return {k:'fajr',n:'الفجر',left:24-h+t2.fajr,at:t2.fajr}}
+function ptCardHTML(){const p=PTS(),t=ptToday(),gd=new Date().toLocaleDateString('ar-IQ',{weekday:'long',day:'numeric',month:'long'});
+  if(!t)return `<div class="pq-c"><div class="pq-d"><b>${hijriD()}</b><small>${gd}</small></div><button class="btn gold" style="width:100%" onclick="ptSetup()">🕌 حدّد مدينتك لمواقيت الصلاة</button></div>`;
+  const nx=ptNext();return `<div class="pq-c" onclick="ptSetup()"><div class="pq-d"><b>${hijriD()}</b><small>${gd} · ${esc(p.city||'موقعي')}</small></div>
+   <div class="pq-n"><small>الصلاة القادمة</small><b>${nx.n} ${ptFmt(nx.at)}</b><span id="ptLeft">${ptLeft(nx.left)}</span></div>
+   <div class="pq-g">${PTN.map(([k,n,i])=>`<div class="${nx.k===k?'on':''}"><span>${i}</span><small>${n}</small><b>${ptFmt(t[k])}</b></div>`).join('')}</div></div>`}
+const ptLeft=l=>{const s=Math.max(0,Math.round(l*3600)),H=Math.floor(s/3600),M=Math.floor(s%3600/60),S2=s%60;return 'بعد '+AR(H)+':'+AR(String(M).padStart(2,'0'))+':'+AR(String(S2).padStart(2,'0'))};
+setInterval(()=>{const e=document.getElementById('ptLeft');if(!e)return;const nx=ptNext();if(nx)e.textContent=ptLeft(nx.left)},1000);
+function ptSetup(){const p=PTS();$('#sheet').classList.add('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">🕌 مواقيت الصلاة</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
+  <button class="btn gold" style="width:100%;margin:8px 0" onclick="ptGeo()">📍 استخدم موقعي الحالي</button>
+  <label class="fld"><span>أو اختر مدينة</span><select onchange="const c=PT_C[this.value];if(c){Object.assign(PTS(),{city:c[0],lat:c[1],lng:c[2]});save();closeModal();render()}"><option value="">—</option>${PT_C.map((c,i)=>`<option value="${i}" ${p.city===c[0]?'selected':''}>${c[0]}</option>`).join('')}</select></label>
+  <label class="fld"><span>طريقة الحساب</span><select onchange="PTS().m=this.value;save();ptSetup()">${Object.entries(PT_M).map(([k,v])=>`<option value="${k}" ${p.m===k?'selected':''}>${v[0]}</option>`).join('')}</select></label>
+  <label class="fld"><span>العصر</span><select onchange="PTS().asr=+this.value;save();ptSetup()"><option value="1" ${p.asr===1?'selected':''}>الجمهور (ظل الشيء مثله)</option><option value="2" ${p.asr===2?'selected':''}>الحنفية (مثلاه)</option></select></label>
+  ${ptToday()?`<div class="pq-g big">${PTN.map(([k,n,i])=>`<div><span>${i}</span><small>${n}</small><b>${ptFmt(ptToday()[k])}</b></div>`).join('')}</div>`:''}
+  <small class="muted">الحساب فلكي على جهازك، وقد يختلف دقيقة أو دقيقتين عن تقويم بلدك؛ والعبرة بأذان مسجدك.</small>`;$('#modal').classList.add('open')}
+function ptGeo(){if(!navigator.geolocation)return toast('الموقع غير متاح في هذا المتصفح');navigator.geolocation.getCurrentPosition(pos=>{Object.assign(PTS(),{city:'موقعي',lat:pos.coords.latitude,lng:pos.coords.longitude});save();closeModal();render();toast('✓ حُدّدت المواقيت لموقعك')},()=>toast('لم يُسمح بالموقع؛ اختر مدينتك من القائمة'),{timeout:10000})}
+/* الإدراج: أعلى ركن الأذكار، وأعلى «يومي» في وضع القراءة */
+const _vZkr101=vZkr;vZkr=function(){_vZkr101();if(ZKT!=='home')return;const t=document.querySelector('#app .tju-bar');if(t)t.insertAdjacentHTML('afterend',ptCardHTML())};
+const _vHome101=vHome;vHome=function(){_vHome101();if(route.v!=='home'||(S.profile||{}).kid)return;const g=document.querySelector('#app .ro-g')||document.querySelector('#app .hm-q');if(g)g.insertAdjacentHTML('afterend',ptCardHTML())};
 
 /* ============ الدراسة العملية المتدرجة: بعد كل نظري تطبيقٌ ومحاسبة، صعودًا عبر المستويات حتى الذروة ============ */
 const AML=[
