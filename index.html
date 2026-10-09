@@ -2339,6 +2339,15 @@ tajweed.idgham_ghunnah,tajweed.idgham_shafawi,.tj-idgham_ghunnah{color:#0f7a4a}t
 .ro-g{font-family:Amiri,serif;font-size:22px;margin:4px 0 10px}.ro-ms{display:flex;gap:12px;align-items:center;width:100%;text-align:right;border:0;border-radius:20px;padding:16px;margin-bottom:10px;color:#fff8e6;background:radial-gradient(circle at 10% -30%,#2a8a73,#0b3a30 70%);font:inherit;cursor:pointer;box-shadow:var(--shadow)}
 .ro-ms b{font-family:Amiri,serif;font-size:21px;display:block}.ro-ms small{display:block;opacity:.85;font-size:12px;margin:2px 0}.ro-ms .crs-bar{background:rgba(255,255,255,.15);margin:6px 0}.ro-ic{font-size:34px}
 .ro-h .hm-q{grid-template-columns:1fr 1fr}
+/* ---- واجهة قراءة هادئة: أيقونات صغيرة وسهمان جانبيان ---- */
+.ms-top{gap:4px;margin:-4px 0 4px}.ms-top .grow{cursor:pointer;min-width:0}.ms-top small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}
+.ms-i{width:34px;height:34px;flex:0 0 auto;border-radius:50%;border:0;background:transparent;color:var(--ink);font-size:16px;cursor:pointer;display:grid;place-items:center;opacity:.75}.ms-i:hover,.ms-i.on{opacity:1;background:rgba(201,150,47,.16)}
+.ms-kp{display:block;height:2px;background:rgba(127,127,127,.15);margin-bottom:8px;border-radius:2px;overflow:hidden}.ms-kp u{display:block;height:100%;background:var(--gold)}
+.ms-stage{position:relative}
+.ms-ar{position:absolute;top:50%;transform:translateY(-50%);width:28px;height:56px;border:0;border-radius:14px;background:rgba(47,107,85,.75);color:#fff8e6;font-size:24px;line-height:1;cursor:pointer;opacity:.5;transition:opacity .2s;z-index:2;display:grid;place-items:center;padding:0 0 4px}
+.ms-ar:hover,.ms-ar:active{opacity:.9}.ms-ar:disabled{display:none}.ms-ar.r{right:-10px}.ms-ar.l{left:-10px}
+.ms-ayn{display:flex;justify-content:space-between}
+.ms-lg{margin:10px 0 4px}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -13985,16 +13994,15 @@ function vMushaf(){mInit(()=>{const m=MS(),p=m.p,app=$('#app');let body='';
   else if(m.mode==='scr'){body=[0,1,2,3].map(i=>p+i<=604?mPageHTML(p+i):'').join('')+`<div id="msMore" class="ms-more">⬇ المزيد</div>`}
   else if(m.mode==='ay'){const ids=mIds(p),i=Math.min(m.ai||0,ids.length-1),id=ids[i],[s,a]=mSA(id);m.ai=i;
     body=`<div class="ms-focus"><div class="ms-ph"><span>${SUR_N[s-1]} · الآية ${AR(a)}</span><span>صفحة ${AR(p)}</span></div><div class="ms-tx big">${mAyahHTML(id)}</div><div class="ms-ftf" id="msFtf"><small class="muted">…</small></div>
-     <div class="row" style="gap:8px"><button class="btn grow" onclick="mAy(-1)">→ السابقة</button><button class="btn gold grow" onclick="mAy(1)">التالية ←</button></div></div>`}
+     <div class="ms-ayn"><button class="ms-i" onclick="mAy(-1)">›</button><button class="ms-i" onclick="mAy(1)">‹</button></div></div>`}
   else body=mPageHTML(p);
   const kp=m.cur.pg.length,wird=Math.ceil(604/m.goal),td=(m.log[today()]||{}).pg||[];
-  app.innerHTML=`<div class="ms-top"><button class="icon-btn" onclick="mIndex()">☰</button><div class="grow"><b>${SUR_N[mSA(MPG[p])[0]-1]}</b><small>صفحة ${AR(p)} · الجزء ${AR(mJuz(MPG[p]))} · الحزب ${AR(Math.ceil(mHizb(MPG[p])/4))}</small></div><button class="icon-btn" onclick="go('muslog')">📊</button><button class="icon-btn" onclick="mSet()">⚙</button></div>
-   <div class="ms-modes">${[['pg','صفحة'],['two','صفحتان'],['scr','متصل'],['ay','آية آية']].map(([k,n])=>`<button class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();vMushaf()">${n}</button>`).join('')}<span class="grow"></span>
-    <button class="${m.lay.tj?'on':''}" onclick="mLay('tj')">🎨 تجويد</button></div>
-   <div class="ms-kh"><i><u style="width:${kp/604*100}%"></u></i><small>الختمة ${AR(m.kh.length+1)}: ${AR(kp)} من ٦٠٤ صفحة · وِرد اليوم ${AR(Math.min(td.length,wird))}/${AR(wird)}</small></div>
-   ${m.lay.tj?`<div class="ms-lg">${[['madda_necessary','مد لازم ٦'],['madda_obligatory','مد واجب ٤–٥'],['madda_permissible','مد جائز'],['madda_normal','مد طبيعي ٢'],['ghunnah','غنة'],['ikhafa','إخفاء'],['idgham_ghunnah','إدغام بغنة'],['idgham_wo_ghunnah','إدغام بلا غنة'],['iqlab','إقلاب'],['qalaqah','قلقلة'],['ham_wasl','لا يُنطق']].map(([c,n])=>`<span><i class="tj-${c}"></i>${n}</span>`).join('')}</div>`:''}
-   <div class="ms-wrap ${m.mode}" id="msWrap" style="--fs:${m.fs}px">${body}</div>
-   <div class="ms-nav"><button class="btn" onclick="mGo(-${m.mode==='two'?2:1})">→ السابقة</button><button class="btn gold" onclick="mPlay()">${MPL.on?'⏸ إيقاف':'🎧 ختمة على الإيقاع'}</button><button class="btn" onclick="mGo(${m.mode==='two'?2:1})">التالية ←</button></div>
+  const st=m.mode==='two'?2:1;
+  app.innerHTML=`<div class="ms-top"><button class="ms-i" onclick="mIndex()" title="الفهرس">☰</button><div class="grow" onclick="mIndex()"><b>${SUR_N[mSA(MPG[p])[0]-1]}</b><small>ص ${AR(p)} · ج ${AR(mJuz(MPG[p]))} · الختمة ${AR(kp)}/٦٠٤ · الورد ${AR(Math.min(td.length,wird))}/${AR(wird)}</small></div>
+    <button class="ms-i ${MPL.on?'on':''}" onclick="mPlay()" title="ختمة على الإيقاع">${MPL.on?'⏸':'🎧'}</button><button class="ms-i ${m.lay.tj?'on':''}" onclick="mLay('tj')" title="التجويد">🎨</button><button class="ms-i" onclick="go('muslog')" title="السجل">📊</button><button class="ms-i" onclick="mSet()" title="الإعدادات">⚙</button></div>
+   <i class="ms-kp"><u style="width:${kp/604*100}%"></u></i>
+   <div class="ms-stage"><div class="ms-wrap ${m.mode}" id="msWrap" style="--fs:${m.fs}px">${body}</div>
+    ${m.mode==='scr'?'':`<button class="ms-ar r" onclick="mGo(-${st})" aria-label="السابقة" ${p<=1?'disabled':''}>›</button><button class="ms-ar l" onclick="mGo(${st})" aria-label="التالية" ${p>=604?'disabled':''}>‹</button>`}</div>
    <div id="msBar">${mBar()}</div>`;
   mBind();if(m.lay.tj)mLoadTj(p,m.mode==='two'?p+1:m.mode==='scr'?p+3:p);if(m.mode==='ay')mFocusTf();mTrack()})}
 function mBar(){if(!MPL.on)return '';const id=MPL.q[MPL.id],[s,a]=id?mSA(id):[1,1],m=MS(),left=604-m.cur.pg.length;
@@ -14055,6 +14063,8 @@ function mIndex(){mInit(()=>{const m=MS();$('#sheet').classList.add('tall');$('#
   ${m.bm.length?`<h4>🔖 علاماتك</h4><div class="ms-ix-b">${m.bm.map(k=>{const [s,a]=k.split(':').map(Number);return `<button onclick="mGoto(${mPageOf(mID(s,a))})">${SUR_N[s-1]} ${AR(a)}</button>`}).join('')}</div>`:''}
   <div class="ms-ix">${SUR_N.map((n,i)=>`<button onclick="mGoto(${mPageOf(MSC[i])})"><span>${AR(i+1)}</span><b>${n}</b><small>${AR(QFULL[i].length)} آية · ص ${AR(mPageOf(MSC[i]))}</small></button>`).join('')}</div>`;$('#modal').classList.add('open')})}
 function mSet(){const m=MS();$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">⚙ إعدادات المصحف</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
+  <div class="ms-modes">${[['pg','صفحة'],['two','صفحتان'],['scr','متصل'],['ay','آية آية']].map(([k,n])=>`<button class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();closeModal();vMushaf()">${n}</button>`).join('')}</div>
+  ${m.lay.tj?`<div class="ms-lg">${[['madda_necessary','مد لازم ٦'],['madda_obligatory','مد واجب ٤–٥'],['madda_permissible','مد جائز'],['madda_normal','مد طبيعي ٢'],['ghunnah','غنة'],['ikhafa','إخفاء'],['idgham_ghunnah','إدغام بغنة'],['idgham_wo_ghunnah','إدغام بلا غنة'],['iqlab','إقلاب'],['qalaqah','قلقلة'],['ham_wasl','لا يُنطق']].map(([c,n])=>`<span><i class="tj-${c}"></i>${n}</span>`).join('')}</div>`:''}
   <label class="fld"><span>حجم الخط: ${AR(m.fs)}</span><input type="range" min="16" max="34" value="${m.fs}" oninput="MS().fs=+this.value;document.getElementById('msWrap').style.setProperty('--fs',this.value+'px')" onchange="save()"></label>
   <label class="fld"><span>القارئ في الإيقاع</span><select onchange="MS().rc=this.value;save()">${Object.keys(RECS).map(k=>`<option value="${k}:t" ${m.rc===k+':t'?'selected':''}>${RECS[k].n} — المرتّل</option>`).join('')}<option value="husary:m" ${m.rc==='husary:m'?'selected':''}>الحصري — المعلّم</option></select></label>
   <label class="fld"><span>أختم كل (يومًا)</span><select onchange="MS().goal=+this.value;save();vMushaf()">${[7,10,15,20,30,40,60].map(n=>`<option ${m.goal===n?'selected':''} value="${n}">${AR(n)} — وِرد ${AR(Math.ceil(604/n))} صفحة يوميًا</option>`).join('')}</select></label>
