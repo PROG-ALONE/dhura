@@ -14799,6 +14799,20 @@ function svQs(g){const E=SVE.filter(e=>e.g===g),all=SVE,Q=[];shf(E).forEach(e=>{
 function svTest(g){tjXStart(svQs(g),{title:'📜 '+SVGR[g].n,gen:()=>svQs(g),back:`go('sv',{g:'${g}'})`,passMsg:'أتقنت هذه المواقف وآياتها.',onPass:()=>{SVS().pass[g]=1;logAct('q')}})}
 NAV_ROOTS.push('sv');
 
+/* ============ تتمات الصوت: دعاء المسجد + الأدعية النصية + الشرح المسموع ============ */
+DUA_AUD.d106={h:[24,25]};
+const DUA_TXT=['d401','d402','d403','d404','d406','d407','d408','ap12'];
+const _vDua301=vDua;vDua=function(){_vDua301();const d=DUAS.find(x=>x.id===route.id);if(!d||DUA_AUD[d.id]||DUA_TXT.indexOf(d.id)<0)return;const t=document.querySelector('#app .d-text');if(t)t.insertAdjacentHTML('afterend',`<div class="muted" style="font-size:12px;margin:6px 0">📖 لا يوجد تسجيل منشور موثَّق لهذا الدعاء في «حصن المسلم»؛ يُقرأ نصًّا.</div>`)};
+function bkAudio(id){const b=BKM[id];if(!b)return;const q=encodeURIComponent('شرح '+b.t),q2=encodeURIComponent('شرح '+b.t+' صوتي');
+  $('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">🎧 شرح مسموع: ${esc(b.t)}</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
+  <p class="muted" style="font-size:12.5px">شروح منشورة لأهل العلم على مواقعها الأصلية. اختر الشارح المعتمد عند مذهبك أو شيخك، ولا تأخذ عن مجهول.</p>
+  <div style="display:grid;gap:8px">
+   <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${q}">▶️ يوتيوب: «شرح ${esc(b.t)}»</a>
+   <a class="btn" target="_blank" rel="noopener" href="https://ar.islamway.net/search?query=${q}">🕌 طريق الإسلام (دروس صوتية)</a>
+   <a class="btn" target="_blank" rel="noopener" href="https://archive.org/search?query=${q2}">🗄 أرشيف الإنترنت (سلاسل كاملة للتحميل)</a>
+  </div>`;$('#modal').classList.add('open')}
+const _vBook301=vBook;vBook=function(){_vBook301();const b=BKM[route.id],tb=document.querySelector('.bk-tabs');if(b&&tb&&!tb.querySelector('.bk-au'))tb.insertAdjacentHTML('beforeend',`<button class="bk-au" onclick="bkAudio('${b.id}')">🎧 شرح مسموع</button>`)};
+
 
 
 /* ---- الشهادة الصغيرة لكل وحدة ---- */
