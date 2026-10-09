@@ -2865,6 +2865,21 @@ html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none
 .pr-v span{text-align:center}
 .pr-v i{font-style:normal;font-size:12px;color:#b8862b}
 @media print{header.top,nav.bottom,.no-print,.pr-bar,#toast,.modal{display:none!important}body{background:#fff!important;padding:0!important}#app{padding:0!important;max-width:none!important}.pr-doc{border-radius:0;padding:0 8mm;font-size:15pt}.pr-doc h2{break-after:avoid}}
+/* إصلاح الصور الدائرية على آيفون */
+img.fm-av{display:inline-block;border-radius:50%;object-fit:cover;-webkit-clip-path:circle(50%);clip-path:circle(50%);overflow:hidden;aspect-ratio:1/1}
+/* ملخص المستوى */
+.lv-sumb{margin-bottom:10px}
+.lv-sum .row{align-items:center;gap:10px}
+.lv-ic{font-size:30px}
+.lv-sum b{display:block;font-size:16px}
+.lv-sum small{color:var(--muted);font-size:12.5px;line-height:1.7;display:block}
+.lv-sum h4{margin:14px 0 6px}
+.lv-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.lv-tabs span{padding:5px 10px;border-radius:12px;background:rgba(127,168,255,.1);font-size:12.5px}
+.lv-tabs i{font-style:normal;color:var(--muted);font-size:11px}
+.lv-g{margin:0;padding-inline-start:20px;line-height:2}
+.tj-miss{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.tj-miss a{padding:6px 10px;border-radius:12px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:12.5px;background:rgba(255,255,255,.04)}
 /* ============ الوضع الداكن لعناصر الإصدار ١ ============ */
 [data-theme="dark"] .hzl-card{background:linear-gradient(135deg,rgba(233,207,143,.10),rgba(233,207,143,.04));border-color:rgba(233,207,143,.28)}
 [data-theme="dark"] .hzl-chips button,[data-theme="dark"] .hzl-n{background:var(--card);border-color:var(--line);color:var(--ink)}
@@ -16525,8 +16540,6 @@ const _vZkr305=vZkr;vZkr=function(){_vZkr305();if(ZKT!=='home')return;const c=do
 /* إخفاء الدروس المرئية في وحدات التجويد لمن لا يريدها */
 const _tjuSteps306=tjuSteps;tjuSteps=function(u){const s=_tjuSteps306(u);return S.settings.tjNoVid?s.filter(x=>x.k!=='vd'):s};
 const _sx306=settingsExtraHTML;settingsExtraHTML=function(){return _sx306()+`<div class="panel"><h3 style="margin-top:0">🎬 التجويد</h3><label class="lad-c"><input type="checkbox" ${S.settings.tjNoVid?'checked':''} onchange="S.settings.tjNoVid=this.checked;save();toast(this.checked?'أُخفيت الدروس المرئية من وحدات التجويد':'ظهرت الدروس المرئية')"> إخفاء الدروس المرئية (يوتيوب) من وحدات التجويد، والاكتفاء بالشرح والمختبر والاختبار</label></div>`};
-/* رابط لبقية حلقات «التجويد المصور» التي لم نجد لها رابطًا موثقًا */
-const _tjuBody307=tjuBody;tjuBody=function(u,key){const h=_tjuBody307(u,key);if(S.settings.tjNoVid||!/🎬/.test(h))return h;return h+`<div class="tju-sec"><a class="btn sm" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent('شرح كتاب التجويد المصور أيمن سويد الحلقة')}">📺 ابحث عن بقية حلقات السلسلة في يوتيوب</a><small class="muted" style="display:block;margin-top:4px">ربطنا الحلقات التي تحققنا من روابطها، وبقيت حلقات لم نجد لها رابطًا موثوقًا.</small></div>`};
 
 /* ============ الكتب PDF: نسخة ذُرى للطباعة، ورفع نسختك وقراءتها داخل التطبيق، وروابط للبحث عن النسخ المنشورة ============ */
 const BKMT={atfalb:'atfal',bayqb:'bayq'};
@@ -16590,6 +16603,33 @@ function vPdfs(){const M=PDM(),ids=Object.keys(M).sort((a,b)=>(M[b].at||'').loca
    <div class="nk-ls" style="margin-top:10px">${ids.length?ids.map(id=>{const m=M[id],b=m.b&&BKM[m.b];return `<button onclick="go('pdf',{id:'${id}'})"><span class="n">📄</span><div class="grow"><b>${esc(b?b.t:m.n)}</b><small class="muted" style="display:block;font-size:11.5px">${esc(m.n)} · ${AR(Math.round(m.sz/1048576*10)/10)} م.ب · صفحة ${AR(m.p||1)}</small></div><span class="ah-go" onclick="event.stopPropagation();pdDel('${id}')">🗑</span></button>`}).join(''):'<p class="muted">لا كتب بعد. ويمكنك أيضًا الرفع من صفحة أي كتاب في المكتبة عبر زر «📄 PDF».</p>'}</div>`}
 /* مدخل الرف من المكتبة */
 const _vHall303=vHall;vHall=function(){_vHall303();const app=document.getElementById('app');if(app&&!app.querySelector('.pd-shelf'))app.insertAdjacentHTML('afterbegin',`<button class="ah-c ah-now pd-shelf" style="margin-bottom:10px" onclick="go('pdfs')"><span class="ah-ni">📂</span><div class="grow"><b>كتبي PDF</b><small>${AR(Object.keys(PDM()).length)} كتاب على جهازك · ارفع وأقرأ</small></div><span class="ah-go">‹</span></button>`)};
+
+/* ============ إصلاحات + ملخص المستوى وأهدافه ============ */
+/* بطاقة الوحدات التفاعلية داخل تبويب المستوى (كانت لا تظهر عند الفتح) */
+const _tabItemHTML308=tabItemHTML;tabItemHTML=function(it,o){if(it.t!=='fqu')return _tabItemHTML308(it,o);const U=FQU[it.u],m=tabMeta(it),[a,b]=itemProg(it),n=FQST(it.u);
+  return `<div class="tj-card"><p>${U.sub}: ${AR(U.L.length)} دروس، لكل درس تجربة وتحقق، ثم ${AR(U.sc.length)} مسألة «ماذا لو؟» واختبار.</p><i class="crs-bar"><u style="width:${b?a/b*100:0}%"></u></i><small class="muted">${AR(a)} من ${AR(b)} دروس${n.t?' · ✓ اجتزت الاختبار':''}</small>
+   <button class="btn gold" style="width:100%;margin-top:8px" ${o||RO()?`onclick="${m[3]}"`:'disabled'}>${a?'تابع الوحدة ←':'ابدأ الوحدة ←'}</button></div>`};
+/* حلقات «التجويد المصور» الناقصة من قائمة السلسلة الكاملة (٤٥ حلقة) */
+const TJ_PL='PLCTifDArWwqJud0hfGmqG7OaPPwljvnCF',TJ_MISS=[9,12,15,17,21,23,32,35,36,41,42,43,44];
+tjuBody=(f=>function(u,key){let h=f(u,key);if(S.settings.tjNoVid||!/🎬/.test(h))return h;h=h.replace(/<div class="tju-sec"><a class="btn sm" target="_blank" rel="noopener" href="https:\/\/www\.youtube\.com\/results[\s\S]*?<\/small><\/div>/,'');
+  return h+`<div class="tju-sec"><h4>📺 السلسلة كاملة (٤٥ حلقة)</h4><a class="btn sm gold" target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=${TJ_PL}">افتح قائمة السلسلة في يوتيوب</a>
+   <div class="tj-miss">${TJ_MISS.map(n=>`<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?list=${TJ_PL}&index=${n}">الحلقة ${AR(n)}</a>`).join('')}</div><small class="muted">الحلقات المرقّمة هنا تُفتح من قائمة السلسلة بترتيبها.</small></div>`})(tjuBody);
+/* ملخص المستوى وأهدافه */
+const LVG={D0:{s:'مرحلة البراعم: أساسيات الدين بلغة قريبة، بالقصة والصورة واللعب، لتُبنى المحبة قبل التفاصيل.',g:['يعرف أركان الإسلام والإيمان بلغة سهلة','يتوضأ ويصلي بنفسه','يحفظ قصار السور وأذكار يومه','يعرف قصص الأنبياء ويحب النبي ﷺ','يتحلى بآداب يومية في البيت والمسجد']},
+ D1:{s:'التأسيس: ما لا يسع المسلم جهله، دراسةً نظرية وعملية، حتى تقوم عبادتك على علم.',g:['تصحّح عقيدتك في أركان الإيمان','تتقن الطهارة والصلاة نظريًا وعمليًا وتعرف مسائلها الطارئة','تقرأ الفاتحة وقصار السور قراءة صحيحة وتحفظ ما تيسّر','تعرف السيرة النبوية إجمالًا وقصص القرآن','تحافظ على أذكار اليوم والليلة','تجيب عن الأسئلة الشائعة في دينك بثقة']},
+ D2:{s:'المدخل العلمي: تبدأ في كل علم بمدخله الصحيح، مع الصيام والزكاة والمدخل المنصف إلى المذاهب.',g:['تعرف أصول العقيدة ومدارسها بإنصاف','تتقن فقه الصيام والزكاة مع حاسباتها','تضبط مخارج الحروف وصفاتها في التجويد','تعرف السيرة المكية والمدنية ومواقفها مع آياتها','تفهم مبادئ مصطلح الحديث وعلوم القرآن','تحفظ الأدعية المأثورة الأساسية']},
+ D3:{s:'المتوسط: متون العلم الأولى وشروحها، مع العبادات الكبرى تطبيقًا.',g:['تدرس متنًا في العقيدة على مدرستك','تتقن الجنائز والأضحية والمناسك بالمحاكاة','تطبّق أحكام التجويد في تلاوتك','تحيط بالسيرة تفصيلًا','تحفظ متنًا في الحديث ومصطلحه','تقرأ في التفسير قراءة منهجية']},
+ D4:{s:'المتقدم: المتون المتوسطة في كل علم، وفقه الأسرة والمال، والعبادة والسلوك.',g:['تدرس متنًا أعلى في العقيدة','تفهم فقه النكاح والمعاملات المالية المعاصرة','تتقن المواريث حسابًا وتطبيقًا','تحفظ المقدمة الجزرية','تدرس عمدة الأحكام أو بلوغ المرام','ترتقي في العبادة والسلوك بسلالم التدرج']},
+ D5:{s:'الذروة: الكتب الكبرى في كل علم، ثم تختار تخصصك.',g:['تقرأ أمهات الكتب في كل علم','تتمكن من المقارنة بين المذاهب بأدلتها','تختار تخصصًا وتتعمق فيه','تعلّم غيرك ما تعلمت']}};
+function lvStats(L){let a=0,b=0;(L.tabs||[]).forEach(T=>T.items.forEach(it=>{try{const [x,y]=itemProg(it);a+=Math.min(x,y);b+=y}catch(e){}}));return [a,b]}
+function lvSumHTML(L,full){const G=LVG[L.k]||{s:L.sub||'',g:[]},[a,b]=lvStats(L),pc=b?Math.round(a/b*100):0;
+  return `<div class="lv-sum"><div class="row"><span class="lv-ic">${L.ic||'⛰'}</span><div class="grow"><b>مستوى «${esc(L.n)}»</b><small>${G.s}</small></div><div class="nk-ring" style="--p:${pc/100}"><b>${AR(pc)}٪</b></div></div>
+   ${full?`<h4>📚 ما ستدرسه</h4><div class="lv-tabs">${(L.tabs||[]).map(T=>`<span>${T.ic||''} ${esc(T.n)} <i>${AR(T.items.length)}</i></span>`).join('')}</div>`:''}
+   <h4>🎯 بعد إتمام المستوى</h4><ul class="lv-g">${G.g.map(x=>`<li>${x}</li>`).join('')}</ul>${full?'':''}</div>`}
+function lvSumOpen(k){const L=DLVM[k];if(!L)return;$('#sheet').classList.add('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">عن هذا المستوى</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>${lvSumHTML(L,true)}<button class="btn gold" style="width:100%;margin-top:10px" onclick="closeModal()">ابدأ ←</button>`;$('#modal').classList.add('open')}
+const _vMuslim309=vMuslim;vMuslim=function(){_vMuslim309();if(route.v!=='muslim'||(S.profile||{}).kid)return;const k=route.l,L=DLVM[k];if(!L||!L.tabs)return;const app=document.getElementById('app');if(!app||app.querySelector('.lv-sumb'))return;
+  const [a,b]=lvStats(L);app.insertAdjacentHTML('afterbegin',`<button class="ah-c ah-now lv-sumb" onclick="lvSumOpen('${k}')"><span class="ah-ni">🎯</span><div class="grow"><b>عن مستوى «${esc(L.n)}» وأهدافه</b><small>${AR(b?Math.round(a/b*100):0)}٪ · ${esc((LVG[k]||{}).s||'').slice(0,70)}…</small></div><span class="ah-go">‹</span></button>`);
+  S.lvSeen=S.lvSeen||{};if(!S.lvSeen[k]){S.lvSeen[k]=today();save();setTimeout(()=>{if(route.v==='muslim'&&route.l===k)lvSumOpen(k)},350)}};
 
 
 
