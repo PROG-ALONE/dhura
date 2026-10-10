@@ -2880,6 +2880,11 @@ img.fm-av{display:inline-block;border-radius:50%;object-fit:cover;-webkit-clip-p
 .lv-g{margin:0;padding-inline-start:20px;line-height:2}
 .tj-miss{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
 .tj-miss a{padding:6px 10px;border-radius:12px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:12.5px;background:rgba(255,255,255,.04)}
+/* iOS/iPadOS: قصّ صورة المستوى داخل الدائرة (سفاري يتجاهل overflow مع الحركة) */
+.hud-core,.pt-core{isolation:isolate}
+.hud-core img,.pt-core img{-webkit-transform:translateZ(0);transform:translateZ(0)}
+.hud-core img,.pt-core img,.hud-scan,.hud-glare{border-radius:50%;-webkit-clip-path:circle(50% at 50% 50%);clip-path:circle(50% at 50% 50%)}
+@supports not (aspect-ratio:1/1){.hud{height:min(100vw,440px)}.hud-core{height:52%}.pt-hud{height:min(80vw,280px)}.pt-core{height:46%}.hnode{height:19%}}
 .wd-hd{display:flex;justify-content:space-between;align-items:center}.wd-hd small{color:var(--muted);font-size:12px}
 .wd-st{margin:8px 0;padding:10px 12px;border-radius:12px;background:rgba(64,156,255,.08);border:1px solid rgba(64,156,255,.25)}.wd-st p{margin:4px 0;line-height:1.8;font-size:14px}
 .wd-svg{display:block;width:100%;max-width:340px;margin:6px auto;touch-action:manipulation}
