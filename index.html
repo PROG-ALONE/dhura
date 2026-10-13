@@ -8430,7 +8430,7 @@ function lvOpen(i){const L=DLV[i];if(!L||L.soon)return false;if(RO())return true
 function lvCur(){for(const L of DLV){if(L.soon)return L;if(!lvPassed(L.k))return L}return DLV[DLV.length-1]}
 function lvCurOpen(){const c=lvCur();if(!c.soon)return c;for(let i=DLV.length-1;i>=0;i--)if(lvOpen(i))return DLV[i];return DLV[0]}
 function duaLvOpen(i){if(RO())return true;const k=DUA_LV[i].k,loc=DUA_LOC[k];return loc?lvOpen(DLVM[loc].i):false}
-function itemDone(it){if(it.opt)return true;switch(it.t){
+function itemDone(it){switch(it.t){
   case 'mtl':return it.lids.every(l=>mlDone(it.tid,l));
   case 'crsl':{const L=CRS[it.c].levels[it.l];return !!CS(it.c).lv[L.id]}
   case 'path':return !!PS(it.ref).lv.final;
