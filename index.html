@@ -17985,17 +17985,33 @@ function certFlow(again,draw,fname){
       <div class="row" style="margin-top:10px"><button class="btn grow" id="certOk">متابعة</button><button class="btn ghost" onclick="closeModal()">إلغاء</button></div>`;
     $('#modal').classList.add('open');$('#certOk').onclick=()=>{const v=$('#certName').value.trim();if(!v)return;S.settings.name=v;save();again()};setTimeout(()=>$('#certName').focus(),100);return;
   }
-  $('#sheet').innerHTML=`<h3>🎓 شهادة الإتمام</h3><div id="certBox" class="muted" style="text-align:center;padding:30px">يجري إعداد الشchée…</div>
+  $('#sheet').innerHTML=`<h3>🎓 شهادة الإتمام</h3><div id="certBox" class="muted" style="text-align:center;padding:30px">يجري إعداد الشهادة…</div>
     <div class="row" style="margin-top:10px">
-      <a class="btn grow" id="certDl" style="text-align:center;text-decoration:none" onclick="window.print()">تنزيل PDF</a>
-      <a class="btn grow" id="certDlPng" style="text-align:center;text-decoration:none;margin-left:10px" onclick="downloadCertPNG()">تنزيل صورة</a>
+      <a class="btn grow" id="certDl" style="text-align:center;text-decoration:none" onclick="downloadCertPDF()">📄 تنزيل PDF</a>
+      <a class="btn grow" id="certDlPng" style="text-align:center;text-decoration:none;margin-left:10px" onclick="downloadCertPNG()">🖼 تنزيل صورة</a>
       <button class="btn ghost" onclick="closeModal()">إغلاق</button></div>`;
   $('#modal').classList.add('open');
-  const go2=()=>{const url=draw();$('#certBox').innerHTML=`<img src="${url}" style="width:100%;border-radius:10px;box-shadow:var(--shadow)">`;const a=$('#certDlPng');a.href=url;a.download=fname+'.png'};
+  const go2=()=>{const url=draw();window.__certURL=url;window.__certName=fname;const box=$('#certBox');if(box)box.innerHTML=`<img src="${url}" style="width:100%;border-radius:10px;box-shadow:var(--shadow)">`;const a=$('#certDlPng');if(a){a.href=url;a.download=fname+'.png'}};
   (document.fonts&&document.fonts.load?Promise.all([document.fonts.load('700 60px Amiri'),document.fonts.load('400 30px Amiri'),document.fonts.load('700 24px Tajawal')]):Promise.resolve()).then(go2,go2);
-  // PDF download handler
-  window.downloadCertPDF=()=>{const url=draw();const pdfWindow=window.open('', '_blank');pdfWindow.document.write(`<html><head><style>@page{size:A4;margin:30px;}\nbody{font-family:Amiri,serif;text-align:center;padding:40px;background:#fbf6ea;color:#1d2a26}\nh1{font-size:72px;color:#0f3d34;margin-bottom:20px}\nh2{font-size:48px;color:#b8862b;margin-bottom:15px}\n.p{font-size:24px;line-height:1.6;color:#3b4a44;margin:20px 0}\n.motto{font-size:20px;color:#b8862b;margin-top:30px}</style></head><body><h1>شهادة إتمام</h1><h2>${S.settings.name||'طالب'}</h1><p class="p">${fname||'الشهادة'}</p><p class="motto">««من سلك طريقًا يلتمس فيه علمًا سهّل الله له به طريقًا إلى الجنة»»</p></body></html>`);pdfWindow.document.close();pdfWindow.print()};
 }
+/* تنزيل الشهادة صورةً */
+window.downloadCertPNG=()=>{
+  const url=window.__certURL;if(!url)return;
+  const a=document.createElement('a');a.href=url;a.download=(window.__certName||'شهادة')+'.png';
+  document.body.appendChild(a);a.click();a.remove();
+};
+/* تنزيل الشهادة PDF عبر نافذة طباعة نظيفة بحجم A4 أفقي */
+window.downloadCertPDF=()=>{
+  const url=window.__certURL;if(!url)return;
+  let w=null;try{w=window.open('','_blank')}catch(e){}
+  if(!w){toast('اسمح بالنوافذ المنبثقة لتنزيل PDF');return}
+  w.document.open();
+  w.document.write('<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>'+(window.__certName||'شهادة')+'</title><style>@page{size:A4 landscape;margin:0}html,body{margin:0;padding:0;background:#fff}img{width:100%;height:auto;display:block}</style></head><body><img id="ci" src="'+url+'" alt="شهادة"></body></html>');
+  w.document.close();
+  const img=w.document.getElementById('ci');
+  const doPrint=()=>{try{w.focus();w.print()}catch(e){}};
+  if(img&&!img.complete){img.onload=()=>setTimeout(doPrint,300)}else{setTimeout(doPrint,300)}
+};
 function openCert(id){certFlow(()=>openCert(id),()=>drawCert(id),'شهادة-'+MUTUN[id].title.split(' فِي')[0].replace(/[ً-ْ]/g,''))}
 function openCertP(pid){const P0=PATHS[pid],ps=PS(pid);certFlow(()=>openCertP(pid),()=>drawCertG({line:'قد أتمّ بعون الله دراسة وفهم',title:P0.title,sub:P0.sub,items:[AR(P0.stations.length)+' محطة',AR(P0.levels.length)+' مستويات بنسبة ١٠٠٪','الاختبار الشامل: ١٠٠٪'],motto:'﴿لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ﴾'}),'شهادة-'+P0.title.replace(/[:：]/g,''))}
 function drawCert(id){
