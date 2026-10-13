@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head><script>(function(){try{if(localStorage.getItem("dhura_launch")!=="1"){["mutun_app_v1","dhura_sync"].forEach(function(k){localStorage.removeItem(k)});try{indexedDB.deleteDatabase("dhura_rec")}catch(e){}localStorage.setItem("dhura_launch","1")}}catch(e){}})()</script>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#0f3d34">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -32,6 +32,11 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',system-ui,sans-serif}
 body{min-height:100vh;padding-bottom:84px}
+html{-webkit-text-size-adjust:100%;overscroll-behavior:none}
+body{overscroll-behavior:none}
+button,.btn,.icon-btn{touch-action:manipulation}
+img,video{max-width:100%;height:auto}
+input,select,textarea{max-width:100%}
 button{font-family:inherit;cursor:pointer}
 .verse,.ar{font-family:'Amiri',serif}
 header.top{position:sticky;top:0;z-index:20;background:var(--green2);color:#f3ead2;
@@ -133,7 +138,7 @@ h3{font-size:16px;margin:0 0 6px}
 .mode-opt{padding:12px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);text-align:start;color:var(--ink);font-size:14px}
 .mode-opt.on{border-color:var(--green);background:color-mix(in srgb,var(--green) 8%,var(--card))}
 .mode-opt small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
-select,input[type=number],textarea{font-family:inherit;font-size:15px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+select,input[type=number],textarea{font-family:inherit;font-size:16px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
 textarea{width:100%;min-height:140px;resize:vertical;line-height:1.8}
 .switch{position:relative;width:48px;height:28px;flex:none}
 .switch input{opacity:0;width:0;height:0}
@@ -2102,7 +2107,7 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .tj-letters button.ok{background:#1f7a63;color:#fff}.tj-letters button.no{background:#c4442b;color:#fff}
 .tj-prog{text-align:center;font-size:12px;color:var(--muted);margin:4px 0 10px}
 .tj-pn{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;animation:psIn .35s}
-.tj-hint{text-align:center}.tj-hint p{font-size:13px;color:var(--muted);line-height:1.8}
+.tj-hint{text-align:center}.tj-hint p{font-size:13px;color:var(--muted);line-height:1.8;overflow-wrap:anywhere;margin:0}
 .tj-ph{display:flex;align-items:center;gap:10px}
 .tj-big{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(#f5dc95,#c9962f);color:#2a1a05;font-family:DhuraQuran,Amiri,serif;font-size:34px}
 .tj-ph b{display:block;font-size:18px}.tj-ph small{color:var(--muted);font-size:12px}
@@ -2417,6 +2422,7 @@ tajweed.idgham_ghunnah,tajweed.idgham_shafawi,.tj-idgham_ghunnah{color:#0f7a4a}t
 /* المصحف الثابت */
 html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html.ms-lock,html.ms-lock body{overflow:hidden;overscroll-behavior:none;height:100%}
+html.ms-zoom,html.ms-zoom body{overflow-x:auto}
 html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .ms-wrap.turn-n .ms-pg,.ms-wrap.turn-p .ms-pg{animation:none}
 .ms-wrap.pg:not(.fitted) .ms-tx,.ms-wrap.two:not(.fitted) .ms-tx{visibility:hidden}
@@ -2525,7 +2531,7 @@ html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none
 .hz-q.a{background:rgba(160,92,255,.12)}
 .hz-q .qtx{font-family:MdnHafs,'Amiri Quran',serif;font-size:22px;line-height:2;margin:6px 0}
 /* الملقّن */
-.mlq-st{position:relative;margin:18px auto;width:min(340px,90vw);aspect-ratio:1;display:grid;place-items:center;text-align:center}
+.mlq-st{position:relative;margin:18px auto;width:min(340px,90vw);aspect-ratio:1;display:grid;place-items:center;text-align:center;overflow:hidden}
 .mlq-st i{position:absolute;inset:8%;border-radius:47% 53% 50% 50%;border:1.5px solid rgba(160,200,90,.45)}
 .mlq-st i:nth-child(2){inset:10%;transform:rotate(40deg)}
 .mlq-st i:nth-child(3){inset:12%;transform:rotate(80deg)}
@@ -2695,8 +2701,9 @@ html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none
 .ah-sl{margin:8px 0}
 .lad-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:10px 0}.lad-row .lad-card{margin:0}
 /* مختبر المناسك */
-.hj-tabs{display:flex;margin:4px 0 12px;width:100%}
-.hj-tabs button{flex:1}
+.hj-tabs{display:flex;gap:6px;margin:4px 0 12px;width:100%;overflow-x:auto;scrollbar-width:none}
+.hj-tabs::-webkit-scrollbar{display:none}
+.hj-tabs button{flex:1 0 auto;white-space:nowrap}
 .hj-svg{width:100%;height:auto;display:block;margin:6px 0 10px}
 .hj-l{fill:#c9d2f0;font-size:10.5px;font-family:Tajawal,sans-serif}
 .hj-l.c{text-anchor:middle}
@@ -8681,7 +8688,8 @@ function vSettings(){const st=S.settings,f=FAM(),K=!!(S.profile||{}).kid,inp='st
    <div class="setrow"><div class="grow"><b>لحن الإتمام</b></div><select onchange="S.settings.winStyle=this.value;save();sound('win')"><option value="mix">متنوع</option>${Object.entries(WINS).map(([k,w])=>`<option value="${k}" ${st.winStyle===k?'selected':''}>${w.n}</option>`).join('')}</select><button class="icon-btn" onclick="sound('win')">▶</button></div>
    <div class="setrow"><div class="grow"><b>صوت عند كل إجابة</b></div><label class="switch"><input type="checkbox" ${st.ansSound?'checked':''} onchange="S.settings.ansSound=this.checked;save();if(this.checked)sound('ok')"><span></span></label></div>
    <div class="setrow"><div class="grow"><b>مستوى الصوت</b></div><input type="range" min="0.1" max="1" step="0.1" value="${st.vol==null?1:st.vol}" style="width:50%" onchange="S.settings.vol=+this.value;save();sound('ok')"></div>`:''}`;
-  const look=`<div class="setrow"><div class="grow"><b>المظهر</b></div><div class="seg2">${[['auto','تلقائي'],['light','فاتح'],['dark','داكن'],['navy','كحلي']].map(([v,l])=>`<button class="${(st.theme||'auto')===v?'on':''}" onclick="S.settings.theme='${v}';save();applyTheme();vSettings()">${l}</button>`).join('')}</div></div>`;
+  const look=`<div class="setrow"><div class="grow"><b>المظهر</b></div><div class="seg2">${[['auto','تلقائي'],['light','فاتح'],['dark','داكن'],['navy','كحلي']].map(([v,l])=>`<button class="${(st.theme||'auto')===v?'on':''}" onclick="S.settings.theme='${v}';save();applyTheme();vSettings()">${l}</button>`).join('')}</div></div>
+   <div class="setrow"><div class="grow"><b>حجم النص</b><div class="muted" style="font-size:12px">يكبّر كل نصوص التطبيق</div></div><div class="row" style="gap:8px"><button class="btn sm ghost" onclick="setTS(tsVal()-0.1)">−</button><b style="min-width:52px;text-align:center">${AR(Math.round(tsVal()*100))}٪</b><button class="btn sm ghost" onclick="setTS(tsVal()+0.1)">+</button><button class="btn sm ghost" onclick="setTS(1)">افتراضي</button></div></div>`;
   const rem=`<div class="setrow"><div class="grow"><b>وقت الورد</b></div><input type="time" value="${st.remindAt||'20:00'}" onchange="S.settings.remindAt=this.value;save()" style="font-size:16px;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)"></div>
    <div class="setrow"><div class="grow"><b>📅 أضفه إلى تقويم جهازك</b><div class="muted" style="font-size:12px">تذكير يومي متكرر يعمل حتى والتطبيق مغلق</div></div><button class="btn sm" onclick="downloadICS()">إضافة</button></div>`;
   const sync=`<p class="muted" style="font-size:13px;margin:0 0 6px">مزامنة مشفّرة تلقائية لتقدّمك بين الجوال والآيباد والحاسوب.</p><div id="syncState" style="font-size:13px">${syncStateHTML()}</div>
@@ -8703,6 +8711,10 @@ function vSettings(){const st=S.settings,f=FAM(),K=!!(S.profile||{}).kid,inp='st
    ${setGrp('rate','⭐','التقييم والتواصل','رأيك يصلني مباشرة',rate)}
    ${setGrp('about','ℹ','حول ذُرى','الإصدار '+AR(APP_VER),about)}</div>
    <p class="app-sign">© ${APP} · الإصدار ${AR(APP_VER)} · تصميم وتطوير بواسطة <a href="${DEV_URL}" target="_blank" rel="noopener">${DEV}</a></p>`}
+/* حجم النص العام: يطبَّق على #app عبر zoom، ولا يُطبَّق على المصحف لأنه يقيس الأبعاد بنفسه */
+function tsVal(){const v=S.settings.ts;return (v==null||isNaN(v)||v<=0)?1:v}
+function applyTextScale(){const a=document.getElementById('app');if(!a)return;a.style.zoom=(route&&route.v==='mushaf')?1:tsVal()}
+function setTS(v){S.settings.ts=Math.max(0.85,Math.min(1.5,Math.round(v*100)/100));save();applyTextScale();vSettings()}
 
 /* ============ ذُرى ٢٠: شرائط الدروس المرتبة، والرسوم التفاعلية لكل خطوة، والشرح بالبطاقات، وتخطي المنظومات ============ */
 /* ---- تخطي المنظومة ---- */
@@ -14719,7 +14731,9 @@ function mIndex(){mInit(()=>{const m=MS();$('#sheet').classList.add('tall');$('#
 function mSet(){const m=MS();$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">⚙ إعدادات المصحف</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
   <div class="ms-modes">${[['pg','صفحة'],['two','صفحتان'],['scr','متصل'],['ay','آية آية']].map(([k,n])=>`<button class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();closeModal();vMushaf()">${n}</button>`).join('')}</div>
   ${m.lay.tj?`<div class="ms-lg">${[['madda_necessary','مد لازم ٦'],['madda_obligatory','مد واجب ٤–٥'],['madda_permissible','مد جائز'],['madda_normal','مد طبيعي ٢'],['ghunnah','غنة'],['ikhafa','إخفاء'],['idgham_ghunnah','إدغام بغنة'],['idgham_wo_ghunnah','إدغام بلا غنة'],['iqlab','إقلاب'],['qalaqah','قلقلة'],['ham_wasl','لا يُنطق']].map(([c,n])=>`<span><i class="tj-${c}"></i>${n}</span>`).join('')}</div>`:''}
-  <label class="fld"><span>حجم الخط: ${AR(m.fs)}</span><input type="range" min="16" max="34" value="${m.fs}" oninput="MS().fs=+this.value;document.getElementById('msWrap').style.setProperty('--fs',this.value+'px')" onchange="save()"></label>
+  ${['pg','two'].includes(m.mode)
+   ?`<label class="fld"><span>تكبير الصفحة: ${AR(Math.round((m.z||1)*100))}٪</span><input type="range" min="100" max="200" step="5" value="${Math.round((m.z||1)*100)}" oninput="MS().z=+this.value/100" onchange="save();closeModal();vMushaf()"></label>`
+   :`<label class="fld"><span>حجم الخط: ${AR(m.fs)}</span><input type="range" min="16" max="34" value="${m.fs}" oninput="MS().fs=+this.value;document.getElementById('msWrap').style.setProperty('--fs',this.value+'px')" onchange="save()"></label>`}
   <label class="fld"><span>القارئ في الإيقاع</span><select onchange="MS().rc=this.value;save()">${Object.keys(RECS).map(k=>`<option value="${k}:t" ${m.rc===k+':t'?'selected':''}>${RECS[k].n} — المرتّل</option>`).join('')}<option value="husary:m" ${m.rc==='husary:m'?'selected':''}>الحصري — المعلّم</option></select></label>
   <label class="fld"><span>أختم كل (يومًا)</span><select onchange="MS().goal=+this.value;save();vMushaf()">${[7,10,15,20,30,40,60].map(n=>`<option ${m.goal===n?'selected':''} value="${n}">${AR(n)} — وِرد ${AR(Math.ceil(604/n))} صفحة يوميًا</option>`).join('')}</select></label>
   <label class="fld"><span>التفسير الافتراضي</span><select onchange="MS().tf=+this.value;save()">${MTFS.map(([i,n])=>`<option value="${i}" ${m.tf===i?'selected':''}>${n}</option>`).join('')}</select></label>`;$('#modal').classList.add('open')}
@@ -14775,7 +14789,7 @@ const _mSet3=mSet;mSet=function(){_mSet3();const sh=document.getElementById('she
 mGo=function(d){const m=MS(),np=clamp(m.p+d,1,604);if(np===m.p)return;m.p=np;m.ai=0;save();vMushaf()};
 /* قفل التمرير ما دام المصحف مفتوحًا في وضع الصفحة */
 function msLock(on){document.documentElement.classList.toggle('ms-lock',!!on);if(on)window.scrollTo(0,0)}
-const _go400=go;go=function(v,o){if(v!=='mushaf')msLock(false);return _go400(v,o)};
+const _go400=go;go=function(v,o){if(v!=='mushaf'){msLock(false);document.documentElement.classList.remove('ms-zoom')}return _go400(v,o)};
 /* عدد حروف كل صفحة (مرة واحدة) لمعرفة أكثف الصفحات */
 let MS_DEN=null;
 function msDense(){if(MS_DEN)return MS_DEN;const c=[];for(let p=1;p<=604;p++){let n=0;mIds(p).forEach(id=>{n+=mAyahHTML(id).replace(/<[^>]+>/g,'').length});c.push([p,n])}
@@ -15469,10 +15483,11 @@ function mdnMed(){const k=mdnKey();S.mus.fz2=S.mus.fz2||{};if(S.mus.fz2[k])retur
   const box=document.createElement('div');box.style.cssText='position:fixed;top:0;left:-9999px;width:3000px;visibility:hidden';box.innerHTML=mdnPageHTML(50);document.body.appendChild(box);
   const ls=box.querySelector('.md-ls');ls.style.fontSize='20px';const ws=[...ls.querySelectorAll('.md-l.j .md-in')].map(e=>e.offsetWidth).sort((a,b)=>a-b);box.remove();
   const med=ws[Math.floor(ws.length*.6)]||400;S.mus.fz2[k]=med;return med}
-function mdnFit(){const w=document.getElementById('msWrap');if(!w)return;msLock(true);
+function mdnFit(){const w=document.getElementById('msWrap');if(!w)return;
+  const _z=Math.max(1,Math.min(2,(MS().z||1))),zoom=_z>1.001;msLock(!zoom);document.documentElement.classList.toggle('ms-zoom',zoom);
   const bot=(document.querySelector('.ms-bot')||{}).offsetHeight||0,two=MS().mode==='two'&&window.innerWidth<760,pgs=[...w.querySelectorAll('.ms-pg')];
-  pgs.forEach(g=>{g.style.width='';g.style.marginInline=''});const H=Math.max(300,msH(w)),pw=pgs[0].clientWidth,each=Math.min(two?H/pgs.length-6:H,Math.round(pw*1.62));
-  pgs.forEach((pg,ix)=>{pg.style.height=each+'px';if(!two&&pw>each/1.42){pg.style.width=Math.round(each/1.5)+'px';pg.style.marginInline='auto'}pg.style.marginTop=ix||two?'':Math.max(0,Math.floor((H-each)/2))+'px';const ls=pg.querySelector('.md-ls'),W=ls.clientWidth,lh=ls.clientHeight/15.4;
+  pgs.forEach(g=>{g.style.width='';g.style.marginInline=''});const H0=Math.max(300,msH(w)),pw0=pgs[0].clientWidth,baseEach=Math.min(two?H0/pgs.length-6:H0,Math.round(pw0*1.5)),H=zoom?Math.round(baseEach*_z):H0,each=zoom?H:baseEach;
+  pgs.forEach((pg,ix)=>{pg.style.height=each+'px';if(zoom){pg.style.width=Math.round(pw0*_z)+'px';pg.style.marginInline='auto'}else if(!two&&pw0>each/1.42){pg.style.width=Math.round(each/1.5)+'px';pg.style.marginInline='auto'}pg.style.marginTop=(zoom||two||ix)?'':Math.max(0,Math.floor((H-each)/2))+'px';const ls=pg.querySelector('.md-ls'),W=ls.clientWidth,lh=ls.clientHeight/15.4;
     let F=20*W*.97/mdnMed();
     F=Math.min(F,lh*.64);ls.style.fontSize=F+'px';{const mx=Math.max(0,...[...ls.querySelectorAll('.md-l.j .md-in')].map(i=>{i.style.wordSpacing='';i.style.transform='';return i.offsetWidth}));if(mx>W){F=Math.max(F*.88,F*W/mx);ls.style.fontSize=F+'px'}}ls.style.setProperty('--lh',lh+'px');
     ls.querySelectorAll('.md-l').forEach(l=>{const i=l.querySelector('.md-in');if(!i)return;i.style.wordSpacing='';i.style.transform='';const nat=i.offsetWidth;
@@ -17307,7 +17322,7 @@ DLN.kid='دروس البراعم';
 
 
 /* ============ المزامنة المشفّرة بين الأجهزة (GitHub Gist) + التقييم + حول ============ */
-const APP='ذُرى',APP_VER='1',APP_DATE='تشرين الأول 2026',DEV='حيدر نصيف',DEV_URL='https://github.com/PROG-ALONE';
+const APP='ذُرى',APP_VER='1.1',APP_DATE='تشرين الأول 2026',DEV='حيدر نصيف',DEV_URL='https://github.com/PROG-ALONE';
 const SOCIAL={instagram:'https://www.instagram.com/h.nj2',linkedin:'https://www.linkedin.com/in/hnj2',email:'haidernassef4@gmail.com'};
 
 const SK='dhura_sync',SFILE='dhura-sync.json';
@@ -17616,7 +17631,7 @@ function renderHeader(){
   $('#hdr').innerHTML=(back?`<button class="back" onclick="${route.v==='sci'?`go('gate',{lit:1})`:route.v==='course'?`backSci()`:route.v==='lesson'?`crsBack('${findTrack(route.tid).c||''}')`:route.v==='lv'||route.v==='mountain'?`go('muslim')`:route.v==='adklog'?`go('home')`:route.v==='lvtab'?`go('muslim',{l:'${route.l}',lit:1})`:route.v==='read'?`go('book',{id:'${route.id}',m:'read'})`:route.v==='readrev'?`go('plan')`:route.v==='plan'?`go('home')`:route.v==='book'?`go('lib',{s:'${(BKM[route.id]||{}).s||'aqd'}'})`:route.v==='lib'?`backLv()`:route.v==='spec'?(route.k?`go('spec')`:`go('muslim')`):route.v==='hzrev'||route.v==='hzpick'?`go('home')`:['lx','lx0','jh','tl','qs','mymutun','hz','pt'].includes(route.v)?`backLv()`:route.v==='pquiz'&&/^(mlv|tl):/.test(String(route.pid))?`backLv()`:['klesson','kreview','kptest','kexam','kcerts'].includes(route.v)?`KL=null;KPT=null;kStop();go('muslim')`:route.v==='pquiz'&&route.pid==='place:basics'?`go('gate')`:route.v==='pquiz'&&String(route.pid).startsWith('dua:')?`go('duas')`:route.v==='pquiz'&&String(route.pid).startsWith('crs:')?`crsBack('${String(route.pid).split(':')[1]}')`:route.v==='pquiz'&&String(route.pid).startsWith('mtl:')?`go('lesson',{tid:'${String(route.pid).split(':')[1]}',lid:'${String(route.pid).split(':')[2]}'})`:route.v==='pquiz'?(String(route.pid).startsWith('intro:')?`go('intro',{k:'${String(route.pid).slice(6)}'})`:`go('path',{pid:'${route.pid}'})`):route.v==='matn'||route.v==='practice'||route.v==='path'||route.v==='intro'?`backSci()`:`go('${route.from||'home'}')`}">→</button>`:'')+
     `<div class="logo">ذُرى<span id="syncDot" class="sync-dot ${SY.on?(SY.err?'err':SY.dirty?'wait':'ok'):'off'}"></span></div><div class="sub">${sub}</div>`;
 }
-function render(){applyTheme();if(route.v!=='welcome'){document.getElementById('nav').style.display='';document.getElementById('hdr').style.display=''}document.getElementById('app').classList.remove('wide');if(route.v!=='path')pmStop();renderHeader();renderNav();({welcome:vWelcome,lv:vLv,lvtab:vLvTab,lx:vLx,jh:vJH,tl:vTL,mountain:vMountain,adklog:vAdkLog,duas:vDuas,dua:vDua,dread:vDRead,story:vStory,klesson:vKLesson,kreview:vKReview,kptest:vKPTest,kexam:vKExam,kcerts:vKCerts,tests:vTests,qz:vQz,log:vLog,gate:vGate,sci:vSci,course:vCourse,adhkar:vAdhkar,muslim:vMuslim,lesson:vLessonX,mymutun:vMyMutun,qs:vQS,spec:vSpec,lx0:vLx0,hz:vHz,hzrev:vHzRev,hzpick:vHzPick,pt:vPT,lib:vLib,hall:vHall,plansetup:vPlanSetup,tjlab:vTjLab,hifz:vHifz,mlq:vMlq,mrec:vMrec,zkb:vZkb,myd:vMyd,hjlab:vHjLab,nsk:vNsk,fqu:vFqu,pdf:vPdf,pdfs:vPdfs,bkprint:vBkPrint,mushaf:vMushaf,muslog:vMusLog,fam:vFam,zkr:vZkr,lad:vLad,amal:vAmal,mw:vMw,sv:vSv,book:vBook,read:vRead,readrev:vReadRev,plan:vPlan,srev:vSrev,home:vHome,library:vMutunTab,paths:vPathsTab,books:vBooks,intro:vIntro,matn:vMatn,practice:vPractice,settings:vSettings,session:vSession,path:vPath,pquiz:vPQuiz})[route.v]();setTimeout(lsCenter,30)}
+function render(){applyTheme();applyTextScale();if(route.v!=='welcome'){document.getElementById('nav').style.display='';document.getElementById('hdr').style.display=''}document.getElementById('app').classList.remove('wide');if(route.v!=='path')pmStop();renderHeader();renderNav();({welcome:vWelcome,lv:vLv,lvtab:vLvTab,lx:vLx,jh:vJH,tl:vTL,mountain:vMountain,adklog:vAdkLog,duas:vDuas,dua:vDua,dread:vDRead,story:vStory,klesson:vKLesson,kreview:vKReview,kptest:vKPTest,kexam:vKExam,kcerts:vKCerts,tests:vTests,qz:vQz,log:vLog,gate:vGate,sci:vSci,course:vCourse,adhkar:vAdhkar,muslim:vMuslim,lesson:vLessonX,mymutun:vMyMutun,qs:vQS,spec:vSpec,lx0:vLx0,hz:vHz,hzrev:vHzRev,hzpick:vHzPick,pt:vPT,lib:vLib,hall:vHall,plansetup:vPlanSetup,tjlab:vTjLab,hifz:vHifz,mlq:vMlq,mrec:vMrec,zkb:vZkb,myd:vMyd,hjlab:vHjLab,nsk:vNsk,fqu:vFqu,pdf:vPdf,pdfs:vPdfs,bkprint:vBkPrint,mushaf:vMushaf,muslog:vMusLog,fam:vFam,zkr:vZkr,lad:vLad,amal:vAmal,mw:vMw,sv:vSv,book:vBook,read:vRead,readrev:vReadRev,plan:vPlan,srev:vSrev,home:vHome,library:vMutunTab,paths:vPathsTab,books:vBooks,intro:vIntro,matn:vMatn,practice:vPractice,settings:vSettings,session:vSession,path:vPath,pquiz:vPQuiz})[route.v]();setTimeout(lsCenter,30)}
 
 /* ============ الرئيسية ============ */
 function ring(p){const r=34,c=2*Math.PI*r;return `<svg class="ring" viewBox="0 0 84 84"><circle cx="42" cy="42" r="${r}" stroke="rgba(255,255,255,.18)" stroke-width="8" fill="none"/>
@@ -18047,6 +18062,20 @@ function openNote(k,title){
 }
 function saveNote(k){const v=$('#noteTa').value.trim();if(v)S.notes[k]=v;else delete S.notes[k];save();closeModal();toast('حُفظ');render()}
 function closeModal(){$('#modal').classList.remove('open');$('#sheet').classList.remove('tall')}
+/* ما الجديد: يظهر مرة واحدة فقط عند أول دخول بعد التحديث */
+const WN_KEY='dhura_wn',WN_VER='1.1';
+function wnSeen(){try{localStorage.setItem(WN_KEY,WN_VER)}catch(e){}closeModal()}
+function showWhatsNew(){$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div>
+ <div class="row"><h3 class="grow" style="margin:0">🎉 ما الجديد</h3><span class="pill">الإصدار ١.١</span></div>
+ <p class="muted" style="margin:8px 0 10px">تحديثات هذا الإصدار باختصار:</p>
+ <ul style="line-height:2;margin:0 0 14px;padding-inline-start:20px">
+   <li>لا مزيد من تكبير/تحريك الصفحة بالقرص — التطبيق الآن أشبه بتطبيق جوال.</li>
+   <li>إعداد جديد «حجم النص» في الإعدادات ← المظهر، لتكبير وتصغير كل نصوص التطبيق.</li>
+   <li>المصحف: صفحته تملأ الشاشة، ومفتاح «تكبير الصفحة» يعمل الآن حتى ٢٠٠٪.</li>
+   <li>إصلاح تجاوب الشاشات على الجوال: أشرطة وأزرار كانت تخرج عن حدود الشاشة.</li>
+ </ul>
+ <button class="btn gold" style="width:100%" onclick="wnSeen()">فهمت، تابع</button>`;$('#modal').classList.add('open')}
+function wnCheck(){try{if(localStorage.getItem(WN_KEY)!==WN_VER&&route.v!=='welcome')setTimeout(showWhatsNew,700)}catch(e){}}
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
 
 /* ============ الجلسات ============ */
@@ -18221,6 +18250,7 @@ function wrapSAW(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TE
 new MutationObserver(()=>{clearTimeout(wrapSAW._t);wrapSAW._t=setTimeout(()=>wrapSAW(document.body),0)}).observe(document.body,{childList:true,subtree:true});
 if(!(S.profile&&S.profile.done))route={v:'welcome'};
 render();
+wnCheck();
 scheduleLocalReminder();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
