@@ -17298,7 +17298,8 @@ function kRevDone(){const K=KS0();K.stars=(K.stars||0)+1;K.rev=today();save();KR
   $('#app').innerHTML=`<div class="k-win"><div class="k-win-st">🎮</div><h1>${kg('أحسنت','أحسنتِ')} يا ${kidName()}!</h1><p>${kg('أنهيت','أنهيتِ')} لعبة المراجعة، و${kg('ربحت','ربحتِ')} نجمة ⭐</p><button class="k-btn big" onclick="go('kreview')">العب مرة أخرى</button><button class="k-btn ghost" onclick="go('muslim')">🗺 رحلتي</button></div>`;setTimeout(()=>kBurst(document.querySelector('.k-win-st')),200)}
 /* ---- شهاداتي ---- */
 function vKCerts(){const K=KS0(),ex=K.exam||{};
-  $('#app').innerHTML=`<div class="k-top"><h1>🎖 شهاداتي</h1></div><div class="k-certs">${KID_U.map((U,ui)=>{const d=kidUnitDone(ui);return `<button class="k-cert ${d?'on':''}" style="--c:${U.c}" ${d?`onclick="openCertMini(${ui})"`:'disabled'}><span>${d?U.ic:'🔒'}</span><b>${U.n}</b></button>`}).join('')}
+  const allDone = kidAll(); // كل الوحدات已完成
+  $('#app').innerHTML=`<div class="k-top"><h1>🎖 شهاداتي</h1></div><div class="k-certs">${allDone ? `<div class="k-cert-level" onclick="openCertLevel()"><span>🏅</span><b>أنهيت niveau</b><small>${AR(kidDone(KIDL[0].id)?KIDL[0].n:'')}</small></div>` : ''}${KID_U.map((U,ui)=>{const d=kidUnitDone(ui);return `<button class="k-cert ${d?'on':''}" style="--c:${U.c}" ${d?`onclick="openCertMini(${ui})"`:'disabled'}><span>${d?U.ic:'🔒'}</span><b>${U.n}</b></button>`}).join('')}
    <button class="k-cert big ${ex.pass?'on':''}" style="--c:#b8862b" ${ex.pass?'onclick="openCertKid()"':'disabled'}><span>${ex.pass?'🏆':'🔒'}</span><b>الشهادة الكبرى</b><small>${ex.pass?AR(ex.best)+'٪':'بعد الامتحان الشامل'}</small></button></div>`}
 /* ---- الرئيسية للطفل ---- */
 function vKidHome(){kStop();const nx=kidNext(),lim=kidLimit(),h=new Date().getHours(),K=KS0();
