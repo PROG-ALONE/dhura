@@ -35,8 +35,12 @@ body{min-height:100vh;padding-bottom:84px}
 html{-webkit-text-size-adjust:100%;overscroll-behavior:none}
 body{overscroll-behavior:none}
 button,.btn,.icon-btn{touch-action:manipulation}
-img,video{max-width:100%;height:auto}
+html{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#app{overflow-x:clip;max-width:100%}
+img,video,svg,canvas,iframe{max-width:100%}
+img,video{height:auto}
 input,select,textarea{max-width:100%}
+pre,.pr-doc{overflow-x:auto}
 button{font-family:inherit;cursor:pointer}
 .verse,.ar{font-family:'Amiri',serif}
 header.top{position:sticky;top:0;z-index:20;background:var(--green2);color:#f3ead2;
@@ -1806,8 +1810,8 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 /* التنقل: مؤشر السحب وزر السابق */
 .nav-swipe{position:fixed;top:45%;right:6px;width:44px;height:44px;border-radius:50%;background:var(--accent,#b8862b);color:#fff;display:grid;place-items:center;font-size:22px;opacity:0;pointer-events:none;z-index:999;transform:translateX(calc(-1 * var(--d,0px)/2));transition:opacity .15s;box-shadow:0 6px 18px rgba(0,0,0,.25)}
 .nav-swipe.l{right:auto;left:6px;transform:translateX(calc(var(--d,0px)/2)) scaleX(-1)}
-.k-nav2{display:flex;gap:10px;align-items:stretch}.k-nav2 .k-btn.big{flex:1}
-.k-btn.prev{flex:0 0 auto;padding:0 18px;background:#fff;color:#7a5a12;border:2px solid #e6c97a;border-radius:18px;font-weight:800;font-size:16px}
+.k-nav2{display:flex;gap:10px;align-items:stretch;flex-wrap:nowrap}.k-nav2 .k-btn{width:auto!important;flex:1 1 0;min-width:0;margin:10px 0}.k-nav2 .k-btn.big{flex:1.6 1 0}
+.k-btn.prev{flex:0 0 auto;width:auto!important;padding:0 18px;background:#fff;color:#7a5a12;border:2px solid #e6c97a;border-radius:18px;font-weight:800;font-size:16px}
 /* ============ رفّ التبويب ============ */
 .shelf2{position:relative;margin:6px 0 2px;padding:14px 10px 0;border-radius:14px;background:linear-gradient(#3b2414,#2a180c);box-shadow:inset 0 10px 24px rgba(0,0,0,.55),0 6px 16px rgba(60,35,10,.25);perspective:900px;overflow:hidden}
 .shelf2-back{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 46px),radial-gradient(ellipse at 50% -20%,rgba(255,214,140,.32),transparent 60%);pointer-events:none}
@@ -2424,6 +2428,11 @@ html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html.ms-lock,html.ms-lock body{overflow:hidden;overscroll-behavior:none;height:100%}
 html.ms-zoom,html.ms-zoom body{overflow-x:auto}
 html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+/* مصحف بملء الشاشة: إخفاء شريط التطبيق السفلي وأزرار/وسوم التنقل، واستغلال المساحة */
+html.ms-full nav.bottom{display:none!important}
+html.ms-full body{padding-bottom:0}
+html.ms-full .ms-bot,html.ms-full .ms-ar,html.ms-full .ms-tjl{display:none!important}
+html.ms-full .ms-stage{padding-bottom:max(6px,env(safe-area-inset-bottom))}
 .ms-wrap.turn-n .ms-pg,.ms-wrap.turn-p .ms-pg{animation:none}
 .ms-wrap.pg:not(.fitted) .ms-tx,.ms-wrap.two:not(.fitted) .ms-tx{visibility:hidden}
 /* ===== مصحف المدينة + واجهة «الكتاب» ===== */
@@ -8713,7 +8722,7 @@ function vSettings(){const st=S.settings,f=FAM(),K=!!(S.profile||{}).kid,inp='st
    <div class="setrow"><div class="grow"><b>صوت عند كل إجابة</b></div><label class="switch"><input type="checkbox" ${st.ansSound?'checked':''} onchange="S.settings.ansSound=this.checked;save();if(this.checked)sound('ok')"><span></span></label></div>
    <div class="setrow"><div class="grow"><b>مستوى الصوت</b></div><input type="range" min="0.1" max="1" step="0.1" value="${st.vol==null?1:st.vol}" style="width:50%" onchange="S.settings.vol=+this.value;save();sound('ok')"></div>`:''}`;
   const look=`<div class="setrow"><div class="grow"><b>المظهر</b></div><div class="seg2">${[['auto','تلقائي'],['light','فاتح'],['dark','داكن'],['navy','كحلي']].map(([v,l])=>`<button class="${(st.theme||'auto')===v?'on':''}" onclick="S.settings.theme='${v}';save();applyTheme();vSettings()">${l}</button>`).join('')}</div></div>
-   <div class="setrow"><div class="grow"><b>حجم النص</b><div class="muted" style="font-size:12px">يكبّر كل نصوص التطبيق</div></div><div class="row" style="gap:8px"><button class="btn sm ghost" onclick="setTS(tsVal()-0.1)">−</button><b style="min-width:52px;text-align:center">${AR(Math.round(tsVal()*100))}٪</b><button class="btn sm ghost" onclick="setTS(tsVal()+0.1)">+</button><button class="btn sm ghost" onclick="setTS(1)">افتراضي</button></div></div>`;
+   <div class="setrow" style="display:block"><div class="row" style="justify-content:space-between;align-items:center"><div class="grow"><b>حجم النص</b><div class="muted" style="font-size:12px">يكبّر كل نصوص التطبيق (ولا يؤثر على صفحة المصحف)</div></div><b id="tsPct" style="min-width:52px;text-align:center">${AR(Math.round(tsVal()*100))}٪</b></div><div class="row" style="gap:8px;margin-top:8px"><button class="btn sm ghost" onclick="setTS(tsVal()-0.1)">أ−</button><input id="tsRange" type="range" min="0.8" max="2" step="0.05" value="${tsVal()}" style="flex:1" oninput="liveTS(this.value)" onchange="setTS(this.value)"><button class="btn sm ghost" onclick="setTS(tsVal()+0.1)">أ+</button><button class="btn sm ghost" onclick="setTS(1)">افتراضي</button></div></div>`;
   const rem=`<div class="setrow"><div class="grow"><b>وقت الورد</b></div><input type="time" value="${st.remindAt||'20:00'}" onchange="S.settings.remindAt=this.value;save()" style="font-size:16px;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)"></div>
    <div class="setrow"><div class="grow"><b>📅 أضفه إلى تقويم جهازك</b><div class="muted" style="font-size:12px">تذكير يومي متكرر يعمل حتى والتطبيق مغلق</div></div><button class="btn sm" onclick="downloadICS()">إضافة</button></div>`;
   const sync=`<p class="muted" style="font-size:13px;margin:0 0 6px">مزامنة مشفّرة تلقائية لتقدّمك بين الجوال والآيباد والحاسوب.</p><div id="syncState" style="font-size:13px">${syncStateHTML()}</div>
@@ -8737,8 +8746,9 @@ function vSettings(){const st=S.settings,f=FAM(),K=!!(S.profile||{}).kid,inp='st
    <p class="app-sign">© ${APP} · الإصدار ${AR(APP_VER)} · تصميم وتطوير بواسطة <a href="${DEV_URL}" target="_blank" rel="noopener">${DEV}</a></p>`}
 /* حجم النص العام: يطبَّق على #app عبر zoom، ولا يُطبَّق على المصحف لأنه يقيس الأبعاد بنفسه */
 function tsVal(){const v=S.settings.ts;return (v==null||isNaN(v)||v<=0)?1:v}
-function applyTextScale(){const a=document.getElementById('app');if(!a)return;a.style.zoom=(route&&route.v==='mushaf')?1:tsVal()}
-function setTS(v){S.settings.ts=Math.max(0.85,Math.min(1.5,Math.round(v*100)/100));save();applyTextScale();vSettings()}
+function applyTextScale(){const a=document.getElementById('app');if(!a)return;a.style.zoom=(route&&route.v==='mushaf')?1:tsVal();const r=document.getElementById('tsRange');if(r)r.value=tsVal();const p=document.getElementById('tsPct');if(p)p.textContent=AR(Math.round(tsVal()*100))+'٪'}
+function liveTS(v){const a=document.getElementById('app');if(a)a.style.zoom=(route&&route.v==='mushaf')?1:+v;const p=document.getElementById('tsPct');if(p)p.textContent=AR(Math.round(+v*100))+'٪'}
+function setTS(v){S.settings.ts=Math.max(0.8,Math.min(2,Math.round(v*20)/20));save();applyTextScale();vSettings()}
 
 /* ============ ذُرى ٢٠: شرائط الدروس المرتبة، والرسوم التفاعلية لكل خطوة، والشرح بالبطاقات، وتخطي المنظومات ============ */
 /* ---- تخطي المنظومة ---- */
@@ -14752,10 +14762,14 @@ function mIndex(){mInit(()=>{const m=MS();$('#sheet').classList.add('tall');$('#
   <div class="ms-ix-j">${Array.from({length:30},(_,i)=>`<button onclick="mGoto(${mPageOf(MJZ[i+1])})">${AR(i+1)}</button>`).join('')}</div>
   ${m.bm.length?`<h4>🔖 علاماتك</h4><div class="ms-ix-b">${m.bm.map(k=>{const [s,a]=k.split(':').map(Number);return `<button onclick="mGoto(${mPageOf(mID(s,a))})">${SUR_N[s-1]} ${AR(a)}</button>`}).join('')}</div>`:''}
   <div class="ms-ix">${SUR_N.map((n,i)=>`<button onclick="mGoto(${mPageOf(MSC[i])})"><span>${AR(i+1)}</span><b>${n}</b><small>${AR(QFULL[i].length)} آية · ص ${AR(mPageOf(MSC[i]))}</small></button>`).join('')}</div>`;$('#modal').classList.add('open')})}
+function msSize(v){const m=MS(),val=+v,flow=['scr','ay'].includes(m.mode);
+  if(flow){m.fs=val;const w=document.getElementById('msWrap');if(w)w.style.setProperty('--fs',val+'px')}
+  else{m.z=val;if(typeof mdnFit==='function')mdnFit()}
+  const s=document.querySelector('#sheet .fld span');if(s)s.textContent='حجم الخط: '+(flow?AR(val):AR(Math.round(val*100))+'٪')}
 function mSet(){const m=MS();$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">⚙ إعدادات المصحف</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
   <div class="ms-modes">${[['pg','صفحة'],['two','صفحتان'],['scr','متصل'],['ay','آية آية']].map(([k,n])=>`<button class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();closeModal();vMushaf()">${n}</button>`).join('')}</div>
   ${m.lay.tj?`<div class="ms-lg">${[['madda_necessary','مد لازم ٦'],['madda_obligatory','مد واجب ٤–٥'],['madda_permissible','مد جائز'],['madda_normal','مد طبيعي ٢'],['ghunnah','غنة'],['ikhafa','إخفاء'],['idgham_ghunnah','إدغام بغنة'],['idgham_wo_ghunnah','إدغام بلا غنة'],['iqlab','إقلاب'],['qalaqah','قلقلة'],['ham_wasl','لا يُنطق']].map(([c,n])=>`<span><i class="tj-${c}"></i>${n}</span>`).join('')}</div>`:''}
-  <label class="fld"><span>حجم الخط: ${AR(m.fs)}</span><input type="range" min="16" max="34" value="${m.fs}" oninput="MS().fs=+this.value;document.getElementById('msWrap').style.setProperty('--fs',this.value+'px')" onchange="save()"></label>
+  <label class="fld"><span>حجم الخط: ${['scr','ay'].includes(m.mode)?AR(m.fs):AR(Math.round((m.z||1)*100))+'٪'}</span><input type="range" min="${['scr','ay'].includes(m.mode)?16:1}" max="${['scr','ay'].includes(m.mode)?40:3}" step="${['scr','ay'].includes(m.mode)?1:0.05}" value="${['scr','ay'].includes(m.mode)?m.fs:(m.z||1)}" oninput="msSize(this.value)" onchange="save()"></label>
   <label class="fld"><span>القارئ في الإيقاع</span><select onchange="MS().rc=this.value;save()">${Object.keys(RECS).map(k=>`<option value="${k}:t" ${m.rc===k+':t'?'selected':''}>${RECS[k].n} — المرتّل</option>`).join('')}<option value="husary:m" ${m.rc==='husary:m'?'selected':''}>الحصري — المعلّم</option></select></label>
   <label class="fld"><span>أختم كل (يومًا)</span><select onchange="MS().goal=+this.value;save();vMushaf()">${[7,10,15,20,30,40,60].map(n=>`<option ${m.goal===n?'selected':''} value="${n}">${AR(n)} — وِرد ${AR(Math.ceil(604/n))} صفحة يوميًا</option>`).join('')}</select></label>
   <label class="fld"><span>التفسير الافتراضي</span><select onchange="MS().tf=+this.value;save()">${MTFS.map(([i,n])=>`<option value="${i}" ${m.tf===i?'selected':''}>${n}</option>`).join('')}</select></label>`;$('#modal').classList.add('open')}
@@ -14811,7 +14825,7 @@ const _mSet3=mSet;mSet=function(){_mSet3();const sh=document.getElementById('she
 mGo=function(d){const m=MS(),np=clamp(m.p+d,1,604);if(np===m.p)return;m.p=np;m.ai=0;save();vMushaf()};
 /* قفل التمرير ما دام المصحف مفتوحًا في وضع الصفحة */
 function msLock(on){document.documentElement.classList.toggle('ms-lock',!!on);if(on)window.scrollTo(0,0)}
-const _go400=go;go=function(v,o){if(v!=='mushaf'){msLock(false);document.documentElement.classList.remove('ms-zoom')}return _go400(v,o)};
+const _go400=go;go=function(v,o){if(v!=='mushaf'){msLock(false);document.documentElement.classList.remove('ms-zoom')}document.documentElement.classList.toggle('ms-full',v==='mushaf');return _go400(v,o)};
 /* عدد حروف كل صفحة (مرة واحدة) لمعرفة أكثف الصفحات */
 let MS_DEN=null;
 function msDense(){if(MS_DEN)return MS_DEN;const c=[];for(let p=1;p<=604;p++){let n=0;mIds(p).forEach(id=>{n+=mAyahHTML(id).replace(/<[^>]+>/g,'').length});c.push([p,n])}
@@ -17632,7 +17646,7 @@ function recite(el){
 
 /* ============ التنقل ============ */
 let route={v:'home'};
-function go(v,extra){extra=extra||{};if(v!=='pquiz')GQ=null;if(!(v==='matn'&&extra.tab==='quiz'))QZ=null;if(!(v==='matn'&&extra.tab==='tree'))TT=null;route=Object.assign({v},extra);render();window.scrollTo(0,0)}
+function go(v,extra){window.STEP_SWIPE=null;extra=extra||{};if(v!=='pquiz')GQ=null;if(!(v==='matn'&&extra.tab==='quiz'))QZ=null;if(!(v==='matn'&&extra.tab==='tree'))TT=null;route=Object.assign({v},extra);render();window.scrollTo(0,0)}
 const ICONS={
   tests:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8l1.5 1.5L12 7M8 14l1.5 1.5L12 13M14.5 8.5H17M14.5 14.5H17"/></svg>',
   gate:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="8" stroke-dasharray="3 2.2"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg>',
