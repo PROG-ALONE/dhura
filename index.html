@@ -3066,6 +3066,30 @@ img.fm-av{display:inline-block;border-radius:50%;object-fit:cover;-webkit-clip-p
 </style>
 </head>
 <body>
+<script>
+/* حماية دفاعية: إن فشل تحميل الواجهة لأي سبب، اعرض رسالة واضحة بدل شاشة فارغة */
+(function(){
+  var sawContent=false,shown=false,pendErr='',t=null,mo=null;
+  try{mo=new MutationObserver(function(){var a=document.getElementById('app');if(a&&a.textContent.trim().length>0){sawContent=true;try{mo.disconnect()}catch(e){}}});mo.observe(document.documentElement,{childList:true,subtree:true,characterData:true})}catch(e){}
+  function esc(s){return String(s||'').replace(/[<>&]/g,function(c){return c==='<'?'&lt;':c==='>'?'&gt;':'&amp;'})}
+  function maybeShow(){
+    if(shown||sawContent)return;
+    var app=document.getElementById('app');
+    if(app&&app.textContent.trim().length>0){sawContent=true;return}
+    shown=true;
+    var d=document.createElement('div');
+    d.id='dhuraFallback';
+    d.setAttribute('style','position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:#0f3d34;color:#fff;font-family:Tajawal,system-ui,sans-serif;padding:24px;text-align:center');
+    d.innerHTML='<div><div style="font-size:44px;margin-bottom:12px">⛰️</div><h1 style="font-size:22px;margin:0 0 10px">تعذّر فتح «ذُرى»</h1><p style="opacity:.85;font-size:14.5px;line-height:1.8;margin:0 0 18px">حدث خلل أثناء التحميل. أعد التحميل، وإن تكرّر فامسح بيانات الموقع ثم افتح التطبيق مجددًا.<br>تقدّمك محفوظ على الجهاز ولن يُفقد بإعادة التحميل.</p><button id="dhuraReload" style="background:#b8862b;color:#fff;border:0;border-radius:12px;padding:13px 26px;font-size:16px;font-family:inherit;cursor:pointer">إعادة التحميل</button>'+(pendErr?'<p style="opacity:.45;font-size:11px;margin:16px 0 0;word-break:break-all">'+esc(pendErr)+'</p>':'')+'</div>';
+    document.body.appendChild(d);
+    var b=document.getElementById('dhuraReload');if(b)b.onclick=function(){location.reload()};
+  }
+  function arm(){clearTimeout(t);t=setTimeout(maybeShow,1800)}
+  window.addEventListener('error',function(e){if(e&&e.message){pendErr=e.message;arm()}});
+  window.addEventListener('unhandledrejection',function(e){var r=e&&e.reason;pendErr=(r&&(r.message||r))||'promise rejection';arm()});
+  window.addEventListener('load',function(){setTimeout(maybeShow,9000)});
+})();
+</script>
 <header class="top" id="hdr"></header>
 <main id="app"></main>
 <nav class="bottom" id="nav"></nav>
