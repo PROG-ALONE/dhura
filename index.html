@@ -4989,7 +4989,7 @@ const defState=()=>({settings:{perDay:1,hideTashkeel:false,theme:'auto',matn:'tu
 let S;
 try{S=JSON.parse(localStorage.getItem(KEY))||defState()}catch(e){S=defState()}
 S.settings=Object.assign(defState().settings,S.settings||{});S.p=S.p||{};S.notes=S.notes||{};S.read=S.read||{};S.quiz=S.quiz||{};S.skipMem=S.skipMem||{};S.treeQ=S.treeQ||{};S.path=S.path||{};S.intro=S.intro||{};S.profile=S.profile||{};S.mt=S.mt||{};
-const RO=()=>!!S.settings.readOnly;
+const RO=()=>false;
 const roBanner=()=>RO()?`<div class="ro-banner">📖 <b>وضع القراءة فقط</b>: كل شيء مفتوح، والحفظ والاختبارات اختيارية، ولا تُمنح الشهادات في هذا الوضع.<button class="icon-btn" onclick="S.settings.readOnly=false;save();render()">إيقاف</button></div>`:'';
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 function P(id){if(!S.p[id])S.p[id]={cards:{},daily:null,start:today()};return S.p[id]}
