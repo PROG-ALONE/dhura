@@ -14668,7 +14668,7 @@ function vMushaf(){mInit(()=>{const m=MS(),p=m.p,app=$('#app');let body='';
     <button class="ms-i ${MPL.on?'on':''}" onclick="mPlay()" title="ختمة على الإيقاع">${MPL.on?'⏸':'🎧'}</button><button class="ms-i ${m.lay.tj?'on':''}" onclick="mLay('tj')" title="التجويد">🎨</button><button class="ms-i" onclick="go('muslog')" title="السجل">📊</button><button class="ms-i" onclick="mSet()" title="الإعدادات">⚙</button></div>
    <i class="ms-kp"><u style="width:${kp/604*100}%"></u></i>
    <div class="ms-stage"><div class="ms-wrap ${m.mode} th-${m.th||'paper'}" id="msWrap" style="--fs:${m.fs}px">${body}</div>
-    ${m.mode==='scr'?'':`<button class="ms-ar r" onclick="mGo(-${st})" aria-label="السابقة" ${p<=1?'disabled':''}>›</button><button class="ms-ar l" onclick="mGo(${st})" aria-label="التالية" ${p>=604?'disabled':''}>‹</button>`}</div>
+    ${m.mode==='scr'?'':`<div class="ms-nav-buttons" style="display:none"><button class="ms-ar r" onclick="mGo(-1)" aria-label="السابقة">›</button><button class="ms-ar l" onclick="mGo(1)" aria-label="التالية">‹</button></div>`}
    <div id="msBar">${mBar()}</div>`;
   mBind();mFit();if(m.lay.tj)mLoadTj(p,m.mode==='two'?p+1:m.mode==='scr'?p+3:p);if(m.mode==='ay')mFocusTf();mTrack()})}
 function mBar(){if(!MPL.on)return '';const id=MPL.q[MPL.id],[s,a]=id?mSA(id):[1,1],m=MS(),left=604-m.cur.pg.length;
@@ -14731,9 +14731,7 @@ function mIndex(){mInit(()=>{const m=MS();$('#sheet').classList.add('tall');$('#
 function mSet(){const m=MS();$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">⚙ إعدادات المصحف</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
   <div class="ms-modes">${[['pg','صفحة'],['two','صفحتان'],['scr','متصل'],['ay','آية آية']].map(([k,n])=>`<button class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();closeModal();vMushaf()">${n}</button>`).join('')}</div>
   ${m.lay.tj?`<div class="ms-lg">${[['madda_necessary','مد لازم ٦'],['madda_obligatory','مد واجب ٤–٥'],['madda_permissible','مد جائز'],['madda_normal','مد طبيعي ٢'],['ghunnah','غنة'],['ikhafa','إخفاء'],['idgham_ghunnah','إدغام بغنة'],['idgham_wo_ghunnah','إدغام بلا غنة'],['iqlab','إقلاب'],['qalaqah','قلقلة'],['ham_wasl','لا يُنطق']].map(([c,n])=>`<span><i class="tj-${c}"></i>${n}</span>`).join('')}</div>`:''}
-  ${['pg','two'].includes(m.mode)
-   ?`<label class="fld"><span>تكبير الصفحة: ${AR(Math.round((m.z||1)*100))}٪</span><input type="range" min="100" max="200" step="5" value="${Math.round((m.z||1)*100)}" oninput="MS().z=+this.value/100" onchange="save();closeModal();vMushaf()"></label>`
-   :`<label class="fld"><span>حجم الخط: ${AR(m.fs)}</span><input type="range" min="16" max="34" value="${m.fs}" oninput="MS().fs=+this.value;document.getElementById('msWrap').style.setProperty('--fs',this.value+'px')" onchange="save()"></label>`}
+  <label class="fld"><span>حجم الخط: ${AR(m.fs)}</span><input type="range" min="16" max="34" value="${m.fs}" oninput="MS().fs=+this.value;document.getElementById('msWrap').style.setProperty('--fs',this.value+'px')" onchange="save()"></label>
   <label class="fld"><span>القارئ في الإيقاع</span><select onchange="MS().rc=this.value;save()">${Object.keys(RECS).map(k=>`<option value="${k}:t" ${m.rc===k+':t'?'selected':''}>${RECS[k].n} — المرتّل</option>`).join('')}<option value="husary:m" ${m.rc==='husary:m'?'selected':''}>الحصري — المعلّم</option></select></label>
   <label class="fld"><span>أختم كل (يومًا)</span><select onchange="MS().goal=+this.value;save();vMushaf()">${[7,10,15,20,30,40,60].map(n=>`<option ${m.goal===n?'selected':''} value="${n}">${AR(n)} — وِرد ${AR(Math.ceil(604/n))} صفحة يوميًا</option>`).join('')}</select></label>
   <label class="fld"><span>التفسير الافتراضي</span><select onchange="MS().tf=+this.value;save()">${MTFS.map(([i,n])=>`<option value="${i}" ${m.tf===i?'selected':''}>${n}</option>`).join('')}</select></label>`;$('#modal').classList.add('open')}
@@ -14789,6 +14787,22 @@ const _mSet3=mSet;mSet=function(){_mSet3();const sh=document.getElementById('she
 mGo=function(d){const m=MS(),np=clamp(m.p+d,1,604);if(np===m.p)return;m.p=np;m.ai=0;save();vMushaf()};
 /* قفل التمرير ما دام المصحف مفتوحًا في وضع الصفحة */
 function msLock(on){document.documentElement.classList.toggle('ms-lock',!!on);if(on)window.scrollTo(0,0)}
+/* إيماءة السحب لتحريك الصفحة */
+document.addEventListener('DOMContentLoaded',()=>{
+  const wrap=document.getElementById('msWrap')||document.documentElement;
+  let startX=0,isSwiping=false;
+  wrap.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;isSwiping=true;e.preventDefault()});
+  wrap.addEventListener('touchend',e=>{
+    if(!isSwiping)return;
+    const diff=e.changedTouches[0].clientX-startX;
+    isSwiping=false;
+    if(Math.abs(diff)>30){ // حد السحب
+      if(diff>0) mGo(1); // السحب لليمين = صفحة تالية
+      else mGo(-1); // السحب لليسار = صفحة سابقة
+    }
+    wrap=undefined;startX=0;
+  },{passive:false});
+});
 const _go400=go;go=function(v,o){if(v!=='mushaf'){msLock(false);document.documentElement.classList.remove('ms-zoom')}return _go400(v,o)};
 /* عدد حروف كل صفحة (مرة واحدة) لمعرفة أكثف الصفحات */
 let MS_DEN=null;
