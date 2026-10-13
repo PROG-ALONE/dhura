@@ -14787,22 +14787,6 @@ const _mSet3=mSet;mSet=function(){_mSet3();const sh=document.getElementById('she
 mGo=function(d){const m=MS(),np=clamp(m.p+d,1,604);if(np===m.p)return;m.p=np;m.ai=0;save();vMushaf()};
 /* قفل التمرير ما دام المصحف مفتوحًا في وضع الصفحة */
 function msLock(on){document.documentElement.classList.toggle('ms-lock',!!on);if(on)window.scrollTo(0,0)}
-/* إيماءة السحب لتحريك الصفحة */
-document.addEventListener('DOMContentLoaded',()=>{
-  const wrap=document.getElementById('msWrap')||document.documentElement;
-  let startX=0,isSwiping=false;
-  wrap.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;isSwiping=true;e.preventDefault()});
-  wrap.addEventListener('touchend',e=>{
-    if(!isSwiping)return;
-    const diff=e.changedTouches[0].clientX-startX;
-    isSwiping=false;
-    if(Math.abs(diff)>30){ // حد السحب
-      if(diff>0) mGo(1); // السحب لليمين = صفحة تالية
-      else mGo(-1); // السحب لليسار = صفحة سابقة
-    }
-    wrap=undefined;startX=0;
-  },{passive:false});
-});
 const _go400=go;go=function(v,o){if(v!=='mushaf'){msLock(false);document.documentElement.classList.remove('ms-zoom')}return _go400(v,o)};
 /* عدد حروف كل صفحة (مرة واحدة) لمعرفة أكثف الصفحات */
 let MS_DEN=null;
@@ -15701,7 +15685,7 @@ const _vMushaf6=vMushaf;vMushaf=function(){if(qcfWant()){const ps=qcfPages();if(
     Promise.all(ps.map(qcfLoad)).then(()=>{if(route.v==='mushaf')vMushaf()}).catch(()=>{QCF.fail=1;if(!QCF.warned){QCF.warned=1;toast('تعذّر تحميل خط المصحف الأصلي الآن، فعُرض خط حفص')}if(route.v==='mushaf')vMushaf()});return}}
   _vMushaf6();if(qcfWant())setTimeout(qcfPrefetch,500)};
 function qcfFit(w){msLock(true);const two=MS().mode==='two'&&window.innerWidth<760,pgs=[...w.querySelectorAll('.ms-pg')];pgs.forEach(g=>{g.style.width='';g.style.marginInline=''});
-  const H=Math.max(300,msH(w)),pw=pgs[0].clientWidth,each=Math.min(two?H/pgs.length-6:H,Math.round(pw*1.62));
+  const H=Math.max(300,msH(w)),pw=pgs[0].clientWidth,each=Math.min(two?H/pgs.length-6:H,Math.round(pw*1.5));
   pgs.forEach((pg,ix)=>{pg.style.height=each+'px';if(!two&&pw>each/1.42){pg.style.width=Math.round(each/1.5)+'px';pg.style.marginInline='auto'}pg.style.marginTop=ix||two?'':Math.max(0,Math.floor((H-each)/2))+'px';
     const ls=pg.querySelector('.qf-ls'),W=ls.clientWidth,lh=ls.clientHeight/15.2;ls.style.setProperty('--lh',lh+'px');ls.style.fontSize='20px';
     const nat=[...ls.querySelectorAll('.qf-l:not(.c)')].map(l=>[...l.querySelectorAll('.qw')].reduce((a,e)=>a+e.getBoundingClientRect().width,0)).filter(x=>x>0).sort((a,b)=>a-b);
