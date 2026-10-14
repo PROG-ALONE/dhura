@@ -17519,7 +17519,7 @@ const QB_IV=[0,0,1,3,7,16];
 function QB(){S.qb=S.qb||{};return S.qb}
 function qPoolOld(){const out=[],ok=q=>['mcq','tf','order'].includes(q.t)&&q.q;
   const add=(g,ic,key,q)=>{if(ok(q))out.push({g,ic,key,q})};
-  const kidQ=q=>{if(q.t==='pick')return{t:'mcq',q:q.q,o:q.o.map((x,k)=>({t:x[0],ok:k===q.a}))};if(q.t==='tf')return{t:'tf',q:q.q,a:q.a};if(q.t==='ord')return{t:'order',q:q.q,o:q.o.map((x,k)=>({t:x,k}))};return null};
+  const kidQ=q=>{if(q.t==='pick'){const right=(q.o[q.a||0]||q.o[0])[0];const rest=q.o.filter((_,k)=>k!==(q.a||0)).map(x=>x[0]);return{t:'mcq',q:q.q,o:[right].concat(rest)}}if(q.t==='tf')return{t:'tf',q:q.q,a:q.a};if(q.t==='ord')return{t:'order',q:q.q,o:q.o.slice()};return null};
   MT.forEach(tr=>tr.lessons.forEach(l=>{if(MTS(tr.id).done.includes(l.id))l.quiz.forEach((q,i)=>add('مساري: '+tr.n,tr.ic,`l:${tr.id}:${l.id}:${i}`,q))}));
   Object.values(CRS).forEach(C=>C.levels.forEach(L=>L.lessons.forEach(l=>{if(MTS(L.id).done.includes(l.id))l.quiz.forEach((q,i)=>add(C.n,C.ic,`c:${L.id}:${l.id}:${i}`,q))})));
   ['pre','mecca'].forEach(pid=>{const P0=PATHS[pid];if(!P0)return;const ps=PS(pid);P0.levels.forEach(L=>{if(ps.lv[L.k])(L.quiz||[]).forEach((q,i)=>add('السيرة النبوية','✨',`p:${pid}:${L.k}:${i}`,q))})});
