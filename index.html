@@ -17424,7 +17424,7 @@ DLN.kid='دروس البراعم';
 
 
 /* ============ المزامنة المشفّرة بين الأجهزة (GitHub Gist) + التقييم + حول ============ */
-const APP='ذُرى',APP_VER='1.1',APP_DATE='تشرين الأول 2026',DEV='حيدر نصيف',DEV_URL='https://github.com/PROG-ALONE';
+const APP='ذُرى',APP_VER='1.2',APP_DATE='تشرين الأول 2026',DEV='حيدر نصيف',DEV_URL='https://github.com/PROG-ALONE';
 const SOCIAL={instagram:'https://www.instagram.com/h.nj2',linkedin:'https://www.linkedin.com/in/hnj2',email:'haidernassef4@gmail.com'};
 
 const SK='dhura_sync',SFILE='dhura-sync.json';
@@ -18388,7 +18388,7 @@ if(!(S.profile&&S.profile.done))route={v:'welcome'};
 render();
 wnCheck();
 scheduleLocalReminder();
-if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http')){navigator.serviceWorker.register('sw.js').catch(()=>{});if(navigator.serviceWorker.controller)navigator.serviceWorker.addEventListener('controllerchange',()=>{try{if(!sessionStorage.getItem('dhura_up')){sessionStorage.setItem('dhura_up','1');location.reload()}}catch(e){}})}
 </script>
 </body>
 </html>

@@ -18,8 +18,9 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
   if (new URL(e.request.url).origin !== location.origin) return; // الصوت والخطوط من مصادرها مباشرة
+  const nav = e.request.mode === 'navigate'; // صفحة التطبيق تُراجَع مع الخادم دائمًا فلا تعلق نسخة قديمة في كاش الجوال
   e.respondWith(
-    fetch(e.request)
+    fetch(e.request, nav ? { cache: 'no-cache' } : undefined)
       .then(r => {
         const copy = r.clone();
         if (new URL(e.request.url).origin === location.origin) caches.open(CACHE).then(c => c.put(e.request, copy));
