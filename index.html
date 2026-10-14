@@ -11744,7 +11744,7 @@ drawCertJ=function(k){const L=DLVM[k],th=CERT_TH[k]||CERT_TH.D1,x=LXS(k),sm=cert
     g.fillStyle=th.band;g.font='700 23px Amiri';let s=t.n;while(g.measureText(s).width>cw-34&&s.length>3)s=s.slice(0,-1);g.fillText(s,x0+(cw-12)/2,y0+21);
     g.fillStyle=th.soft;g.font='400 17px Tajawal';g.fillText(AR(t.c)+' '+(t.c>10||t.c<3?'درسًا':'دروس'),x0+(cw-12)/2,y0+44)});
   const yS=616+rows*(chh+10)+44;
-  const st=[];st.push('📝 الامتحان الشامل: '+AR(x.n||LX_N)+' سؤالًا — الدرجة '+AR(x.last||x.best||100)+'٪');if(sm.hifz)st.push('📖 حفظ '+AR(sm.hifz)+' '+(sm.hifz>10||sm.hifz<3?'سورة':'سور'));if(sm.stories)st.push('📜 '+AR(sm.stories)+' من قصص القرآن');if(sm.mutun)st.push('📚 '+AR(sm.mutun)+' '+(sm.mutun>2?'متون':sm.mutun===2?'متنان':'متن'));
+  const st=[];const qn=(k==='D0'?KID_EXAM_N:Math.min(LX_N,lxPool(L).length))||LX_N;st.push('📝 الامتحان الشامل: '+AR(qn)+' سؤالًا — الدرجة '+AR(x.last||x.best||100)+'٪');if(sm.hifz)st.push('📖 حفظ '+AR(sm.hifz)+' '+(sm.hifz>10||sm.hifz<3?'سورة':'سور'));if(sm.stories)st.push('📜 '+AR(sm.stories)+' من قصص القرآن');if(sm.mutun)st.push('📚 '+AR(sm.mutun)+' '+(sm.mutun>2?'متون':sm.mutun===2?'متنان':'متن'));
   g.font='700 24px Tajawal';const stT=st.join('   ·   ');T(stT,yS,'700 24px Tajawal',th.ink);
   /* ختم دائري وفاصل */
   const sx=B+BW+150,sy=H-B-BW-150;g.save();g.translate(sx,sy);g.rotate(-.18);g.strokeStyle=th.band;g.globalAlpha=.85;g.lineWidth=4;g.beginPath();g.arc(0,0,62,0,7);g.stroke();g.lineWidth=1.5;g.beginPath();g.arc(0,0,52,0,7);g.stroke();for(let i=0;i<24;i++){const a=i/24*Math.PI*2;g.beginPath();g.arc(Math.cos(a)*57,Math.sin(a)*57,1.6,0,7);g.fillStyle=th.band;g.fill()}
