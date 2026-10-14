@@ -1967,6 +1967,18 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .lg-sum>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;gap:2px}
 .lg-sum b{font-size:18px;color:#0f5c4d}.lg-sum span{font-size:11.5px;color:var(--muted)}
 .lg-day{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:8px 0;padding:0 12px}
+/* تقويم السجل: شهر ملوّن بإنجاز كل يوم، وتفصيل اليوم أسفله */
+.lgc-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0}
+.lgc-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}.lgc-top b{font-size:15px;text-align:center}
+.lgc-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.lgc-h{text-align:center;font-size:10.5px;color:var(--muted);font-style:normal;padding:2px 0}
+.lgc{border:1px solid transparent;background:var(--bg2);border-radius:10px;padding:5px 0 3px;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:var(--ink);font-size:14px}
+.lgc b{font-weight:700}.lgc small{font-size:10px;color:var(--green);font-weight:700}
+.lgc.off{opacity:.32;background:transparent}
+.lgc.act{background:color-mix(in srgb,var(--green) 15%,var(--bg2));border-color:color-mix(in srgb,var(--green) 32%,transparent)}
+.lgc.sel{outline:2px solid var(--gold);outline-offset:-2px}
+.lgc-e{min-height:44px}
+.lgc-det{margin-top:2px}
 .lg-day summary{display:flex;justify-content:space-between;gap:8px;padding:12px 0;cursor:pointer;list-style:none}
 .lg-day summary span{font-size:12.5px;color:var(--muted)}
 .lg-tm{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
@@ -2433,6 +2445,10 @@ html.ms-full nav.bottom{display:none!important}
 html.ms-full body{padding-bottom:0}
 html.ms-full .ms-bot,html.ms-full .ms-ar,html.ms-full .ms-tjl{display:none!important}
 html.ms-full .ms-stage{padding-bottom:max(6px,env(safe-area-inset-bottom))}
+/* وضع التركيز: ملء الشاشة داخل التطبيق — إخفاء الترويسة وأدوات المصحف */
+html.ms-imm #hdr,html.ms-imm .ms-top,html.ms-imm .ms-kp{display:none!important}
+html.ms-imm #app{padding:6px 4px 0}
+.ms-exitfs{position:fixed;inset-inline-end:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;width:46px;height:46px;border-radius:50%;background:var(--card);border:1px solid var(--line);color:var(--ink);font-size:18px;box-shadow:0 6px 18px rgba(0,0,0,.28)}
 .ms-wrap.turn-n .ms-pg,.ms-wrap.turn-p .ms-pg{animation:none}
 .ms-wrap.pg:not(.fitted) .ms-tx,.ms-wrap.two:not(.fitted) .ms-tx{visibility:hidden}
 /* ===== مصحف المدينة + واجهة «الكتاب» ===== */
@@ -8672,7 +8688,10 @@ function drawCertJ(k){const L=DLVM[k],W=1600,H=1130,c=document.createElement('ca
   T('«مَن سَلَكَ طريقًا يلتمسُ فيه علمًا سهَّلَ اللهُ له به طريقًا إلى الجنة» — رواه مسلم',1010,'400 34px Amiri','#fff6d8');
   const d=new Date();T(hijri(d)+'   —   '+d.toLocaleDateString('ar-IQ',{day:'numeric',month:'long',year:'numeric'})+'   ·   ذُرى',1068,'400 26px Amiri','#d9f0e2');
   return c.toDataURL('image/png')}
-function openCertJ(k){if(!lvPassed(k))return toast('اجتز الامتحان الشامل أولًا');certFlow(()=>openCertJ(k),()=>drawCertJ(k),'شهادة-'+DLVM[k].n.replace(/\s+/g,'-'))}
+function certHzNeed(k){return !!((DLVM[k]&&DLVM[k]||{}).tabs||[]).find(T=>T.hz)&&(HZ_LV[k]||[]).length>0}
+function certHzReady(k){return !certHzNeed(k)||(HZ_LV[k]||[]).every(hzDone)}
+function openCertJ(k){if(!lvPassed(k))return toast('اجتز الامتحان الشامل أولًا');if(!certHzReady(k)){const H=HZ_LV[k]||[],d=H.filter(hzDone).length;return toast('🔒 تُمنح الشهادة عند اكتمال منهج الحفظ: '+AR(d)+' من '+AR(H.length)+' سورة')}
+ certFlow(()=>openCertJ(k),()=>drawCertJ(k),'شهادة-'+DLVM[k].n.replace(/\s+/g,'-'))}
 const _dlkMlv=DLK.mlv;DLK.mlv=(a,o)=>{if(!a||!a.k)return _dlkMlv(a,o);const M=MLV.find(x=>x.k===a.k);return {n:'مرحلة '+M.n,t:'مساري: '+M.n,b:`<h1>${M.ic} ${M.n}</h1><p class="meta">🎯 ${M.goal}</p>`+M.ids.map(([t,l])=>lessonHTML(MTI(t).lessons.find(x=>x.id===l),{ans:o.ans,quiz:o.lq})).join('')}};
 DLN.mlv='المرحلة كاملة';
 /* ============ سجل الأذكار اليومية (في «اليوم») ============ */
@@ -8694,6 +8713,28 @@ function setWho(w){const f=FAM();if(w==='k'&&!f.kid)return toast('اكتب اس�
 function famSave(){const f=FAM();f.parent=($('#fmP').value||'').trim();f.kid=($('#fmK').value||'').trim();save();const k=!!(S.profile||{}).kid;S.settings.name=(k?f.kid:f.parent)||S.settings.name;S.profile.parent=f.parent;save();toast('حُفظ ✓');vSettings()}
 function famSet(key,v){FAM()[key]=v;S.profile.rel=FAM().rel;S.profile.g=FAM().g;save();vSettings()}
 function whoSwitchHTML(){return ''}
+/* ==== أشخاص متعددون على الجهاز: الأب والأم والأخ والأخت — لكل واحد تقدّمه وشهاداته المستقلة ==== */
+const PPLK='dhura_people',PSK=id=>'mutun_app_v1_'+id; /* mutun_app_v1 يحمل دائمًا حالة الشخص النشط (save كما هي)، وكل mutun_app_v1_<id> مخزّن شخص غير نشط */
+let PPL=(function(){try{const p=JSON.parse(localStorage.getItem(PPLK));if(p&&p.list&&p.list.length&&p.active)return p}catch(e){}return {list:[{id:'p1',name:'',rel:'self'}],active:'p1'}})();
+function pplSave(){try{localStorage.setItem(PPLK,JSON.stringify(PPL))}catch(e){}}
+function pplIdx(id){const i=PPL.list.findIndex(p=>p.id===id);return i<0?0:i}
+function pplCur(){return PPL.list[pplIdx(PPL.active)]||PPL.list[0]}
+function pplStoreCur(){try{localStorage.setItem(PSK(PPL.active),JSON.stringify(S))}catch(e){}}
+function pplLoadId(id){try{const raw=localStorage.getItem(PSK(id));return raw?JSON.parse(raw):null}catch(e){return null}}
+function stateCachesReset(){KL=null;KR=null;KREC=null;PLS=null;GQ=null;LXQ=null;SES=null;SETOPEN=null;LASTTAB=null;LASTLV=null;PT=0;STORY_ONLY=false;ST={i:0,name:'',kid:false};MFS=0}
+function pplApply(st){S=Object.assign(defState(),st||{});S.settings=Object.assign(defState().settings,S.settings||{});stateCachesReset();try{closeModal()}catch(e){}route={v:(S.profile&&S.profile.done)?'home':'welcome'};save();render()}
+/* عند التبديل: تُحفظ الحالة الحالية في مخزنها (mutun_app_v1_<id>) وتُحمَّل حالة الشخص الآخر؛ المفتاح الرئيسي يبقى للنشط فلا حاجة لتحميل شيء عند فتح الصفحة */
+function pplSwitch(id){if(!id||id===PPL.active)return;pplStoreCur();PPL.active=id;pplSave();const p=pplCur();pplApply(pplLoadId(id));toast('👤 '+((p&&(p.name||S.settings.name))||'شخص جديد')+' — تقدّمه الخاص')}
+function pplAdd(){const n=(prompt('اسم الشخص الجديد؟ (مثل: أمي، أختي، أخي)')||'').trim();if(!n)return;const rel=(prompt('صلة القرابة: أب / أم / أخ / أخت / آخر','أخ')||'').trim()||'آخر';
+  pplStoreCur();const p={id:'p'+Date.now(),name:n,rel:rel};PPL.list.push(p);PPL.active=p.id;pplSave();ST.name=n;pplApply(null);toast('👤 أُضيف «'+n+'» — كل تقدّمه مستقل تمامًا')}
+function pplDel(id){const p=PPL.list.find(x=>x.id===id);if(!p)return;if(PPL.list.length<=1)return toast('لا يمكن حذف آخر شخص على الجهاز');
+  if(!confirm('حذف «'+(p.name||'هذا الشخص')+'» وكل تقدّمه وشهاداته نهائيًا من هذا الجهاز؟'))return;
+  try{localStorage.removeItem(PSK(id))}catch(e){}
+  PPL.list=PPL.list.filter(x=>x.id!==id);
+  if(PPL.active===id){PPL.active=PPL.list[0].id;pplSave();pplApply(pplLoadId(PPL.active))}else{pplSave();render()}}
+function pplPanelHTML(){return `<div class="panel"><h3 style="margin-top:0">👥 أشخاص على هذا الجهاز</h3><p class="muted" style="font-size:12.5px;line-height:1.8;margin:0 0 10px">لكل شخص تقدّمه ودرجاته وشهاداته وحفظه المستقل تمامًا: الأب، الأم، الأخ، الأخت… اضغط على «تبديل» للدخول بحالة ذلك الشخص.</p>
+  ${PPL.list.map(p=>`<div class="fm-k"><div class="grow"><b>${esc(p.id===PPL.active?(S.settings.name||p.name||'—'):(p.name||'—'))}</b><small>${p.id===PPL.active?'🟢 نشط الآن':esc(p.rel||'')}</small></div>${p.id===PPL.active?'':`<button class="btn sm gold" onclick="pplSwitch('${p.id}')">تبديل</button>`}${PPL.list.length>1?`<button class="icon-btn" onclick="pplDel('${p.id}')" title="حذف هذا الشخص">🗑</button>`:''}</div>`).join('')}
+  <button class="btn ghost" style="width:100%;margin-top:8px" onclick="pplAdd()">＋ إضافة شخص (أم/أب/أخ/أخت)</button></div>`}
 function whoSwitchSet(){const f=FAM();if(!f.kid||!f.parent)return '';const k=!!(S.profile||{}).kid;return `<div class="who-sw"><button class="${k?'':'on'}" onclick="setWho('p')">⛰ ${esc(f.parent)}</button><button class="${k?'on':''}" onclick="setWho('k')">🌱 ${esc(f.kid)}</button></div>`}
 /* ============ الإعدادات: مجموعات قابلة للطيّ ============ */
 let SETOPEN=null;
@@ -11290,7 +11331,7 @@ function lxRound(){const Z=LXQ,k=Z.k,L=DLVM[k],x=LXS(k);LXQ=null;
 function lxPassedView(k,fresh){const L=DLVM[k],x=LXS(k),nx=DLV[L.i+1];
   $('#app').innerHTML=`<div class="panel done lx-res win"><div class="big">🌳</div><h2 style="margin:4px 0">${fresh?'عبرت':'اجتزت'} «${L.n}» — درجتك ${AR(x.last||x.best||100)}٪</h2>
    <p class="muted">${x.mist&&x.mist.length?'عالجت أخطاءك كلها، وستظهر لك تباعًا في المستوى التالي حتى تُتقنها فتختفي. ':''}${nx?(nx.soon?'المستوى التالي «'+nx.n+'» قيد الإعداد.':'فُتح لك: '+nx.ic+' «'+nx.n+'»'):''}</p>
-   <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap"><button class="btn gold" onclick="openCertJ('${k}')">🎓 شهادتك</button>${nx&&!nx.soon?`<button class="btn" onclick="go('muslim',{l:'${nx.k}'})">${nx.ic} «${nx.n}» ←</button>`:''}<button class="icon-btn" onclick="if(confirm('امتحان جديد لرفع درجتك؟'))lxBegin('${k}',1)">↺ امتحان لرفع الدرجة</button></div></div>`}
+   <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap">${certHzReady(k)?`<button class="btn gold" onclick="openCertJ('${k}')">🎓 شهادتك</button>`:`<button class="btn ghost" onclick="openCertJ('${k}')">🔒 الشهادة — حفظت ${AR((HZ_LV[k]||[]).filter(hzDone).length)} من ${AR((HZ_LV[k]||[]).length)} سورة</button>`}${nx&&!nx.soon?`<button class="btn" onclick="go('muslim',{l:'${nx.k}'})">${nx.ic} «${nx.n}» ←</button>`:''}<button class="icon-btn" onclick="if(confirm('امتحان جديد لرفع درجتك؟'))lxBegin('${k}',1)">↺ امتحان لرفع الدرجة</button></div></div>`}
 
 /* ---- اختباراتي: اختيار المستوى ---- */
 function keyLevel(key){const p=key.split(':');
@@ -13313,6 +13354,24 @@ function logDayHTML(d,open){const x=(S.log||{})[d]||{},tm=tmDay(d),evs=(S.ev||[]
   return `<details class="lg-day" ${open?'open':''}><summary><b>${fmtDay(d,true)}</b><span>${t>=1?'⏱ '+MIN(t):''}${n?' · ✦ '+AR(n)+' إنجاز':''}</span></summary>
    <div class="lg-tm">${Object.keys(PCAT).filter(c=>tm[c]>=.5).map(c=>`<span style="--c:${PCAT[c][2]}">${PCAT[c][0]} ${PCAT[c][1]}: ${MIN(tm[c])}</span>`).join('')}</div>
    <ol class="lg-evl">${evs.map(e=>`<li><time>${new Date(e[0]).toLocaleTimeString('ar-IQ',{hour:'numeric',minute:'2-digit'})}</time><span>${(EVT[e[1]]||['•',''])[0]} ${(EVT[e[1]]||['',''])[1]}${e[2]?': <b>'+e[2]+'</b>':''}</span></li>`).join('')||'<li class="muted">لا تفاصيل محفوظة لهذا اليوم</li>'}</ol></details>`}
+let LGM=null,LGS=null;
+function logCalHTML(days){
+  const hasDay=d=>{const x=(S.log||{})[d];return !!((x&&dayTot(d))||tmTot(tmDay(d))>=1||(S.ev||[]).some(e=>dkey(new Date(e[0]))===d))};
+  const mins=d=>Math.round(tmTot(tmDay(d)));
+  if(!LGS||days.indexOf(LGS)<0)LGS=days.slice().reverse().find(hasDay)||days[days.length-1]||today();
+  if(!LGM)LGM=LGS.slice(0,7);
+  const ym=LGM.split('-'),Y=+ym[0],M=+ym[1];
+  const startOff=new Date(Y,M-1,1).getDay(),dim=new Date(Y,M,0).getDate();
+  let cells='';
+  for(let i=0;i<startOff;i++)cells+='<i class="lgc-e"></i>';
+  for(let d=1;d<=dim;d++){const key=LGM+'-'+String(d).padStart(2,'0'),inR=days.indexOf(key)>=0,act=hasDay(key);
+    cells+=`<button class="lgc ${inR?'':'off'} ${act?'act':''} ${key===LGS?'sel':''}" ${inR?`onclick="LGS='${key}';vLog()"`:''}><b>${AR(d)}</b>${act?`<small>${mins(key)?MIN(mins(key)):'✦'}</small>`:''}</button>`}
+  const monName=new Date(Y,M-1,15).toLocaleDateString('ar-IQ',{month:'long',year:'numeric'});
+  const detail=logDayHTML(LGS,true)||`<p class="muted">لا نشاط محفوظ في ${fmtDay(LGS,true)} — اضغط يومًا ملوّنًا في التقويم لعرض تفاصيله.</p>`;
+  return `<div class="lgc-card"><div class="lgc-top"><button class="ms-i" onclick="logMon(-1)">›</button><b class="grow">${monName}</b><button class="ms-i" onclick="logMon(1)">‹</button></div>
+   <div class="lgc-grid">${['أحد','إثن','ثلا','أرب','خمي','جمع','سبت'].map(x=>`<i class="lgc-h">${x}</i>`).join('')}${cells}</div></div>
+   <div class="lgc-det">${detail}</div>`}
+function logMon(d){const ym=LGM.split('-'),dt=new Date(+ym[0],+ym[1]-1+d,1);LGM=dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0');vLog()}
 function logSummary(days){const cur=sumRange(days),tm={l:0,h:0,r:0,v:0};days.forEach(d=>{const x=tmDay(d);Object.keys(tm).forEach(c=>tm[c]+=x[c])});const act=days.filter(d=>dayTot(d)||tmTot(tmDay(d))>=1).length;return {cur,tm,act,t:tmTot(tm)}}
 function vLog(){const p=route.p||'w',days=logDays(),Sm=logSummary(days);
   $('#app').innerHTML=`<div class="hero"><div class="t">📊 سجلّي</div><div style="font-size:13px;opacity:.85">كل ما أنجزته بالتفصيل: الوقت، والدروس، والحفظ، والقراءة، والاختبارات. «أحب الأعمال إلى الله أدومها وإن قلّ» (متفق عليه).</div></div>
@@ -13321,7 +13380,7 @@ function vLog(){const p=route.p||'w',days=logDays(),Sm=logSummary(days);
    <div class="lg-sum"><div><b>${MIN(Sm.t)}</b><span>وقت الدراسة</span></div><div><b>${AR(Sm.act)}/${AR(days.length)}</b><span>أيام نشطة</span></div>${Object.entries(EVT).map(([k,[ic,n]])=>`<div><b>${AR(Sm.cur[k])}</b><span>${ic} ${n}</span></div>`).join('')}</div>
    <div class="pl-card"><b>⏱ وقتك بحسب القسم</b>${Object.keys(PCAT).map(c=>`<div class="pl-cat"><span>${PCAT[c][0]} ${PCAT[c][1]}</span><div class="pl-cb"><i style="width:${Sm.t?Sm.tm[c]/Sm.t*100:0}%;background:${PCAT[c][2]}"></i></div><small>${MIN(Sm.tm[c])}</small></div>`).join('')}</div>
    <div class="row" style="gap:8px;margin:10px 0"><button class="btn gold grow" onclick="logPDF()">📄 تقرير PDF</button><button class="btn ghost grow" onclick="logFile()">⬇ تنزيل التقرير</button></div>
-   <h3 class="acc-t">📅 الأيام بالتفصيل</h3>${days.slice().reverse().map((d,i)=>logDayHTML(d,i===0)).join('')||'<p class="muted">لا نشاط في هذه المدة بعد.</p>'}`}
+   <h3 class="acc-t">📅 الأيام بالتفصيل</h3>${logCalHTML(days)}`}
 function logReportBody(){const p=route.p||'w',days=logDays(),Sm=logSummary(days),nm=S.settings.certName||S.settings.name||'',L=lvCurOpen();
   return `<h1>تقرير الإنجاز — ${LOG_RNG[p]}</h1><p class="meta">${nm?nm+' · ':''}${L.ic} ${L.n} · من ${fmtDay(days[0],true)} إلى ${fmtDay(days[days.length-1],true)}</p>
    <table><tr><th>وقت الدراسة</th><th>أيام نشطة</th>${Object.values(EVT).map(([ic,n])=>`<th>${ic} ${n}</th>`).join('')}</tr><tr><td>${MIN(Sm.t)}</td><td>${AR(Sm.act)} من ${AR(days.length)}</td>${Object.keys(EVT).map(k=>`<td>${AR(Sm.cur[k])}</td>`).join('')}</tr></table>
@@ -14698,16 +14757,20 @@ function vMushaf(){mInit(()=>{const m=MS(),p=m.p,app=$('#app');let body='';
   else body=mPageHTML(p);
   const kp=m.cur.pg.length,wird=Math.ceil(604/m.goal),td=(m.log[today()]||{}).pg||[];
   const st=m.mode==='two'?2:1;
-  app.innerHTML=`<div class="ms-top"><button class="ms-i" onclick="mIndex()" title="الفهرس">☰</button><div class="grow" onclick="mInfo(mSA(MPG[MS().p])[0])"><b>${SUR_N[mSA(MPG[p])[0]-1]}</b><small>ص ${AR(p)} · ج ${AR(mJuz(MPG[p]))} · الختمة ${AR(kp)}/٦٠٤ · الورد ${AR(Math.min(td.length,wird))}/${AR(wird)}</small></div>
-    <button class="ms-i ${MPL.on?'on':''}" onclick="mPlay()" title="ختمة على الإيقاع">${MPL.on?'⏸':'🎧'}</button><button class="ms-i ${m.lay.tj?'on':''}" onclick="mLay('tj')" title="التجويد">🎨</button><button class="ms-i" onclick="go('muslog')" title="السجل">📊</button><button class="ms-i" onclick="mSet()" title="الإعدادات">⚙</button></div>
+  app.innerHTML=`<div class="ms-top"><button class="ms-i" onclick="go('home')" title="العودة إلى الرئيسية">›</button><button class="ms-i" onclick="mIndex()" title="الفهرس">☰</button><div class="grow" onclick="mInfo(mSA(MPG[MS().p])[0])"><b>${SUR_N[mSA(MPG[p])[0]-1]}</b><small>ص ${AR(p)} · ج ${AR(mJuz(MPG[p]))} · الختمة ${AR(kp)}/٦٠٤ · الورد ${AR(Math.min(td.length,wird))}/${AR(wird)}</small></div>
+    <button class="ms-i ${MPL.on?'on':''}" onclick="mPlay()" title="ختمة على الإيقاع">${MPL.on?'⏸':'🎧'}</button><button class="ms-i ${m.lay.tj?'on':''}" onclick="mLay('tj')" title="التجويد">🎨</button><button class="ms-i" onclick="go('muslog')" title="السجل">📊</button><button class="ms-i" onclick="mSet()" title="الإعدادات">⚙</button><button class="ms-i ${MFS?'on':''}" onclick="mFs()" title="${MFS?'الخروج من ملء الشاشة':'ملء الشاشة للتركيز أثناء التلاوة'}">${MFS?'✕':'⛶'}</button></div>
    <i class="ms-kp"><u style="width:${kp/604*100}%"></u></i>
    <div class="ms-stage"><div class="ms-wrap ${m.mode} th-${m.th||'paper'}" id="msWrap" style="--fs:${m.fs}px">${body}</div>
     ${m.mode==='scr'?'':`<div class="ms-nav-buttons" style="display:none"><button class="ms-ar r" onclick="mGo(-1)" aria-label="السابقة">›</button><button class="ms-ar l" onclick="mGo(1)" aria-label="التالية">‹</button></div>`}
-   <div id="msBar">${mBar()}</div>`;
+   <div id="msBar">${mBar()}</div>${MFS?'<button class="ms-exitfs" onclick="mFs()" title="الخروج من ملء الشاشة">✕</button>':''}`;
+  document.documentElement.classList.toggle('ms-imm',!!MFS);
   mBind();mFit();if(m.lay.tj)mLoadTj(p,m.mode==='two'?p+1:m.mode==='scr'?p+3:p);if(m.mode==='ay')mFocusTf();mTrack()})}
 function mBar(){if(!MPL.on)return '';const id=MPL.q[MPL.id],[s,a]=id?mSA(id):[1,1],m=MS(),left=604-m.cur.pg.length;
   return `<div class="ms-bar"><b>🎧 ${SUR_N[s-1]}: ${AR(a)}</b><small>${(HZ_REC[m.rc]||{}).n||''} · المتبقي من الختمة ≈ ${AR(Math.round(left*m.spp/3600))} ساعة بهذا الإيقاع</small>
    <div class="row" style="gap:6px">${[1,1.25,1.5].map(r=>`<button class="btn sm ${(m.rate||1)===r?'gold':''}" onclick="MS().rate=${r};save();hzEl().playbackRate=${r};document.getElementById('msBar').innerHTML=mBar()">${AR(r)}×</button>`).join('')}<button class="btn sm" onclick="mPlay()">⏸</button></div></div>`}
+/* وضع التركيز: ملء الشاشة للقراءة — زر ⛶ في الأعلى أو زر ✕ عائم للخروج */
+let MFS=0;
+function mFs(){MFS=!MFS;try{if(MFS){if(document.documentElement.requestFullscreen&&!document.fullscreenElement)document.documentElement.requestFullscreen()}else if(document.fullscreenElement){document.exitFullscreen()}}catch(e){}vMushaf()}
 function mBind(){const w=document.getElementById('msWrap');if(!w)return;let x0=null,y0=0;
   w.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
   w.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){e.stopPropagation();const st=MS().mode==='two'?2:1;mGo(dx>0?st:-st)}});
@@ -14825,7 +14888,7 @@ const _mSet3=mSet;mSet=function(){_mSet3();const sh=document.getElementById('she
 mGo=function(d){const m=MS(),np=clamp(m.p+d,1,604);if(np===m.p)return;m.p=np;m.ai=0;save();vMushaf()};
 /* قفل التمرير ما دام المصحف مفتوحًا في وضع الصفحة */
 function msLock(on){document.documentElement.classList.toggle('ms-lock',!!on);if(on)window.scrollTo(0,0)}
-const _go400=go;go=function(v,o){if(v!=='mushaf'){msLock(false);document.documentElement.classList.remove('ms-zoom')}document.documentElement.classList.toggle('ms-full',v==='mushaf');return _go400(v,o)};
+const _go400=go;go=function(v,o){if(v!=='mushaf'){msLock(false);MFS=0;document.documentElement.classList.remove('ms-zoom','ms-imm');try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}document.documentElement.classList.toggle('ms-full',v==='mushaf');return _go400(v,o)};
 /* عدد حروف كل صفحة (مرة واحدة) لمعرفة أكثف الصفحات */
 let MS_DEN=null;
 function msDense(){if(MS_DEN)return MS_DEN;const c=[];for(let p=1;p<=604;p++){let n=0;mIds(p).forEach(id=>{n+=mAyahHTML(id).replace(/<[^>]+>/g,'').length});c.push([p,n])}
@@ -14924,7 +14987,7 @@ function vFam(){const app=$('#app'),me=ME(),has=!!FG.gist;if(!FAMT)FAMT=has?'mem
      <div class="grow"><label class="fld"><span>الاسم</span><input value="${esc(me.name||S.settings.name||'')}" onchange="ME().name=this.value;save()"></label></div></div>
      <label class="fld"><span>نبذة (ما الذي تدرسه، أو هدفك)</span><textarea rows="2" onchange="ME().bio=this.value;save()">${esc(me.bio||'')}</textarea></label>
      <h3>الأبناء</h3>${me.kids.map((k,i)=>`<div class="fm-k"><label class="fm-pic sm">${famAv(k.photo,k.name,40)}<input type="file" accept="image/*" hidden onchange="famPhoto(this,${i})"></label><div class="grow"><input value="${esc(k.name)}" placeholder="الاسم" onchange="ME().kids[${i}].name=this.value;save()"><input value="${esc(k.note||'')}" placeholder="ماذا يدرس؟ (مثال: البراعم — جزء عمّ)" onchange="ME().kids[${i}].note=this.value;save()"></div><button class="icon-btn" onclick="ME().kids.splice(${i},1);save();vFam()">✕</button></div>`).join('')}
-     <button class="btn ghost" style="width:100%" onclick="ME().kids.push({name:'',note:''});save();vFam()">＋ أضف ابنًا أو ابنة</button></div>${famDetail(mySummary())}`;
+     <button class="btn ghost" style="width:100%" onclick="ME().kids.push({name:'',note:''});save();vFam()">＋ أضف ابنًا أو ابنة</button></div>${pplPanelHTML()}${famDetail(mySummary())}`;
   else if(T==='join')body=`<div class="panel"><h3 style="margin-top:0">انضمّي برمز الدعوة</h3><textarea id="fgCode" rows="3" placeholder="الصقي الرمز الذي وصلك"></textarea><button class="btn gold" style="width:100%;margin-top:8px" onclick="fgJoin()">انضمام</button></div>
      <details class="panel"><summary><b>أو أنشئ مجموعة جديدة (لمرة واحدة)</b></summary><p class="muted" style="font-size:12.5px;line-height:1.9">أنشئ حسابًا مستقلًا على GitHub للعائلة، ومنه مفتاحًا بصلاحية <b>gist</b> فقط من <a href="https://github.com/settings/tokens/new?scopes=gist&description=Dhura%20family" target="_blank" rel="noopener" style="color:var(--gold)">هنا</a>. كل البيانات تُشفَّر بكلمة سر المجموعة على الجهاز قبل رفعها، فلا يقرؤها أحد خارجها.</p>
       <label class="fld"><span>اسم المجموعة</span><input id="fgName" placeholder="الأخوات"></label><label class="fld"><span>مفتاح GitHub</span><input id="fgTok" type="password" placeholder="ghp_…"></label><label class="fld"><span>كلمة سر المجموعة</span><input id="fgPass" type="password"></label><button class="btn gold" style="width:100%" onclick="fgCreate()">إنشاء</button></details>`;
@@ -15542,7 +15605,7 @@ let MDN_OB=null;function mdnSync(){const w=document.getElementById('msWrap');if(
   if(MS().flash){setTimeout(()=>{MS().flash=0;w.querySelectorAll('.ms-a.fl').forEach(e=>e.classList.remove('fl'))},2600)}}
 /* ---- الواجهة: شريط علوي وسفلي على نمط «الكتاب» ---- */
 function mdnChrome(){const m=MS(),t=document.querySelector('#app .ms-top');if(!t||t.dataset.k)return;t.dataset.k=1;const p=m.p,f=MPG[p],[s]=mSA(f);
-  t.innerHTML=`<button class="ms-i" onclick="mDr()" aria-label="القائمة">☰</button><div class="grow ms-tt" onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>ص ${AR(p)} · ج ${AR(mJuz(f))}</small></div>${mFcChip()}<button class="ms-i" onclick="mSearch()" aria-label="بحث">🔍</button><button class="ms-i" onclick="mSet()" aria-label="المزيد">⋯</button>`;
+  t.innerHTML=`<button class="ms-i" onclick="go('home')" aria-label="العودة إلى الرئيسية" title="العودة إلى الرئيسية">›</button><button class="ms-i" onclick="mDr()" aria-label="القائمة">☰</button><div class="grow ms-tt" onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>ص ${AR(p)} · ج ${AR(mJuz(f))}</small></div>${mFcChip()}<button class="ms-i" onclick="mSearch()" aria-label="بحث">🔍</button><button class="ms-i" onclick="mFs()" aria-label="ملء الشاشة" title="${MFS?'الخروج من ملء الشاشة':'ملء الشاشة للتركيز أثناء التلاوة'}">${MFS?'✕':'⛶'}</button><button class="ms-i" onclick="mSet()" aria-label="المزيد">⋯</button>`;
   const st=document.querySelector('#app .ms-stage');if(st&&m.lay.tj&&!document.querySelector('.ms-tjl'))st.insertAdjacentHTML('afterend',tjLegend());
   if(st&&!document.querySelector('.ms-bot'))(document.querySelector('.ms-tjl')||st).insertAdjacentHTML('afterend',`<div class="ms-bot"><div onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>الجزء ${AR(mJuz(f))}</small></div>
     <button class="ms-mic ${MPL.on?'on':''}" onclick="mPlay()" aria-label="ختمة على الإيقاع">${MPL.on?'⏸':'▶'}</button><div onclick="mIndex(1)"><b>${AR(p)}</b><small>الحزب ${AR(Math.ceil(mHizb(f)/4))} · الصفحة</small></div></div>`)}
