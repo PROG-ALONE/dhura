@@ -4203,7 +4203,7 @@ function introGate(k){
 }
 function vMutunTab(){
   if(!introOk('mutun')){$('#app').innerHTML=roBanner()+introGate('mutun');return}
-  $('#app').innerHTML=`<div class="ro-switch"><div class="grow"><b>📖 القراءة فقط</b><div class="muted" style="font-size:12px">لمن يريد القراءة دون حفظ ولا اختبارات</div></div><label class="switch"><input type="checkbox" ${RO()?'checked':''} onchange="S.settings.readOnly=this.checked;save();render()"><span></span></label></div>
+  $('#app').innerHTML=`
     <div class="row" style="margin:8px 0"><button class="btn sm ghost" onclick="go('intro',{k:'mutun'})">📖 المدخل</button><button class="btn sm ghost" onclick="go('practice')">🃏 تدريب حر</button></div>
     <p class="muted" style="font-size:13px;margin:4px 0 8px">المنظومات مقسمة إلى مستويات من الأسهل إلى الأعلى. لا تُفتح منظومة حتى تُتمّ ما قبلها: الحفظ (أو تخطيه) واختبار الفهم بنسبة ١٠٠٪.</p>
     ${gateCard()}<h2>📚 دورات مفصّلة</h2>${crsCards()}
@@ -8706,14 +8706,14 @@ function vSettings(){const st=S.settings,f=FAM(),K=!!(S.profile||{}).kid,inp='st
    <div class="setrow"><div class="grow"><b>الطفل</b></div><div class="seg2"><button class="${f.g!=='f'?'on':''}" onclick="famSet('g','m')">ابن</button><button class="${f.g==='f'?'on':''}" onclick="famSet('g','f')">ابنة</button></div></div>
    <button class="btn gold sm" onclick="famSave()">حفظ الأسماء</button>
    ${f.kid?`<div class="setrow" style="margin-top:8px"><div class="grow"><b>دروس الطفل الجديدة يوميًا</b></div><div class="seg2">${[1,2,3,99].map(x=>`<button class="${kidPer()===x?'on':''}" onclick="S.kidPer=${x};save();vSettings()">${x===99?'بلا حد':AR(x)}</button>`).join('')}</div></div>
-   <div class="setrow"><div class="grow"><b>🎙 صوت بشري لدروس الطفل</b><div class="muted" style="font-size:12px">نص التسجيل المشكول وأسماء الملفات</div></div>${dlBtn('kidrec',{},'تنزيل')}</div>`:''}
+   <div class="setrow"><div class="grow"><b>🎙 صوت بشري لدروس الطفل</b><div class="muted" style="font-size:12px">نص التسجيل المشكول وأسماء الملفات</div></div>${dlBtn('kidrec',{},'تنزيل')}</div>
+   <div class="setrow"><div class="grow"><b>حذف بيانات الطفل</b><div class="muted" style="font-size:12px">يزيل اسم الطفل وتقدّمه في «رحلة البراعم» من هذا الجهاز، فيبقى تقدّمك أنت</div></div><button class="btn sm ghost" style="color:var(--red);border-color:var(--red)" onclick="kidDel()">حذف</button></div>`:''}
    <div class="setrow"><div class="grow"><b>📜 قصة ذُرى</b></div><button class="btn sm ghost" onclick="ST.i=0;go('story')">شاهد</button></div>
    <div class="setrow"><div class="grow"><b>🧭 شرح «مساري»</b></div><button class="btn sm ghost" onclick="S.pathTour=0;PT=0;save();go('muslim')">أعد الشرح</button></div>`;
   const study=`<div class="setrow"><div class="grow"><b>وقتي اليومي</b><div class="muted" style="font-size:12px">يوزّعه جدول اليوم بين المراجعة والحفظ والدروس</div></div><select onchange="S.settings.minutes=+this.value;save()">${[15,20,30,45,60,90,120].map(m=>`<option value="${m}" ${(st.minutes||30)===m?'selected':''}>${AR(m)} دقيقة</option>`).join('')}</select></div>
    <div class="setrow"><div class="grow"><b>الأبيات الجديدة يوميًا</b></div><div class="row"><button class="btn sm ghost" onclick="setPer(-1)">−</button><b style="min-width:28px;text-align:center;font-size:18px">${AR(st.perDay)}</b><button class="btn sm ghost" onclick="setPer(1)">+</button></div></div>
    <div class="setrow"><div class="grow"><b>محطات المسارات يوميًا</b></div><div class="row"><button class="btn sm ghost" onclick="S.settings.pathPerDay=Math.max(1,(S.settings.pathPerDay||1)-1);save();vSettings()">−</button><b style="min-width:28px;text-align:center;font-size:18px">${AR(st.pathPerDay||1)}</b><button class="btn sm ghost" onclick="S.settings.pathPerDay=Math.min(10,(S.settings.pathPerDay||1)+1);save();vSettings()">+</button></div></div>
    <div class="setrow"><div class="grow"><b>أدعية جديدة يوميًا</b></div><div class="seg2">${[1,2,3,5].map(x=>`<button class="${(S.duaGoal||1)===x?'on':''}" onclick="S.duaGoal=${x};save();vSettings()">${AR(x)}</button>`).join('')}</div></div>
-   <div class="setrow"><div class="grow"><b>📖 القراءة فقط</b><div class="muted" style="font-size:12px">يفتح كل شيء بلا حفظ ولا اختبارات إلزامية</div></div><label class="switch"><input type="checkbox" ${st.readOnly?'checked':''} onchange="S.settings.readOnly=this.checked;save()"><span></span></label></div>
    <div class="setrow"><div class="grow"><b>إخفاء التشكيل</b><div class="muted" style="font-size:12px">لتقوية الضبط من الحفظ</div></div><label class="switch"><input type="checkbox" ${st.hideTashkeel?'checked':''} onchange="S.settings.hideTashkeel=this.checked;save()"><span></span></label></div>
    <div style="margin-top:8px"><b style="font-size:14px">أنواع الاختبار في المراجعة المتباعدة</b><div class="modes" style="margin-top:8px">${Object.entries(MODES).map(([k,x])=>`<button class="mode-opt ${st.modes.includes(k)?'on':''}" onclick="toggleSMode('${k}')">${x.n}</button>`).join('')}</div></div>`;
   const snd=`<div class="setrow"><div class="grow"><b>الأصوات</b><div class="muted" style="font-size:12px">لحن عند الإتمام، ونقرات خفيفة</div></div><label class="switch"><input type="checkbox" ${st.sound!==false?'checked':''} onchange="S.settings.sound=this.checked;save();if(this.checked)sound('win');vSettings()"><span></span></label></div>
@@ -13278,7 +13278,7 @@ function psMan(c,d){PLS.man[c]=Math.max(0,PLS.man[c]+d);vPlanSetup()}
 function psScale(){if(!PLS.man)return;const s=PLS.man.l+PLS.man.h+PLS.man.r+PLS.man.v||1;Object.keys(PLS.man).forEach(c=>PLS.man[c]=Math.round(PLS.man[c]*PLS.min/s/5)*5)}
 function psSave(){const X=PLS;if(X.mode==='manual'){const s=X.man.l+X.man.h+X.man.r+X.man.v;if(s<5)return toast('اختر دقائق للأقسام');X.min=s}X.setup=true;S.plan=X;S.settings.minutes=X.min;S.settings.revDay=X.rev[0]!=null?X.rev[0]:S.settings.revDay;PLS=null;save();sound('win');toast('✓ حُفظت خطتك');go(route.first?'home':'plan')}
 /* أول فتح: إعداد الوقت قبل البدء */
-const _vHome40=vHome;vHome=function(){const pr=S.profile||{};if(pr.done&&!pr.kid&&(pr.track||'muslim')==='muslim'&&!PLN().setup&&!S.settings.readOnly){PLS=null;return go('plansetup',{first:1})}return _vHome40()};
+const _vHome40=vHome;vHome=function(){const pr=S.profile||{};if(pr.done&&!pr.kid&&(pr.track||'muslim')==='muslim'&&!PLN().setup){PLS=null;return go('plansetup',{first:1})}return _vHome40()};
 /* في الإعدادات */
 const _vSettings40=vSettings;vSettings=function(){_vSettings40();if((S.profile||{}).kid)return;const P=PLN(),app=document.getElementById('app'),f=app.querySelector('.panel');
   const h=`<div class="panel"><div class="row"><b class="grow">⏱ وقتي وأيام دراستي</b><button class="btn sm gold" onclick="PLS=null;go('plansetup')">تعديل</button></div><p class="muted" style="font-size:13px;margin:6px 0 0">${AR(P.min)} دقيقة · دراسة: ${P.days.filter(x=>!P.rev.includes(x)).map(x=>WD[x]).join('، ')} · مراجعة: ${P.rev.map(x=>WD[x]).join('، ')||'—'} · التوزيع: ${P.mode==='manual'?'يدوي':'تلقائي'}${P.target?' · الموعد: '+fmtShort(P.target.date):''}</p></div>`;
@@ -17349,7 +17349,7 @@ function openCertLevel(){const done=KIDL.filter(l=>kidDone(l.id)).length;certFlo
 function kidMode(on){S.profile=S.profile||{};S.profile.kid=on;save();render()}
 function kidPerSet(n){S.kidPer=n;save();render()}
 function kidFam(){const p=S.profile||{};p.parent=($('#kfP').value||'').trim();S.settings.name=($('#kfC').value||'').trim()||S.settings.name;save();toast('حُفظ ✓');render()}
-function kidDel(){if(confirm('سيتم حذف بيانات الطفل ولا يمكن التراجع. متأكد؟')){S.profile={};save();render();toast('تم الحذف')}}
+function kidDel(){if(confirm('سيتم حذف اسم الطفل وتقدّمه في «رحلة البراعم» من هذا الجهاز، ولا يمكن التراجع. متأكد؟')){S.kid={done:{},stars:0,pt:{},mini:{}};if(S.fam)S.fam.kid='';S.profile=S.profile||{};S.profile.kid=false;S.profile.kidGrad='';S.settings.name=(S.fam&&S.fam.parent)||S.settings.name;save();render();toast('تم حذف بيانات الطفل ✓')}}
 function kidSettingsHTML(){const K=!!(S.profile||{}).kid,p=S.profile||{};return `<div class="panel"><h3>🌱 وضع الطفل (البراعم)</h3><p class="muted" style="font-size:13px;margin:0 0 8px">مستوى تأسيسي للأطفال: رسوم وألعاب ونقاط رئيسية قليلة كل يوم.</p>
   <div class="row" style="gap:8px;flex-wrap:wrap"><button class="btn sm ${K?'gold':'ghost'}" onclick="kidMode(true)">تشغيل</button><button class="btn sm ${K?'ghost':'gold'}" onclick="kidMode(false)">إيقاف</button></div>
   ${K?`<div class="d-goal" style="margin-top:10px"><span>دروس جديدة في اليوم:</span>${[1,2,3,99].map(x=>`<button class="${kidPer()===x?'on':''}" onclick="kidPerSet(${x})" style="${x===99?'width:auto;padding:0 10px;border-radius:17px':''}">${x===99?'بلا حد':AR(x)}</button>`).join('')}</div>
@@ -17716,7 +17716,7 @@ function vHome(){if((S.profile||{}).kid)return vKidHome();
 
 /* ============ المكتبة ============ */
 function vLibrary(){
-  $('#app').innerHTML=`<div class="ro-switch"><div class="grow"><b>📖 القراءة فقط</b><div class="muted" style="font-size:12px">لمن يريد القراءة دون حفظ ولا اختبارات</div></div><label class="switch"><input type="checkbox" ${RO()?'checked':''} onchange="S.settings.readOnly=this.checked;save();render()"><span></span></label></div><p class="muted" style="margin-top:4px">المنظومات والأقسام مرتبة حسب العلوم من الأسهل إلى الأعلى. لا تُفتح منظومة حتى تُتمّ ما قبلها: الحفظ (أو تخطيه) واختبار الفهم بنسبة ١٠٠٪.</p>`+
+  $('#app').innerHTML=`<p class="muted" style="margin-top:4px">المنظومات والأقسام مرتبة حسب العلوم من الأسهل إلى الأعلى. لا تُفتح منظومة حتى تُتمّ ما قبلها: الحفظ (أو تخطيه) واختبار الفهم بنسبة ١٠٠٪.</p>`+
   SCIENCES.map((s,si)=>{
     const avail=s.items.filter(i=>i.m||i.p).length;
     return `<div class="sci ${si===0?'open':''}" id="sci${si}"><div class="sci-h" onclick="this.parentNode.classList.toggle('open')">
@@ -18274,8 +18274,6 @@ function vSettingsOld(){
     <div class="setrow"><div class="grow"><b>لحن الإتمام</b><div class="muted" style="font-size:12px">«متنوع» يختار لحنًا مختلفًا كل مرة</div></div><select onchange="S.settings.winStyle=this.value;save();sound('win')"><option value="mix">متنوع</option>${Object.entries(WINS).map(([k,w])=>`<option value="${k}" ${st.winStyle===k?'selected':''}>${w.n}</option>`).join('')}</select><button class="icon-btn" onclick="sound('win')">▶</button></div>
     <div class="setrow"><div class="grow"><b>صوت عند كل إجابة</b><div class="muted" style="font-size:12px">مطفأ افتراضيًا، وإن شغّلته فهو نغمة هادئة</div></div><label class="switch"><input type="checkbox" ${st.ansSound?'checked':''} onchange="S.settings.ansSound=this.checked;save();if(this.checked)sound('ok')"><span></span></label></div>
     <div class="setrow"><div class="grow"><b>مستوى الصوت</b></div><input type="range" min="0.1" max="1" step="0.1" value="${st.vol==null?1:st.vol}" style="width:50%" onchange="S.settings.vol=+this.value;save();sound('ok')"></div>`:''}
-    <div class="setrow"><div class="grow"><b>📖 القراءة فقط</b><div class="muted" style="font-size:12px">يفتح كل شيء بلا حفظ ولا اختبارات إلزامية</div></div>
-      <label class="switch"><input type="checkbox" ${st.readOnly?'checked':''} onchange="S.settings.readOnly=this.checked;save()"><span></span></label></div>
     <div class="setrow"><div class="grow"><b>إخفاء التشكيل</b><div class="muted" style="font-size:12px">لتقوية الضبط من الحفظ</div></div>
       <label class="switch"><input type="checkbox" ${st.hideTashkeel?'checked':''} onchange="S.settings.hideTashkeel=this.checked;save()"><span></span></label></div>
     <div class="setrow"><div class="grow"><b>المظهر</b></div><select onchange="S.settings.theme=this.value;save();applyTheme()">
