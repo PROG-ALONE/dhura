@@ -610,7 +610,7 @@ nav.bottom button{padding:6px 6px;font-size:11px}
 .fig-n{font-size:12px;color:var(--muted);font-weight:400}
 .fig-stage{position:relative;border-radius:14px;overflow:hidden;background:color-mix(in srgb,var(--bg2) 60%,var(--card))}
 .fig-fr{position:relative;animation:figIn .45s ease}
-@keyframes figIn{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+@keyframes figIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
 .fsvg{width:100%;height:auto;display:block}
 .fig-x{position:absolute;top:8px;left:8px;background:var(--gold);color:#fff;font-weight:800;border-radius:12px;padding:3px 10px;font-size:15px;animation:pop .5s ease}
 .fig-cap{font-size:14px;line-height:1.9;margin-top:8px}
@@ -842,7 +842,7 @@ blockquote.nz{font-family:Amiri,serif;font-size:17px;line-height:2;margin:8px 0;
 .ll-keys{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;direction:rtl}
 .ll-k{font-family:Amiri,serif;font-size:22px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:2px 0;cursor:pointer}
 .ll-k.on{background:var(--gold);color:#fff;border-color:var(--gold)}
-.ll-big{float:left;font-family:Amiri,serif;font-size:44px;line-height:1;color:var(--gold);margin-right:8px}
+.ll-big{float:right;font-family:Amiri,serif;font-size:44px;line-height:1;color:var(--gold);margin-left:8px}
 .ll-s{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .fsvg.mouth .mp.on>:not(text):not(.jawf):not(.gum){filter:drop-shadow(0 0 4px #f6c64a)}
 /* ===== بوابة العلوم ===== */
@@ -924,7 +924,7 @@ blockquote.nz{font-family:Amiri,serif;font-size:17px;line-height:2;margin:8px 0;
 @keyframes ctaBlink{50%{box-shadow:0 0 26px rgba(95,212,255,.8);color:#fff}}
 .hud-dot{width:9px;height:9px;border-radius:50%;background:#5fd4ff;box-shadow:0 0 8px #5fd4ff;animation:fpulse 1s infinite}
 .hud-hadith{font-family:Amiri,serif;font-size:16px;color:var(--gold);text-align:center;margin:10px 12px 0;line-height:1.8}.hud-hadith small{font-family:Tajawal;font-size:11px;color:var(--muted)}
-.hud-list .sci-row{opacity:.35;transform:translateX(-8px);transition:.4s}
+.hud-list .sci-row{opacity:.35;transform:translateX(8px);transition:.4s}
 .hud-list .sci-row.on,.hud-list:not(.open) .sci-row{opacity:1;transform:none}
 .hud-list.open .sci-row:not(.on){opacity:.25}
 .sci-num{width:22px;height:22px;border-radius:50%;background:var(--c);color:#1a1a1a;font-size:12px;font-weight:800;display:grid;place-content:center;flex:none}
@@ -1072,8 +1072,8 @@ blockquote.nz{font-family:Amiri,serif;font-size:17px;line-height:2;margin:8px 0;
 .dk-bt{flex:1;overflow:auto;font-size:15px;line-height:1.9;padding-top:10px}
 .dk-bt .btn{width:100%;margin-top:6px}
 .dk-lbl{position:absolute;top:58px;z-index:3;padding:5px 14px;border-radius:14px;font-weight:800;font-size:14px;opacity:0;pointer-events:none;transition:opacity .1s;border:2px solid}
-.dk-lbl.nx{left:14px;color:var(--ok);border-color:var(--ok);background:rgba(76,192,140,.12);transform:rotate(-10deg)}
-.dk-lbl.pv{right:14px;color:var(--gold);border-color:var(--gold);background:rgba(224,180,90,.12);transform:rotate(10deg)}
+.dk-lbl.nx{right:14px;color:var(--ok);border-color:var(--ok);background:rgba(76,192,140,.12);transform:rotate(10deg)}
+.dk-lbl.pv{left:14px;color:var(--gold);border-color:var(--gold);background:rgba(224,180,90,.12);transform:rotate(-10deg)}
 .dk-card[data-dir=nx] .dk-lbl.nx,.dk-card[data-dir=pv] .dk-lbl.pv{opacity:var(--sw,0)}
 .dk-card.pulse .dk-face{box-shadow:0 14px 40px -14px rgba(15,61,52,.55),0 0 46px 2px rgba(224,180,90,.85)}
 .dk-card.pulse .dk-cnt{animation:dkbump .3s}
@@ -1088,7 +1088,7 @@ blockquote.nz{font-family:Amiri,serif;font-size:17px;line-height:2;margin:8px 0;
 .dk-card.done.p0 .dk-cnt{animation:dkdone .6s}
 @keyframes dkdone{30%{transform:scale(1.3) rotate(-8deg)}60%{transform:scale(.95)}}
 .dk-card.in-f{animation:dkinf .4s cubic-bezier(.2,.9,.25,1)}
-@keyframes dkinf{from{transform:translateY(17px) scale(.94);opacity:.6}}
+@keyframes dkinf{from{transform:translateX(120%) rotate(14deg);opacity:0}}
 .dk-card.in-b{animation:dkinb .4s cubic-bezier(.2,.9,.25,1)}
 @keyframes dkinb{from{transform:translateX(-120%) rotate(-14deg);opacity:0}}
 .dk-card.bounce{animation:dkbnc .45s}
@@ -2015,7 +2015,7 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .ps-dots i.dn{opacity:.9}.ps-dots i.dn span{background:#1f7a63}
 .ps-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;text-align:center;box-shadow:0 10px 30px rgba(15,61,52,.08)}
 .ps-card.in{animation:psIn .45s cubic-bezier(.2,.8,.2,1)}
-@keyframes psIn{from{opacity:0;transform:translateX(-30px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes psIn{from{opacity:0;transform:translateX(30px) scale(.97)}to{opacity:1;transform:none}}
 .ps-card h2{margin:0 0 2px;font-size:19px}.ps-card>.muted{font-size:12.5px;margin:0 0 6px}
 .wk-svg,.dl-svg,.dn-svg{width:min(300px,82vw);display:block;margin:6px auto;touch-action:none}
 .wk-s path{transition:fill .35s,transform .35s;transform-origin:150px 150px;cursor:pointer;stroke:var(--card);stroke-width:2}
@@ -2768,7 +2768,7 @@ html.ms-imm #app{padding:6px 4px 0}
 .hj-ordc .no{background:rgba(242,180,74,.12)}
 .hj-jmr{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
 .hj-jmr button{padding:12px 4px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font:inherit;display:flex;flex-direction:column;align-items:center;gap:6px}
-.hj-jmr i{font-style:normal;font-size:10px;letter-spacing:1px;color:var(--gold);direction:ltr}
+.hj-jmr i{font-style:normal;font-size:10px;letter-spacing:1px;color:var(--gold);direction:rtl}
 .hj-jmr button.cur{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
 .hj-jmr button.ok{border-color:rgba(95,211,155,.5);color:var(--ok)}
 .hj-ns{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
@@ -7377,7 +7377,7 @@ table{border-collapse:collapse;width:100%;margin:8px 0}td,th{border:1px solid #e
 .box .fsvg{max-height:300px;display:block;margin:0 auto}
 ${svgCSS()}
 @media print{body{padding:0}.noprint{display:none}}</style></head><body>
-<div class="noprint" style="text-align:left;margin-bottom:8px"><button onclick="print()" style="font:inherit;padding:6px 14px;border-radius:10px;border:1px solid #0f5c4d;background:#0f5c4d;color:#fff;cursor:pointer">🖨 طباعة / حفظ PDF</button></div>
+<div class="noprint" style="text-align:right;margin-bottom:8px"><button onclick="print()" style="font:inherit;padding:6px 14px;border-radius:10px;border:1px solid #0f5c4d;background:#0f5c4d;color:#fff;cursor:pointer">🖨 طباعة / حفظ PDF</button></div>
 ${body}<div class="ft">من تطبيق «ذُرى» — للدراسة والتدريس. نُزّل في ${new Date().toLocaleDateString('ar-IQ',{day:'numeric',month:'long',year:'numeric'})}. راجع ما يُشكل عليك مع أهل العلم.</div></body></html>`}
 function safeName(s){return String(s).replace(/<[^>]+>/g,'').replace(/[\\/:*?"<>|«»﴿﴾]/g,'').replace(/\s+/g,'-').slice(0,60)}
 async function dlDoc(name,body,title,mode){
@@ -7650,7 +7650,7 @@ function dkDone(j){return DK.get(j)>=DK.target(j)}
 function deck(cfg){DK=cfg;cfg.n=cfg.items.length;
   if(cfg.i==null){cfg.i=0;for(let j=0;j<cfg.n;j++)if(!dkDone(j)){cfg.i=j;break}}
   return `<div class="dk" id="dk" style="--fs:${cfg.fs||1}"><div class="dk-segs" id="dkSegs"></div><div class="dk-stage" id="dkStage"></div>
-   <div class="dk-nav"><span id="dkPos"></span><span class="dk-hint">اسحب البطاقة بإصبعك: يمينًا للتالي، ويسارًا للسابق · اضغط عليها لتعدّ</span></div></div>`}
+   <div class="dk-nav"><span id="dkPos"></span><span class="dk-hint">اسحب البطاقة بإصبعك: يسارًا للتالي، ويمينًا للسابق · اضغط عليها لتعدّ</span></div></div>`}
 function dkCard(j,pos){const c=DK.card(j),t=DK.target(j),n=Math.min(DK.get(j),t),dn=n>=t;
   return `<div class="dk-card p${pos} ${dn?'done':''}" data-j="${j}"><div class="dk-flip">
    <div class="dk-face dk-front"><span class="dk-lbl nx">التالي</span><span class="dk-lbl pv">السابق</span>
@@ -7675,7 +7675,7 @@ function dkGo(dir,to){if(!DK)return;let k=to!=null?to:DK.i+dir;const el=dkTop();
   if(k===DK.i&&to!=null)return;
   if(k<0||k>=DK.n){if(el){el.style.transform='';el.classList.remove('bounce');void el.offsetWidth;el.classList.add('bounce')}if(k>=DK.n)toast('هذه آخر بطاقة');return}
   const fwd=k>DK.i;DK.i=k;
-  if(el){el.style.transition='transform .3s ease-in, opacity .3s';el.style.transform=`translateX(${fwd?130:-130}%) rotate(${fwd?16:-16}deg)`;el.style.opacity=0;el.style.pointerEvents='none'}
+  if(el){el.style.transition='transform .3s ease-in, opacity .3s';el.style.transform=`translateX(${fwd?-130:130}%) rotate(${fwd?-16:16}deg)`;el.style.opacity=0;el.style.pointerEvents='none'}
   setTimeout(()=>dkRender(fwd?'in-f':'in-b'),el?200:0)}
 function dkNextUndone(j){for(let k=j+1;k<DK.n;k++)if(!dkDone(k))return k;for(let k=0;k<j;k++)if(!dkDone(k))return k;return -1}
 function dkTap(e){if(!DK)return;const el=dkTop();if(!el||el.classList.contains('flipped'))return;const j=DK.i,t=DK.target(j),n=DK.get(j);
@@ -7694,9 +7694,9 @@ function dkBind(){const el=dkTop();if(!el)return;let sx=0,sy=0,dx=0,on=false,mv=
   el.addEventListener('pointerdown',e=>{if(e.button>0||e.target.closest('button,a,summary,input,.dk-back'))return;sx=e.clientX;sy=e.clientY;dx=0;on=true;mv=false;pid=e.pointerId;t0=Date.now();el.style.transition='none'});
   el.addEventListener('pointermove',e=>{if(!on||e.pointerId!==pid)return;dx=e.clientX-sx;const dy=e.clientY-sy;
     if(!mv){if(Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)*1.2){mv=true;try{el.setPointerCapture(pid)}catch(_){}}else if(Math.abs(dy)>12){on=false;el.style.transition='';return}else return}
-    el.style.transform=`translateX(${dx}px) rotate(${dx/22}deg)`;el.style.setProperty('--sw',Math.min(1,Math.abs(dx)/110).toFixed(2));el.dataset.dir=dx>0?'nx':'pv'});
+    el.style.transform=`translateX(${dx}px) rotate(${dx/22}deg)`;el.style.setProperty('--sw',Math.min(1,Math.abs(dx)/110).toFixed(2));el.dataset.dir=dx<0?'nx':'pv'});
   const end=e=>{if(!on||e.pointerId!==pid)return;on=false;el.style.transition='';el.style.removeProperty('--sw');delete el.dataset.dir;
-    if(mv&&Math.abs(dx)>80){dkGo(dx>0?1:-1)}else{el.style.transform='';if(!mv&&e.type==='pointerup'&&Date.now()-t0<600)dkTap(e)}};
+    if(mv&&Math.abs(dx)>80){dkGo(dx<0?1:-1)}else{el.style.transform='';if(!mv&&e.type==='pointerup'&&Date.now()-t0<600)dkTap(e)}};
   el.addEventListener('pointerup',end);el.addEventListener('pointercancel',end)}
 document.addEventListener('keydown',e=>{if(!DK||!document.getElementById('dk')||/INPUT|TEXTAREA/.test((e.target||{}).tagName||''))return;
   if(e.key==='ArrowLeft'){e.preventDefault();dkGo(1)}else if(e.key==='ArrowRight'){e.preventDefault();dkGo(-1)}else if(e.key===' '||e.key==='Enter'){if(e.target&&e.target.tagName==='BUTTON')return;e.preventDefault();dkTap(null)}});
