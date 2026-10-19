@@ -2309,7 +2309,9 @@ html[dir=rtl] .hz-a{padding:8px 12px 8px 40px}
 .ms-tx{font-family:DhuraQuran,'Amiri Quran',Amiri,serif;font-size:var(--fs,22px);line-height:2.15;text-align:justify;text-align-last:center;word-spacing:1px}
 .ms-wrap.two .ms-tx{font-size:calc(var(--fs,22px)*.72);line-height:2}.ms-two{display:grid;gap:8px}
 .ms-a{cursor:pointer;border-radius:6px;transition:background .2s}.ms-a:hover{background:rgba(201,150,47,.1)}.ms-a.on{background:rgba(242,185,56,.35);box-shadow:0 0 0 2px rgba(242,185,56,.35)}
-.ms-a.bm .ms-n{background:#c9962f;color:#fff}.ms-a.nt .ms-n{box-shadow:0 0 0 2px #3a9b7a}
+.ms-a.nt .ms-n{box-shadow:0 0 0 2px #3a9b7a}
+.ms-bookmark-start{display:inline-block;width:.48em;height:.68em;margin-inline:.14em;background:#c62836;clip-path:polygon(0 0,100% 0,100% 72%,50% 53%,0 72%);vertical-align:baseline;filter:drop-shadow(0 1px 1px rgba(76,12,18,.35))}
+.ms-bm-first{border-radius:3px;background:rgba(198,40,54,.2);box-shadow:inset 0 -.08em #bd2935;padding-inline:.025em}
 .ms-n{display:inline-grid;place-items:center;min-width:1.35em;height:1.35em;padding:0 2px;margin:0 2px;border:1.5px solid #c9962f;border-radius:50%;font-family:Tajawal,sans-serif;font-size:.48em;color:#8a6a24;vertical-align:middle;line-height:1}
 .ms-sh{text-align:center;margin:8px 0 4px;padding:6px;border:1.5px solid #c9962f;border-radius:12px;background:linear-gradient(90deg,transparent,rgba(201,150,47,.15),transparent);font-family:Amiri,serif;font-size:19px}.ms-sh small{display:block;font-size:11px;color:#9a7b3a}
 .ms-bs{text-align:center;font-family:DhuraQuran,Amiri,serif;font-size:calc(var(--fs,22px)*.95);margin-bottom:4px}
@@ -2477,8 +2479,8 @@ html.ms-imm #app{padding-inline:6px}
 .ms-exitfs{position:fixed;inset-inline-end:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;width:46px;height:46px;border-radius:50%;background:var(--card);border:1px solid var(--line);color:var(--ink);font-size:18px;box-shadow:0 6px 18px rgba(0,0,0,.28)}
 .ms-flip-layer{position:fixed!important;z-index:70!important;pointer-events:none!important;overflow:hidden!important}
 .ms-flip-layer>.ms-pg.ms-turn-sheet{position:absolute;inset:0;z-index:4;width:100%!important;height:100%!important;margin:0!important;pointer-events:none;backface-visibility:hidden;transform-style:preserve-3d;overflow:hidden}
-.ms-flip-layer>.ms-pg.ms-turn-next{transform-origin:right center;animation:msPageTurnNext .42s cubic-bezier(.35,.05,.2,1) forwards}
-.ms-flip-layer>.ms-pg.ms-turn-prev{transform-origin:left center;animation:msPageTurnPrev .42s cubic-bezier(.35,.05,.2,1) forwards}
+.ms-flip-layer>.ms-pg.ms-turn-next{transform-origin:right center;animation:msPageTurnNext .68s cubic-bezier(.35,.05,.2,1) forwards}
+.ms-flip-layer>.ms-pg.ms-turn-prev{transform-origin:left center;animation:msPageTurnPrev .68s cubic-bezier(.35,.05,.2,1) forwards}
 .ms-flip-layer>.ms-pg.ms-turn-sheet::after{content:''!important;position:absolute;inset:0;z-index:3;pointer-events:none;transform:rotateY(180deg);backface-visibility:hidden;background:linear-gradient(90deg,rgba(49,38,19,.17),rgba(255,255,255,.12) 18%,transparent 42%)}
 @keyframes msPageTurnNext{0%{transform:perspective(1600px) rotateY(0);filter:brightness(1)}45%{filter:brightness(.92)}100%{transform:perspective(1600px) rotateY(-168deg);filter:brightness(.82);opacity:0}}
 @keyframes msPageTurnPrev{0%{transform:perspective(1600px) rotateY(0);filter:brightness(1)}45%{filter:brightness(.92)}100%{transform:perspective(1600px) rotateY(168deg);filter:brightness(.82);opacity:0}}
@@ -2506,7 +2508,6 @@ html.ms-imm #app{padding-inline:6px}
 .ms-pg.md .ms-a.on{background:rgba(90,150,255,.22)}
 .ms-pg.md .ms-a.fl{animation:mdFl 1.2s ease 2}
 @keyframes mdFl{50%{background:rgba(242,196,109,.4)}}
-.ms-pg.md .ms-a.bm{background:none;text-decoration:underline dotted var(--md-acc,#b8862b);text-underline-offset:6px}
 /* ثيم «الكتاب» الداكن الهادئ */
 .ms-wrap.th-kitab .ms-pg{background:#262629;color:#ece8de;box-shadow:0 2px 14px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.06);border-radius:10px}
 .ms-wrap.th-kitab .ms-pg::before,.ms-wrap.th-kitab .ms-pg::after{display:none}
@@ -2713,7 +2714,6 @@ html.ms-imm #app{padding-inline:6px}
 .ms-wrap.pg .ms-tx{line-height:1.72!important}
 .ms-wrap .ms-focus .ms-tx.big{font-size:var(--fs,24px)!important;line-height:1.72!important}
 .ms-wrap .ms-n{display:inline-grid;place-items:center;box-sizing:border-box;min-width:1.55em;height:1.55em;padding:0 .12em;margin:0 .12em;border:1px solid var(--ms-mark-edge,#a9c0ae)!important;border-radius:50%!important;background:var(--ms-mark,#e6eee7)!important;color:var(--ms-mark-ink,#24543f)!important;clip-path:none!important;font-size:.52em;font-weight:800;line-height:1;vertical-align:middle}
-.ms-wrap .ms-a.bm .ms-n{background:#b9852c!important;color:#fff!important;border-color:#8d641e!important}
 .ms-wrap .ms-a.nt .ms-n{box-shadow:0 0 0 2px #47916f!important}
 .ms-wrap .ms-pf{background:var(--ms-mark,#e6eee7)!important;color:var(--ms-mark-ink,#24543f)!important;border-color:var(--ms-mark-edge,#a9c0ae)!important}
 .ms-settings-sheet .ms-modes button{border-radius:12px;border-color:var(--line);padding:7px 13px}
@@ -2727,7 +2727,6 @@ html.ms-imm #app{padding-inline:6px}
 .qf-l .qw{display:inline-block;line-height:1;cursor:pointer;border-radius:4px;transition:background .3s}
 .qf-l .qw.on{background:rgba(90,150,255,.22)}
 .qf-l .qw.fl{animation:mdFl 1.2s ease 2}
-.qf-l .qw.bm{text-decoration:underline dotted var(--md-acc,#b8862b);text-underline-offset:6px}
 .qf-l.t,.qf-l.b{justify-content:center}
 .qf-l.t{position:relative;cursor:pointer;color:var(--md-acc,#b8862b)}
 .qf-l.t::before{content:'';position:absolute;inset:8% 4%;border:1.5px solid currentColor;border-radius:4px;opacity:.55}
@@ -14869,10 +14868,16 @@ function mPageOf(id){let lo=1,hi=604;while(lo<hi){const md=(lo+hi+1)>>1;if(MPG[m
 const mJuz=id=>{let j=1;while(j<30&&MJZ[j+1]<=id)j++;return j},mHizb=id=>{let q=1;while(q<240&&MRB[q+1]<=id)q++;return q};
 function mIds(p){const a=[];for(let i=MPG[p];i<MPG[p+1];i++)a.push(i);return a}
 /* ---- رسم الصفحة ---- */
+function mBmFirstWord(html){const tpl=document.createElement('template');tpl.innerHTML=html;const walker=document.createTreeWalker(tpl.content,NodeFilter.SHOW_TEXT);let startNode=null,startOffset=0,endNode=null,endOffset=0,node;
+  while((node=walker.nextNode())){const text=node.nodeValue||'';if(!startNode){const i=text.search(/[^\s\u200c\u200d\u200e\u200f\ufeff]/);if(i<0)continue;startNode=node;startOffset=i}
+    const from=node===startNode?startOffset:0,space=text.slice(from).search(/\s/);if(space>=0){endNode=node;endOffset=from+space;break}endNode=node;endOffset=text.length}
+  if(!startNode||!endNode||startNode===endNode&&startOffset===endOffset)return html;
+  const range=document.createRange();range.setStart(startNode,startOffset);range.setEnd(endNode,endOffset);const word=document.createElement('span');word.className='ms-bm-first';word.append(range.extractContents());range.insertNode(word);return tpl.innerHTML}
+function mBmStart(k,html){return MS().bm.includes(k)?'<span class="ms-bookmark-start" role="img" aria-label="علامة موضع الحفظ"></span>'+mBmFirstWord(html):html}
 function mAyahHTML(id){const [s,a]=mSA(id),m=MS(),k=s+':'+a;let h='';
   if(a===1){h+=`<div class="ms-sh" onclick="event.stopPropagation();mInfo(${s})"><span>سورة ${SUR_N[s-1]}</span><small>${AR(QFULL[s-1].length)} آية</small></div>`;if(s!==1&&s!==9)h+=`<div class="ms-bs">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ</div>`}
   const tx=m.lay.tj&&MTJ[k]?MTJ[k]:esc(QFULL[s-1][a-1]);
-  return h+`<span class="ms-a ${MPL.on&&MPL.q[MPL.id]===id?'on':''} ${m.bm.includes(k)?'bm':''} ${m.nt[k]?'nt':''}" data-id="${id}" onclick="mTap(${id})">${tx}<span class="ms-n">${AR(a)}</span></span> `}
+  return h+`<span class="ms-a ${MPL.on&&MPL.q[MPL.id]===id?'on':''} ${m.bm.includes(k)?'bm':''} ${m.nt[k]?'nt':''}" data-id="${id}" onclick="mTap(${id})">${mBmStart(k,tx)}<span class="ms-n">${AR(a)}</span></span> `}
 function mPageHTML(p){const ids=mIds(p),f=ids[0],[s]=mSA(f);return `<div class="ms-pg" data-p="${p}"><div class="ms-ph"><span>${SUR_N[s-1]}</span><span>الجزء ${AR(mJuz(f))}</span></div><div class="ms-tx" dir="rtl" lang="ar">${ids.map(mAyahHTML).join('')}</div><div class="ms-pf">${AR(p)}</div></div>`}
 function vMushaf(){mInit(()=>{const m=MS(),p=m.p,app=$('#app');let body='';
   if(m.mode==='two'){const a=p%2?p:p-1;body=`<div class="ms-two">${mPageHTML(a)}${a+1<=604?mPageHTML(a+1):''}</div>`}
@@ -15693,7 +15698,7 @@ function mdnPageHTML(p){const L=MDN[mdnKey()][p-1],m=MS(),c=p<=2,f=MPG[p],[s]=mS
     if(g0[1]===0)return `<div class="md-l t" onclick="event.stopPropagation();mInfo(${g0[0]})"><span class="md-in">${g0[2]}</span></div>`;
     if(g0[1]===-1)return `<div class="md-l b"><span class="md-in">${g0[2]}</span></div>`;
     return `<div class="md-l ${!c&&line.some(g=>g[3])?'j':''}"><span class="md-in">${line.map(g=>{const id=mID(g[0],g[1]),k=g[0]+':'+g[1];
-      return `<span class="ms-a ${MPL.on&&MPL.q[MPL.id]===id?'on':''} ${m.bm.includes(k)?'bm':''} ${m.nt[k]?'nt':''} ${m.flash===id?'fl':''}" data-id="${id}" onclick="event.stopPropagation();mTap(${id})">${mdnN(g[2])}</span>`}).join(' ')}</span></div>`};
+      return `<span class="ms-a ${MPL.on&&MPL.q[MPL.id]===id?'on':''} ${m.bm.includes(k)?'bm':''} ${m.nt[k]?'nt':''} ${m.flash===id?'fl':''}" data-id="${id}" onclick="event.stopPropagation();mTap(${id})">${mBmStart(k,mdnN(g[2]))}</span>`}).join(' ')}</span></div>`};
   return `<div class="ms-pg md ${c?'md-c':''} ${mdnKey()==='c'?'md-tj':''}" data-p="${p}"><div class="ms-ph"><span>${SUR_N[s-1]}</span><span>الجزء ${AR(mJuz(f))} · الحزب ${AR(Math.ceil(mHizb(f)/4))}</span></div><div class="md-ls">${L.map(row).join('')}</div><div class="ms-pf">${AR(p)}</div></div>`}
 const _mPageHTML5=mPageHTML;mPageHTML=function(p){return MDN_ON()?mdnPageHTML(p):_mPageHTML5(p)};
 const _mLoadTj5=mLoadTj;mLoadTj=function(a,b){if(MDN_ON())return;return _mLoadTj5(a,b)};
@@ -15898,7 +15903,7 @@ function qcfPageHTML(p){const L=QCF.d[p],m=MS(),f=MPG[p],[s0]=mSA(f),c=p<=2,ex={
   if(!c&&last<15&&lastS<114){const ns=lastS+1;if(last===13){ex[14]=['t',ns];if(ns!==9)ex[15]=['b',ns];else ex[15]=null}else if(last===14)ex[15]=['t',ns]}
   const lo=c?Math.min(...used,...Object.keys(ex).map(Number).filter(x=>x>0)):1,hi=c?last:15,rows=[];
   for(let ln=lo;ln<=hi;ln++){const ws=L[ln];
-    if(ws){rows.push(`<div class="qf-l ${c?'c':''}">${ws.map(([s,a,code,e])=>{const id=mID(s,a),k=s+':'+a;return `<span class="ms-a qw ${e?'qe':''} ${MPL.on&&MPL.q[MPL.id]===id?'on':''} ${m.bm.includes(k)?'bm':''} ${m.flash===id?'fl':''}" data-id="${id}" onclick="event.stopPropagation();mTap(${id})">${code}</span>`}).join('')}</div>`);continue}
+    if(ws){rows.push(`<div class="qf-l ${c?'c':''}">${ws.map(([s,a,code,e])=>{const id=mID(s,a),k=s+':'+a;return `<span class="ms-a qw ${e?'qe':''} ${MPL.on&&MPL.q[MPL.id]===id?'on':''} ${m.bm.includes(k)?'bm':''} ${m.flash===id?'fl':''}" data-id="${id}" onclick="event.stopPropagation();mTap(${id})">${mBmStart(k,code)}</span>`}).join(' ')}</div>`);continue}
     const x=ex[ln];if(x&&x[0]==='t')rows.push(`<div class="qf-l t" onclick="event.stopPropagation();mInfo(${x[1]})"><span>سورة ${SUR_N[x[1]-1]}</span></div>`);
     else if(x&&x[0]==='b')rows.push(`<div class="qf-l b"><span>بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ</span></div>`);else rows.push('<div class="qf-l e"></div>')}
   return `<div class="ms-pg qf ${c?'qf-c':''}" data-p="${p}"><div class="ms-ph"><span>${SUR_N[s0-1]}</span><span>الجزء ${AR(mJuz(f))} · الحزب ${AR(Math.ceil(mHizb(f)/4))}</span></div><div class="qf-ls" style="font-family:qcf${p}">${rows.join('')}</div><div class="ms-pf">${AR(p)}</div></div>`}
