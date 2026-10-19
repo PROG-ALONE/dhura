@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-<head><script>(function(){try{if(localStorage.getItem("dhura_rst2")!=="1"){var ks=[];for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k==="mutun_app_v1"||k.indexOf("mutun_app_v1_")===0||k==="dhura_people"||k==="dhura_sync")ks.push(k)}ks.forEach(function(k){localStorage.removeItem(k)});try{indexedDB.deleteDatabase("dhura_rec")}catch(e){}localStorage.setItem("dhura_rst2","1")}if(localStorage.getItem("dhura_launch")!=="1"){localStorage.removeItem("mutun_app_v1");try{indexedDB.deleteDatabase("dhura_rec")}catch(e){}localStorage.setItem("dhura_launch","1")}}catch(e){}})()</script>
+<head><script>(function(){try{if(localStorage.getItem("dhura_rst2")!=="1")localStorage.setItem("dhura_rst2","1");if(localStorage.getItem("dhura_launch")!=="1")localStorage.setItem("dhura_launch","1")}catch(e){}})()</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#0f3d34">
@@ -55,6 +55,9 @@ nav.bottom{position:fixed;bottom:0;inset-inline:0;z-index:30;background:var(--ca
 nav.bottom button{background:none;border:0;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;padding:6px 10px;border-radius:12px}
 nav.bottom button svg{width:24px;height:24px}
 nav.bottom button.on{color:var(--green);background:color-mix(in srgb,var(--green) 10%,transparent)}
+nav.bottom button[data-ms]{color:var(--green);background:color-mix(in srgb,var(--green) 9%,transparent);font-weight:800}
+nav.bottom button[data-ms] svg{width:27px;height:27px}
+nav.bottom button[data-ms].on{color:#fff;background:var(--green);box-shadow:0 3px 12px color-mix(in srgb,var(--green) 28%,transparent)}
 h2{font-size:20px;margin:22px 0 10px}
 h3{font-size:16px;margin:0 0 6px}
 .muted{color:var(--muted)}
@@ -2369,6 +2372,15 @@ tajweed.idgham_ghunnah,tajweed.idgham_shafawi,.tj-idgham_ghunnah{color:#0f7a4a}t
 .ms-ar:hover,.ms-ar:active{opacity:.9}.ms-ar:disabled{display:none}.ms-ar.r{right:-10px}.ms-ar.l{left:-10px}
 .ms-ayn{display:flex;justify-content:space-between}
 .ms-lg{margin:10px 0 4px}
+.ms-set-title{margin:10px 0 4px;font-size:12px;color:var(--muted);font-weight:700}
+.ms-set-modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin:0 0 8px}
+.ms-set-modes button{min-width:0;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 3px;font:inherit;font-size:12px;white-space:nowrap}
+.ms-set-modes button.on{background:linear-gradient(#f5dc95,#c9962f);color:#2a1a05;border-color:#c9962f;font-weight:800}
+.ms-set-check{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px}
+.ms-set-check input{width:18px;height:18px;margin:0;accent-color:var(--green)}
+.ms-set-font{margin:4px 0 8px}
+.ms-set-font input{padding:0!important;height:28px}
+.sheet.ms-settings-sheet{max-height:90dvh;overflow-y:auto;overscroll-behavior:contain}
 /* ============ ركن الأذكار ============ */
 .zk-g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}.zk-g button{display:flex;flex-direction:column;align-items:center;gap:3px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:10px 6px;font:inherit;cursor:pointer;box-shadow:var(--shadow)}
 .zk-g span{font-size:24px}.zk-g b{font-size:13px}.zk-g small{font-size:11px;color:var(--muted)}.zk-g i{display:block;width:80%;height:3px;border-radius:2px;background:rgba(127,127,127,.18);overflow:hidden}.zk-g i u{display:block;height:100%;background:var(--gold)}
@@ -2411,8 +2423,10 @@ tajweed.idgham_ghunnah,tajweed.idgham_shafawi,.tj-idgham_ghunnah{color:#0f7a4a}t
 .mw-g>div{display:grid;grid-template-columns:90px 1fr;gap:8px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px;line-height:1.7}.mw-g b{color:var(--gold)}
 /* ---- الصفحة الثابتة وألوانها ---- */
 .ms-tx{direction:rtl;unicode-bidi:isolate}.ms-tx tajweed,.ms-tx span{unicode-bidi:normal}
-.ms-wrap.pg .ms-pg,.ms-wrap.two .ms-pg{display:flex;flex-direction:column;overflow:hidden;margin-bottom:0}.ms-wrap.pg .ms-tx,.ms-wrap.two .ms-tx{flex:1;text-align:justify;text-align-last:auto;line-height:2.05}.ms-wrap.two .ms-tx{line-height:1.9}
+.ms-wrap.pg .ms-pg,.ms-wrap.two .ms-pg{display:flex;flex-direction:column;overflow:hidden;margin-bottom:0}.ms-wrap.pg .ms-pg{width:100%;max-width:none;margin-inline:0;padding:10px 10px 6px}.ms-wrap.pg .ms-tx,.ms-wrap.two .ms-tx{flex:1;text-align:justify;text-align-last:auto;line-height:2.05}.ms-wrap.pg .ms-tx{flex:none;line-height:2.05}.ms-wrap.two .ms-tx{line-height:1.9}
 .ms-wrap.pg .ms-sh,.ms-wrap.two .ms-sh{margin:2px 2px 2px;padding:3px;font-size:15px}.ms-wrap.pg .ms-sh small{display:inline;margin-right:6px}
+.ms-wrap.scr .ms-sh,.ms-wrap.ay .ms-sh{margin:4px 2px;padding:4px;font-size:16px;line-height:1.4}
+.ms-wrap.scr .ms-sh small,.ms-wrap.ay .ms-sh small{font-size:10px}
 .ms-wrap.th-white .ms-pg{background:#fff}
 .ms-wrap.th-dark .ms-pg{background:#1d1c1f;color:#ecebe6;box-shadow:inset 0 0 0 3px #1d1c1f,inset 0 0 0 4px #6b5a2e,inset 0 0 0 7px #1d1c1f,inset 0 0 0 8px #2f6b55,inset 0 0 0 10px #1d1c1f,inset 0 0 0 11px #6b5a2e}
 .ms-wrap.th-night .ms-pg{background:#0c0b09;color:#d8c9a3;box-shadow:inset 0 0 0 4px #0c0b09,inset 0 0 0 5px #3a3020}
@@ -2440,14 +2454,23 @@ html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 html.ms-lock,html.ms-lock body{overflow:hidden;overscroll-behavior:none;height:100%}
 html.ms-zoom,html.ms-zoom body{overflow-x:auto}
 html.ms-lock #msWrap{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
-/* مصحف بملء الشاشة: إخفاء شريط التطبيق السفلي وأزرار/وسوم التنقل، واستغلال المساحة */
-html.ms-full nav.bottom{display:none!important}
+/* المصحف يملأ الشاشة مع إبقاء أدواته وإعداداته وزر الرجوع ظاهرة */
+html.ms-full,html.ms-full body{height:100%;min-height:100dvh;overflow:hidden;overscroll-behavior:none}
 html.ms-full body{padding-bottom:0}
-html.ms-full .ms-bot,html.ms-full .ms-ar,html.ms-full .ms-tjl{display:none!important}
-html.ms-full .ms-stage{padding-bottom:max(6px,env(safe-area-inset-bottom))}
-/* وضع التركيز: ملء الشاشة داخل التطبيق — إخفاء الترويسة وأدوات المصحف */
-html.ms-imm #hdr,html.ms-imm .ms-top,html.ms-imm .ms-kp{display:none!important}
-html.ms-imm #app{padding:6px 4px 0}
+html.ms-full #hdr,html.ms-full nav.bottom{display:none!important}
+html.ms-full #app{position:fixed;inset:0;width:100%;max-width:none;height:100dvh;margin:0;padding:max(4px,env(safe-area-inset-top)) 6px max(4px,env(safe-area-inset-bottom));display:flex;flex-direction:column;overflow:hidden}
+html.ms-full #app .ms-top,html.ms-full #app .ms-kp{flex:0 0 auto}
+html.ms-full #app .ms-stage{flex:1 1 auto;min-height:0;width:100%;overflow-y:auto;overscroll-behavior:contain;padding-bottom:4px}
+html.ms-full #app .ms-wrap,html.ms-full #app .ms-pg{width:100%;max-width:none}
+html.ms-full #app .ms-wrap.scr{min-height:100%}
+html.ms-full .ms-bot{flex:0 0 auto}
+html.ms-full .ms-ar{display:none!important}
+html.ms-full .ms-tjl{flex:0 0 auto;max-height:36px;overflow:auto}
+/* وضع التركيز لا يخفي أدوات المصحف */
+html.ms-imm #hdr{display:none!important}
+html.ms-imm #app{padding-inline:6px}
+.ms-back{width:34px;min-width:34px;padding:0;border-radius:50%;background:rgba(201,150,47,.13);opacity:1;font-size:18px}
+.ms-search{width:auto;min-width:58px;padding:0 7px;display:flex;align-items:center;justify-content:center;gap:4px;border:1px solid var(--gold);border-radius:11px;background:rgba(201,150,47,.13);opacity:1;font-size:13px;font-weight:700}
 .ms-exitfs{position:fixed;inset-inline-end:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;width:46px;height:46px;border-radius:50%;background:var(--card);border:1px solid var(--line);color:var(--ink);font-size:18px;box-shadow:0 6px 18px rgba(0,0,0,.28)}
 .ms-wrap.turn-n .ms-pg,.ms-wrap.turn-p .ms-pg{animation:none}
 .ms-wrap.pg:not(.fitted) .ms-tx,.ms-wrap.two:not(.fitted) .ms-tx{visibility:hidden}
@@ -2487,13 +2510,15 @@ html.ms-imm #app{padding:6px 4px 0}
 .ms-top .ms-tt b{display:block;font-size:15px}
 .ms-top .ms-tt small{color:var(--muted);font-size:11px}
 .ms-fc{font-size:12px;padding:4px 9px;border-radius:20px;background:rgba(242,196,109,.15);color:var(--gold);white-space:nowrap;cursor:pointer}
-.ms-bot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 10px;margin-top:6px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.ms-bot{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:4px 8px;margin-top:5px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
 .ms-bot>div{min-width:90px;cursor:pointer;line-height:1.2}
 .ms-bot>div:last-child{text-align:left}
 .ms-bot b{display:block;font-size:13px}
 .ms-bot small{font-size:10.5px;color:var(--muted)}
-.ms-mic{width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:var(--ink);font-size:16px}
+.ms-mic{width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:var(--ink);font-size:15px}
 .ms-mic.on{background:var(--gold);color:#1a1205}
+.ms-flips{display:flex;gap:3px}
+.ms-flips button{width:30px;height:30px;border:1px solid var(--line);border-radius:9px;background:var(--bg2);color:var(--ink);font-size:18px;line-height:1}
 /* القائمة الجانبية */
 .ms-dr{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.35);animation:mdIn .2s}
 @keyframes mdIn{from{opacity:0}}
@@ -2588,6 +2613,17 @@ html.ms-imm #app{padding:6px 4px 0}
 .md-ls::highlight(tj-idgham_wo_ghunnah){color:#7f8c8d}
 .md-ls::highlight(tj-iqlab){color:#1fa2c4}
 .md-ls::highlight(tj-qalaqah){color:#2f80ed}
+.th-dark .md-ls::highlight(tj-ham_wasl),.th-night .md-ls::highlight(tj-ham_wasl){color:#b7b7b7}
+.th-dark .md-ls::highlight(tj-madda_necessary),.th-night .md-ls::highlight(tj-madda_necessary){color:#ff78a9}
+.th-dark .md-ls::highlight(tj-madda_obligatory),.th-night .md-ls::highlight(tj-madda_obligatory){color:#ff7770}
+.th-dark .md-ls::highlight(tj-madda_permissible),.th-night .md-ls::highlight(tj-madda_permissible){color:#ffb45c}
+.th-dark .md-ls::highlight(tj-madda_normal),.th-night .md-ls::highlight(tj-madda_normal){color:#ffe066}
+.th-dark .md-ls::highlight(tj-ghunnah),.th-night .md-ls::highlight(tj-ghunnah){color:#69db9b}
+.th-dark .md-ls::highlight(tj-ikhafa),.th-night .md-ls::highlight(tj-ikhafa){color:#d1a0ff}
+.th-dark .md-ls::highlight(tj-idgham_ghunnah),.th-night .md-ls::highlight(tj-idgham_ghunnah){color:#63dfc4}
+.th-dark .md-ls::highlight(tj-idgham_wo_ghunnah),.th-night .md-ls::highlight(tj-idgham_wo_ghunnah){color:#c2c9cf}
+.th-dark .md-ls::highlight(tj-iqlab),.th-night .md-ls::highlight(tj-iqlab){color:#69d8ee}
+.th-dark .md-ls::highlight(tj-qalaqah),.th-night .md-ls::highlight(tj-qalaqah){color:#83b7ff}
 .th-kitab .md-ls::highlight(tj-ikhafa),.th-night .md-ls::highlight(tj-ikhafa),.th-dark .md-ls::highlight(tj-ikhafa){color:#c58af0}
 .th-kitab .md-ls::highlight(tj-qalaqah),.th-night .md-ls::highlight(tj-qalaqah),.th-dark .md-ls::highlight(tj-qalaqah){color:#6aa8ff}
 .th-kitab .md-ls::highlight(tj-madda_necessary),.th-night .md-ls::highlight(tj-madda_necessary){color:#ff5c9a}
@@ -2601,7 +2637,75 @@ html.ms-imm #app{padding:6px 4px 0}
 .ms-wrap.th-kitab .ms-pg{color:#ece8de!important}
 .ms-wrap.th-night .ms-pg{background:#0c0b09!important;color:#d8c9a3!important}
 .ms-wrap.th-dark .ms-pg{background:#1d1c1f!important;color:#ecebe6!important}
-.ms-wrap.th-paper,.ms-wrap.th-white{--md-acc:#a8761f}
+.ms-wrap.th-paper,.ms-wrap.th-white{--md-acc:#76500d}
+.ms-wrap.th-dark,.ms-wrap.th-night{--md-acc:#f0d58a}
+/* مسافات قراءة أريح وترقيم واضح عبر ألوان الصفحات */
+.ms-wrap.pg .ms-tx{box-sizing:border-box;padding:16px 12px 24px;line-height:2.15}
+.ms-wrap .ms-pf{display:grid;place-items:center;width:38px;height:30px;margin:7px auto 0;border:1px solid #d4b45e;border-radius:12px;background:#145b46;color:#fff9e8!important;font-size:13px;font-weight:800;line-height:1}
+.ms-wrap.th-paper .ms-pf,.ms-wrap.th-white .ms-pf,.ms-wrap.th-kitab .ms-pf,.ms-wrap.th-dark .ms-pf,.ms-wrap.th-night .ms-pf{background:#145b46!important;color:#fff4ce!important;border-color:#d6b45d!important}
+.ms-read-modes{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ms-set-modes.ms-read-modes button{display:grid;grid-template-columns:38px 1fr;grid-template-rows:auto auto;align-items:center;column-gap:9px;min-height:66px;padding:9px 11px;border:1px solid var(--ms-edge,#d8dfd7);border-radius:14px;background:var(--ms-page,#faf7ef);color:var(--ms-ink,#28291f);text-align:right;white-space:normal;transition:background .18s,border-color .18s,box-shadow .18s}
+.ms-set-modes.ms-read-modes button .ms-mode-ic{grid-row:1/3;display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:var(--ms-mark,#e6eee7);color:var(--ms-mark-ink,#24543f);font-size:19px}
+.ms-set-modes.ms-read-modes button b{font-size:14px}
+.ms-set-modes.ms-read-modes button small{font-size:11px;color:var(--muted)}
+.ms-set-modes.ms-read-modes button.on{border:1.5px solid #47785c;background:#e8f0e9;color:#1d4935;box-shadow:0 2px 8px rgba(36,91,69,.12)}
+.ms-set-modes.ms-read-modes button.on .ms-mode-ic{background:#245b45;color:#fff8e8}
+.ms-set-modes.ms-read-modes button.on small{color:#476653}
+.ms-theme-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ms-theme-options button{display:flex;min-width:0;flex-direction:column;align-items:flex-start;gap:7px;padding:10px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font:inherit;text-align:right;cursor:pointer}
+.ms-theme-options button i{display:block;width:100%;height:28px;border:1px solid rgba(0,0,0,.12);border-radius:8px;background:#f5f0e4}
+.ms-theme-options button[data-theme="white"] i{background:#fff}
+.ms-theme-options button[data-theme="night"] i{background:#202624;border-color:#45534b}
+.ms-theme-options button.on{border-color:#47785c;box-shadow:0 0 0 2px rgba(36,91,69,.12)}
+.ms-theme-options button b{font-size:12px}
+.ms-settings-sheet .ms-modes button.on{background:#245b45;border-color:#c5a35b;color:#fff8e8}
+/* ألوان التجويد أوضح على خلفيتي المصحف الفاتحة والداكنة */
+.ms-wrap.th-paper tajweed.ham_wasl,.ms-wrap.th-white tajweed.ham_wasl{color:#666}
+.ms-wrap.th-paper tajweed.madda_normal,.ms-wrap.th-white tajweed.madda_normal{color:#875800}
+.ms-wrap.th-paper tajweed.madda_permissible,.ms-wrap.th-white tajweed.madda_permissible{color:#b44700}
+.ms-wrap.th-paper tajweed.madda_obligatory,.ms-wrap.th-white tajweed.madda_obligatory{color:#b51f18}
+.ms-wrap.th-paper tajweed.madda_necessary,.ms-wrap.th-white tajweed.madda_necessary{color:#850535}
+.ms-wrap.th-paper tajweed.qalaqah,.ms-wrap.th-white tajweed.qalaqah{color:#145ba4}
+.ms-wrap.th-paper tajweed.ghunnah,.ms-wrap.th-white tajweed.ghunnah{color:#087640}
+.ms-wrap.th-paper tajweed.ikhafa,.ms-wrap.th-white tajweed.ikhafa{color:#70218f}
+.ms-wrap.th-paper tajweed.iqlab,.ms-wrap.th-white tajweed.iqlab{color:#087687}
+.ms-wrap.th-paper tajweed.idgham_ghunnah,.ms-wrap.th-white tajweed.idgham_ghunnah{color:#086342}
+.ms-wrap.th-paper tajweed.idgham_wo_ghunnah,.ms-wrap.th-white tajweed.idgham_wo_ghunnah{color:#505050}
+.ms-wrap.th-dark tajweed.ham_wasl,.ms-wrap.th-night tajweed.ham_wasl{color:#b7b7b7}
+.ms-wrap.th-dark tajweed.madda_normal,.ms-wrap.th-night tajweed.madda_normal{color:#ffe066}
+.ms-wrap.th-dark tajweed.madda_permissible,.ms-wrap.th-night tajweed.madda_permissible{color:#ffb45c}
+.ms-wrap.th-dark tajweed.madda_obligatory,.ms-wrap.th-night tajweed.madda_obligatory{color:#ff7770}
+.ms-wrap.th-dark tajweed.madda_necessary,.ms-wrap.th-night tajweed.madda_necessary{color:#ff78a9}
+.ms-wrap.th-dark tajweed.qalaqah,.ms-wrap.th-night tajweed.qalaqah{color:#83b7ff}
+.ms-wrap.th-dark tajweed.ghunnah,.ms-wrap.th-night tajweed.ghunnah{color:#69db9b}
+.ms-wrap.th-dark tajweed.ikhafa,.ms-wrap.th-night tajweed.ikhafa{color:#d1a0ff}
+.ms-wrap.th-dark tajweed.iqlab,.ms-wrap.th-night tajweed.iqlab{color:#69d8ee}
+.ms-wrap.th-dark tajweed.idgham_ghunnah,.ms-wrap.th-night tajweed.idgham_ghunnah{color:#63dfc4}
+.ms-wrap.th-dark tajweed.idgham_wo_ghunnah,.ms-wrap.th-night tajweed.idgham_wo_ghunnah{color:#c2c9cf}
+/* هوية هادئة للمصحف وعلامات آيات واضحة */
+.ms-wrap.th-paper{--ms-page:#f5f0e4;--ms-ink:#27291f;--ms-edge:#ded5c2;--ms-meta:#536e60;--ms-mark:#e4ebdf;--ms-mark-ink:#24543f;--ms-mark-edge:#a9bda7}
+.ms-wrap.th-white{--ms-page:#fff;--ms-ink:#242424;--ms-edge:#e2e4e2;--ms-meta:#536e60;--ms-mark:#e9f1eb;--ms-mark-ink:#24543f;--ms-mark-edge:#b5cbb9}
+.ms-wrap.th-night{--ms-page:#202624;--ms-ink:#eee9dc;--ms-edge:#45534b;--ms-meta:#b6c8b7;--ms-mark:#35483d;--ms-mark-ink:#f5e2a8;--ms-mark-edge:#718b75}
+.ms-wrap.th-kitab,.ms-wrap.th-dark{--ms-page:#202624;--ms-ink:#eee9dc;--ms-edge:#45534b;--ms-meta:#b6c8b7;--ms-mark:#35483d;--ms-mark-ink:#f5e2a8;--ms-mark-edge:#718b75}
+.ms-wrap .ms-pg{background:var(--ms-page,#faf7ef)!important;color:var(--ms-ink,#28291f)!important;border:1px solid var(--ms-edge,#e4ddce)!important;border-radius:16px!important;box-shadow:0 5px 18px rgba(25,35,28,.10)!important}
+.ms-wrap.th-paper .ms-pg,.ms-wrap.th-white .ms-pg,.ms-wrap.th-kitab .ms-pg,.ms-wrap.th-dark .ms-pg,.ms-wrap.th-night .ms-pg{background:var(--ms-page)!important;color:var(--ms-ink)!important;border-color:var(--ms-edge)!important;box-shadow:0 5px 18px rgba(25,35,28,.10)!important}
+.ms-wrap.th-paper .ms-ph,.ms-wrap.th-white .ms-ph,.ms-wrap.th-kitab .ms-ph,.ms-wrap.th-dark .ms-ph,.ms-wrap.th-night .ms-ph{color:var(--ms-meta)!important}
+.ms-wrap .ms-pg::before,.ms-wrap .ms-pg::after{content:none!important}
+.ms-wrap .ms-ph{color:var(--ms-meta,#536e60)!important;border-bottom:1px solid var(--ms-edge,#e4ddce);padding:0 4px 6px;margin:0 2px 8px;font-size:12px}
+.ms-wrap .ms-sh{border:1px solid var(--ms-edge,#e4ddce);border-radius:12px;padding:7px 10px;margin:8px 4px 7px;background:var(--ms-mark,#e6eee7);color:var(--ms-mark-ink,#24543f);box-shadow:none;font-size:18px}
+.ms-wrap .ms-sh::before,.ms-wrap .ms-sh::after{content:none!important}
+.ms-wrap .ms-sh small{color:var(--ms-meta,#536e60)}
+.ms-wrap .ms-bs{font-size:calc(var(--fs,28px)*.86);margin:8px 0 6px;color:var(--ms-meta,#536e60)}
+.ms-wrap .ms-tx{text-align:justify;text-align-last:center;word-spacing:normal;line-height:2.05!important}
+.ms-wrap.two .ms-tx{min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.ms-wrap.pg .ms-tx{line-height:2.05!important}
+.ms-wrap .ms-focus .ms-tx.big{font-size:var(--fs,24px)!important;line-height:2.05!important}
+.ms-wrap .ms-n{display:inline-grid;place-items:center;box-sizing:border-box;min-width:1.55em;height:1.55em;padding:0 .12em;margin:0 .12em;border:1px solid var(--ms-mark-edge,#a9c0ae)!important;border-radius:50%!important;background:var(--ms-mark,#e6eee7)!important;color:var(--ms-mark-ink,#24543f)!important;clip-path:none!important;font-size:.52em;font-weight:800;line-height:1;vertical-align:middle}
+.ms-wrap .ms-a.bm .ms-n{background:#b9852c!important;color:#fff!important;border-color:#8d641e!important}
+.ms-wrap .ms-a.nt .ms-n{box-shadow:0 0 0 2px #47916f!important}
+.ms-wrap .ms-pf{background:var(--ms-mark,#e6eee7)!important;color:var(--ms-mark-ink,#24543f)!important;border-color:var(--ms-mark-edge,#a9c0ae)!important}
+.ms-settings-sheet .ms-modes button{border-radius:12px;border-color:var(--line);padding:7px 13px}
+.ms-settings-sheet .ms-modes button.on{background:#245b45;border-color:#c5a35b;color:#fff8e8}
 /* مصحف المدينة بخطه الأصلي */
 .ms-pg.qf{padding:14px 14px 8px;display:flex;flex-direction:column;overflow:hidden}
 .qf-ls{flex:1;display:flex;flex-direction:column;direction:rtl;min-height:0;width:100%}
@@ -5002,12 +5106,15 @@ async function exportKh(story){
 /* ============ الحالة ============ */
 const KEY='mutun_app_v1';
 const defState=()=>({settings:{perDay:1,hideTashkeel:false,theme:'auto',matn:'tuhfa',modes:Object.keys(MODES)},p:{},notes:{},read:{},quiz:{},skipMem:{},treeQ:{},path:{},intro:{},profile:{},mt:{}});
-let S;
-try{S=JSON.parse(localStorage.getItem(KEY))||defState()}catch(e){S=defState()}
-S.settings=Object.assign(defState().settings,S.settings||{});S.p=S.p||{};S.notes=S.notes||{};S.read=S.read||{};S.quiz=S.quiz||{};S.skipMem=S.skipMem||{};S.treeQ=S.treeQ||{};S.path=S.path||{};S.intro=S.intro||{};S.profile=S.profile||{};S.mt=S.mt||{};
+function safeMergeRecord(base,source){const out=Object.assign({},base);if(source&&typeof source==='object'&&!Array.isArray(source))Object.keys(source).forEach(k=>{if(!['__proto__','constructor','prototype'].includes(k))out[k]=source[k]});return out}
+function normalizeState(st){const n=safeMergeRecord(defState(),st);n.settings=safeMergeRecord(defState().settings,n.settings);['p','notes','read','quiz','skipMem','treeQ','path','intro','profile','mt'].forEach(k=>{if(!n[k]||typeof n[k]!=='object'||Array.isArray(n[k]))n[k]={}});return n}
+let S,STATE_LOAD_ERROR=false,STATE_LOAD_ERROR_DETAILS=null;
+try{const stored=localStorage.getItem(KEY);if(stored){try{const parsed=JSON.parse(stored);S=normalizeState(parsed)}catch(e){S=defState();STATE_LOAD_ERROR=true;STATE_LOAD_ERROR_DETAILS=e}}else S=defState()}catch(e){S=defState();STATE_LOAD_ERROR=true;STATE_LOAD_ERROR_DETAILS=e}
 const RO=()=>false;
 const roBanner=()=>RO()?`<div class="ro-banner">📖 <b>وضع القراءة فقط</b>: كل شيء مفتوح، والحفظ والاختبارات اختيارية، ولا تُمنح الشهادات في هذا الوضع.<button class="icon-btn" onclick="S.settings.readOnly=false;save();render()">إيقاف</button></div>`:'';
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+let STORAGE_FAILED=false,STORAGE_NOTICE_AT=0;
+function storageFailure(action,error){if(!STORAGE_FAILED){console.error('تعذّر '+action+' في ذُرى:',error);STORAGE_FAILED=true}if(Date.now()-STORAGE_NOTICE_AT>5000){STORAGE_NOTICE_AT=Date.now();const message=STATE_LOAD_ERROR?'بيانات التقدم غير مقروءة؛ حُميت من الكتابة فوقها. استورد نسخة احتياطية لإصلاحها.':'تعذّر '+action+'؛ لم يُعتمد التغيير. صدّر نسخة احتياطية وأفرغ مساحة في المتصفح.';setTimeout(()=>toast(message),0)}}
+function save(replaceUnreadable=false){if(STATE_LOAD_ERROR&&!replaceUnreadable){storageFailure('قراءة بيانات التقدم القديمة؛ أُوقِف الحفظ لحمايتها',STATE_LOAD_ERROR_DETAILS||new Error('بيانات التقدم غير قابلة للقراءة'));return false}try{localStorage.setItem(KEY,JSON.stringify(S));STATE_LOAD_ERROR=false;STATE_LOAD_ERROR_DETAILS=null;STORAGE_FAILED=false;return true}catch(e){storageFailure('حفظ التقدم',e);return false}}
 function P(id){if(!S.p[id])S.p[id]={cards:{},daily:null,start:today()};return S.p[id]}
 
 /* ============ أدوات ============ */
@@ -8716,17 +8823,17 @@ function whoSwitchHTML(){return ''}
 /* ==== أشخاص متعددون على الجهاز: الأب والأم والأخ والأخت — لكل واحد تقدّمه وشهاداته المستقلة ==== */
 const PPLK='dhura_people',PSK=id=>'mutun_app_v1_'+id; /* mutun_app_v1 يحمل دائمًا حالة الشخص النشط (save كما هي)، وكل mutun_app_v1_<id> مخزّن شخص غير نشط */
 let PPL=(function(){try{const p=JSON.parse(localStorage.getItem(PPLK));if(p&&p.list&&p.list.length&&p.active)return p}catch(e){}return {list:[{id:'p1',name:'',rel:'self'}],active:'p1'}})();
-function pplSave(){try{localStorage.setItem(PPLK,JSON.stringify(PPL))}catch(e){}}
+function pplSave(){try{localStorage.setItem(PPLK,JSON.stringify(PPL));return true}catch(e){storageFailure('حفظ قائمة الأشخاص',e);return false}}
 function pplIdx(id){const i=PPL.list.findIndex(p=>p.id===id);return i<0?0:i}
 function pplCur(){return PPL.list[pplIdx(PPL.active)]||PPL.list[0]}
-function pplStoreCur(){try{localStorage.setItem(PSK(PPL.active),JSON.stringify(S))}catch(e){}}
+function pplStoreCur(){if(STATE_LOAD_ERROR){storageFailure('قراءة بيانات هذا الشخص؛ أُوقِف التبديل لحمايتها',STATE_LOAD_ERROR_DETAILS);return false}try{localStorage.setItem(PSK(PPL.active),JSON.stringify(S));return true}catch(e){storageFailure('حفظ بيانات هذا الشخص قبل التبديل',e);return false}}
 function pplLoadId(id){try{const raw=localStorage.getItem(PSK(id));return raw?JSON.parse(raw):null}catch(e){return null}}
 function stateCachesReset(){KL=null;KR=null;KREC=null;PLS=null;GQ=null;LXQ=null;SES=null;SETOPEN=null;LASTTAB=null;LASTLV=null;PT=0;STORY_ONLY=false;ST={i:0,name:'',kid:false};MFS=0}
-function pplApply(st){S=Object.assign(defState(),st||{});S.settings=Object.assign(defState().settings,S.settings||{});stateCachesReset();try{closeModal()}catch(e){}route={v:(S.profile&&S.profile.done)?'home':'welcome'};save();render()}
+function pplApply(st){const previous=S,previousRoute=route;S=normalizeState(st);stateCachesReset();route={v:(S.profile&&S.profile.done)?'home':'welcome'};if(!save()){S=previous;route=previousRoute;stateCachesReset();render();return false}try{closeModal()}catch(e){}render();return true}
 /* عند التبديل: تُحفظ الحالة الحالية في مخزنها (mutun_app_v1_<id>) وتُحمَّل حالة الشخص الآخر؛ المفتاح الرئيسي يبقى للنشط فلا حاجة لتحميل شيء عند فتح الصفحة */
-function pplSwitch(id){if(!id||id===PPL.active)return;pplStoreCur();PPL.active=id;pplSave();const p=pplCur();pplApply(pplLoadId(id));toast('👤 '+((p&&(p.name||S.settings.name))||'شخص جديد')+' — تقدّمه الخاص')}
+function pplSwitch(id){if(!id||id===PPL.active||!PPL.list.some(x=>x.id===id))return;if(!pplStoreCur())return;const previous=PPL.active;PPL.active=id;if(!pplSave()){PPL.active=previous;return}const p=pplCur();if(!pplApply(pplLoadId(id))){PPL.active=previous;pplSave();save();return}toast('👤 '+((p&&(p.name||S.settings.name))||'شخص جديد')+' — تقدّمه الخاص')}
 function pplAdd(){const n=(prompt('اسم الشخص الجديد؟ (مثل: أمي، أختي، أخي)')||'').trim();if(!n)return;const rel=(prompt('صلة القرابة: أب / أم / أخ / أخت / آخر','أخ')||'').trim()||'آخر';
-  pplStoreCur();const p={id:'p'+Date.now(),name:n,rel:rel};PPL.list.push(p);PPL.active=p.id;pplSave();ST.name=n;pplApply(null);toast('👤 أُضيف «'+n+'» — كل تقدّمه مستقل تمامًا')}
+  if(!pplStoreCur())return;const previous=PPL.active,p={id:'p'+Date.now(),name:n,rel:rel};PPL.list.push(p);PPL.active=p.id;if(!pplSave()){PPL.list.pop();PPL.active=previous;return}ST.name=n;if(!pplApply(null)){PPL.list.pop();PPL.active=previous;pplSave();save();return}toast('👤 أُضيف «'+n+'» — كل تقدّمه مستقل تمامًا')}
 function pplDel(id){const p=PPL.list.find(x=>x.id===id);if(!p)return;if(PPL.list.length<=1)return toast('لا يمكن حذف آخر شخص على الجهاز');
   if(!confirm('حذف «'+(p.name||'هذا الشخص')+'» وكل تقدّمه وشهاداته نهائيًا من هذا الجهاز؟'))return;
   try{localStorage.removeItem(PSK(id))}catch(e){}
@@ -14736,7 +14843,13 @@ const MPG=[0,1,8,13,24,32,37,45,56,65,69,77,84,91,96,101,109,113,120,127,134,142
 /* ============ المصحف: أوضاع القراءة، والطبقات، والتفسير عند الضغط، وختمة على الإيقاع، والسجل والتقرير ============ */
 let MSC=null,MTJ={},MTF={},MPL={on:false,id:0,q:[]},MTK=0,MVIS=0;
 const MTFS=[[16,'الميسر'],[91,'السعدي'],[14,'ابن كثير'],[15,'الطبري'],[90,'القرطبي'],[94,'البغوي'],[93,'الوسيط']];
-function MS(){S.mus=S.mus||{};const m=S.mus;m.p=m.p||1;m.mode=m.mode||'pg';m.lay=m.lay||{};m.rc=m.rc||'husary:t';m.tf=m.tf||16;m.kh=m.kh||[];m.cur=m.cur||{st:today(),pg:[]};m.log=m.log||{};m.bm=m.bm||[];m.nt=m.nt||{};m.goal=m.goal||30;m.fs=m.fs||22;if(m.lay.tj==null)m.lay.tj=true;m.spp=m.spp||160;return m}
+function MS(){S.mus=S.mus||{};const m=S.mus;m.p=m.p||1;m.mode=m.mode||'scr';m.lay=m.lay||{};m.rc=m.rc||'husary:t';m.tf=m.tf||16;m.kh=m.kh||[];m.cur=m.cur||{st:today(),pg:[]};m.log=m.log||{};m.bm=m.bm||[];m.nt=m.nt||{};m.goal=m.goal||30;
+  if(!m.fs){m.fs=28;m.fsSetV2=1}else if(!m.fsSetV2){if(m.fs===22)m.fs=28;m.fsSetV2=1}
+  if(m.mode==='pg'&&!m.pgFsV2){if(m.fs===32)m.fs=28;m.pgFsV2=1}
+  if(!m.fsSetV3){m.fs=24;m.fsSetV3=1}
+  if(!m.themeSetV1){m.th='paper';m.themeSetV1=1}
+  if(!m.lineSpacingV1){m.fit={};m.lineSpacingV1=1}
+  if(m.lay.tj==null)m.lay.tj=true;m.spp=m.spp||160;return m}
 function mInit(cb){hzLoadFull(()=>{if(!MSC){MSC=[1];QFULL.forEach((s,i)=>MSC.push(MSC[i]+s.length))}cb()})}
 function mSA(id){let lo=0,hi=114;while(lo<hi){const md=(lo+hi+1)>>1;if(MSC[md]<=id)lo=md;else hi=md-1}return [lo+1,id-MSC[lo]+1]}
 const mID=(s,a)=>MSC[s-1]+a-1;
@@ -14816,9 +14929,11 @@ function mLog(){const m=MS(),d=today();m.log[d]=m.log[d]||{pg:[],s:0};return m.l
 function mLogT(sec){mLog().s+=sec}
 function mMark(p,force){const m=MS(),L=mLog();if(!L.pg.includes(p))L.pg.push(p);if(!m.cur.pg.includes(p))m.cur.pg.push(p);
   if(m.cur.pg.length>=604){m.kh.push({st:m.cur.st,en:today()});m.cur={st:today(),pg:[]};save();setTimeout(()=>{$('#sheet').innerHTML=`<div class="panel done"><div class="big">🌙</div><h2>تمت الختمة ${AR(m.kh.length)}</h2><p class="muted">«اللهم ارحمني بالقرآن واجعله لي إمامًا ونورًا وهدى ورحمة» تقبّل الله منك.</p><button class="btn gold" onclick="closeModal()">آمين</button></div>`;$('#modal').classList.add('open');sound('win')},300)}else save()}
+function mScrollPos(){if(route.v!=='mushaf'||MS().mode!=='scr')return;const pg=document.elementFromPoint(innerWidth/2,innerHeight/2)?.closest('.ms-pg'),p=pg&&+pg.dataset.p;if(p&&MS().p!==p){MS().p=p;save()}}
 function mTrack(){clearInterval(MTK);const m=MS(),pages=()=>m.mode==='two'?[m.p%2?m.p:m.p-1,(m.p%2?m.p:m.p-1)+1]:m.mode==='scr'?[]:[m.p];let n=0,cur=pages().join();
+  if(!window._mScrollPosBound){window.addEventListener('scroll',mScrollPos,{passive:true});window._mScrollPosBound=1}
   MTK=setInterval(()=>{if(route.v!=='mushaf'){clearInterval(MTK);return}if(document.hidden)return;mLogT(5);n+=5;
-    if(m.mode==='scr'){const w=document.querySelectorAll('.ms-pg');w.forEach(pg=>{const r=pg.getBoundingClientRect();if(r.top<innerHeight*.5&&r.bottom>innerHeight*.5){pg._t=(pg._t||0)+5;if(pg._t>=20)mMark(+pg.dataset.p)}})}
+    if(m.mode==='scr'){const w=document.querySelectorAll('.ms-pg');w.forEach(pg=>{const r=pg.getBoundingClientRect();if(r.top<innerHeight*.5&&r.bottom>innerHeight*.5){const p=+pg.dataset.p;if(p&&m.p!==p){m.p=p;save()}pg._t=(pg._t||0)+5;if(pg._t>=20)mMark(p)}})}
     else if(n>=(m.mode==='two'?30:18)&&!MPL.on){pages().forEach(p=>p<=604&&mMark(p));n=-1e9}
     if(n%30===0)save()},5000)}
 /* ---- الفهرس والإعدادات ---- */
@@ -14827,13 +14942,16 @@ function mIndex(){mInit(()=>{const m=MS();$('#sheet').classList.add('tall');$('#
   ${m.bm.length?`<h4>🔖 علاماتك</h4><div class="ms-ix-b">${m.bm.map(k=>{const [s,a]=k.split(':').map(Number);return `<button onclick="mGoto(${mPageOf(mID(s,a))})">${SUR_N[s-1]} ${AR(a)}</button>`}).join('')}</div>`:''}
   <div class="ms-ix">${SUR_N.map((n,i)=>`<button onclick="mGoto(${mPageOf(MSC[i])})"><span>${AR(i+1)}</span><b>${n}</b><small>${AR(QFULL[i].length)} آية · ص ${AR(mPageOf(MSC[i]))}</small></button>`).join('')}</div>`;$('#modal').classList.add('open')})}
 function msSize(v){const m=MS(),val=+v,flow=['scr','ay'].includes(m.mode);
-  if(flow){m.fs=val;const w=document.getElementById('msWrap');if(w)w.style.setProperty('--fs',val+'px')}
+  if(flow||m.mode==='pg'){m.fs=val;const w=document.getElementById('msWrap');if(w){w.style.setProperty('--fs',val+'px');if(m.mode==='pg'){delete w.dataset.fit;msApply()}}}
   else{m.z=val;if(typeof mdnFit==='function')mdnFit()}
-  const s=document.querySelector('#sheet .fld span');if(s)s.textContent='حجم الخط: '+(flow?AR(val):AR(Math.round(val*100))+'٪')}
-function mSet(){const m=MS();$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">⚙ إعدادات المصحف</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
-  <div class="ms-modes">${[['pg','صفحة'],['two','صفحتان'],['scr','متصل'],['ay','آية آية']].map(([k,n])=>`<button class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();closeModal();vMushaf()">${n}</button>`).join('')}</div>
+  const s=document.querySelector('#sheet .fld span');if(s)s.textContent='حجم الخط: '+(flow||m.mode==='pg'?AR(val):AR(Math.round(val*100))+'٪')}
+function mSizeStep(d){const m=MS();if(['scr','ay','pg'].includes(m.mode)){const next=Math.max(16,Math.min(40,(m.fs||24)+Math.round(d*2)));if(next===m.fs)return;m.fs=next;save();vMushaf();return}const next=Math.max(1,Math.min(2,Math.round(((m.z||1)+d)*20)/20));if(next===(m.z||1))return;m.z=next;save();vMushaf()}
+function mSet(){const m=MS();$('#sheet').classList.remove('tall');$('#sheet').classList.add('ms-settings-sheet');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">⚙ إعدادات المصحف</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
+  <div class="ms-set-title">طريقة القراءة</div><div class="ms-set-modes ms-read-modes">${[['pg','▤','تقليب','صفحة واحدة'],['scr','☷','سرد','متابعة متصلة'],['two','▥','صفحتان','صفحتان معًا'],['ay','۞','آية','آية بعد آية']].map(([k,i,n,d])=>`<button title="${n} · ${d}" class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();closeModal();vMushaf()"><span class="ms-mode-ic">${i}</span><b>${n}</b><small>${d}</small></button>`).join('')}</div>
+  <div class="ms-set-title">خط المصحف</div><div class="ms-set-modes" style="grid-template-columns:1fr 1fr"><button class="${m.qcf!==false?'on':''}" onclick="MS().qcf=true;QCF.fail=0;save();closeModal();vMushaf()">مصحف المدينة</button><button class="${m.qcf===false?'on':''}" onclick="MS().qcf=false;save();closeModal();vMushaf()">خط حفص</button></div>
+  <label class="ms-set-check"><input type="checkbox" ${m.lay.tj?'checked':''} onchange="MS().lay.tj=this.checked;save();mSet()"><span>تلوين أحكام التجويد</span></label>
   ${m.lay.tj?`<div class="ms-lg">${[['madda_necessary','مد لازم ٦'],['madda_obligatory','مد واجب ٤–٥'],['madda_permissible','مد جائز'],['madda_normal','مد طبيعي ٢'],['ghunnah','غنة'],['ikhafa','إخفاء'],['idgham_ghunnah','إدغام بغنة'],['idgham_wo_ghunnah','إدغام بلا غنة'],['iqlab','إقلاب'],['qalaqah','قلقلة'],['ham_wasl','لا يُنطق']].map(([c,n])=>`<span><i class="tj-${c}"></i>${n}</span>`).join('')}</div>`:''}
-  <label class="fld"><span>حجم الخط: ${['scr','ay'].includes(m.mode)?AR(m.fs):AR(Math.round((m.z||1)*100))+'٪'}</span><input type="range" min="${['scr','ay'].includes(m.mode)?16:1}" max="${['scr','ay'].includes(m.mode)?40:3}" step="${['scr','ay'].includes(m.mode)?1:0.05}" value="${['scr','ay'].includes(m.mode)?m.fs:(m.z||1)}" oninput="msSize(this.value)" onchange="save()"></label>
+  <label class="fld ms-set-font"><span>حجم الخط: ${['scr','ay','pg'].includes(m.mode)?AR(m.fs):AR(Math.round((m.z||1)*100))+'٪'}</span><input type="range" min="${['scr','ay','pg'].includes(m.mode)?16:1}" max="${['scr','ay','pg'].includes(m.mode)?40:2}" step="${['scr','ay','pg'].includes(m.mode)?1:0.05}" value="${['scr','ay','pg'].includes(m.mode)?m.fs:(m.z||1)}" oninput="msSize(this.value)" onchange="save()"></label>
   <label class="fld"><span>القارئ في الإيقاع</span><select onchange="MS().rc=this.value;save()">${Object.keys(RECS).map(k=>`<option value="${k}:t" ${m.rc===k+':t'?'selected':''}>${RECS[k].n} — المرتّل</option>`).join('')}<option value="husary:m" ${m.rc==='husary:m'?'selected':''}>الحصري — المعلّم</option></select></label>
   <label class="fld"><span>أختم كل (يومًا)</span><select onchange="MS().goal=+this.value;save();vMushaf()">${[7,10,15,20,30,40,60].map(n=>`<option ${m.goal===n?'selected':''} value="${n}">${AR(n)} — وِرد ${AR(Math.ceil(604/n))} صفحة يوميًا</option>`).join('')}</select></label>
   <label class="fld"><span>التفسير الافتراضي</span><select onchange="MS().tf=+this.value;save()">${MTFS.map(([i,n])=>`<option value="${i}" ${m.tf===i?'selected':''}>${n}</option>`).join('')}</select></label>`;$('#modal').classList.add('open')}
@@ -14857,7 +14975,7 @@ NAV_ROOTS.push('mushaf');
 const _renderNav95=renderNav;renderNav=function(){_renderNav95();const nav=document.getElementById('nav');if(!nav||(S.profile||{}).kid)return;
   const ms=`<button data-ms class="${['mushaf','muslog'].includes(route.v)?'on':''}" onclick="go('mushaf')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6c-2-1.5-5-2-8-1.5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-14c-3-.5-6 0-8 1.5z"/><path d="M12 6v14"/></svg><span>المصحف</span></button>`;
   const t=[...nav.querySelectorAll('button')].find(b=>/'tests'/.test(b.getAttribute('onclick')||''));
-  if(RO()){if(t)t.outerHTML=ms}else if(!nav.querySelector('[data-ms]')){const h=nav.querySelector('[data-hall]');if(h)h.insertAdjacentHTML('beforebegin',ms)}
+  if(RO()){if(t)t.outerHTML=ms}else if(!nav.querySelector('[data-ms]')){const home=[...nav.querySelectorAll('button')].find(b=>/go\('home'\)/.test(b.getAttribute('onclick')||'')),h=nav.querySelector('[data-hall]');if(home)home.insertAdjacentHTML('afterend',ms);else if(h)h.insertAdjacentHTML('beforebegin',ms)}
   if(['mushaf','muslog'].includes(route.v))nav.querySelectorAll('button:not([data-ms])').forEach(b=>b.classList.remove('on'))};
 const _bkMine95=bkMine;bkMine=function(id){if(RO())return !!BKM[id];return _bkMine95(id)};
 /* ---- يومي في وضع القراءة فقط: بلا خطط ولا سجل ولا مسار ولا مراجعة ---- */
@@ -14875,16 +14993,15 @@ function tjFix(h){const parts=h.split(/(<tajweed[^>]*>|<\/tajweed>)/);let plain=
   return parts.map((p,i)=>{if(!p.startsWith('<'))return p;const a=prevBase(i-1),b=nextBase(i+1);return (TJ_L.test(a)&&TJ_ANY.test(b))?'‍'+p+'‍':p}).join('')}
 /* الصفحة كاملة: نصغّر الخط حتى تتسع الصفحة كلها للشاشة دون تمرير */
 function mFit(){const m=MS();if(!['pg','two'].includes(m.mode))return;const w=document.getElementById('msWrap');if(!w)return;
-  const top=w.getBoundingClientRect().top+window.scrollY,nav=(document.getElementById('nav')||{}).offsetHeight||64,H=Math.max(320,window.innerHeight-(w.getBoundingClientRect().top)-nav-10);
-  const pgs=[...w.querySelectorAll('.ms-pg')],each=m.mode==='two'&&window.innerWidth<760?H/pgs.length-6:H;
-  pgs.forEach(pg=>{pg.style.height=each+'px';const tx=pg.querySelector('.ms-tx');let lo=10,hi=Math.min(40,m.fs*1.6);for(let i=0;i<9;i++){const md=(lo+hi)/2;tx.style.fontSize=md+'px';if(pg.scrollHeight<=pg.clientHeight+1)lo=md;else hi=md}tx.style.fontSize=lo+'px'})}
+  const H=Math.max(320,msH(w)),pgs=[...w.querySelectorAll('.ms-pg')],each=m.mode==='two'&&window.innerWidth<760?H/pgs.length-6:H;
+  pgs.forEach(pg=>{pg.style.height=each+'px';const tx=pg.querySelector('.ms-tx');let lo=10,hi=Math.min(56,m.fs*1.6);for(let i=0;i<10;i++){const md=(lo+hi)/2;tx.style.fontSize=md+'px';if(pg.scrollHeight<=pg.clientHeight+1)lo=md;else hi=md}tx.style.fontSize=lo+'px'})}
 const _mFit0=mFit;mFit=function(){_mFit0();try{document.fonts.ready.then(()=>{if(route.v==='mushaf')_mFit0()})}catch(e){}setTimeout(()=>{if(route.v==='mushaf')_mFit0()},350)};
 window.addEventListener('resize',()=>{if(route.v==='mushaf'){clearTimeout(window._mfT);window._mfT=setTimeout(mFit,150)}});
 /* ألوان الورق في الإعدادات */
 const _mSet3=mSet;mSet=function(){_mSet3();const sh=document.getElementById('sheet');if(!sh)return;const m=MS();
-  sh.insertAdjacentHTML('beforeend',`<h4 style="margin:10px 0 6px">لون الصفحة</h4><div class="ms-modes">${[['paper','ورقي'],['white','أبيض'],['dark','داكن'],['night','ليلي']].map(([k,n])=>`<button class="${(m.th||'paper')===k?'on':''}" onclick="MS().th='${k}';save();closeModal();vMushaf()">${n}</button>`).join('')}</div>`)};
+  sh.insertAdjacentHTML('beforeend',`<h4 class="ms-set-title">خلفية القراءة</h4><div class="ms-theme-options">${[['paper','ورق هادئ'],['white','أبيض نقي'],['night','ليلي مريح']].map(([k,n])=>`<button data-theme="${k}" class="${(m.th||'paper')===k?'on':''}" onclick="MS().th='${k}';save();closeModal();vMushaf()"><i></i><b>${n}</b></button>`).join('')}</div>`)};
 
-/* ============ المصحف الثابت: خط موحّد لكل الصفحات، بلا تمرير، وتقليب هادئ بلا حركة ولا صوت ============ */
+/* ============ المصحف الثابت: حجم موحّد في التقليب مع تمرير عند الحاجة ============ */
 /* تقليب الصفحة: بلا صوت ولا انزلاق */
 mGo=function(d){const m=MS(),np=clamp(m.p+d,1,604);if(np===m.p)return;m.p=np;m.ai=0;save();vMushaf()};
 /* قفل التمرير ما دام المصحف مفتوحًا في وضع الصفحة */
@@ -14898,22 +15015,18 @@ function msDense(){if(MS_DEN)return MS_DEN;const c=[];for(let p=1;p<=604;p++){le
 const MS_VH={};
 function msH(w){const W=window.innerWidth;if(!MS_VH[W])MS_VH[W]=window.innerHeight;const nav=(document.getElementById('nav')||{}).offsetHeight||64;
   return Math.max(320,MS_VH[W]-w.getBoundingClientRect().top-nav-8)}
-/* حجم الخط الموحّد: أكبر خط تتسع به أكثف صفحات المصحف */
+const _msHFull=msH;msH=function(w){const stage=w&&w.closest('.ms-stage');if(document.documentElement.classList.contains('ms-full')&&stage){const bar=document.getElementById('msBar');return Math.max(320,stage.clientHeight-(bar?bar.offsetHeight:0))}return _msHFull(w)};
+/* ملاءمة الخط الموحد لعرض الصفحتين */
 function msFont(w,each,two){const m=MS(),k=[window.innerWidth,Math.round(each),two?1:0,m.mode].join('|');S.mus.fit=S.mus.fit||{};if(S.mus.fit[k])return S.mus.fit[k];
   const ref=w.querySelector('.ms-pg'),box=document.createElement('div');box.className=w.className;box.style.cssText=`position:fixed;top:0;left:-9999px;width:${ref.offsetWidth}px;visibility:hidden`;document.body.appendChild(box);
   let F=40;msDense().forEach(p=>{box.innerHTML=mPageHTML(p);const pg=box.firstElementChild,tx=pg.querySelector('.ms-tx');pg.style.height=each+'px';
     let lo=10,hi=F;for(let i=0;i<10;i++){const md=(lo+hi)/2;tx.style.fontSize=md+'px';if(pg.scrollHeight<=pg.clientHeight+1)lo=md;else hi=md}F=Math.min(F,lo)});
   box.remove();F=Math.floor(F*10)/10;S.mus.fit[k]=F;save();return F}
 function msApply(){const m=MS(),w=document.getElementById('msWrap');if(!w)return;if(!['pg','two'].includes(m.mode)){msLock(false);return}
-  msLock(true);const H=msH(w),pgs=[...w.querySelectorAll('.ms-pg')],two=m.mode==='two'&&window.innerWidth<760,each=two?H/pgs.length-6:H,F=msFont(w,each,two);
-  pgs.forEach(pg=>{const tx=pg.querySelector('.ms-tx');pg.style.height=each+'px';tx.style.fontSize=F+'px';tx.style.lineHeight='';tx.style.paddingTop='';
-    /* نوزّع الأسطر على ارتفاع الصفحة كاملًا كالمصحف المطبوع بدل تغيير حجم الخط */
-    const room=tx.clientHeight;tx.style.flex='none';const need=tx.offsetHeight;tx.style.flex='';
-    if(need>0&&room>need){const lh=parseFloat(getComputedStyle(tx).lineHeight)/F;tx.style.lineHeight=Math.min(3.4,lh*room/need*.985).toFixed(3)}
-    const over=()=>{tx.style.flex='none';const o=tx.offsetHeight>room+1;tx.style.flex='';return o};
-    let lh2=parseFloat(tx.style.lineHeight)||0;while(lh2>2&&over()){lh2-=.04;tx.style.lineHeight=lh2.toFixed(3)}
-    let f=F;while(over()&&f>10){f-=.5;tx.style.fontSize=f+'px'}
-    tx.style.flex='none';const gap=room-tx.offsetHeight;tx.style.flex='';if(gap>8)tx.style.paddingTop=Math.floor(gap/2)+'px'});
+  msLock(true);const H=msH(w),pgs=[...w.querySelectorAll('.ms-pg')],two=m.mode==='two'&&window.innerWidth<760,each=two?H/pgs.length-6:H;
+  if(m.mode==='pg'){pgs.forEach(pg=>{const tx=pg.querySelector('.ms-tx');pg.style.height=each+'px';pg.style.overflowY='auto';tx.style.flex='none';tx.style.minHeight='';tx.style.lineHeight='';tx.style.paddingTop='';tx.style.fontSize=(m.fs||28)+'px'});w.dataset.fit=window.innerWidth;w.classList.add('fitted');return}
+  const F=msFont(w,each,two);
+  pgs.forEach(pg=>{const tx=pg.querySelector('.ms-tx');pg.style.height=each+'px';pg.style.overflow='hidden';tx.style.fontSize=F+'px';tx.style.lineHeight='2.05';tx.style.paddingTop='';tx.style.minHeight='0';tx.style.flex='1 1 auto';tx.style.overflowY='auto';tx.style.overscrollBehavior='contain'});
   w.dataset.fit=window.innerWidth;w.classList.add('fitted')}
 mFit=function(){const w=document.getElementById('msWrap');if(!w)return;
   /* تغيّر الارتفاع وحده (شريط المتصفح) لا يعيد الحساب؛ يعاد فقط عند تدوير الجهاز أو إعادة الرسم */
@@ -15557,7 +15670,7 @@ const _vBook301=vBook;vBook=function(){_vBook301();const b=BKM[route.id],tb=docu
    الخط: KFGQPC Hafs، وللتجويد الملوّن: Amiri Quran Colored. */
 const MDN={h:null,c:null,ld:{},fail:0};
 const mdnKey=()=>'h';
-const MDN_ON=()=>['pg','two'].includes(MS().mode)&&!MS().plain&&!!MDN[mdnKey()];
+const MDN_ON=()=>MS().mode==='two'&&!MS().plain&&!!MDN[mdnKey()];
 function mdnLoad(k,cb){if(MDN[k])return cb();if(MDN.ld[k]){MDN.ld[k].push(cb);return}MDN.ld[k]=[cb];
   fetch('mdn_'+k+'.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{MDN[k]=j.pg;const l=MDN.ld[k];MDN.ld[k]=null;l.forEach(f=>f())})
    .catch(()=>{const l=MDN.ld[k];MDN.ld[k]=null;MDN.fail=1;toast('تعذّر تحميل صفحات مصحف المدينة، فعُرض النص المتصل');l.forEach(f=>f())})}
@@ -15572,12 +15685,12 @@ function mdnPageHTML(p){const L=MDN[mdnKey()][p-1],m=MS(),c=p<=2,f=MPG[p],[s]=mS
 const _mPageHTML5=mPageHTML;mPageHTML=function(p){return MDN_ON()?mdnPageHTML(p):_mPageHTML5(p)};
 const _mLoadTj5=mLoadTj;mLoadTj=function(a,b){if(MDN_ON())return;return _mLoadTj5(a,b)};
 const _vMushaf5=vMushaf;vMushaf=function(){const m=MS();if(m.th==null)m.th='kitab';
-  if(['pg','two'].includes(m.mode)&&!m.plain&&!MDN.fail&&!MDN[mdnKey()]){msLock(true);$('#app').innerHTML=`<div class="md-load"><div class="md-spin"></div><b>جارٍ تجهيز مصحف المدينة</b><small>يُحمَّل مرة واحدة ثم يعمل دون إنترنت</small></div>`;mdnLoad(mdnKey(),()=>{if(route.v==='mushaf')vMushaf()});return}
+  if(m.mode==='two'&&!m.plain&&!MDN.fail&&!MDN[mdnKey()]){msLock(true);$('#app').innerHTML=`<div class="md-load"><div class="md-spin"></div><b>جارٍ تجهيز مصحف المدينة</b><small>يُحمَّل مرة واحدة ثم يعمل دون إنترنت</small></div>`;mdnLoad(mdnKey(),()=>{if(route.v==='mushaf')vMushaf()});return}
   const fam=mdnKey()==='c'?'MdnTaj':'MdnHafs';
   if(MDN_ON()&&document.fonts&&!document.fonts.check('20px '+fam,'بسم')){msLock(true);$('#app').innerHTML=`<div class="md-load"><div class="md-spin"></div><b>جارٍ تجهيز الخط</b></div>`;
     const done=()=>{if(route.v==='mushaf')_vMushaf5()};let t=setTimeout(done,4000);document.fonts.load('20px '+fam,'بسم').then(()=>{clearTimeout(t);setTimeout(done,30)},()=>{clearTimeout(t);done()});return}
   _vMushaf5()};
-const _msH5=msH;msH=function(w){const q=s=>(document.querySelector(s)||{}).offsetHeight||0;return _msH5(w)-q('.ms-bot')-q('.ms-tjl')};
+const _msH5=msH;msH=function(w){if(document.documentElement.classList.contains('ms-full'))return _msH5(w);const q=s=>(document.querySelector(s)||{}).offsetHeight||0;return _msH5(w)-q('.ms-bot')-q('.ms-tjl')};
 /* ---- القياس: خط واحد لكل الصفحات يُحسب من عرض الشاشة، و١٥ سطرًا تملأ الارتفاع ---- */
 function mdnMed(){const k=mdnKey();S.mus.fz2=S.mus.fz2||{};if(S.mus.fz2[k])return S.mus.fz2[k];
   const box=document.createElement('div');box.style.cssText='position:fixed;top:0;left:-9999px;width:3000px;visibility:hidden';box.innerHTML=mdnPageHTML(50);document.body.appendChild(box);
@@ -15606,9 +15719,10 @@ let MDN_OB=null;function mdnSync(){const w=document.getElementById('msWrap');if(
   if(MS().flash){setTimeout(()=>{MS().flash=0;w.querySelectorAll('.ms-a.fl').forEach(e=>e.classList.remove('fl'))},2600)}}
 /* ---- الواجهة: شريط علوي وسفلي على نمط «الكتاب» ---- */
 function mdnChrome(){const m=MS(),t=document.querySelector('#app .ms-top');if(!t||t.dataset.k)return;t.dataset.k=1;const p=m.p,f=MPG[p],[s]=mSA(f);
-  t.innerHTML=`<button class="ms-i" onclick="go('home')" aria-label="العودة إلى الرئيسية" title="العودة إلى الرئيسية">›</button><button class="ms-i" onclick="mDr()" aria-label="القائمة">☰</button><div class="grow ms-tt" onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>ص ${AR(p)} · ج ${AR(mJuz(f))}</small></div>${mFcChip()}<button class="ms-i" onclick="mSearch()" aria-label="بحث">🔍</button><button class="ms-i" onclick="mFs()" aria-label="ملء الشاشة" title="${MFS?'الخروج من ملء الشاشة':'ملء الشاشة للتركيز أثناء التلاوة'}">${MFS?'✕':'⛶'}</button><button class="ms-i" onclick="mSet()" aria-label="المزيد">⋯</button>`;
+  t.innerHTML=`<button class="ms-i ms-back" onclick="go('home')" aria-label="الرجوع إلى الرئيسية" title="الرجوع إلى الرئيسية">‹</button><button class="ms-i" onclick="mDr()" aria-label="القائمة">☰</button><div class="grow ms-tt" onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>ص ${AR(p)} · ج ${AR(mJuz(f))}</small></div>${mFcChip()}<button class="ms-search" onclick="mSearch()" aria-label="بحث في القرآن"><span aria-hidden="true">🔍</span><span>بحث</span></button><button class="ms-i" onclick="mSet()" aria-label="الإعدادات الكاملة" title="الإعدادات الكاملة">⚙</button>`;
   const st=document.querySelector('#app .ms-stage');if(st&&m.lay.tj&&!document.querySelector('.ms-tjl'))st.insertAdjacentHTML('afterend',tjLegend());
   if(st&&!document.querySelector('.ms-bot'))(document.querySelector('.ms-tjl')||st).insertAdjacentHTML('afterend',`<div class="ms-bot"><div onclick="mIndex()"><b>${SUR_N[s-1]}</b><small>الجزء ${AR(mJuz(f))}</small></div>
+    ${['pg','two'].includes(m.mode)?`<div class="ms-flips"><button onclick="mGo(-1)" aria-label="الصفحة السابقة" title="الصفحة السابقة">‹</button><button onclick="mGo(1)" aria-label="الصفحة التالية" title="الصفحة التالية">›</button></div>`:''}
     <button class="ms-mic ${MPL.on?'on':''}" onclick="mPlay()" aria-label="ختمة على الإيقاع">${MPL.on?'⏸':'▶'}</button><div onclick="mIndex(1)"><b>${AR(p)}</b><small>الحزب ${AR(Math.ceil(mHizb(f)/4))} · الصفحة</small></div></div>`)}
 const _mFit5=mFit;mFit=function(){mdnChrome();const w=document.getElementById('msWrap');if(!w)return;
   if(!w.querySelector('.ms-pg.md'))return _mFit5();if(w.dataset.fit==String(window.innerWidth))return;
@@ -15625,16 +15739,11 @@ function mDr(){const m=MS(),kp=m.cur.pg.length,pc=Math.round(kp/604*100),sq=Math
    <button class="ms-dri" onclick="this.closest('.ms-dr').remove();mBms()"><span>🔖</span><b class="grow">الإشارات</b><small>${AR(m.bm.length)}</small></button>
    <button class="ms-dri" onclick="this.closest('.ms-dr').remove();mIndex()"><span>🧭</span><b class="grow">تصفّح السور والأجزاء</b>‹</button>
    <button class="ms-dri" onclick="this.closest('.ms-dr').remove();mPlay()"><span>🎧</span><b class="grow">ختمة على الإيقاع</b></button>
-   <button class="ms-dri" onclick="this.closest('.ms-dr').remove();mLook()"><span>◐</span><b class="grow">المظهر</b>‹</button>
    <button class="ms-dri" onclick="this.closest('.ms-dr').remove();mSet()"><span>⚙</span><b class="grow">الإعدادات</b></button>
    <button class="ms-dri" onclick="go('muslog')"><span>📊</span><b class="grow">السجل والتقرير</b></button>
   </div></div>`)}
 const _go5=go;go=function(v,o){const d=document.querySelector('.ms-dr');if(d)d.remove();return _go5(v,o)};
-function mLook(){const m=MS();$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">◐ المظهر</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
-  <h4 style="margin:8px 0 6px">لون الصفحة</h4><div class="ms-thm">${[['kitab','داكن هادئ','#2a2a2d','#ece8de'],['night','ليلي','#0c0b09','#d8c9a3'],['paper','ورقي','#fbf3dd','#1d1609'],['white','أبيض','#ffffff','#111']].map(([k,n,b,c])=>`<button class="${m.th===k?'on':''}" onclick="MS().th='${k}';save();closeModal();vMushaf()"><i style="background:${b};color:${c}">بسم</i>${n}</button>`).join('')}</div>
-  <h4 style="margin:12px 0 6px">خط المصحف</h4><div class="ms-modes"><button class="${m.qcf!==false?'on':''}" onclick="MS().qcf=true;QCF.fail=0;save();closeModal();vMushaf()">مصحف المدينة الأصلي</button><button class="${m.qcf===false?'on':''}" onclick="MS().qcf=false;save();closeModal();vMushaf()">خط حفص البديل</button></div><small class="muted" style="display:block;margin-top:4px">الأصلي بخط مجمع الملك فهد يُحمَّل صفحةً صفحة من «مؤسسة القرآن» ثم يُحفظ على جهازك. التجويد الملوّن يعمل على خط حفص.</small><h4 style="margin:12px 0 6px">النص</h4><div class="ms-modes"><button class="${!m.lay.tj?'on':''}" onclick="MS().lay.tj=false;save();closeModal();vMushaf()">بلا ألوان</button><button class="${m.lay.tj?'on':''}" onclick="MS().lay.tj=true;save();closeModal();vMushaf()">🎨 تجويد ملوّن</button></div>
-  <h4 style="margin:12px 0 6px">طريقة العرض</h4><div class="ms-modes">${[['pg','صفحة'],['two','صفحتان'],['scr','متصل'],['ay','آية آية']].map(([k,n])=>`<button class="${m.mode===k?'on':''}" onclick="MS().mode='${k}';save();closeModal();vMushaf()">${n}</button>`).join('')}</div>
-  <small class="muted" style="display:block;margin-top:10px">الصفحة والصفحتان على تقسيم مصحف المدينة (١٥ سطرًا). المتصل وآية آية نصٌّ متدفق بحجم خط تختاره.</small>`;$('#modal').classList.add('open')}
+function mLook(){mSet()}
 function mBms(){const m=MS();$('#sheet').classList.add('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">🔖 الإشارات</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
   ${m.bm.length||Object.keys(m.nt).length?'':'<p class="muted">اضغط أي آية ثم 🔖 لتحفظ موضعها هنا.</p>'}
   <div class="ms-ixl">${m.bm.map(k=>{const [s,a]=k.split(':').map(Number),id=mID(s,a);return `<button onclick="mJump(${id})"><span class="n">🔖</span><div class="grow"><b>${SUR_N[s-1]} · ${AR(a)}</b><small>${esc(QFULL[s-1][a-1].slice(0,70))}…</small></div><small>ص ${AR(mPageOf(id))}</small></button>`}).join('')}
@@ -15757,7 +15866,7 @@ const _go7=go;go=function(v,o){if(v!=='mushaf'&&TJ_OK())TJR.forEach(([k])=>CSS.h
 
 /* ============ مصحف المدينة بخطه الأصلي (QCF V2، خط لكل صفحة) كما في تطبيقات المصاحف — يُحمَّل من مؤسسة القرآن، والبديل خط حفص ============ */
 const QCF={d:{},ld:{},ff:{},fail:0,warned:0};
-const qcfWant=()=>{const m=MS();return m.qcf!==false&&!m.lay.tj&&['pg','two'].includes(m.mode)&&!m.plain&&!QCF.fail};
+const qcfWant=()=>{const m=MS();return m.qcf!==false&&!m.lay.tj&&m.mode==='two'&&!m.plain&&!QCF.fail};
 const qcfPages=()=>{const m=MS();if(m.mode==='two'){const a=m.p%2?m.p:m.p-1;return a+1<=604?[a,a+1]:[a]}return [m.p]};
 const qcfReady=p=>!!(QCF.d[p]&&QCF.ff[p]);
 async function qcfGet(url,type){let c=null;try{c=await caches.open('dhura-qcf');const r=await c.match(url);if(r)return type==='json'?r.json():r.arrayBuffer()}catch(e){}
@@ -15796,6 +15905,10 @@ function qcfFit(w){msLock(true);const two=MS().mode==='two'&&window.innerWidth<7
     if(mx&&mx*F/20>W*.995)F=F*W*.995/(mx*F/20);F=Math.min(F,lh*.78);ls.style.fontSize=F+'px'});
   w.dataset.fit=window.innerWidth;w.classList.add('fitted');w.classList.remove('qf-wait');mdnSync()}
 const _mFit6=mFit;mFit=function(){mdnChrome();const w=document.getElementById('msWrap');if(!w)return;if(!w.querySelector('.ms-pg.qf'))return _mFit6();if(w.dataset.fit==String(window.innerWidth))return;delete w.dataset.fit;qcfFit(w)};
+const _mFitFinal=mFit;mFit=function(){const w=document.getElementById('msWrap');if(w&&MS().mode==='pg'&&!w.querySelector('.ms-pg.md,.ms-pg.qf')){
+    mdnChrome();const run=()=>{if(route.v==='mushaf'&&document.getElementById('msWrap')===w){delete w.dataset.fit;msApply()}};
+    run();if(document.fonts)document.fonts.ready.then(run);setTimeout(run,350);return}
+  return _mFitFinal()};
 
 /* ============ هوية «أذكار»: الكحلي الزجاجي، والرئيسية، وكتيّب الأذكار، وأدعيتي، وعدّاد المناسبات ============ */
 /* ---- الثيم الكحلي افتراضيًا (ويبقى الاختيار في الإعدادات) ---- */
@@ -15892,7 +16005,7 @@ function zbTap(){const k=route.k,i=route.i,L=zbItems(k),it=L[i],st=ADKS(),key=k+
   if(n+1>=it.c){if(k!=='my'){const p=adkProg(k);if(p.d===p.n){try{logAct('a')}catch(e){}toast('✓ أتممت '+zbName(k)+'، تقبّل الله')}}setTimeout(()=>{if(route.v==='zkb'&&route.i===i)zbGo(1,1)},380)}
   const c=document.querySelector('.zb-cnt');if(c){c.querySelector('.vct-fg').style.strokeDashoffset=100-Math.min(n+1,it.c)/it.c*100;c.querySelector('b').textContent=n+1>=it.c?'✓':AR(it.c-n-1);c.classList.remove('bump');void c.offsetWidth;c.classList.add('bump')}}
 function zbGo(d,auto){const L=zbItems(route.k),i=route.i+d;if(i<0)return;if(i>=L.length){if(!auto)toast('آخر الورد');return}route.i=i;vZkb()}
-function zbSwipe(){const p=document.getElementById('zbPg');if(!p)return;let x0=null;p.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});p.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>60){e.preventDefault();zbGo(dx<0?1:-1)}})}
+function zbSwipe(){const p=document.getElementById('zbPg');if(!p)return;let x0=null,y0=null;p.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});p.addEventListener('touchend',e=>{if(x0==null||y0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=y0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.4){e.preventDefault();zbGo(dx<0?1:-1)}},{passive:false})}
 function zbList(){const k=route.k,L=zbItems(k),st=ADKS();$('#sheet').classList.add('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">${zbName(k)}</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
   <div class="ms-ixl">${L.map((it,i)=>`<button class="${i===route.i?'cur':''}" onclick="closeModal();route.i=${i};vZkb()"><span class="n">${(st.c[k+i]||0)>=it.c?'✓':AR(i+1)}</span><div class="grow"><small style="color:var(--ink);font-size:13px">${esc(zPlain(it.ti||it.t).slice(0,80))}</small></div></button>`).join('')}</div>`;$('#modal').classList.add('open')}
 function zbMore(){$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">خيارات</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
@@ -17424,7 +17537,7 @@ DLN.kid='دروس البراعم';
 
 
 /* ============ المزامنة المشفّرة بين الأجهزة (GitHub Gist) + التقييم + حول ============ */
-const APP='ذُرى',APP_VER='1.2',APP_DATE='تشرين الأول 2026',DEV='حيدر نصيف',DEV_URL='https://github.com/PROG-ALONE';
+const APP='ذُرى',APP_VER='1.3',APP_DATE='تشرين الأول 2026',DEV='حيدر نصيف',DEV_URL='https://github.com/PROG-ALONE';
 const SOCIAL={instagram:'https://www.instagram.com/h.nj2',linkedin:'https://www.linkedin.com/in/hnj2',email:'haidernassef4@gmail.com'};
 
 const SK='dhura_sync',SFILE='dhura-sync.json';
@@ -17474,7 +17587,7 @@ function syncStateHTML(){if(!SY.on)return '<span class="muted">غير مفعّل
   return `<span style="color:${SY.err?'var(--red)':'var(--ok)'}">${SY.err?esc(SY.err):SY.dirty?'بانتظار الرفع…':'متزامن ✓'}</span><br><small class="muted">${SY.last?'آخر مزامنة '+new Date(SY.last).toLocaleString('ar-IQ',{hour:'2-digit',minute:'2-digit',day:'numeric',month:'short'}):''} · هذا الجهاز: ${esc(SY.device)}</small>`}
 function syncSetup(){$('#sheet').classList.add('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h2 class="grow" style="margin:0">🔄 ربط المزامنة بين أجهزتي</h2><button class="icon-btn" onclick="closeModal()">✕</button></div>
   <div class="panel" style="font-size:12.5px;line-height:1.9;margin-top:10px"><b>كيف تعمل؟</b> يُشفَّر تقدّمك (الحفظ، والدروس، والسجل، وآراؤك) على جهازك بكلمة سر تختارها، ثم يُحفظ في ملف سرّي بحسابك على GitHub. وكل جهاز تربطه بنفس التوكن وكلمة السر يتزامن تلقائيًا بعد كل تقدم.<br>
-  <b>التوكن:</b> افتح <a href="https://github.com/settings/tokens/new?scopes=gist&description=Dhura%20sync" target="_blank" rel="noopener" style="color:var(--gold)">هذا الرابط</a>، اختر صلاحية <b>gist</b> فقط ومدة بلا انتهاء، ثم انسخ التوكن هنا. استخدم نفس التوكن على كل أجهزتك.<br>
+  <b>التوكن:</b> افتح <a href="https://github.com/settings/tokens/new?scopes=gist&description=Dhura%20sync" target="_blank" rel="noopener" style="color:var(--gold)">هذا الرابط</a>، اختر صلاحية <b>gist</b> فقط وحدّد مدة انتهاء مناسبة. يُحفظ التوكن في بيانات المتصفح على هذا الجهاز دون تشفير؛ لا تستخدمه على جهاز مشترك. إيقاف المزامنة يحذف نسخة التطبيق المحلية، ولإلغاء الرمز نفسه أبطله من إعدادات GitHub.<br>
   <b>كلمة السر:</b> لا تُرسل لأي مكان، وإذا نسيتها لا يمكن فتح النسخة المحفوظة.</div>
   <label class="fld"><span>توكن GitHub</span><input id="syTok" type="password" placeholder="ghp_…" value="${esc(SY.token||'')}"></label>
   <label class="fld"><span>كلمة سر المزامنة</span><input id="syPass" type="password" placeholder="نفسها على كل أجهزتك" value="${esc(SY.pass||'')}"></label>
@@ -18186,22 +18299,23 @@ function openNote(k,title){
   $('#modal').classList.add('open');setTimeout(()=>$('#noteTa').focus(),100);
 }
 function saveNote(k){const v=$('#noteTa').value.trim();if(v)S.notes[k]=v;else delete S.notes[k];save();closeModal();toast('حُفظ');render()}
-function closeModal(){$('#modal').classList.remove('open');$('#sheet').classList.remove('tall')}
+function closeModal(){$('#modal').classList.remove('open');$('#sheet').classList.remove('tall','ms-settings-sheet')}
 /* ما الجديد: يظهر مرة واحدة فقط عند أول دخول بعد التحديث */
-const WN_KEY='dhura_wn',WN_VER='2.0';
+const WN_KEY='dhura_wn',WN_VER='2.1';
 function wnSeen(){try{localStorage.setItem(WN_KEY,WN_VER)}catch(e){}closeModal()}
 function showWhatsNew(){$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div>
- <div class="row"><h3 class="grow" style="margin:0">🎉 ما الجديد</h3><span class="pill">الإصدار ٢.٠</span></div>
- <p style="margin:8px 0 6px;font-weight:700;color:var(--green)">📢 لماذا بدأ التقدّم من جديد؟</p>
- <p class="muted" style="margin:0 0 10px">أصلحنا منظومة الفتح والشهادات والمحاسبة تصحيحًا جوهريًا، وكان القديم غير متسق مع الجديد (تبويبات تُفتح قبل أوانها، وشهادات بغير منهج مكتمل، وانتظار أيام بلا معنى). ففضّلنا نقطة انطلاق نظيفة وعادلة للجميع بدل بقية البيانات المتضاربة.</p>
+ <div class="row"><h3 class="grow" style="margin:0">🎉 ما الجديد</h3><span class="pill">الإصدار ٢.١</span></div>
+ <p style="margin:8px 0 6px;font-weight:700;color:var(--green)">📢 تحديث يحافظ على تقدّمك</p>
+ <p class="muted" style="margin:0 0 10px">أصلحنا منظومة الفتح والشهادات والمحاسبة، وأصبح التحديث يحتفظ ببياناتك الموجودة بدل حذفها تلقائيًا. يمكنك تصدير نسخة احتياطية قبل متابعة الدراسة.</p>
  <p style="margin:4px 0 6px;font-weight:700;color:var(--green)">✨ أبرز التحديثات:</p>
  <ul style="line-height:2;margin:0 0 14px;padding-inline-start:20px">
    <li>🔓 فتح العلوم بالتسلسل بوضوح: والمكتمل منها يبقى ظاهرًا بعلامة ✓ أخضر ويفتح للمراجعة.</li>
    <li>🪜 المحاسبة اليومية (سُلَّم الصلاة والتطبيق العملي) تثبت في يوم واحد — لا انتظار ثلاثة أيام.</li>
    <li>🎓 شهادة المستوى لا تُمنح إلا باكتمال منهج الحفظ، مع عرض تقدمك قبلها.</li>
-   <li>⛶ المصحف: زر ملء الشاشة للتركيز أثناء التلاوة، وزر رجوع إلى الرئيسية.</li>
+   <li>📖 المصحف: قراءة متصلة أو تقليب صفحات، مع إعدادات مدمجة لزيادة وضوح الآيات وزر رجوع.</li>
    <li>👥 أشخاص متعددون على الجهاز الواحد (أم، أب، أخ، أخت…) بتقدّم مستقل تمامًا.</li>
    <li>📅 السجل: تقويم شهر ملوّن بتفصيل كل يوم.</li>
+   <li>💾 لا يُحذف تقدّمك عند فتح هذا التحديث.</li>
    <li>⚙️ زر «تصفير التقدم» في الإعدادات، وإصلاحات كثيرة في الخلفية.</li>
  </ul>
  <button class="btn gold" style="width:100%" onclick="wnSeen()">فهمت، تابع</button>`;$('#modal').classList.add('open')}
@@ -18361,19 +18475,22 @@ function vSettingsOld(){
   <div class="panel"><h3>أنواع الاختبار في المراجعة المتباعدة</h3><div class="modes" style="margin-top:8px">
     ${Object.entries(MODES).map(([k,x])=>`<button class="mode-opt ${st.modes.includes(k)?'on':''}" onclick="toggleSMode('${k}')">${x.n}</button>`).join('')}</div></div>
   ${settingsExtraHTML()}
-  <div class="panel"><h3>النسخة الاحتياطية</h3><p class="muted" style="font-size:13px;margin:0 0 10px">تقدّمك وآراؤك محفوظة على هذا الجهاز. صدّرها لتنقلها إلى جهاز آخر أو تحتفظ بها.</p>
+  <div class="panel"><h3>النسخة الاحتياطية</h3><p class="muted" style="font-size:13px;margin:0 0 10px">تقدّمك وآراؤك محفوظة على هذا الجهاز. النسخة تشمل الشخص النشط فقط؛ صدّر نسخة مستقلة لكل شخص تريد الاحتفاظ بتقدّمه أو نقله.</p>
     <div class="row"><button class="btn sm" onclick="exportData()">تصدير</button><label class="btn sm ghost">استيراد<input type="file" accept=".json" hidden onchange="importData(this)"></label>
     <button class="btn sm ghost" style="color:var(--red);border-color:var(--red);margin-inline-start:auto" onclick="resetData()">تصفير التقدم</button></div></div>
   <p class="app-sign">© ${APP} · الإصدار ${AR(APP_VER)} · تصميم وتطوير <a href="${DEV_URL}" target="_blank" rel="noopener">${DEV}</a></p>`;
 }
 function setPer(d){S.settings.perDay=Math.min(10,Math.max(1,S.settings.perDay+d));Object.values(S.p).forEach(p=>{if(p.daily)p.daily=null});save();vSettings()}
 function toggleSMode(k){const a=S.settings.modes,i=a.indexOf(k);if(i>=0){if(a.length>1)a.splice(i,1)}else a.push(k);save();vSettings()}
-function exportData(){const b=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='mutun-backup-'+today()+'.json';a.click()}
-function importData(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.settings)throw 0;S=Object.assign(defState(),d);save();toast('تم الاستيراد');render()}catch(e){toast('ملف غير صالح')}};r.readAsText(f)}
+function exportData(){if(STATE_LOAD_ERROR){toast('تعذّرت قراءة بياناتك؛ أوقفنا تصدير حالة فارغة بدلًا منها');return}const b=new Blob([JSON.stringify(S,null,1)],{type:'application/json'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='mutun-backup-'+today()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function importData(inp){const f=inp.files&&inp.files[0];if(!f)return;inp.value='';const r=new FileReader();r.onload=()=>{let d;try{d=JSON.parse(String(r.result))}catch(e){toast('ملف النسخة الاحتياطية غير صالح');return}
+  if(!d||typeof d!=='object'||Array.isArray(d)||!d.settings||typeof d.settings!=='object'||Array.isArray(d.settings)){toast('الملف لا يحتوي على بيانات ذُرى صالحة');return}
+  const previous=S;S=normalizeState(d);if(!save(true)){S=previous;return}toast('تم استيراد نسخة هذا الشخص ✓');render()};
+  r.onerror=()=>toast('تعذّرت قراءة ملف النسخة الاحتياطية');r.readAsText(f)}
 function resetData(){
   if(!confirm('⚠ سيُحذف كل شيء نهائيًا: الدروس والامتحانات والحفظ والشهادات والملاحظات وتقدّم «البراعم»… ويعود التطبيق إلى شاشة البداية، وتُغلق كل الدروس والمستويات. لا يمكن التراجع — صدّر نسخة احتياطية أولًا إن أردت. متابعة؟'))return;
   if(!confirm('تأكيد أخير: تصفير كل التقدم الآن والعودة إلى البداية؟'))return;
-  S=defState();save();
+  const previous=S;S=defState();if(!save(true)){S=previous;return}
   try{SY={device:SY.device};saveSY()}catch(e){}
   try{indexedDB.deleteDatabase('dhura_rec')}catch(e){}
   try{kStop()}catch(e){}
@@ -18389,6 +18506,7 @@ new MutationObserver(()=>{clearTimeout(wrapSAW._t);wrapSAW._t=setTimeout(()=>wra
 if(!(S.profile&&S.profile.done))route={v:'welcome'};
 render();
 wnCheck();
+if(STATE_LOAD_ERROR)setTimeout(()=>toast('تعذّرت قراءة بيانات التقدم؛ لم تُحذف ولم نكتب فوقها. استورد نسخة احتياطية لاستعادتها.'),2200);
 scheduleLocalReminder();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http')){navigator.serviceWorker.register('sw.js').catch(()=>{});if(navigator.serviceWorker.controller)navigator.serviceWorker.addEventListener('controllerchange',()=>{try{if(!sessionStorage.getItem('dhura_up')){sessionStorage.setItem('dhura_up','1');location.reload()}}catch(e){}})}
 </script>
