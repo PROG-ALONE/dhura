@@ -1,5 +1,5 @@
 /* ذُرى — عامل الخدمة: العمل دون إنترنت + استقبال الإشعارات */
-const CACHE = 'dhura-v85';
+const CACHE = 'dhura-v87';
 const CACHE_PREFIX = 'dhura-v';
 const ASSETS = [
   './',
@@ -9,7 +9,8 @@ const ASSETS = [
   './icon-512.png',
   './quran.json',
   './mdn_h.json',
-  './mdn_c.json'
+  './mdn_c.json',
+  './fonts/Hafs.woff2'
 ];
 
 self.addEventListener('install', e => {
