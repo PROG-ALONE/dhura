@@ -1,5 +1,5 @@
 /* ذُرى — عامل الخدمة: العمل دون إنترنت + استقبال الإشعارات */
-const CACHE = 'dhura-v94';
+const CACHE = 'dhura-v95';
 const CACHE_PREFIX = 'dhura-v';
 const ASSETS = [
   './',
