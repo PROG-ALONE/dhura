@@ -14760,9 +14760,15 @@ function tjuVid(v,u){const st=TJX0().vd[v.n]||{};return `<div class="tju-v"><div
 /* ---- ٥) محرك الاختبارات المتنوعة ---- */
 let TJX=null;const shf=a=>a.slice().sort(()=>Math.random()-.5),rnd=a=>a[Math.floor(Math.random()*a.length)];
 function tjQNorm(q){q=Object.assign({},q);if(q.t==='mcq'||q.t==='odd'||q.t==='ear'){q.ok=q.ok!=null?q.ok:q.o[0];q.o=shf(q.o)}if(q.t==='order')q.sh=shf(q.o.map((_,i)=>i));if(q.t==='match')q.r=shf(q.p.map((_,i)=>i));if(q.t==='multi')q.o=shf(q.o);return q}
-function tjXStart(qs,o){TJX=Object.assign({qs:qs.map(tjQNorm),i:0,ok:0,ans:null,sel:[],mp:{}},o);TJX.gen=o.gen;tjXR()}
+function tjXStart(qs,o){const allQs=qs.map(tjQNorm);TJX=Object.assign({i:0,ok:0,ans:null,sel:[],mp:{}},o);TJX.gen=o.gen;TJX.allQs=allQs;TJX.qs=allQs;TJX.results=allQs.map(()=>null);TJX.active=allQs.map((_,i)=>i);TJX.passPercent=Number.isFinite(o.passPercent)?o.passPercent:100;TJX.reviewWrong=!!o.reviewWrong;TJX.mode='exam';TJX.passLogged=false;tjXR()}
 function tjXR(){const Q=TJX,q=Q.qs[Q.i],app=document.getElementById('app');window.scrollTo(0,0);
-  if(!q){const pass=Q.ok===Q.qs.length;if(pass&&Q.onPass)Q.onPass();save();
+  if(!q){const score=Q.results.filter(Boolean).length,total=Q.allQs.length,percent=total?Math.round(score/total*100):0,pass=total>0&&score/total*100>=Q.passPercent;
+    if(Q.reviewWrong){if(pass&&!Q.passLogged){if(Q.onPass)Q.onPass();Q.passLogged=true}save();
+      const wrong=Q.results.filter(x=>x===false).length,canReview=wrong>0;
+      if(Q.onResults)Q.onResults(Q.results.slice(),Q.allQs);
+      app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(score)} من ${AR(total)} — ${AR(percent)}٪</h2><p class="muted">${pass?(Q.passMsg||`حققت نسبة النجاح ${AR(Q.passPercent)}٪.`):`نسبة النجاح ${AR(Q.passPercent)}٪. يمكنك مراجعة الأخطاء أو المتابعة على أي حال.`}</p>
+       <div class="row" style="gap:8px;justify-content:center;flex-wrap:wrap">${canReview?`<button class="btn gold" onclick="tjXReview()">مراجعة الأسئلة الخاطئة (${AR(wrong)})</button>`:''}<button class="btn ${canReview?'':'gold'}" onclick="${!pass&&Q.onContinue?'TJX.onContinue(TJX.results.slice(),TJX.allQs);':''}${Q.back}">${pass?'متابعة':'العبور على أي حال'} ←</button></div></div>`;sound(pass?'win':'lit');return}
+    if(pass&&Q.onPass)Q.onPass();save();
     app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(Q.ok)} من ${AR(Q.qs.length)}</h2><p class="muted">${pass?(Q.passMsg||'أحسنت! اجتزت بنسبة ١٠٠٪.'):'يلزم ١٠٠٪، والأسئلة تتغير في كل محاولة. راجع ما فاتك ثم أعد.'}</p>
      <div class="row" style="gap:8px;justify-content:center">${pass?'':`<button class="btn gold" onclick="tjXStart(TJX.gen(),{title:TJX.title,gen:TJX.gen,onPass:TJX.onPass,back:TJX.back,passMsg:TJX.passMsg})">↻ أعد</button>`}<button class="btn ${pass?'gold':''}" onclick="${Q.back}">العودة ←</button></div></div>`;sound(pass?'win':'lit');return}
   const T={mcq:'اختر',tf:'صواب أم خطأ؟',order:'رتّب',pick:'اختر حرفًا',multi:'اختر كل ما ينطبق',mk:'اضغط على الرسم',match:'صِل',odd:'الدخيل',ear:'استمع'}[q.t]||'';let body='';
@@ -14776,6 +14782,8 @@ function tjXR(){const Q=TJX,q=Q.qs[Q.i],app=document.getElementById('app');windo
   else if(q.t==='mk'){TR.mode='qz';TR.cfg=null;TR.vb=TRV.head.slice();body=`<div class="tr-stage qz"><div class="tr-wrap">${trSVG().replace(/onclick="trPickMk\('([^']+)'\)"/g,`onclick="tjXA(this,'$1')"`)}</div></div>`}
   app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel"><div class="row"><small class="muted grow">السؤال ${AR(Q.i+1)} من ${AR(Q.qs.length)} · ${T}</small><small class="pill">✓ ${AR(Q.ok)}</small></div><i class="crs-bar"><u style="width:${Q.i/Q.qs.length*100}%"></u></i><h3 style="margin:10px 0">${q.q}</h3>${body}<div id="tjFb"></div></div>
    <button class="btn ghost" style="width:100%" onclick="${Q.back}">⟵ خروج</button>`;if(q.t==='mk')setTimeout(()=>trFrame(0),10)}
+function tjXReview(){const wrong=TJX.results.map((v,i)=>v===false?i:-1).filter(i=>i>=0);if(!wrong.length)return tjXR();
+  TJX.active=wrong;TJX.qs=wrong.map(i=>TJX.allQs[i]);TJX.i=0;TJX.ok=0;TJX.ans=null;TJX.sel=[];TJX.mp={};TJX.mode='review';tjXR()}
 function tjXTog(i){const s=TJX.sel;if(TJX.ans!=null)return;const j=s.indexOf(i);j<0?s.push(i):s.splice(j,1);tjXR()}
 function tjXOrd(i){if(TJX.ans!=null)return;TJX.sel.push(i);const q=TJX.qs[TJX.i];if(TJX.sel.length===q.o.length){tjXR();tjXA(null,'order')}else tjXR()}
 function tjXMatch(j){const Q=TJX,q=Q.qs[Q.i];if(Q.mp.L==null||Q.ans!=null)return;if(Q.mp.L!==j){Q.bad=1}Q.mp[Q.mp.L]=j;delete Q.mp.L;const done=q.p.every((_,i)=>Q.mp[i]!=null);tjXR();if(done)tjXA(null,'match')}
@@ -14783,7 +14791,7 @@ function tjXA(el,v){const Q=TJX,q=Q.qs[Q.i];if(Q.ans!=null)return;let ok;
   if(q.t==='mcq'||q.t==='odd'||q.t==='ear')ok=q.o[v]===q.ok;else if(q.t==='tf')ok=v===q.a;else if(q.t==='pick')ok=q.ok.includes(v);else if(q.t==='mk')ok=Array.isArray(q.ok)?q.ok.includes(v):q.ok===v;
   else if(q.t==='multi'){const S2=Q.sel.map(i=>q.o[i]);ok=S2.length===q.ok.length&&q.ok.every(o=>S2.includes(o))}
   else if(q.t==='order')ok=Q.sel.every((i,k)=>i===k);else if(q.t==='match')ok=!Q.bad&&q.p.every((_,i)=>Q.mp[i]===i);
-  Q.ans=v;if(ok)Q.ok++;if(el)el.classList.add(ok?'ok':'no');sound(ok?'ok':'bad');
+  Q.ans=v;if(ok)Q.ok++;Q.results[Q.active[Q.i]]=ok;if(el)el.classList.add(ok?'ok':'no');sound(ok?'ok':'bad');
   if(!ok&&(q.t==='mcq'||q.t==='odd'||q.t==='ear'))document.querySelectorAll('.opts .opt').forEach((b,i)=>{if(q.o[i]===q.ok)b.classList.add('ok')});
   if(q.t==='multi')document.querySelectorAll('.opts.ml .opt').forEach((b,i)=>b.classList.add(q.ok.includes(q.o[i])?'ok':Q.sel.includes(i)?'no':'x'));
   const right=q.t==='order'?`<div class="ord-ans ok">${q.o.map(o=>`<span>${o}</span>`).join('')}</div>`:q.t==='match'?`<div class="mt-ok">${q.p.map(p=>`<div>${p[0]} ← ${p[1]}</div>`).join('')}</div>`:q.t==='tf'?`<b>${q.a?'العبارة صحيحة':'العبارة خاطئة'}</b>`:'';
@@ -16706,7 +16714,13 @@ function fqSc(u){const U=FQU[u],a=FQST(u).sc;return `<div class="nk-w">${U.sc.ma
   return `<div class="nk-fd"><b>${AR(i+1)}. ${q}</b>${sh.map(j=>`<button class="${x!=null?j===0?'ok':j===x?'no':'':''}" ${x!=null?'disabled':''} onclick="FQST('${u}').sc[${i}]=${j};save();vFqu()">${o[j]}</button>`).join('')}${x!=null?`<small class="muted">${w}</small>`:''}</div>`}).join('')}</div>`}
 function fqQs(u){const U=FQU[u],mc=[];U.L.forEach(L=>L.q.forEach(([q,o,w])=>mc.push({t:'mcq',q,o:o.slice(),w})));U.sc.forEach(([q,o,w])=>mc.push({t:'mcq',q:'ماذا لو؟ '+q,o:o.slice(),w}));
   return U.fx.concat(mc.sort(()=>.5-Math.random()).slice(0,14)).sort(()=>.5-Math.random())}
-function fqTest(u){tjXStart(fqQs(u),{title:FQU[u].ic+' اختبار '+FQU[u].n,gen:()=>fqQs(u),back:`go('fqu',{u:'${u}'})`,passMsg:'أتقنت الوحدة، بارك الله فيك.',onPass:()=>{FQST(u).t=today();save()}})}
+function fqReviewKey(u,q){return `fq:${u}:${encodeURIComponent(q)}`}
+function fqSaveReview(u,results,qs){const n=FQST(u),mist=new Map((n.mist||[]).map(x=>[x.key,x]));
+  qs.forEach((q,i)=>{if(q.t!=='mcq'||!q.q)return;const key=fqReviewKey(u,q.q);
+    if(results[i]===true)mist.delete(key);
+    else if(results[i]===false)mist.set(key,{key,q:{t:'mcq',q:q.q,o:[q.ok,...q.o.filter(x=>x!==q.ok)],w:q.w||''}})});
+  n.mist=[...mist.values()];save()}
+function fqTest(u){tjXStart(fqQs(u),{title:FQU[u].ic+' اختبار '+FQU[u].n,gen:()=>fqQs(u),back:`go('fqu',{u:'${u}'})`,passPercent:75,reviewWrong:true,passMsg:'أتقنت الوحدة، بارك الله فيك.',onResults:(results,qs)=>fqSaveReview(u,results,qs),onContinue:(results,qs)=>{fqSaveReview(u,results,qs);FQST(u).t=FQST(u).t||today();save()},onPass:()=>{FQST(u).t=today();save()}})}
 /* ---- العرض ---- */
 function vFqu(){const u=route.u||'thr',U=FQU[u];if(!U)return go('home');const n=FQST(u),dn=U.L.filter(l=>n.d[l.id]).length,L=route.l?U.L.find(x=>x.id===route.l):null,sec=n.sec||'les';
   if(L){const j=U.L.indexOf(L),nx=U.L[j+1],pv=U.L[j-1];$('#app').innerHTML=`<div class="zb-top"><button class="icon-btn" onclick="go('fqu',{u:'${u}'})">›</button><b class="grow">${L.ic} ${L.n}</b><small class="muted">${U.n} · ${AR(j+1)}/${AR(U.L.length)}</small></div>
@@ -16715,7 +16729,7 @@ function vFqu(){const u=route.u||'thr',U=FQU[u];if(!U)return go('home');const n=
   const chips=[['les','📘 الدروس'],['sc','❓ ماذا لو؟'],['tst','📝 الاختبار']];let body='';
   if(sec==='les')body=`<div class="nk-ls">${U.L.map((l,i)=>{const o=fqOpen(u,i),d=fqDone(u,l.id);return `<button class="${d?'ok':''} ${o?'':'lk'}" onclick="${o?`go('fqu',{u:'${u}',l:'${l.id}'})`:`toast('🔒 أتمّ الدرس السابق أولًا')`}"><span class="n">${d?'✓':o?AR(i+1):'🔒'}</span><div class="grow"><b>${l.ic} ${l.n}</b></div><span class="ah-go">‹</span></button>`}).join('')}</div>`;
   else if(sec==='sc')body=`<p class="muted" style="font-size:13px">مسائل تقع كثيرًا، وأحكامها مع الخلاف المعتبر. اختر الجواب ثم اقرأ التعليل.</p>${fqSc(u)}${Object.keys(n.sc).length?`<button class="btn sm" onclick="FQST('${u}').sc={};save();vFqu()">↺ أعد المسائل</button>`:''}`;
-  else body=`<div class="panel"><h3>📝 اختبار ${U.n}</h3><p class="muted">ثمانية عشر سؤالًا متنوعًا تتغير في كل محاولة، والنجاح بإتقان الجميع.</p>${dn<U.L.length?`<p class="nk-no">يُستحسن أن تُتمّ الدروس أولًا (${AR(dn)} من ${AR(U.L.length)}).</p>`:''}<button class="btn gold" style="width:100%" onclick="fqTest('${u}')">ابدأ الاختبار</button></div>`;
+  else body=`<div class="panel"><h3>📝 اختبار ${U.n}</h3><p class="muted">أسئلة متنوعة تتغير في كل محاولة. نسبة النجاح ٧٥٪، وبعد النتيجة يمكنك مراجعة الأسئلة التي أخطأت فيها أو العبور على أي حال.</p>${dn<U.L.length?`<p class="nk-no">يُستحسن أن تُتمّ الدروس أولًا (${AR(dn)} من ${AR(U.L.length)}).</p>`:''}<button class="btn gold" style="width:100%" onclick="fqTest('${u}')">ابدأ الاختبار</button></div>`;
   $('#app').innerHTML=`<div class="hero nk-h"><div class="row"><div class="grow"><div class="t">${U.ic} ${U.n}</div><div style="font-size:13px;opacity:.85">فقه · نظري وعملي · ${U.sub}${n.t?' · ✓ اجتزت الاختبار':''}</div></div><div class="nk-ring" style="--p:${dn/U.L.length}"><b>${AR(Math.round(dn/U.L.length*100))}٪</b></div></div></div>
    <div class="tju-bar nk-bar">${chips.map(([k,t])=>`<button class="${sec===k?'on':''}" onclick="FQST('${u}').sec='${k}';save();vFqu()">${t}</button>`).join('')}</div>${body}<button class="btn ghost" style="width:100%;margin-top:12px" onclick="backLv()">⟵ العودة إلى المستوى</button>`}
 /* ---- الإدراج في مسار الفقه ---- */
@@ -17134,6 +17148,12 @@ let TY_MZ=null;
 /* لا نسمّي الشيء «تفاعليًا» إلا إن كان كذلك: الأسماء صريحة بلا وصف */
 tabMeta=(f=>function(it){const m=f(it);if(it.t==='fqu'){m[1]=FQU[it.u].n;m[2]=FQU[it.u].sub+' · دروس ومسائل واختبار'}return m})(tabMeta);
 if(typeof visBadge==='function')visBadge=(f=>function(v){return f(v).replace(/ ?التفاعلية| ?تفاعلية| ?تفاعلي/g,'')})(visBadge);
+function fqMistClear(key){const [,u]=key.split(':'),n=S.fqu&&S.fqu[u];if(!n||!n.mist)return;n.mist=n.mist.filter(x=>x.key!==key);save()}
+const _qzMarkFQU=qzMark;qzMark=function(right){const it=QZ2.qs[QZ2.i];_qzMarkFQU(right);if(right&&it.key.startsWith('fq:'))fqMistClear(it.key)};
+const _qPoolFQU=qPool;qPool=function(ignoreLevelFilter){const all=_qPoolFQU(ignoreLevelFilter);
+  Object.entries(FQU).forEach(([u,U])=>{const st=S.fqu&&S.fqu[u];if(!st||!st.t||!st.mist)return;st.mist.forEach(x=>{if(all.some(q=>q.key===x.key))return;all.push({g:'الفقه: '+U.n,ic:U.ic,key:x.key,q:x.q})})});
+  const level=ignoreLevelFilter?'':S.tlv||'';return level?all.filter(x=>keyLevel(x.key)===level):all};
+const _keyLevelFQU=keyLevel;keyLevel=function(key){const m=String(key).match(/^fq:([^:]+):/);if(m&&FQU[m[1]])return FQU[m[1]].lv;return _keyLevelFQU(key)};
 
 /* ============ البراعم: «أجرّب» — نشاط عملي لكل درس بحسب نوعه (بلا رسم إنسان أو حيوان) ============ */
 const KXD={
