@@ -7060,11 +7060,11 @@ function adkME(isM){
    c:1,f:'كان النبي ﷺ يقوله إذا أصبح وإذا أمسى.',s:'أحمد (١٥٣٦٠) عن عبد الرحمن بن أبزى؛ صححه الألباني (الصحيحة ٢٩٨٩)',g:'ص'},
   {t:'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',
    c:100,f:'«من قال حين يصبح وحين يمسي: سبحان الله وبحمده مائة مرة، لم يأت أحد يوم القيامة بأفضل مما جاء به، إلا أحد قال مثل ما قال أو زاد عليه».',s:'صحيح مسلم (٢٦٩٢) عن أبي هريرة',g:'ص'},
-  {t:'لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+  {t:'لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',sp:'ورد الصباح · ١٠ مرات',
    c:10,f:'ورد: «كن له عدل أربع رقاب من ولد إسماعيل، وكتب له بهن عشر حسنات، ومحي عنه عشر سيئات، وكن له حرزًا من الشيطان».',s:'النسائي في عمل اليوم والليلة وأحمد عن أبي عياش وأبي أيوب؛ صححه الألباني (صحيح الترغيب ٦٥٦)',g:'ص'},
  ];
  if(isM)L.push(
-  {t:'لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',
+  {t:'لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',sp:'ورد مستقل · ١٠٠ مرة في اليوم',
    c:100,f:'«من قالها في يوم مائة مرة كانت له عدل عشر رقاب، وكتبت له مائة حسنة، ومحيت عنه مائة سيئة، وكانت له حرزًا من الشيطان يومه ذلك حتى يمسي». والأفضل أولَ النهار.',s:'صحيح البخاري (٣٢٩٣) ومسلم (٢٦٩١) عن أبي هريرة',g:'ص'},
   {t:'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ',
    c:3,f:'قالها النبي ﷺ لجويرية بعد أن خرج من عندها بكرة وهي في مصلاها ورجع بعد الضحى، وأخبر أنها لو وُزنت بما قالت منذ الصباح لوزنتهن.',s:'صحيح مسلم (٢٧٢٦) عن جويرية',g:'ص'},
@@ -7080,6 +7080,8 @@ function adkME(isM){
    c:1,f:'كان النبي ﷺ يكثر من هذا الدعاء، ولم يُقيَّد بالمساء؛ فهو من الأذكار المطلقة التي يحسن أن تُضم إلى ورد المساء.',s:'صحيح البخاري (٦٣٦٣) عن أنس',g:'ص',gen:1});
  L.push({t:'اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ',
    c:10,f:'«من صلى عليّ واحدة صلى الله عليه بها عشرًا» (مسلم). أما تخصيص العشر صباحًا ومساءً بالشفاعة فحديثه عند الطبراني وفي إسناده ضعف، فيُعمل بالأصل العام.',s:'صحيح مسلم (٤٠٨) عن أبي هريرة؛ وحديث التخصيص: الطبراني، ضعّفه الألباني',g:'ص',gen:1});
+ L.forEach((it,i)=>{it._key=i});
+ if(isM){const duplicate=L.findIndex(it=>it.sp==='ورد الصباح · ١٠ مرات');if(duplicate>=0)L.splice(duplicate,1);const repeated=L.findIndex(it=>it.c===100&&it.t.startsWith('لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ'));const before=L.findIndex(it=>it.t==='سُبْحَانَ اللَّهِ وَبِحَمْدِهِ');if(repeated>=0&&before>=0){const [it]=L.splice(repeated,1);L.splice(before,0,it)}}
  return L;
 }
 const ADHKAR={
@@ -7125,7 +7127,7 @@ const ADHKAR={
 const ADK_ORDER=['m','e','p','n'];
 function ADKS(){const t=today();if(!S.adk||S.adk.d!==t)S.adk={d:t,c:{},fs:(S.adk&&S.adk.fs)||1,streak:(S.adk&&S.adk.streak)||{}};return S.adk}
 function adkDefault(){const h=new Date().getHours();return h<12?'m':h<15?'p':h<21?'e':'n'}
-function adkProg(k){const st=ADKS(),L=ADHKAR[k].items;let d=0;L.forEach((it,i)=>{if((st.c[k+i]||0)>=it.c)d++});return {d,n:L.length}}
+function adkProg(k){const st=ADKS(),L=ADHKAR[k].items;let d=0;L.forEach((it,i)=>{if((st.c[k+(it._key??i)]||0)>=it.c)d++});return {d,n:L.length}}
 function vAdhkar(){
   const k=route.k||adkDefault(),D=ADHKAR[k],st=ADKS(),pr=adkProg(k);route.k=k;
   $('#app').innerHTML=`<div class="adk-top">
@@ -7135,7 +7137,7 @@ function vAdhkar(){
     <div class="adk-tools"><button class="icon-btn" onclick="adkFs(-1)">ـأ</button><button class="icon-btn" onclick="adkFs(1)">أ+</button><span class="grow"></span><button class="icon-btn" onclick='openDL("adhkar",{"k":"${k}"})'>⬇ تنزيل</button><button class="icon-btn" onclick="adkReset('${k}')">↺ إعادة الكل</button></div>
     <div class="adk-bar"><i style="width:${pr.d/pr.n*100}%"></i></div></div>
   <p class="muted" style="font-size:12.5px;margin:6px 2px 10px">اضغط على بطاقة الذكر نفسها لتعدّ، وحين يكتمل العدد تنتقل تلقائيًا إلى الذكر التالي. يُحفظ تقدمك لليوم ويبدأ من جديد غدًا.</p>
-  <div class="adk-list" style="--fs:${st.fs}">${D.items.map((it,i)=>{const n=st.c[k+i]||0,dn=n>=it.c,g=GR[it.g];return `<div class="adk ${dn?'done':''}" id="adk${i}">
+  <div class="adk-list" style="--fs:${st.fs}">${D.items.map((it,i)=>{const n=st.c[k+(it._key??i)]||0,dn=n>=it.c,g=GR[it.g];return `<div class="adk ${dn?'done':''}" id="adk${i}">
     <div class="adk-meta"><span class="adk-no">${AR(i+1)}</span><span class="vtag ${g[1]}">${g[0]}</span>${it.gen?'<span class="vtag t-blue">ذكر مطلق</span>':''}<span class="grow"></span><span class="adk-times">${it.c===1?'مرة واحدة':AR(it.c)+' '+(it.c<=10?'مرات':'مرة')}</span></div>
     <div class="adk-t" onclick="adkTap('${k}',${i})">${it.t}</div>
     <div class="adk-foot"><details class="adk-f"><summary>الفضل والمصدر</summary><p>${it.f}</p><p class="refs" style="margin:4px 0 0">📚 ${it.s}</p></details>
@@ -7146,7 +7148,7 @@ function vAdhkar(){
 }
 function adkDoneHTML(k){return `<div class="panel done adk-done"><div class="big">🤍</div><h2 style="margin:4px 0">أتممت ${ADHKAR[k].n}</h2><p class="muted">تقبّل الله منك. ${k==='m'?'حُفظتَ بإذن الله في يومك.':k==='e'?'حُفظتَ بإذن الله في ليلتك.':''}</p></div>`}
 function adkTap(k,i){
-  const st=ADKS(),it=ADHKAR[k].items[i],key=k+i,n=st.c[key]||0;if(n>=it.c)return;
+  const st=ADKS(),it=ADHKAR[k].items[i],key=k+(it._key??i),n=st.c[key]||0;if(n>=it.c)return;
   st.c[key]=n+1;save();const card=document.getElementById('adk'+i),c=card.querySelector('.adk-c');
   c.querySelector('.vct-fg').style.strokeDashoffset=100-Math.min(n+1,it.c)/it.c*100;
   c.querySelector('b').textContent=n+1>=it.c?'✓':AR(it.c-n-1);
@@ -7156,11 +7158,11 @@ function adkTap(k,i){
     card.classList.add('done');const pr=adkProg(k);
     document.querySelector('.adk-ring').style.setProperty('--p',pr.d/pr.n);document.querySelector('.adk-ring b').textContent=AR(pr.d);document.querySelector('.adk-bar i').style.width=(pr.d/pr.n*100)+'%';
     if(pr.d===pr.n){sound('win');logAct('a');document.querySelector('.adk-list').insertAdjacentHTML('afterend',adkDoneHTML(k));setTimeout(()=>{const x=document.querySelector('.adk-done');x&&x.scrollIntoView({behavior:'smooth',block:'center'})},300)}
-    else{sound('lit');const L=ADHKAR[k].items;let j=i+1;while(j<L.length&&(st.c[k+j]||0)>=L[j].c)j++;if(j>=L.length){j=0;while(j<L.length&&(st.c[k+j]||0)>=L[j].c)j++}
+    else{sound('lit');const L=ADHKAR[k].items;let j=i+1;while(j<L.length&&(st.c[k+(L[j]._key??j)]||0)>=L[j].c)j++;if(j>=L.length){j=0;while(j<L.length&&(st.c[k+(L[j]._key??j)]||0)>=L[j].c)j++}
       const nx=document.getElementById('adk'+j);if(nx)setTimeout(()=>nx.scrollIntoView({behavior:'smooth',block:'center'}),350)}
   }else wordNote(n%10);
 }
-function adkReset(k){const st=ADKS();ADHKAR[k].items.forEach((_,i)=>delete st.c[k+i]);save();vAdhkar()}
+function adkReset(k){const st=ADKS();ADHKAR[k].items.forEach((it,i)=>delete st.c[k+(it._key??i)]);save();vAdhkar()}
 function adkFs(d){const st=ADKS();st.fs=Math.max(.8,Math.min(1.6,Math.round((st.fs+d*.1)*10)/10));save();document.querySelector('.adk-list').style.setProperty('--fs',st.fs)}
 
 /* ============ الرسوم التوضيحية المرسومة (بلا ذوات أرواح كاملة) ============ */
@@ -7830,7 +7832,7 @@ function vAdhkar(){
     <div class="adk-head"><div class="grow"><h1>${D.ic} ${D.n}</h1><div class="muted" style="font-size:12.5px">${D.when}</div></div>
       <div class="adk-ring" style="--p:${pr.d/pr.n}"><b>${AR(pr.d)}</b><small>من ${AR(pr.n)}</small></div></div></div>
   ${deck({items:D.items,fs:S.dkfs||st.fs||1,
-    get:i=>st.c[k+i]||0,target:i=>D.items[i].c,inc:i=>{st.c[k+i]=(st.c[k+i]||0)+1;save()},
+    get:i=>st.c[k+(D.items[i]._key??i)]||0,target:i=>D.items[i].c,inc:i=>{const key=k+(D.items[i]._key??i);st.c[key]=(st.c[key]||0)+1;save()},
     card:i=>{const it=D.items[i],g=GR[it.g],md=ML&&ML.ds.find(x=>x.ai===i);
       return {head:`<span class="vtag ${g[1]}">${g[0]}</span>${it.gen?'<span class="vtag t-blue">ذكر مطلق</span>':''}${it.sp?'<span class="vtag t-blue">⏰ '+it.sp+'</span>':''}`,body:it.t,
         back:`<p>${it.f}</p><p class="refs">📚 ${it.s}</p>${md?(duaLearned(md)?`<p class="d-unl">🧠 تحفظه ✓</p>`:duaOpen(md)?`<button class="btn gold" onclick="go('dua',{id:'${md.id}',from:'duas'})">🧠 احفظ هذا الذكر</button>`:`<p class="muted" style="font-size:12.5px">🔒 يُفتح حفظه في مستواه من «مساري».</p>`):''}`}},
@@ -8606,7 +8608,7 @@ const PT_SLIDES=[
  {t:'لكل مستوى بوابة',p:'تفتح المستوى من بوابته المضيئة. اضغط الصورة في وسطها فتظهر علوم المستوى حولها واحدًا بعد الآخر، واضغطها مرة أخرى فتختفي.',v:'hud',h:'اضغط الصورة'},
  {t:'العلوم تُفتح بالتتابع',p:'لا تُفتح العلوم كلها معًا. تدرس الأول، فإذا أتممته فُتح الذي بعده. وفي كل مستوى: دروس العلوم، ثم «الحفظ» من الأدعية والأذكار، ثم «الجواب الحاضر».',v:'seq',h:'اضغط «أتممته» لترى كيف يُفتح التالي'},
  {t:'الامتحان الختامي: ١٥٠ سؤالًا',p:'في ختام كل مستوى امتحان من ١٥٠ سؤالًا متنوعًا: اختيار، وأكمل، واكتب، وصح أو خطأ، ورتّب. تُسجَّل درجتك (مثلًا ٩٥٪)، ويُحفظ كل خطأ مع درسه.',v:'exam',h:'جرّب الأزرار الثلاثة'},
- {t:'أخطاؤك طريقك إلى الإتقان',p:'لا تعبر إلى المستوى التالي حتى تدرس الدروس التي أخطأت فيها وتجيب عن أسئلتها صحيحة. ثم تظهر لك أخطاؤك تباعًا في المستوى الذي بعده، فإذا أتقنتها اختفت. وفي «اختباراتي» تراجع مستوى بعينه أو المستويات كلها.',v:'score',h:''}];
+ {t:'أخطاؤك طريقك إلى الإتقان',p:'بعد الاختبار اختر العبور أو مراجعة ما أخطأت فيه. إن عبرت دون مراجعة، تبقى أخطاؤك في المراجعة اليومية حتى تتقنها. وفي «اختباراتي» تراجع مستوى بعينه أو المستويات كلها.',v:'score',h:''}];
 function ptVis(v){
   if(v==='mtn')return `<div class="pt-mtn">${DLV.slice(0,7).reverse().map((L,i)=>`<button style="--c:${L.c};--w:${60+i*6}%" onclick="this.classList.add('on');sound('lit')"><span>${L.ic}</span>${L.n}</button>`).join('')}</div>`;
   if(v==='hud')return `<div class="pt-hud" id="pthud"><button class="pt-core" onclick="ptHud()"><img src="${HUD_IMG}" alt=""></button>${DLV[2].tabs.map((T,i,a)=>{const g=-Math.PI/2+i/a.length*Math.PI*2;return `<span class="pt-n" style="left:${50+40*Math.cos(g)}%;top:${50+40*Math.sin(g)}%;--i:${i}">${T.ic}<small>${T.n}</small></span>`}).join('')}</div>`;
@@ -8658,7 +8660,7 @@ function lvTab(lk,i){const L=DLVM[lk];if(!tabOpen(L,i)&&!tabDone(L.tabs[i])){sou
 function vLv(){go('muslim',{l:route.l,lit:route.lit})}
 /* ---- الطريق كاملًا ---- */
 function vMountain(){const cur=lvCur();
-  $('#app').innerHTML=`<div class="hero"><div class="row"><div class="grow"><div class="t">⛰ طريق الذُّرى كاملًا</div><div style="font-size:13px;opacity:.85">${AR(DLV.length-1)} مستويات بعد «البراعم»، لكل مستوى امتحان ختامي من ١٥٠ سؤالًا تُسجَّل درجته، ولا تعبر حتى تعالج أخطاءك. وبعد المستوى ${AR(SPEC_AFTER)} يُعرض عليك التخصص.</div></div>${ring(DLV.filter(L=>lvPassed(L.k)).length/DLV.length)}</div></div>
+  $('#app').innerHTML=`<div class="hero"><div class="row"><div class="grow"><div class="t">⛰ طريق الذُّرى كاملًا</div><div style="font-size:13px;opacity:.85">${AR(DLV.length-1)} مستويات بعد «البراعم»، لكل مستوى امتحان ختامي من ١٥٠ سؤالًا تُسجَّل درجته، وبعده تختار العبور أو مراجعة الأخطاء. وبعد المستوى ${AR(SPEC_AFTER)} يُعرض عليك التخصص.</div></div>${ring(DLV.filter(L=>lvPassed(L.k)).length/DLV.length)}</div></div>
    <div class="mtn"><div class="mtn-peak" onclick="go('spec')" style="cursor:pointer"><span>🎯</span><b>التخصص</b><small>بعد المستوى ${AR(SPEC_AFTER)} على الأقل: تختار علمًا تتعمق فيه، أو تكمل الطريق العام.</small></div>
     ${DLV.slice().reverse().map(L=>{const op=lvOpen(L.i),ps=lvPassed(L.k),isC=L===cur;
      return `<div class="mtn-step"><button class="mtn-lv ${op?'':'lk'} ${ps?'ok':''} ${isC?'cur':''}" style="--c:${L.c}" onclick="${op?`go('muslim',{l:'${L.k}'})`:`toast('${L.soon?'قيد الإعداد':'يُفتح باجتياز المستوى السابق'}')`}">
@@ -11380,38 +11382,42 @@ const MIST_GAP=[1,3,7];
 function mistMark(key,ok){const M=MIST(),m=M[key];if(!m)return;if(ok){m.c=(m.c||0)+1;if(m.c>=3){delete M[key];toast('🌟 أتقنت سؤالًا فاختفى من أخطائك')}else m.due=addDays(today(),MIST_GAP[m.c])}else{m.c=0;m.due=addDays(today(),1)}save()}
 function lvMistCard(L){const prev=DLV[L.i-1],items=[];
   if(prev&&prev.tabs){const d=mistDue(prev.k),all=mistOf(prev.k);if(all.length)items.push(`<button class="mist-c" onclick="lxRev('${prev.k}')"><span>🔁</span><div class="grow"><b>أخطاء «${prev.n}»</b><small>${d.length?AR(Math.min(10,d.length))+' مستحقة اليوم':'لا شيء مستحق اليوم'} · بقي ${AR(all.length)} حتى تُتقن وتختفي</small></div><span class="chev">‹</span></button>`)}
-  const x=LXS(L.k);if(x.done&&!x.pass){const r=x.mist.filter(k=>!x.fix[k]).length;items.push(`<button class="mist-c red" onclick="lxIntro('${L.k}')"><span>📖</span><div class="grow"><b>علاج أخطاء الامتحان: بقي ${AR(r)}</b><small>درجتك ${AR(x.last)}٪ — ادرس دروس أخطائك وأجب عنها لتعبر</small></div><span class="chev">‹</span></button>`)}
+  const all=mistOf(L.k),due=mistDue(L.k);if(all.length)items.push(`<button class="mist-c" onclick="lxRev('${L.k}')"><span>🔁</span><div class="grow"><b>مراجعة أخطاء «${L.n}» اليوم</b><small>${AR(Math.min(10,due.length))} مستحقة اليوم · ${AR(all.length)} سؤالًا في المراجعة</small></div><span class="chev">‹</span></button>`);
+  const x=LXS(L.k),left=x.mist.filter(k=>!x.fix[k]).length;if(left)items.push(`<button class="mist-c red" onclick="lxFix('${L.k}')"><span>📖</span><div class="grow"><b>راجع أخطاء امتحان «${L.n}»: ${AR(left)}</b><small>درجتك الحالية ${AR(x.last)}٪ — أجب عن الأخطاء لتحديثها</small></div><span class="chev">‹</span></button>`);
+  const total=lxPool(L).length;if(total)items.push(`<button class="mist-c" onclick="lxDaily('${L.k}')"><span>📚</span><div class="grow"><b>مراجعة يومية شاملة لـ«${L.n}»</b><small>تغطي أسئلة المستوى كلها: ${AR(total)} سؤالًا</small></div><span class="chev">‹</span></button>`);
   return items.join('')}
 
 /* ---- الامتحان الختامي ---- */
-function LXS(k){S.lvx=S.lvx||{};const x=S.lvx[k]=S.lvx[k]||{best:null,n:0,pass:false};if(x.set&&!x.ans)x.set=null;x.ans=x.ans||{};x.mist=x.mist||[];x.fix=x.fix||{};x.study=x.study||{};x.ok=x.ok||[];x.defer=x.defer||[];return x}
+function LXS(k){S.lvx=S.lvx||{};const x=S.lvx[k]=S.lvx[k]||{best:null,n:0,pass:false};x.ans=x.ans||{};x.mist=x.mist||[];x.fix=x.fix||{};x.study=x.study||{};x.ok=x.ok||[];x.defer=x.defer||[];return x}
 function lxIntro(k){LXQ=null;go('lx',{k,intro:1})}
-function lxBegin(k,fresh){const L=DLVM[k],x=LXS(k);if(fresh||!x.set){x.set=lxNewSet(L);x.ans={};x.done=false;x.mist=[];x.fix={};x.study={}}save();
+function lxBegin(k,fresh){const L=DLVM[k],x=LXS(k);if(fresh||!x.set){x.set=lxNewSet(L);x.ans={};x.done=false;x.mist=[];x.fix={};x.study={}}x.examActive=true;save();
   const ids=x.set.filter(q=>!(q in x.ans));LXQ={k,mode:'exam',ids,i:0,ans:null,pick:[],cache:{}};go('lx',{k})}
-function lxFix(k){const x=LXS(k),ids=x.mist.filter(q=>!x.fix[q]&&lxSrcStudied(x,q));if(!ids.length)return toast('ادرس دروس الأخطاء أولًا ثم اختبر نفسك');LXQ={k,mode:'fix',ids:shuffle(ids),i:0,ans:null,pick:[],cache:{}};go('lx',{k})}
+function lxFix(k){const x=LXS(k),ids=x.mist.filter(q=>!x.fix[q]);if(!ids.length)return toast('لا أخطاء متبقية للمراجعة');LXQ={k,mode:'fix',ids:shuffle(ids),i:0,ans:null,pick:[],cache:{}};go('lx',{k})}
 function lxRev(pk){const ids=shuffle(mistDue(pk)).slice(0,10);if(!ids.length)return toast('لا أخطاء مستحقة اليوم 🌿');LXQ={k:pk,mode:'rev',ids,i:0,ans:null,pick:[],cache:{},ok:0};go('lx',{k:pk})}
+function lxDaily(k){const L=DLVM[k];if(!L)return;const ids=lxPool(L).map(q=>q.key);if(!ids.length)return toast('لا أسئلة متاحة لهذا المستوى بعد');LXQ={k,mode:'daily',ids:shuffle(ids),i:0,ans:null,pick:[],cache:{},ok:0};go('lx',{k})}
+function lxPass(k){const x=LXS(k),L=DLVM[k];if(!x.done)return;x.pass=true;x.done=false;if(L.mlv)L.mlv.forEach(m=>MS()[m]=true);save();sound('win');lxPassedView(k,1)}
 function lxSrcN(q){return q&&q.src?q.src.n:'—'}
 function lxSrcStudied(x,key){const q=lxFind(key);return !!x.study[lxSrcN(q)]}
 function lxStudy(k,n,goCode){const x=LXS(k);x.study[n]=1;save();LASTLV=k;eval(goCode)}
 function lxRemedy(x,k){const groups={};x.mist.forEach(key=>{const q=lxFind(key);if(!q)return;const n=lxSrcN(q);(groups[n]=groups[n]||{go:q.src?q.src.go:'',keys:[]}).keys.push(key)});
-  return `<div class="lx-rem">${Object.entries(groups).map(([n,g])=>{const st=!!x.study[n],fx=g.keys.filter(q=>x.fix[q]).length,all=fx===g.keys.length;return `<div class="rem-i ${all?'ok':st?'st':''}"><span class="rem-ic">${all?'✓':st?'📖':'•'}</span><div class="grow"><b>${n}</b><small>${AR(g.keys.length)} ${g.keys.length>2?'أخطاء':'خطأ'} · ${all?'عولجت':st?'درسته — أجب عن أسئلته':'لم تدرسه بعد'}</small></div>${!all&&g.go?`<button class="btn sm ${st?'ghost':'gold'}" onclick="lxStudy('${k}','${n.replace(/'/g,"\\'")}',${JSON.stringify(g.go).replace(/"/g,'&quot;')})">📖 ادرس</button>`:''}</div>`}).join('')}</div>`}
+  return `<div class="lx-rem">${Object.entries(groups).map(([n,g])=>{const st=!!x.study[n],fx=g.keys.filter(q=>x.fix[q]).length,all=fx===g.keys.length;return `<div class="rem-i ${all?'ok':st?'st':''}"><span class="rem-ic">${all?'✓':st?'📖':'•'}</span><div class="grow"><b>${n}</b><small>${AR(g.keys.length)} ${g.keys.length>2?'أخطاء':'خطأ'} · ${all?'تمت مراجعتها':st?'درسته — راجع أسئلته':'يمكن مراجعة السؤال أو فتح درسه'}</small></div>${!all&&g.go?`<button class="btn sm ${st?'ghost':'gold'}" onclick="lxStudy('${k}','${n.replace(/'/g,"\\'")}',${JSON.stringify(g.go).replace(/"/g,'&quot;')})">📖 ادرس</button>`:''}</div>`}).join('')}</div>`}
 function lxQ(){const key=LXQ.ids[LXQ.i];if(!LXQ.cache[key]){const q=lxFind(key);if(!q)return null;LXQ.cache[key]={q,o:q.t==='mcq'?shuffle(q.o.map((t,j)=>({t,ok:j===0}))):q.t==='order'?shuffle(q.o.map((t,j)=>({t,k:j}))):null}}return LXQ.cache[key]}
 function vLx(){const k=route.k,L=DLVM[k];if(!L)return go('muslim');const x=LXS(k);
   if(route.intro||!LXQ||LXQ.k!==k){route.intro=0;
-    if(x.pass&&!x.set)return lxPassedView(k);
-    if(x.done){const left=x.mist.filter(q=>!x.fix[q]).length,canFix=x.mist.some(q=>!x.fix[q]&&lxSrcStudied(x,q));
+    if(x.pass&&!x.done&&!x.examActive)return lxPassedView(k);
+    if(x.done){const left=x.mist.filter(q=>!x.fix[q]).length,correct=x.set.filter(q=>x.ans[q]===true).length;
       $('#app').innerHTML=`<div class="lx-in"><div class="lx-ic">📊</div><h1>نتيجة الامتحان الختامي</h1><b class="lx-lv" style="--c:${L.c}">${L.ic} ${L.n}</b>
        <div class="lx-score"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="vct-bg"/><circle cx="50" cy="50" r="42" class="vct-fg" pathLength="100" style="stroke-dashoffset:${100-x.last}"/></svg><b>${AR(x.last)}٪</b></div>
-       <p class="muted">أجبت ${AR(x.set.length-x.mist.length)} من ${AR(x.set.length)} صحيحًا. أفضل درجة: ${AR(x.best||x.last)}٪.</p>
-       ${left?`<div class="lx-rules"><p>🔒 <b>لن تعبر إلى «${(DLV[L.i+1]||{}).n||'التالي'}» حتى تعالج أخطاءك:</b> بقي ${AR(left)} من ${AR(x.mist.length)}.</p><p>١. اضغط «📖 ادرس» على كل درس أخطأت فيه.</p><p>٢. ثم «🎯 اختبر أخطائي» وأجب عنها صحيحة.</p><p>🔁 وبعد العبور تظهر لك هذه الأخطاء تباعًا في المستوى التالي حتى تُتقنها فتختفي.</p></div>
-       ${lxRemedy(x,k)}<button class="btn gold" style="width:100%;padding:14px" ${canFix?`onclick="lxFix('${k}')"`:'disabled'}>🎯 اختبر أخطائي${canFix?'':' (ادرس أولًا)'}</button>`:''}
+       <p class="muted">أجبت ${AR(correct)} من ${AR(x.set.length)} صحيحًا. أفضل درجة: ${AR(x.best||x.last)}٪.</p>
+       ${left?`<div class="lx-rules"><p>بقي ${AR(left)} سؤالًا أخطأت فيه. يمكنك العبور الآن أو مراجعتها لتحديث درجتك.</p><p>إذا عبرت دون مراجعتها، فستبقى هذه الأسئلة في مراجعتك اليومية حتى تتقنها.</p></div>
+       ${lxRemedy(x,k)}<button class="btn" style="width:100%;padding:14px;margin-top:8px" onclick="lxFix('${k}')">🔁 راجع أخطاء الامتحان (${AR(left)})</button>`:''}
+       ${left?`<button class="btn gold" style="width:100%;padding:14px;margin-top:8px" onclick="lxPass('${k}')">⛰ أعبر إلى المستوى التالي</button>`:`<button class="btn gold" style="width:100%;padding:14px" onclick="lxPass('${k}')">⛰ متابعة إلى المستوى التالي</button>`}
        <button class="icon-btn" style="margin-top:10px" onclick="if(confirm('امتحان جديد بـ${AR(LX_N)} سؤالًا جديدًا؟ تبقى أخطاؤك السابقة في مراجعتك.'))lxBegin('${k}',1)">↺ امتحان جديد لرفع درجتك</button></div>`;return}
     const tot=x.set?x.set.length:Math.min(LX_N,lxPool(L).length),an=x.set?Object.keys(x.ans).length:0,wr=x.set?Object.values(x.ans).filter(v=>!v).length:0;
     $('#app').innerHTML=`<div class="lx-in"><div class="lx-ic">🏁</div><h1>الامتحان الختامي</h1><b class="lx-lv" style="--c:${L.c}">${L.ic} ${L.n}</b>
      <div class="lx-rules"><p>📋 <b>${AR(tot)} سؤالًا متنوعًا</b> من كل علوم المستوى: اختيار، وأكمل، واكتب، وصح أو خطأ، ورتّب.</p>
       <p>📊 <b>تُسجَّل درجتك</b> بالنسبة المئوية، ويُحفظ كل خطأ مع الدرس الذي جاء منه.</p>
-      <p>🔒 <b>لا تعبر</b> حتى تدرس دروس أخطائك وتجيب عنها صحيحة.</p>
-      <p>🔁 <b>ثم تظهر لك الأخطاء تباعًا</b> في المستوى التالي، وتختفي حين تُتقنها (٣ إجابات صحيحة متباعدة).</p>
+      <p>🔁 بعد إتمام الأسئلة، اختر العبور أو مراجعة ما أخطأت فيه؛ وتبقى الأخطاء في مراجعتك اليومية إن عبرت دون مراجعتها.</p>
       <p>🤚 لا تخمّن: إن لم تعرف فاضغط «لا أعرف»، فيُسجَّل خطأً تعالجه بالدراسة.</p></div>
      ${x.set?`<div class="lx-saved">تقدمك المحفوظ: <b>${AR(an)} / ${AR(tot)}</b>${wr?` · أخطاء حتى الآن: ${AR(wr)}`:''}</div>`:''}
      <button class="btn gold" style="width:100%;padding:15px" onclick="lxBegin('${k}')">${x.set?'تابع الامتحان':'ابدأ الامتحان'}</button></div>`;return}
@@ -11421,7 +11427,7 @@ function vLx(){const k=route.k,L=DLVM[k];if(!L)return go('muslim');const x=LXS(k
   else if(q.t==='tf')body=`<div class="opts tf">${[[true,'صحيح'],[false,'خطأ']].map(([v,l])=>`<button class="opt ${a?(v===q.a?'right':Z.ans===v?'wrong':''):''}" ${a?'disabled':''} onclick="lxA(${v})">${l}</button>`).join('')}</div>`;
   else if(q.t==='write')body=`<div class="lx-w"><input id="lxin" ${a?'disabled':''} placeholder="اكتب الكلمة هنا" autocomplete="off" onkeydown="if(event.key==='Enter')lxW()"><button class="btn gold" ${a?'disabled':''} onclick="lxW()">تحقّق</button></div>${a&&!Z.right?`<div class="ans-ord">الجواب: ${q.a}</div>`:''}`;
   else body=`<div class="ord-pick">${Z.pick.map((p,j)=>`<span class="chip on">${AR(j+1)}. ${C.o[p].t}</span>`).join('')}</div><div class="opts">${C.o.map((o,j)=>Z.pick.includes(j)?'':`<button class="opt" ${a?'disabled':''} onclick="lxPick(${j})">${o.t}</button>`).join('')}</div>${a?`<div class="ans-ord">الترتيب الصحيح: ${q.o.join(' ← ')}</div>`:''}`;
-  const md={exam:'🏁 الامتحان الختامي',fix:'🎯 علاج الأخطاء',rev:'🔁 مراجعة الأخطاء'}[Z.mode],x2=LXS(k);
+  const md={exam:'🏁 الامتحان الختامي',fix:'🎯 علاج الأخطاء',rev:'🔁 مراجعة الأخطاء',daily:'📚 مراجعة المستوى كاملة'}[Z.mode],x2=LXS(k);
   const pos=Z.mode==='exam'?Object.keys(x2.ans).length+(a?0:1):Z.i+1,tot=Z.mode==='exam'?x2.set.length:n;
   $('#app').innerHTML=`<div class="row" style="margin-bottom:6px"><span class="muted grow" style="font-size:13px">${md} · ${L.ic} ${L.n} · ${{mcq:q.kind==='fill'?'أكمل':'اختيار',tf:'صح أو خطأ',order:'رتّب',write:'اكتب'}[q.t]}</span><span class="pill">${AR(Math.min(pos,tot))} / ${AR(tot)}</span></div>
    <div class="progress"><i style="width:${Math.min(pos,tot)/tot*100}%"></i></div>
@@ -11431,7 +11437,8 @@ function vLx(){const k=route.k,L=DLVM[k];if(!L)return go('muslim');const x=LXS(k
    ${Z.mode==='exam'&&!a?`<button class="icon-btn" style="margin-top:6px" onclick="LXQ=null;go('muslim',{l:'${k}'})">⏸ احفظ وأكمل لاحقًا</button>`:''}`;
   if(q.t==='write'&&!a)setTimeout(()=>{const i=$('#lxin');i&&i.focus()},50)}
 function lxMark(r){const Z=LXQ,x=LXS(Z.k),key=Z.ids[Z.i];Z.right=r;
-  if(Z.mode==='exam'){x.ans[key]=r}else if(Z.mode==='fix'){if(r)x.fix[key]=1;mistMark(key,r);if(r&&MIST()[key])MIST()[key].due=addDays(today(),1)}else{mistMark(key,r);if(r)Z.ok++}
+  if(Z.mode==='exam'){x.ans[key]=r}else{if(r&&x.ans[key]===false&&x.set&&x.set.includes(key)){x.ans[key]=true;x.fix[key]=1;x.last=Math.round(x.set.filter(q=>x.ans[q]===true).length/x.set.length*100);x.best=Math.max(x.best||0,x.last)}
+    if(Z.mode==='fix'&&r)x.fix[key]=1;mistMark(key,r);if(r&&MIST()[key])MIST()[key].due=addDays(today(),1);if(r)Z.ok++}
   if(!r&&!MIST()[key]){MIST()[key]={lv:Z.k,c:0,due:addDays(today(),1),at:today()}}
   sound(r?'ok':'bad');save()}
 function lxA(v){const Z=LXQ;if(Z.ans!==null)return;const C=lxQ();Z.ans=v;lxMark(C.q.t==='mcq'?C.o[v].ok:v===C.q.a);vLx()}
@@ -11441,15 +11448,16 @@ function lxIdk(){const Z=LXQ;if(Z.ans!==null)return;Z.ans='idk';lxMark(false);vL
 function lxDefer(){lxIdk()}
 function lxRound(){const Z=LXQ,k=Z.k,L=DLVM[k],x=LXS(k);LXQ=null;
   if(Z.mode==='rev'){logAct('r');$('#app').innerHTML=`<div class="panel done"><div class="big">🔁</div><h2 style="margin:4px 0">${AR(Z.ok)} من ${AR(Z.ids.length)}</h2><p class="muted">بقي من أخطاء «${L.n}»: ${AR(mistOf(k).length)}. كل سؤال يختفي بعد ٣ إجابات صحيحة متباعدة.</p><button class="btn gold" onclick="go('muslim')">العودة</button></div>`;return}
+  if(Z.mode==='daily'){save();$('#app').innerHTML=`<div class="panel done"><div class="big">📚</div><h2 style="margin:4px 0">اكتملت مراجعة «${L.n}»</h2><p class="muted">راجعت ${AR(Z.ids.length)} سؤالًا من المستوى كاملًا. درجتك في الاختبار: ${AR(x.last||0)}٪${mistOf(k).length?' · بقيت أخطاء أخرى في المراجعة اليومية':''}</p><button class="btn gold" onclick="go('muslim',{l:'${k}'})">العودة إلى المستوى</button></div>`;return}
   if(Z.mode==='exam'){const tot=x.set.length;if(Object.keys(x.ans).length<tot){return vLx()}
-    x.mist=x.set.filter(q=>!x.ans[q]);x.fix={};x.study={};x.done=true;x.n=(x.n||0)+1;x.last=Math.round((tot-x.mist.length)/tot*100);x.best=Math.max(x.best||0,x.last);x.at=today();logAct('q')}
+    x.examActive=false;x.mist=x.set.filter(q=>!x.ans[q]);x.fix={};x.study={};x.done=true;x.n=(x.n||0)+1;x.last=Math.round((tot-x.mist.length)/tot*100);x.best=Math.max(x.best||0,x.last);x.at=today();logAct('q')}
   const left=x.mist.filter(q=>!x.fix[q]);
-  if(!left.length){x.pass=true;x.done=false;x.set=null;x.ans={};if(L.mlv)L.mlv.forEach(m=>MS()[m]=true);save();sound('win');return lxPassedView(k,1)}
+  if(!left.length){x.pass=true;x.done=false;if(L.mlv)L.mlv.forEach(m=>MS()[m]=true);save();sound('win');return lxPassedView(k,1)}
   save();route.intro=1;vLx()}
 function lxPassedView(k,fresh){const L=DLVM[k],x=LXS(k),nx=DLV[L.i+1];
   $('#app').innerHTML=`<div class="panel done lx-res win"><div class="big">🌳</div><h2 style="margin:4px 0">${fresh?'عبرت':'اجتزت'} «${L.n}» — درجتك ${AR(x.last||x.best||100)}٪</h2>
-   <p class="muted">${x.mist&&x.mist.length?'عالجت أخطاءك كلها، وستظهر لك تباعًا في المستوى التالي حتى تُتقنها فتختفي. ':''}${nx?(nx.soon?'المستوى التالي «'+nx.n+'» قيد الإعداد.':'فُتح لك: '+nx.ic+' «'+nx.n+'»'):''}</p>
-   <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap">${certHzReady(k)?`<button class="btn gold" onclick="openCertJ('${k}')">🎓 شهادتك</button>`:`<button class="btn ghost" onclick="openCertJ('${k}')">🔒 الشهادة — حفظت ${AR((HZ_LV[k]||[]).filter(hzDone).length)} من ${AR((HZ_LV[k]||[]).length)} سورة</button>`}${nx&&!nx.soon?`<button class="btn" onclick="go('muslim',{l:'${nx.k}'})">${nx.ic} «${nx.n}» ←</button>`:''}<button class="icon-btn" onclick="if(confirm('امتحان جديد لرفع درجتك؟'))lxBegin('${k}',1)">↺ امتحان لرفع الدرجة</button></div></div>`}
+   <p class="muted">${x.mist&&x.mist.some(q=>!x.fix[q])?'عبرت دون مراجعة كل الأخطاء؛ بقيت في مراجعتك اليومية حتى تتقنها. ':x.mist&&x.mist.length?'عالجت أخطاء الامتحان، وتبقى الأسئلة ضمن المراجعة اليومية حتى تثبت. ':''}${nx?(nx.soon?'المستوى التالي «'+nx.n+'» قيد الإعداد.':'فُتح لك: '+nx.ic+' «'+nx.n+'»'):''}</p>
+   <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap">${x.mist&&x.mist.some(q=>!x.fix[q])?`<button class="btn" onclick="lxFix('${k}')">🔁 راجع أخطاء الامتحان (${AR(x.mist.filter(q=>!x.fix[q]).length)})</button>`:''}${certHzReady(k)?`<button class="btn gold" onclick="openCertJ('${k}')">🎓 شهادتك</button>`:`<button class="btn ghost" onclick="openCertJ('${k}')">🔒 الشهادة — حفظت ${AR((HZ_LV[k]||[]).filter(hzDone).length)} من ${AR((HZ_LV[k]||[]).length)} سورة</button>`}${nx&&!nx.soon?`<button class="btn" onclick="go('muslim',{l:'${nx.k}'})">${nx.ic} «${nx.n}» ←</button>`:''}<button class="icon-btn" onclick="if(confirm('امتحان جديد لرفع درجتك؟'))lxBegin('${k}',1)">↺ امتحان لرفع الدرجة</button></div></div>`}
 
 /* ---- اختباراتي: اختيار المستوى ---- */
 function keyLevel(key){const p=key.split(':');
@@ -11471,7 +11479,9 @@ function qPool(){const all=qPoolOld().filter(x=>!x.key.startsWith('x:'));
 function vTests(){vTestsOld();const h=document.querySelector('#app .hero');if(!h)return;const f=S.tlv||'';
   const bar=document.createElement('div');bar.className='tlv-bar';
   bar.innerHTML=`<span>راجع:</span><button class="${f?'':'on'}" onclick="S.tlv='';save();vTests()">كل المستويات</button>${DLV.filter(L=>L.tabs).map(L=>`<button class="${f===L.k?'on':''}" onclick="S.tlv='${L.k}';save();vTests()">${L.ic} ${L.n}${mistOf(L.k).length?` <i>${AR(mistOf(L.k).length)}</i>`:''}</button>`).join('')}`;
-  h.after(bar)}
+  h.after(bar);
+  const levels=DLV.filter(L=>L.tabs&&lvOpen(L.i)).map(L=>({L,n:lxPool(L).length})).filter(x=>x.n);
+  if(levels.length){const daily=document.createElement('div');daily.className='panel';daily.innerHTML=`<h3>📚 المراجعة اليومية الشاملة</h3><p class="muted" style="font-size:13px">اختر مستوى لمراجعة جميع أسئلته اليوم، لا الأخطاء وحدها.</p><div class="row">${levels.map(({L,n})=>`<button class="btn ghost sm" onclick="lxDaily('${L.k}')">${L.ic} ${L.n} · ${AR(n)} سؤالًا</button>`).join('')}</div>`;bar.after(daily)}}
 
 /* ============ مسارات التخصص: بعد إتمام المستويات ============ */
 /* كتاب: [العنوان، المؤلف، سنة الوفاة هـ، ما يضيفه، المدرسة/المذهب (اختياري)] */
@@ -15942,7 +15952,7 @@ function occNext(){const now=new Date();now.setHours(12,0,0,0);return OCC.map(([
 function adkNow(){const t=ptToday(),n=new Date(),h=n.getHours()+n.getMinutes()/60;
   if(!t)return h<4?'n':h<12?'m':h<15?'p':h<20?'e':'n';
   if(h>=t.fajr&&h<t.dhuhr)return 'm';if(h>=t.asr&&h<t.isha)return 'e';if(h>=t.isha||h<t.fajr)return 'n';return 'p'}
-const adkId=(k,i)=>'a'+k+String(i).padStart(2,'0');
+const adkId=(k,i)=>'a'+k+String(ADHKAR[k].items[i]?._key??i).padStart(2,'0');
 const zPlain=h=>String(h).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 /* ---- مشغّل الأذكار السمعية ---- */
 const AHP={k:null,i:0,u:0,on:0,a:new Audio()};
@@ -16013,20 +16023,20 @@ function zbItems(k){return k==='my'?MYD().map(x=>({t:esc(x.tx).replace(/\n/g,'<b
 const zbName=k=>k==='my'?'أدعيتي':ADHKAR[k].n;
 function vZkb(){const k=route.k||adkNow(),L=zbItems(k);let i=Math.max(0,Math.min(L.length-1,route.i||0));route.k=k;route.i=i;const st=ADKS();
   if(!L.length){$('#app').innerHTML=`<div class="zb-top"><button class="icon-btn" onclick="go('home')">›</button><b class="grow">${zbName(k)}</b></div><button class="ah-add" onclick="mydEdit()">＋ أضف دعاءك الأول</button>`;return}
-  const it=L[i],key=k+i,n=st.c[key]||0,dn=n>=it.c,id=k!=='my'?adkId(k,i):'',au=id&&typeof DUA_AUD!=='undefined'&&DUA_AUD[id];
+  const it=L[i],key=k+(it._key??i),n=st.c[key]||0,dn=n>=it.c,id=k!=='my'?adkId(k,i):'',au=id&&typeof DUA_AUD!=='undefined'&&DUA_AUD[id];
   $('#app').innerHTML=`<div class="zb"><div class="zb-top"><button class="icon-btn" onclick="AHP.a.pause();go('home')">›</button><b class="grow">${zbName(k)}</b><button class="icon-btn" onclick="mydEdit()" title="أضف دعاءً">＋</button>${k!=='my'?`<button class="icon-btn" onclick="AHP.k='${k}';if(!AHP.on){AHP.i=0;AHP.u=0}ahpGo('t');this.textContent=AHP.on?'⏸':'🎧'" title="استمع للورد كله">${AHP.on&&AHP.k===k?'⏸':'🎧'}</button>`:''}<button class="icon-btn" onclick="zbList()" title="القائمة">☰</button><button class="icon-btn" onclick="zbMore()">⋯</button></div>
    <div class="zb-cats">${ZKB_C.map(([c])=>`<button class="${c===k?'on':''}" onclick="go('zkb',{k:'${c}',i:0})">${c==='my'?'🤲 أدعيتي':ADHKAR[c].ic+' '+ADHKAR[c].n.replace('أذكار ','')}</button>`).join('')}</div>
    <div class="zb-pg ${dn?'done':''}" id="zbPg" onclick="zbTap()" style="--zf:${st.fs||1}">${it.ti?`<h3>${esc(it.ti)}</h3>`:''}<div class="zb-t">${it.t}</div>${it.f?`<p class="zb-f">${it.f}</p>`:''}${it.s?`<p class="zb-s">${it.s}</p>`:''}<div class="zb-cn">${it.c===1?'مرة واحدة':AR(it.c)+' '+(it.c<=10?'مرات':'مرة')}</div></div>
    <div class="zb-ix">${AR(i+1)} / ${AR(L.length)}</div>
    <div class="zb-bar"><button class="zb-b" ${au?'':'disabled'} onclick="${au?`duaPlay('${id}',this)`:''}" title="استماع">▶</button><button class="zb-cnt ${dn?'ok':''}" onclick="zbTap()"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" class="vct-bg"/><circle cx="50" cy="50" r="44" class="vct-fg" pathLength="100" style="stroke-dashoffset:${100-Math.min(n,it.c)/it.c*100}"/></svg><b>${dn?'✓':AR(it.c-n)}</b></button><button class="zb-b" onclick="zbShare()" title="مشاركة">⇪</button></div></div>`;zbSwipe()}
-function zbTap(){const k=route.k,i=route.i,L=zbItems(k),it=L[i],st=ADKS(),key=k+i,n=st.c[key]||0;if(n>=it.c){zbGo(1);return}st.c[key]=n+1;save();
+function zbTap(){const k=route.k,i=route.i,L=zbItems(k),it=L[i],st=ADKS(),key=k+(it._key??i),n=st.c[key]||0;if(n>=it.c){zbGo(1);return}st.c[key]=n+1;save();
   try{navigator.vibrate&&navigator.vibrate(n+1>=it.c?[20,40,20]:8)}catch(e){}
   if(n+1>=it.c){if(k!=='my'){const p=adkProg(k);if(p.d===p.n){try{logAct('a')}catch(e){}toast('✓ أتممت '+zbName(k)+'، تقبّل الله')}}setTimeout(()=>{if(route.v==='zkb'&&route.i===i)zbGo(1,1)},380)}
   const c=document.querySelector('.zb-cnt');if(c){c.querySelector('.vct-fg').style.strokeDashoffset=100-Math.min(n+1,it.c)/it.c*100;c.querySelector('b').textContent=n+1>=it.c?'✓':AR(it.c-n-1);c.classList.remove('bump');void c.offsetWidth;c.classList.add('bump')}}
 function zbGo(d,auto){const L=zbItems(route.k),i=route.i+d;if(i<0)return;if(i>=L.length){if(!auto)toast('آخر الورد');return}route.i=i;vZkb()}
 function zbSwipe(){const p=document.getElementById('zbPg');if(!p)return;let x0=null,y0=null;p.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});p.addEventListener('touchend',e=>{if(x0==null||y0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=y0=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.4){e.preventDefault();zbGo(dx>0?1:-1)}},{passive:false});p.addEventListener('touchcancel',()=>{x0=y0=null},{passive:true})}
 function zbList(){const k=route.k,L=zbItems(k),st=ADKS();$('#sheet').classList.add('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">${zbName(k)}</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
-  <div class="ms-ixl">${L.map((it,i)=>`<button class="${i===route.i?'cur':''}" onclick="closeModal();route.i=${i};vZkb()"><span class="n">${(st.c[k+i]||0)>=it.c?'✓':AR(i+1)}</span><div class="grow"><small style="color:var(--ink);font-size:13px">${esc(zPlain(it.ti||it.t).slice(0,80))}</small></div></button>`).join('')}</div>`;$('#modal').classList.add('open')}
+  <div class="ms-ixl">${L.map((it,i)=>`<button class="${i===route.i?'cur':''}" onclick="closeModal();route.i=${i};vZkb()"><span class="n">${(st.c[k+(it._key??i)]||0)>=it.c?'✓':AR(i+1)}</span><div class="grow"><small style="color:var(--ink);font-size:13px">${esc(zPlain(it.ti||it.t).slice(0,80))}</small></div></button>`).join('')}</div>`;$('#modal').classList.add('open')}
 function zbMore(){$('#sheet').classList.remove('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">خيارات</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
   <div class="row" style="gap:8px;margin:10px 0"><button class="btn sm" onclick="const s=ADKS();s.fs=Math.max(.8,(s.fs||1)-.1);save();closeModal();vZkb()">ـأ تصغير</button><button class="btn sm" onclick="const s=ADKS();s.fs=Math.min(1.8,(s.fs||1)+.1);save();closeModal();vZkb()">أ+ تكبير</button></div>
   <button class="btn sm" onclick="if(confirm('إعادة عدّ هذا الورد لليوم؟')){const s=ADKS();zbItems(route.k).forEach((x,i)=>delete s.c[route.k+i]);save();closeModal();route.i=0;vZkb()}">↺ إعادة الورد</button>
@@ -18521,6 +18531,11 @@ function resetData(){
 function wrapSAW(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.nodeValue.includes('ﷺ')&&!(n.parentNode&&n.parentNode.classList&&n.parentNode.classList.contains('saw'))&&!['SCRIPT','STYLE','TEXTAREA','OPTION'].includes(n.parentNode.nodeName)?1:3});
   const list=[];while(w.nextNode())list.push(w.currentNode);
   list.forEach(n=>{const parts=n.nodeValue.split('ﷺ'),f=document.createDocumentFragment();parts.forEach((t,i)=>{if(t)f.appendChild(document.createTextNode(t));if(i<parts.length-1){const sp=document.createElement('span');sp.className='saw';sp.textContent='ﷺ';f.appendChild(sp)}});n.parentNode.replaceChild(f,n)})}
+const _vHomeDailyReview=vHome;
+vHome=function(){_vHomeDailyReview();if(route.v!=='home'||(S.profile||{}).kid)return;
+  const levels=DLV.filter(L=>L.tabs&&((S.lvSeen||{})[L.k]||L.k===lvCur().k)).map(L=>({L,n:lxPool(L).length})).filter(x=>x.n);
+  if(!levels.length)return;const card=document.createElement('div');card.className='panel';card.innerHTML=`<h3>📚 المراجعة اليومية الشاملة</h3><p class="muted" style="font-size:13px">راجع أسئلة كل مستوى سبق أن فتحته؛ تغطي المراجعة المستوى كاملًا.</p><div class="row">${levels.map(({L,n})=>`<button class="btn ghost sm" onclick="lxDaily('${L.k}')">${L.ic} ${L.n} · ${AR(n)} سؤالًا</button>`).join('')}</div>`;
+  const hero=document.querySelector('#app .hero');if(hero)hero.after(card);else document.querySelector('#app').prepend(card)};
 new MutationObserver(()=>{clearTimeout(wrapSAW._t);wrapSAW._t=setTimeout(()=>wrapSAW(document.body),0)}).observe(document.body,{childList:true,subtree:true});
 if(!(S.profile&&S.profile.done))route={v:'welcome'};
 render();
