@@ -3736,7 +3736,7 @@ function vPQuiz(){
   if(!GQ||GQ.key!==pid+':'+lk){
     const bb=gqBuild(pid,lk),n=bb.fixed.length+bb.rest.length;
     $('#app').innerHTML=`<div class="panel"><h2 style="margin-top:0">${title}</h2>
-      <ul class="rules"><li>${AR(n)} سؤالًا: <b>أسئلة بصرية على الخريطة</b> لكل محطة بالترتيب، وتمييز <b>المتفق عليه والمختلف فيه</b>، ثم أسئلة الفهم.</li><li><b>بلا مساعدة:</b> لا تلميح ولا رجوع إلى المحطات.</li><li>أي خطأ يعيد الاختبار <b>من البداية</b> بأسئلة وخيارات مخلوطة من جديد.</li><li>بعد كل إجابة يظهر التعليل.</li><li>النجاح بـ<b>١٠٠٪</b> فقط${isFinal?'، ومعه شهادة الإتمام':'، ويفتح المستوى التالي'}.</li></ul>
+      <ul class="rules"><li>${AR(n)} سؤالًا: <b>أسئلة بصرية على الخريطة</b> لكل محطة بالترتيب، وتمييز <b>المتفق عليه والمختلف فيه</b>، ثم أسئلة الفهم.</li><li><b>بلا مساعدة:</b> لا تلميح ولا رجوع إلى المحطات.</li><li>أجب عن الأسئلة كلها؛ الخطأ لا يعيدك إلى البداية، ويمكنك مراجعته بعد النتيجة.</li><li>بعد كل إجابة يظهر التعليل.</li><li>نسبة النجاح المستهدفة <b>${AR(pid.startsWith('mtl:')?LX_PASS:100)}٪</b>${pid.startsWith('mtl:')?'، ويمكنك متابعة الدرس التالي على أي حال.':isFinal?'، ومعها شهادة الإتمام':'، وتفتح المرحلة التالية'}.</li></ul>
       ${ps.lv[lk]?'<p style="color:var(--ok);font-weight:700">✅ اجتزته من قبل. يمكنك إعادته للتثبيت.</p>':ps.att[lk]?`<p class="muted">المحاولات: ${AR(ps.att[lk])} — أفضل تقدم: ${AR(ps.best[lk]||0)}/${AR(n)}</p>`:''}
       <button class="btn" style="width:100%;padding:14px" onclick="gqStart('${pid}','${lk}')">ابدأ</button></div>`;return;
   }
@@ -3766,13 +3766,16 @@ function gqPrep1(q){
 }
 function gqStart(pid,lk){
   const b=gqBuild(pid,lk);
-  GQ={key:pid+':'+lk,pid,lk,i:0,ans:null,qs:b.fixed.map(gqPrep1).concat(shuffle(b.rest.slice()).map(gqPrep1))};
+  const qs=b.fixed.map(gqPrep1).concat(shuffle(b.rest.slice()).map(gqPrep1));
+  GQ={key:pid+':'+lk,pid,lk,i:0,ans:null,qs:qs.map((q,i)=>Object.assign(q,{sourceIndex:i})),results:Array(qs.length).fill(null),mode:'exam',recorded:false};
   gqRender();window.scrollTo(0,0);
 }
 function gqRender(){
   const {pid,lk}=GQ,P0=PATHS[pid],ps=PS(pid),total=GQ.qs.length;
   if(GQ.i>=total){
-    ps.lv[lk]=true;ps.att[lk]=(ps.att[lk]||0)+1;ps.best[lk]=total;save();GQ=null;sound('win');logAct('q');
+    if(!GQ.confirmed)return gqResult();
+    const score=GQ.score;
+    ps.lv[lk]=true;save();GQ=null;sound('win');logAct('q');
     if(String(pid).startsWith('dua:')){duaLvPassed(pid.slice(4));return}
     if(String(pid).startsWith('spec:')){const k=pid.slice(5);SPS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>🎯</div><h2 style='margin:4px 0'>١٠٠٪ — اجتزت اختبار مسار ${SPECM[k].n}</h2><button class='btn gold' onclick="go('spec',{k:'${k}'})">العودة إلى المسار</button></div>`;return}
     if(String(pid).startsWith('hzx:')){const k=pid.slice(4);HZXS(k).pass=true;save();logAct('s');$('#app').innerHTML=`<div class='panel done'><div class='big'>🎓</div><h2 style='margin:4px 0'>١٠٠٪ — اجتزت اختبار سور «${(DLVM[k]||{}).n||k}» كلها</h2><p class='muted'>ثبّت الله حفظك، وستعود السور إليك في المراجعة.</p><button class='btn gold' onclick='backLv()'>العودة</button></div>`;return}
@@ -3786,11 +3789,11 @@ function gqRender(){
     if(String(pid).startsWith('crs:')){const [,c,lv]=pid.split(':'),C=CRS[c],li=C.levels.findIndex(L=>L.id===lv),nxL=C.levels[li+1];CS(c).lv[lv]=true;save();
       $('#app').innerHTML=`<div class="panel done"><div class="big">${nxL?'🌟':'🏆'}</div><h2 style="margin:4px 0">١٠٠٪ — اجتزت المستوى</h2><p class="muted">🎯 ${C.levels[li].goal}</p><p class="muted">${nxL?'فُتح المستوى التالي: '+nxL.n:'أتممت الدورة كلها. شهادتك جاهزة.'}</p>${nxL?'':`<button class="btn gold" onclick="openCertC('${c}')">🎓 الشهادة</button> `}<button class="btn" onclick="crsBack('${c}')">العودة</button></div>`;return}
     if(String(pid).startsWith('mtl:')){mtComplete(pid);const tid=pid.split(':')[1],tr=findTrack(tid),nx=tr.c?mtNext(tr):mlvNextAfter(tid,pid.split(':')[2]);
-      $('#app').innerHTML=`<div class="panel done"><div class="big">🌱</div><h2 style="margin:4px 0">أحسنت — ١٠٠٪</h2><p class="muted">أتممت الدرس، وسيعود إليك للمراجعة غدًا.${nx?' الدرس التالي: '+nx.t:tr.c?' أتممت دروس المستوى، ففُتح اختبار المستوى.':''}</p>${nx?`<button class="btn gold" onclick="go('lesson',{tid:'${nx.tid||tr.id}',lid:'${nx.id}'})">الدرس التالي ←</button> `:tr.c?`<button class="btn gold" onclick="go('pquiz',{pid:'crs:${tr.c}:${tr.id}',lk:'q'})">🎯 اختبار المستوى</button> `:(()=>{const [mi]=mlvPos(tid,pid.split(':')[2]);return mi>=0&&mlvReady(mi)&&!MS()[MLV[mi].k]?`<button class="btn gold" onclick="go('pquiz',{pid:'mlv:${MLV[mi].k}',lk:'q'})">🎯 اختبار المستوى</button> `:''})()}<button class="btn" onclick="go('${tr.c?'course':'muslim'}'${tr.c?`,{c:'${tr.c}'}`:''})">${tr.c?'إلى الدورة':'إلى مساري'}</button></div>`;return}
+      $('#app').innerHTML=`<div class="panel done"><div class="big">🌱</div><h2 style="margin:4px 0">أحسنت — ${AR(score)}٪</h2><p class="muted">أتممت الدرس، وسيعود إليك للمراجعة غدًا.${nx?' الدرس التالي: '+nx.t:tr.c?' أتممت دروس المستوى، ففُتح اختبار المستوى.':''}</p>${nx?`<button class="btn gold" onclick="go('lesson',{tid:'${nx.tid||tr.id}',lid:'${nx.id}'})">الدرس التالي ←</button> `:tr.c?`<button class="btn gold" onclick="go('pquiz',{pid:'crs:${tr.c}:${tr.id}',lk:'q'})">🎯 اختبار المستوى</button> `:(()=>{const [mi]=mlvPos(tid,pid.split(':')[2]);return mi>=0&&mlvReady(mi)&&!MS()[MLV[mi].k]?`<button class="btn gold" onclick="go('pquiz',{pid:'mlv:${MLV[mi].k}',lk:'q'})">🎯 اختبار المستوى</button> `:''})()}<button class="btn" onclick="go('${tr.c?'course':'muslim'}'${tr.c?`,{c:'${tr.c}'}`:''})">${tr.c?'إلى الدورة':'إلى مساري'}</button></div>`;return}
     if(String(pid).startsWith('intro:')){const k=pid.slice(6);IS(k).passed=true;save();
       $('#app').innerHTML=`<div class="panel done"><div class="big">🔓</div><h2 style="margin:4px 0">١٠٠٪ — اجتزت المدخل</h2><p class="muted">فُتح ما بعده في طرق العلوم.</p><button class="btn" onclick="backSci()">ادخل ←</button></div>`;return}
     const isFinal=lk==='final',idx=P0.levels.findIndex(x=>x.k===lk),next=P0.levels[idx+1];
-    $('#app').innerHTML=`<div class="panel done"><div class="big">${isFinal?'🏆':'🌟'}</div><h2 style="margin:4px 0">١٠٠٪ — أحسنت</h2>
+    $('#app').innerHTML=`<div class="panel done"><div class="big">${isFinal?'🏆':'🌟'}</div><h2 style="margin:4px 0">أحسنت — ${AR(score)}٪</h2>
       <p class="muted">${isFinal?'أتممت '+P0.title+'. شهادتك جاهزة.':next?'فُتح المستوى التالي: '+next.n:'فُتح الاختبار الشامل.'}</p>
       ${isFinal?`<button class="btn gold" onclick="openCertP('${pid}')">🎓 شهادة الإتمام</button> `:''}<button class="btn" onclick="go('path',{pid:'${pid}'})">إلى المسار</button></div>`;return;
   }
@@ -3811,13 +3814,28 @@ function gqRender(){
     <div class="progress"><i style="width:${GQ.i/total*100}%"></i></div>
     <h3 style="font-size:18px;line-height:1.8;margin:12px 0">${q0.q}</h3>${body}
     ${answered?`<div class="verdict ${ok?'ok':'bad'}"><b>${ok?'✓ إجابة صحيحة':'✗ إجابة خاطئة'}</b><p><b>التعليل:</b> ${q0.w}</p></div>
-      ${ok?`<button class="btn" style="width:100%;padding:14px" onclick="GQ.i++;GQ.ans=null;gqRender();window.scrollTo(0,0)">${GQ.i+1>=total?'إنهاء':'التالي'}</button>`
-      :`<button class="btn" style="width:100%;padding:14px;background:var(--red)" onclick="gqFail()">أعد الاختبار من البداية</button>`}`:''}</div>`;
+      <button class="btn" style="width:100%;padding:14px" onclick="gqNext();window.scrollTo(0,0)">${GQ.i+1>=total?'النتيجة':'التالي'}</button>`:''}</div>`;
 }
 function gqOk(){const it=GQ.qs[GQ.i],q0=it.q;return q0.t==='mcq'||q0.t==='map'||q0.t==='ad'?it.o[GQ.ans].ok:q0.t==='tf'?GQ.ans===q0.a:GQ.ans===true}
 function gqA(v){if(GQ.ans!==null)return;GQ.ans=v;sound(gqOk()?'ok':'bad');gqRender()}
 function gqPick(k){const it=GQ.qs[GQ.i];it.pick.push(k);if(it.pick.length===it.q.o.length){GQ.ans=it.pick.every((x,j)=>x===j);sound(GQ.ans?'ok':'bad')}gqRender()}
-function gqFail(){const ps=PS(GQ.pid);ps.att[GQ.lk]=(ps.att[GQ.lk]||0)+1;ps.best[GQ.lk]=Math.max(ps.best[GQ.lk]||0,GQ.i);save();gqStart(GQ.pid,GQ.lk)}
+function gqNext(){const it=GQ.qs[GQ.i];GQ.results[it.sourceIndex]=gqOk();GQ.i++;GQ.ans=null;gqRender()}
+function gqResult(){
+  const ps=PS(GQ.pid),total=GQ.results.length,correct=GQ.results.filter(Boolean).length,pct=Math.round(correct/total*100),target=GQ.pid.startsWith('mtl:')?LX_PASS:100;
+  GQ.score=pct;
+  if(!GQ.recorded){ps.att[GQ.lk]=(ps.att[GQ.lk]||0)+1;GQ.recorded=true}
+  ps.best[GQ.lk]=Math.max(ps.best[GQ.lk]||0,correct);ps.last=ps.last||{};ps.last[GQ.lk]=pct;save();
+  const wrong=GQ.qs.filter(it=>GQ.results[it.sourceIndex]===false).length;
+  const lesson=GQ.pid.startsWith('mtl:')?GQ.pid.split(':'):[];
+  $('#app').innerHTML=`<div class="panel done"><div class="big">${pct>=target?'🌟':'📖'}</div><h2 style="margin:4px 0">${AR(correct)} من ${AR(total)} — ${AR(pct)}٪</h2>
+    <p class="muted">${pct>=target?`حققت نسبة النجاح المستهدفة (${AR(target)}٪).`:`لم تبلغ نسبة النجاح المستهدفة (${AR(target)}٪) بعد.`}${wrong?` بقي ${AR(wrong)} سؤالًا أخطأت فيه.`:' أجبت عن الأسئلة كلها.'}</p>
+    ${wrong?`<p class="muted">يمكنك مراجعة الإجابات الخاطئة أو إعادة دراسة الدرس. وتستطيع متابعة طريقك${target<100?' على أي حال':''}.</p>
+      <button class="btn" style="width:100%;padding:14px;margin:6px 0" onclick="gqReview()">🔁 راجع الأسئلة التي أخطأت فيها (${AR(wrong)})</button>
+      ${lesson.length?`<button class="btn ghost" style="width:100%;padding:12px;margin-bottom:6px" onclick="GQ=null;go('lesson',{tid:'${lesson[1]}',lid:'${lesson[2]}'})">📖 أعد دراسة الدرس</button>`:''}`:''}
+    ${target<100||pct>=target?`<button class="btn gold" style="width:100%;padding:14px" onclick="GQ.confirmed=true;gqRender()">${target<100&&pct<target?'⛰ تابع إلى الدرس التالي على أي حال':'متابعة'}</button>`:`<p class="muted">راجع أخطاءك للوصول إلى نسبة النجاح المطلوبة.</p>`}
+    <button class="btn ghost" style="width:100%;margin-top:8px" onclick="GQ=null;go('path',{pid:'${GQ.pid}'})">العودة إلى المحتوى</button></div>`;
+}
+function gqReview(){const wrong=GQ.qs.filter(it=>GQ.results[it.sourceIndex]===false);if(!wrong.length)return gqResult();GQ.qs=wrong;GQ.i=0;GQ.ans=null;GQ.mode='review';gqRender()}
 
 /* ============ الخريطة التفاعلية للمسار ============ */
 const LOCAL={
@@ -5043,7 +5061,7 @@ function vLesson(){
     ${ADKL[l.id]?`<div class="ltip"><b>📿 الورد كاملًا بعدّاد لكل ذكر</b><div class="adk-open">${ADKL[l.id].map(k=>`<button class="btn sm" onclick="go('adhkar',{k:'${k}',from:'muslim'})">${ADHKAR[k].ic} ${ADHKAR[k].n} (${AR(ADHKAR[k].items.length)})</button>`).join('')}</div></div>`:''}
     <div class="refs">المصادر: ${l.src.join(' · ')}</div>
     <div class="dl-row">${dlBtn('lesson',{tid:tr.id,lid:l.id},'تنزيل الدرس')}${dlBtn('lquiz',{tid:tr.id,lid:l.id},'أسئلة للتدريس')}</div>
-    <button class="btn ${done?'ghost':'gold'}" style="width:100%;padding:14px;margin-top:14px" onclick="go('pquiz',{pid:'mtl:${tr.id}:${l.id}',lk:'l'})">${done?'أعد الاختبار القصير':'فهمت، اختبرني (١٠٠٪)'}</button>
+    <button class="btn ${done?'ghost':'gold'}" style="width:100%;padding:14px;margin-top:14px" onclick="go('pquiz',{pid:'mtl:${tr.id}:${l.id}',lk:'l'})">${done?'أعد الاختبار القصير':'فهمت، اختبرني (٧٥٪)'}</button>
     ${done&&nx?`<button class="btn ghost" style="width:100%;margin-top:8px" onclick="go('lesson',{tid:'${nx.tid||tr.id}',lid:'${nx.id}'})">الدرس التالي: ${nx.t} ←</button>`:''}
     ${tr.c&&!nx&&tr.lessons.every(x=>MTS(tr.id).done.includes(x.id))?`<button class="btn gold" style="width:100%;margin-top:8px" onclick="go('pquiz',{pid:'crs:${tr.c}:${tr.id}',lk:'q'})">🎯 اختبار المستوى</button>`:''}
     ${!tr.c&&(()=>{const [mi]=mlvPos(tr.id,route.lid);return mi>=0&&mlvReady(mi)&&!MS()[MLV[mi].k]})()?`<button class="btn gold" style="width:100%;margin-top:8px" onclick="go('pquiz',{pid:'mlv:${MLV[mlvPos(tr.id,route.lid)[0]].k}',lk:'q'})">🎯 اختبار المستوى</button>`:''}
@@ -8535,7 +8553,7 @@ add('w4',[
 })();
 
 /* ============ طريق الذُّرى: مستويات متوازنة مسمّاة، لكل مستوى بوابة HUD وعلوم تُفتح بالتتابع ============ */
-const LX_N=150;
+const LX_N=150,LX_PASS=75;
 const MTI=t=>MT.find(x=>x.id===t);
 function stageTabs(ks){const g=[];ks.forEach(k=>MLV.find(x=>x.k===k).ids.forEach(([t,l])=>{let x=g.find(y=>y.tid===t);if(!x){x={tid:t,lids:[]};g.push(x)}x.lids.push(l)}));
   return g.map(x=>{const tr=MTI(x.tid);return {k:x.tid,ic:tr.ic,n:tr.n,items:[{t:'mtl',tid:x.tid,lids:x.lids}]}})}
@@ -8745,7 +8763,7 @@ function lxQ(){const key=LXQ.ids[LXQ.i];if(!LXQ.cache[key]){const q=lxFind(key);
 function vLx(){const k=route.k,L=DLVM[k];if(!L)return go('muslim');const x=LXS(k);
   if(route.intro||!LXQ||LXQ.k!==k){const tot=x.set?x.set.length:Math.min(LX_N,lxPool(L).length),sc=x.set?x.ok.length:0,df=x.set?x.defer.length:0;
     $('#app').innerHTML=`<div class="lx-in"><div class="lx-ic">🏁</div><h1>الامتحان الشامل</h1><b class="lx-lv" style="--c:${L.c}">${L.ic} ${L.n}</b>
-     <div class="lx-rules"><p>📋 <b>${AR(tot)} سؤالًا متنوعًا:</b> اختيار، وأكمل، واكتب، وصح أو خطأ، ورتّب.</p><p>🎯 <b>الاجتياز بدرجة ١٠٠٪ فقط.</b></p>
+     <div class="lx-rules"><p>📋 <b>${AR(tot)} سؤالًا متنوعًا:</b> اختيار، وأكمل، واكتب، وصح أو خطأ، ورتّب.</p><p>🎯 <b>نسبة النجاح المستهدفة ${AR(LX_PASS)}٪.</b> بعد النتيجة يمكنك مراجعة موضوعات الأخطاء أو العبور على أي حال.</p>
       <p>⚠ <b>الإجابة الخاطئة تعيد الامتحان من البداية.</b> لا تخمّن أبدًا.</p><p>📖 <b>إن لم تكن متأكدًا فاضغط «أدرسه أولًا»:</b> يُؤجَّل السؤال، وتُحفظ درجتك، وتدرس موضوعه ثم تجيب عنه وحده. ويبقى في مراجعتك دائمًا.</p></div>
      ${x.set?`<div class="lx-saved">درجتك المحفوظة: <b>${AR(sc)} / ${AR(tot)}</b>${df?` · مؤجّل للدراسة: ${AR(df)}`:''}</div>${lxDeferList(x)}`:''}
      <button class="btn gold" style="width:100%;padding:15px" onclick="lxBegin('${k}')">${x.set?(x.set.length-x.ok.length-x.defer.length>0?'تابع الامتحان':'أجب عن المؤجّل ('+AR(x.defer.length)+')'):'ابدأ الامتحان'}</button>
@@ -11384,7 +11402,7 @@ function lvMistCard(L){const prev=DLV[L.i-1],items=[];
   if(prev&&prev.tabs){const d=mistDue(prev.k),all=mistOf(prev.k);if(all.length)items.push(`<button class="mist-c" onclick="lxRev('${prev.k}')"><span>🔁</span><div class="grow"><b>أخطاء «${prev.n}»</b><small>${d.length?AR(Math.min(10,d.length))+' مستحقة اليوم':'لا شيء مستحق اليوم'} · بقي ${AR(all.length)} حتى تُتقن وتختفي</small></div><span class="chev">‹</span></button>`)}
   const all=mistOf(L.k),due=mistDue(L.k);if(all.length)items.push(`<button class="mist-c" onclick="lxRev('${L.k}')"><span>🔁</span><div class="grow"><b>مراجعة أخطاء «${L.n}» اليوم</b><small>${AR(Math.min(10,due.length))} مستحقة اليوم · ${AR(all.length)} سؤالًا في المراجعة</small></div><span class="chev">‹</span></button>`);
   const x=LXS(L.k),left=x.mist.filter(k=>!x.fix[k]).length;if(left)items.push(`<button class="mist-c red" onclick="lxFix('${L.k}')"><span>📖</span><div class="grow"><b>راجع أخطاء امتحان «${L.n}»: ${AR(left)}</b><small>درجتك الحالية ${AR(x.last)}٪ — أجب عن الأخطاء لتحديثها</small></div><span class="chev">‹</span></button>`);
-  const total=lxPool(L).length;if(total)items.push(`<button class="mist-c" onclick="lxDaily('${L.k}')"><span>📚</span><div class="grow"><b>مراجعة يومية شاملة لـ«${L.n}»</b><small>تغطي أسئلة المستوى كلها: ${AR(total)} سؤالًا</small></div><span class="chev">‹</span></button>`);
+  const total=testsLevelQuestions(L.k).length;if(total)items.push(`<button class="mist-c" onclick="startQz('levelDaily','${L.k}')"><span>📚</span><div class="grow"><b>مراجعة يومية شاملة لـ«${L.n}»</b><small>تغطي ما أنجزته من المستوى: ${AR(total)} سؤالًا</small></div><span class="chev">‹</span></button>`);
   return items.join('')}
 
 /* ---- الامتحان الختامي ---- */
@@ -11394,7 +11412,7 @@ function lxBegin(k,fresh){const L=DLVM[k],x=LXS(k);if(fresh||!x.set){x.set=lxNew
   const ids=x.set.filter(q=>!(q in x.ans));LXQ={k,mode:'exam',ids,i:0,ans:null,pick:[],cache:{}};go('lx',{k})}
 function lxFix(k){const x=LXS(k),ids=x.mist.filter(q=>!x.fix[q]);if(!ids.length)return toast('لا أخطاء متبقية للمراجعة');LXQ={k,mode:'fix',ids:shuffle(ids),i:0,ans:null,pick:[],cache:{}};go('lx',{k})}
 function lxRev(pk){const ids=shuffle(mistDue(pk)).slice(0,10);if(!ids.length)return toast('لا أخطاء مستحقة اليوم 🌿');LXQ={k:pk,mode:'rev',ids,i:0,ans:null,pick:[],cache:{},ok:0};go('lx',{k:pk})}
-function lxDaily(k){const L=DLVM[k];if(!L)return;const ids=lxPool(L).map(q=>q.key);if(!ids.length)return toast('لا أسئلة متاحة لهذا المستوى بعد');LXQ={k,mode:'daily',ids:shuffle(ids),i:0,ans:null,pick:[],cache:{},ok:0};go('lx',{k})}
+function lxDaily(k){startQz('levelDaily',k)}
 function lxPass(k){const x=LXS(k),L=DLVM[k];if(!x.done)return;x.pass=true;x.done=false;if(L.mlv)L.mlv.forEach(m=>MS()[m]=true);save();sound('win');lxPassedView(k,1)}
 function lxSrcN(q){return q&&q.src?q.src.n:'—'}
 function lxSrcStudied(x,key){const q=lxFind(key);return !!x.study[lxSrcN(q)]}
@@ -11409,15 +11427,15 @@ function vLx(){const k=route.k,L=DLVM[k];if(!L)return go('muslim');const x=LXS(k
       $('#app').innerHTML=`<div class="lx-in"><div class="lx-ic">📊</div><h1>نتيجة الامتحان الختامي</h1><b class="lx-lv" style="--c:${L.c}">${L.ic} ${L.n}</b>
        <div class="lx-score"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="vct-bg"/><circle cx="50" cy="50" r="42" class="vct-fg" pathLength="100" style="stroke-dashoffset:${100-x.last}"/></svg><b>${AR(x.last)}٪</b></div>
        <p class="muted">أجبت ${AR(correct)} من ${AR(x.set.length)} صحيحًا. أفضل درجة: ${AR(x.best||x.last)}٪.</p>
-       ${left?`<div class="lx-rules"><p>بقي ${AR(left)} سؤالًا أخطأت فيه. يمكنك العبور الآن أو مراجعتها لتحديث درجتك.</p><p>إذا عبرت دون مراجعتها، فستبقى هذه الأسئلة في مراجعتك اليومية حتى تتقنها.</p></div>
-       ${lxRemedy(x,k)}<button class="btn" style="width:100%;padding:14px;margin-top:8px" onclick="lxFix('${k}')">🔁 راجع أخطاء الامتحان (${AR(left)})</button>`:''}
-       ${left?`<button class="btn gold" style="width:100%;padding:14px;margin-top:8px" onclick="lxPass('${k}')">⛰ أعبر إلى المستوى التالي</button>`:`<button class="btn gold" style="width:100%;padding:14px" onclick="lxPass('${k}')">⛰ متابعة إلى المستوى التالي</button>`}
+       <div class="lx-rules"><p>${x.last>=LX_PASS?`✓ حققت نسبة النجاح المستهدفة (${AR(LX_PASS)}٪).`:`لم تبلغ نسبة النجاح المستهدفة (${AR(LX_PASS)}٪) بعد.`}${left?` بقي ${AR(left)} سؤالًا أخطأت فيه.`:''}</p>${left?'<p>أعد دراسة موضوعات أخطائك ثم راجع أسئلتها لتحديث درجتك. ويمكنك العبور إلى المستوى التالي على أي حال.</p><p>إذا عبرت دون مراجعتها، فستبقى هذه الأسئلة في مراجعتك اليومية حتى تتقنها.</p>':'<p>يمكنك متابعة طريقك إلى المستوى التالي.</p>'}</div>
+       ${left?`${lxRemedy(x,k)}<button class="btn" style="width:100%;padding:14px;margin-top:8px" onclick="lxFix('${k}')">🔁 أعد دراسة موضوعات الأخطاء وراجعها (${AR(left)})</button>`:''}
+       <button class="btn gold" style="width:100%;padding:14px;margin-top:8px" onclick="lxPass('${k}')">${left?'⛰ أعبر إلى المستوى التالي على أي حال':'⛰ متابعة إلى المستوى التالي'}</button>
        <button class="icon-btn" style="margin-top:10px" onclick="if(confirm('امتحان جديد بـ${AR(LX_N)} سؤالًا جديدًا؟ تبقى أخطاؤك السابقة في مراجعتك.'))lxBegin('${k}',1)">↺ امتحان جديد لرفع درجتك</button></div>`;return}
     const tot=x.set?x.set.length:Math.min(LX_N,lxPool(L).length),an=x.set?Object.keys(x.ans).length:0,wr=x.set?Object.values(x.ans).filter(v=>!v).length:0;
     $('#app').innerHTML=`<div class="lx-in"><div class="lx-ic">🏁</div><h1>الامتحان الختامي</h1><b class="lx-lv" style="--c:${L.c}">${L.ic} ${L.n}</b>
-     <div class="lx-rules"><p>📋 <b>${AR(tot)} سؤالًا متنوعًا</b> من كل علوم المستوى: اختيار، وأكمل، واكتب، وصح أو خطأ، ورتّب.</p>
+     <div class="lx-rules"><p>📋 <b>${AR(tot)} سؤالًا متنوعًا</b> من كل علوم المستوى: اختيار، وأكمل، واكتب، وصح أو خطأ، ورتّب.</p><p>🎯 نسبة النجاح المستهدفة: <b>${AR(LX_PASS)}٪</b>. بعد النتيجة يمكنك إعادة دراسة موضوعات الأخطاء أو العبور على أي حال.</p>
       <p>📊 <b>تُسجَّل درجتك</b> بالنسبة المئوية، ويُحفظ كل خطأ مع الدرس الذي جاء منه.</p>
-      <p>🔁 بعد إتمام الأسئلة، اختر العبور أو مراجعة ما أخطأت فيه؛ وتبقى الأخطاء في مراجعتك اليومية إن عبرت دون مراجعتها.</p>
+      <p>🎯 نسبة النجاح المستهدفة ${AR(LX_PASS)}٪. بعد النتيجة أعد دراسة موضوعات الأخطاء أو اعبر إلى المستوى التالي على أي حال؛ وتبقى الأخطاء في مراجعتك اليومية إن عبرت دون مراجعتها.</p>
       <p>🤚 لا تخمّن: إن لم تعرف فاضغط «لا أعرف»، فيُسجَّل خطأً تعالجه بالدراسة.</p></div>
      ${x.set?`<div class="lx-saved">تقدمك المحفوظ: <b>${AR(an)} / ${AR(tot)}</b>${wr?` · أخطاء حتى الآن: ${AR(wr)}`:''}</div>`:''}
      <button class="btn gold" style="width:100%;padding:15px" onclick="lxBegin('${k}')">${x.set?'تابع الامتحان':'ابدأ الامتحان'}</button></div>`;return}
@@ -11472,16 +11490,17 @@ function keyLevel(key){const p=key.split(':');
     if(p[0]==='s'&&it.t==='qs'&&it.ref===p[1])return L.k}}
   if(p[0]==='d'){return DUA_LOC[(DUAS.find(d=>d.id===p[1])&&DUA_LV.find(x=>x.ds.some(d=>d.id===p[1]))||{}).k]||null}
   return null}
-function qPool(){const all=qPoolOld().filter(x=>!x.key.startsWith('x:'));
+function qPool(ignoreLevelFilter){const all=qPoolOld().filter(x=>!x.key.startsWith('x:'));
   Object.entries(MIST()).forEach(([k,m])=>{const q=lxFind(k);if(q&&q.t!=='write')all.push({g:'أخطاء الامتحانات',ic:'🔁',key:'x:'+k,q})});
   QS.forEach(s=>{if(QSS(s.k).pass)s.quiz.forEach((q,i)=>all.push({g:'قصص القرآن',ic:'📜',key:`s:${s.k}:${i}`,q}))});
-  const f=S.tlv||'';return f?all.filter(x=>keyLevel(x.key)===f):all}
-function vTests(){vTestsOld();const h=document.querySelector('#app .hero');if(!h)return;const f=S.tlv||'';
+  const f=ignoreLevelFilter?'':S.tlv||'';return f?all.filter(x=>keyLevel(x.key)===f):all}
+function testsLevelQuestions(k,pool){return (pool||qPool(true)).filter(x=>keyLevel(x.key)===k)}
+function testsLevels(pool){return DLV.filter(L=>L.tabs).map(L=>({L,n:testsLevelQuestions(L.k,pool)})).filter(x=>x.n.length)}
+function vTests(){const available=testsLevels();if(S.tlv&&!available.some(x=>x.L.k===S.tlv)){S.tlv='';save()}vTestsOld();const h=document.querySelector('#app .hero');if(!h)return;const f=S.tlv||'';
   const bar=document.createElement('div');bar.className='tlv-bar';
-  bar.innerHTML=`<span>راجع:</span><button class="${f?'':'on'}" onclick="S.tlv='';save();vTests()">كل المستويات</button>${DLV.filter(L=>L.tabs).map(L=>`<button class="${f===L.k?'on':''}" onclick="S.tlv='${L.k}';save();vTests()">${L.ic} ${L.n}${mistOf(L.k).length?` <i>${AR(mistOf(L.k).length)}</i>`:''}</button>`).join('')}`;
+  bar.innerHTML=`<span>راجع:</span><button class="${f?'':'on'}" onclick="S.tlv='';save();vTests()">كل المستويات</button>${available.map(({L})=>`<button class="${f===L.k?'on':''}" onclick="S.tlv='${L.k}';save();vTests()">${L.ic} ${L.n}${mistOf(L.k).length?` <i>${AR(mistOf(L.k).length)}</i>`:''}</button>`).join('')}`;
   h.after(bar);
-  const levels=DLV.filter(L=>L.tabs&&lvOpen(L.i)).map(L=>({L,n:lxPool(L).length})).filter(x=>x.n);
-  if(levels.length){const daily=document.createElement('div');daily.className='panel';daily.innerHTML=`<h3>📚 المراجعة اليومية الشاملة</h3><p class="muted" style="font-size:13px">اختر مستوى لمراجعة جميع أسئلته اليوم، لا الأخطاء وحدها.</p><div class="row">${levels.map(({L,n})=>`<button class="btn ghost sm" onclick="lxDaily('${L.k}')">${L.ic} ${L.n} · ${AR(n)} سؤالًا</button>`).join('')}</div>`;bar.after(daily)}}
+  if(available.length){const daily=document.createElement('div');daily.className='panel';daily.innerHTML=`<h3>📚 المراجعة اليومية الشاملة</h3><p class="muted" style="font-size:13px">راجع جميع أسئلة ما أنجزته في المستوى؛ لا تظهر أسئلة الدروس غير المنجزة.</p><div class="row">${available.map(({L,n})=>`<button class="btn ghost sm" onclick="startQz('levelDaily','${L.k}')">${L.ic} ${L.n} · ${AR(n.length)} سؤالًا</button>`).join('')}</div>`;bar.after(daily)}}
 
 /* ============ مسارات التخصص: بعد إتمام المستويات ============ */
 /* كتاب: [العنوان، المؤلف، سنة الوفاة هـ، ما يضيفه، المدرسة/المذهب (اختياري)] */
@@ -12332,17 +12351,19 @@ function vLib(){const s=route.s||'aqd',L=LIBS[s];if(!L)return go('muslim');
 /* ---- القراءة العصرية للكتاب ---- */
 function vBookMain(){const b=BKM[route.id];if(!b)return go('lib');const L=LIBS[b.s],x=BKS(b.id),m=route.m||'card',p=bkProg(b.id),full=bkFull(b);
   const col=b.sch&&b.sch!=='all'&&b.sch!=='ash'&&b.sch!=='ath'?null:null;
+  const fullText=typeof RDP!=='undefined'&&!!RDP[b.id]||typeof bkHasText==='function'&&bkHasText(b.id);
   const tabs=full?[['card','🪪 البطاقة'],['min','⏱ في دقيقة'],['map','🗺 الأبواب'],['fx','💡 الفوائد'],['q','🎯 اختبر فهمك']]:[['card','🪪 البطاقة']];
   let body='';
   if(m==='card')body=`<div class="bk-card"><div class="bk-row"><span>المؤلف</span><b>${b.a}</b></div><div class="bk-row"><span>الوفاة</span><b>${b.d}</b></div><div class="bk-row"><span>المذهب / المدرسة</span><b>${SCH[b.sch]||'—'}</b></div><div class="bk-row"><span>الرف</span><b>المستوى ${AR(lvIdx(b.lv))}: ${LVN(b.lv)}</b></div>${b.pg?`<div class="bk-row"><span>الحجم</span><b>${b.pg}</b></div>`:''}
-    <p class="bk-why">${b.why}</p>${full?`<button class="btn gold" style="width:100%" onclick="go('book',{id:'${b.id}',m:'min'})">ابدأ القراءة ← «الكتاب في دقيقة»</button>`:`<div class="muted" style="text-align:center;font-size:12.5px">🚧 القراءة التفاعلية لهذا الكتاب قيد الإعداد</div>`}</div>`;
+    <p class="bk-why">${b.why}</p><button class="btn gold" style="width:100%;margin-bottom:8px" onclick="bkOpenFull('${b.id}')">${fullText?'📖 اقرأ النص الكامل':'📚 خيارات قراءة الكتاب الكامل'}</button>
+    <p class="muted" style="font-size:12px;text-align:center;margin:0 0 10px">${fullText?'النص متاح للقراءة داخل ذُرى أو للطباعة.':'النص الكامل غير مضمّن هنا بعد؛ اختر مصدرًا موثوقًا أو ارفع نسختك PDF.'}</p>${full?`<button class="btn ghost" style="width:100%" onclick="go('book',{id:'${b.id}',m:'min'})">ابدأ بملخص الكتاب ← «في دقيقة»</button>`:`<div class="muted" style="text-align:center;font-size:12.5px">ملخص تعريفي — افتح خيارات القراءة للوصول إلى النص الكامل</div>`}</div>`;
   else if(m==='min')body=`<div class="bk-min">${b.min.map((t,i)=>`<div class="bk-mc"><span>${AR(i+1)}</span><p>${t}</p></div>`).join('')}</div><p class="muted" style="font-size:12px;text-align:center">اسحب يمينًا ويسارًا ←→</p><button class="btn gold" style="width:100%" onclick="go('book',{id:'${b.id}',m:'map'})">إلى خريطة الأبواب ←</button>`;
   else if(m==='map'){const op=route.c!=null?+route.c:-1;body=`<div class="bk-map">${b.ch.map(([t,g,f],i)=>{const r=x.ch.includes(i);return `<div class="bk-n ${r?'ok':''} ${op===i?'open':''}"><button onclick="go('book',{id:'${b.id}',m:'map',c:${op===i?-1:i}})"><span class="bk-nn">${r?'✓':AR(i+1)}</span><b>${t}</b><span class="chev">‹</span></button>${op===i?`<div class="bk-nx"><p>${g}</p><div class="bk-take">💡 ${f}</div><button class="btn sm ${r?'ghost':'gold'}" onclick="bkRead('${b.id}',${i})">${r?'✓ فهمته':'فهمت هذا الباب ✓'}</button></div>`:''}</div>`}).join('')}</div>`}
   else if(m==='fx')body=`<div class="bk-fx">${b.fx.map(t=>`<blockquote>${t}</blockquote>`).join('')}</div>${(b.vw||[]).length?`<div class="qs-c vw"><b>📚 المتفق والمختلف</b>${b.vw.map(([k,t])=>`<div class="qv ${k}"><span class="pill b-${k==='agreed'?'ok':'amber'}">${k==='agreed'?'✓ متفق عليه':'⚖ فيه خلاف'}</span><p>${t}</p></div>`).join('')}</div>`:''}`;
   else if(m==='q'){const ready=x.ch.length>=b.ch.length||RO();body=`<div class="bk-card" style="text-align:center"><p>${ready?'أتممت خريطة الأبواب، فاختبر فهمك (١٠٠٪):':'أتمم أبواب الكتاب في «الخريطة» أولًا ('+AR(x.ch.length)+' من '+AR(b.ch.length)+')'}</p><button class="btn ${x.pass?'ghost':'gold'}" ${ready?`onclick="go('pquiz',{pid:'bk:${b.id}',lk:'q'});gqStart('bk:${b.id}','q')"`:'disabled'}>${x.pass?'✓ أعد الاختبار':'🎯 ابدأ الاختبار'}</button></div>`}
   $('#app').innerHTML=`<div class="bk-hero" style="--c1:${L.c[0]};--c2:${L.c[1]}"><div class="bk-cover"><div class="bk-cv"><small>${L.ic} ${L.n}</small><b>${b.t}</b><span>${b.a}</span><em>ت ${b.d}</em></div></div><div class="grow"><div class="bk-ht">${b.t}</div><div class="bk-hs">${b.a} (ت ${b.d})</div>${full?`<i class="crs-bar" style="margin-top:8px"><u style="width:${p[0]/p[1]*100}%"></u></i><small style="opacity:.85">${bkDone(b.id)?'✓ أتممت الكتاب':'أبواب مفهومة '+AR(Math.min(x.ch.length,b.ch.length))+' من '+AR(b.ch.length)+(x.pass?' · ✓ الاختبار':'')}</small>`:''}</div></div>
    <div class="bk-tabs">${tabs.map(([k,n])=>`<button class="${m===k?'on':''}" onclick="go('book',{id:'${b.id}',m:'${k}'})">${n}</button>`).join('')}</div>${body}
-   <div class="panel sources" style="margin-top:12px"><p style="margin:0;font-size:12.5px">هذه بطاقة تعريف وتلخيص وخريطة للكتاب بقلم ذُرى، وليست نص الكتاب. المصادر: كتب التراجم (سير أعلام النبلاء، الأعلام للزركلي) ومقدمات الكتب وشروحها المعتمدة.</p></div>`}
+   <div class="panel sources" style="margin-top:12px"><p style="margin:0;font-size:12.5px">تجد النص الكامل من زر «اقرأ النص الكامل» أو «PDF». ملخصات ذُرى أدوات مساعدة ولا تغني عن الرجوع إلى أصل الكتاب وشروحه المعتمدة.</p></div>`}
 function bkRead(id,i){const x=BKS(id);if(!x.ch.includes(i)){x.ch.push(i);save();logAct('s');sound('lit')}const b=BKM[id];const nx=b.ch.findIndex((_,j)=>!x.ch.includes(j));go('book',{id,m:nx<0?'q':'map',c:nx<0?-1:nx})}
 
 /* ---- بند المكتبة في كل تبويب علم ---- */
@@ -16931,6 +16952,7 @@ function pdAdd(bid){const i=document.createElement('input');i.type='file';i.acce
   const id=bid||('u'+Date.now());pdTx('readwrite',st=>st.put({id,blob:f})).then(()=>{PDM()[id]={n:f.name.replace(/\.pdf$/i,''),sz:f.size,p:1,b:bid||'',at:today()};save();toast('✓ حُفظ الكتاب على جهازك');closeModal();go('pdf',{id})}).catch(()=>toast('تعذّر الحفظ؛ قد تكون مساحة الجهاز ممتلئة'))};i.click()}
 function pdDel(id){if(!confirm('حذف ملف PDF من جهازك؟'))return;pdTx('readwrite',st=>st.delete(id)).then(()=>{delete PDM()[id];save();toast('حُذف الملف');route.v==='pdfs'?vPdfs():closeModal()})}
 /* ---- نافذة PDF في صفحة الكتاب ---- */
+function bkOpenFull(id){if(!BKM[id])return go('lib');if(typeof RDP!=='undefined'&&RDP[id])return go('book',{id,m:'read'});if(bkHasText(id))return go('bkprint',{id});return bkPdf(id)}
 function bkPdf(id){const b=BKM[id];if(!b)return;const m=PDM()[id],q=encodeURIComponent(b.t),q2=encodeURIComponent(b.t+' pdf');
   $('#sheet').classList.add('tall');$('#sheet').innerHTML=`<div class="sheet-grab"></div><div class="row"><h3 class="grow" style="margin:0">📄 ${esc(b.t)} بصيغة PDF</h3><button class="icon-btn" onclick="closeModal()">✕</button></div>
   <div class="pd-ops">
@@ -17673,16 +17695,18 @@ function qPoolOld(){const out=[],ok=q=>['mcq','tf','order'].includes(q.t)&&q.q;
   return out}
 function qbOf(k){return QB()[k]||{b:0}}
 let QZ2=null;
-function startQz(mode,g){const pool=qPool();let sel=[];const t=today();
+function startQz(mode,g){const pool=mode==='levelDaily'?qPool(true):qPool();let sel=[];const t=today();
   if(mode==='quick')sel=shuffle(pool.slice()).slice(0,10);
   else if(mode==='group')sel=shuffle(pool.filter(x=>x.g===g)).slice(0,10);
+  else if(mode==='levelDaily')sel=shuffle(testsLevelQuestions(g,pool));
   else if(mode==='wrong')sel=shuffle(pool.filter(x=>(qbOf(x.key).w||0)>0&&qbOf(x.key).b<=2)).slice(0,10);
   else{const due=pool.filter(x=>{const b=QB()[x.key];return b&&b.due<=t}).sort((a,b)=>qbOf(a.key).b-qbOf(b.key).b);const fresh=shuffle(pool.filter(x=>!QB()[x.key]));sel=due.slice(0,10);if(sel.length<10)sel=sel.concat(fresh.slice(0,10-sel.length));sel=shuffle(sel)}
-  if(!sel.length)return toast(mode==='wrong'?'لا أخطاء سابقة، أحسنت 🌟':mode==='srs'?'لا شيء مستحق اليوم، عُد غدًا':'لا أسئلة بعد');
+  if(!sel.length)return toast(mode==='wrong'?'لا أخطاء سابقة، أحسنت 🌟':mode==='srs'?'لا شيء مستحق اليوم، عُد غدًا':mode==='levelDaily'?'لا أسئلة منجزة لهذا المستوى بعد':'لا أسئلة بعد');
   QZ2={mode,g,i:0,ans:null,ok:0,qs:sel.map(x=>{const q=x.q;let o=null;if(q.t==='mcq')o=shuffle(q.o.map((t,k)=>({t,ok:k===0})));if(q.t==='order')o=shuffle(q.o.map((t,k)=>({t,k})));return {...x,o,pick:[]}})};go('qz',{from:'tests'})}
 function vQz(){if(!QZ2)return go('tests');const Z=QZ2,n=Z.qs.length;
   if(Z.i>=n){const pct=Math.round(Z.ok/n*100);S.log=S.log||{};const d=today(),x=S.log[d]=S.log[d]||{v:0,s:0,q:0};x.r=(x.r||0)+1;S.ev=S.ev||[];S.ev.push([Date.now(),'r','اختبار ترسيخ: '+AR(Z.ok)+' من '+AR(n)]);save();sound(pct>=80?'win':'lit');
-    $('#app').innerHTML=`<div class="panel done"><div class="big">${pct===100?'🏆':pct>=70?'🌟':'🌱'}</div><h2 style="margin:4px 0">${AR(Z.ok)} من ${AR(n)} — ${AR(pct)}٪</h2><p class="muted">${pct===100?'إتقان تام، ثبّت الله علمك.':pct>=70?'جيد جدًا، والأخطاء ستعود إليك أكثر حتى تترسخ.':'لا بأس، الأسئلة التي أخطأت فيها ستعود إليك قريبًا.'}</p><div class="row" style="justify-content:center;gap:8px"><button class="btn gold" onclick="startQz('${Z.mode}','${Z.g||''}')">↻ جولة أخرى</button><button class="btn" onclick="QZ2=null;go('tests')">اختباراتي</button></div></div>`;QZ2=null;return}
+    const summary=Z.mode==='levelDaily'?`أكملت مراجعة «${DLVM[Z.g]?.n||'المستوى'}»؛ شملت الأسئلة التي أنجزتها فقط.`:pct===100?'إتقان تام، ثبّت الله علمك.':pct>=70?'جيد جدًا، والأخطاء ستعود إليك أكثر حتى تترسخ.':'لا بأس، الأسئلة التي أخطأت فيها ستعود إليك قريبًا.';
+    $('#app').innerHTML=`<div class="panel done"><div class="big">${pct===100?'🏆':pct>=70?'🌟':'🌱'}</div><h2 style="margin:4px 0">${AR(Z.ok)} من ${AR(n)} — ${AR(pct)}٪</h2><p class="muted">${summary}</p><div class="row" style="justify-content:center;gap:8px"><button class="btn gold" onclick="startQz('${Z.mode}','${Z.g||''}')">↻ ${Z.mode==='levelDaily'?'مراجعة المستوى مجددًا':'جولة أخرى'}</button><button class="btn" onclick="QZ2=null;go('tests')">اختباراتي</button></div></div>`;QZ2=null;return}
   const it=Z.qs[Z.i],q=it.q,a=Z.ans!==null;let body='';
   if(q.t==='mcq')body=`<div class="opts">${it.o.map((o,k)=>`<button class="opt ${a?(o.ok?'right':Z.ans===k?'wrong':''):''}" ${a?'disabled':''} onclick="qzA(${k})">${o.t}</button>`).join('')}</div>`;
   else if(q.t==='tf')body=`<div class="opts tf">${[[true,'صحيح'],[false,'خطأ']].map(([v,l])=>`<button class="opt ${a?(v===q.a?'right':Z.ans===v?'wrong':''):''}" ${a?'disabled':''} onclick="qzA(${v})">${l}</button>`).join('')}</div>`;
@@ -18144,7 +18168,7 @@ function treeTest(id){
     <span class="lvn">${tq[L.k]?'✓':open?AR(num):'🔒'}</span>
     <div class="grow"><b>${L.n}</b>${L.review?' <span class="pill" style="font-size:10px">بلا مساعدة</span>':''}<div class="muted" style="font-size:12px">${L.d}${tq[L.k+'a']?` · المحاولات: ${AR(tq[L.k+'a'])}`:''}</div></div>
     <button class="btn sm ${open?'':'ghost'}" ${open?'':'disabled'} onclick="ttStart('${id}','${L.k}')">${tq[L.k]?'أعد':'ابدأ'}</button></div>`};
-  $('#tvBody').innerHTML=`<p class="muted" style="font-size:13px;margin:0 0 10px">تتعلّم كل قطعة صغيرة أولًا مع بيتها من المنظومة، ثم تختبر نفسك فيها، ثم تأتي المراجعة، ثم الاختبار الشامل. في الاختبار: <b>بلا مساعدة</b>، وأي خطأ يعيد المستوى من البداية.</p>
+  $('#tvBody').innerHTML=`<p class="muted" style="font-size:13px;margin:0 0 10px">تتعلّم كل قطعة صغيرة أولًا مع بيتها من المنظومة، ثم تختبر نفسك فيها، ثم تأتي المراجعة، ثم الاختبار الشامل. في الاختبار: <b>بلا مساعدة</b>؛ إن أخطأت فأعد المحاولة في الموضع نفسه دون فقد ما أتممته.</p>
     <div class="path-h"><b>المسار الأول: نسب النبي ﷺ</b><span class="pill ${aDone===A.length?'on':''}">${AR(aDone)}/${AR(A.length)}</span></div>
     <div class="progress"><i style="width:${aDone/A.length*100}%"></i></div>
     ${A.map((L,j)=>row(L,j,A,j+1)).join('')}
@@ -18185,7 +18209,7 @@ function ttRun(id){
     <div class="tree tt">${slots.map((s,j)=>`${s.motherStart?'<div class="tt-sep">جهة الأم — من كلاب نزولًا إلى آمنة</div>':''}<div class="tn slot ${s.meet?'meetslot':''} ${j<filled?'filled':''} ${j===filled?'next':''} ${TT.bad===j?'bad':''}">
       <span class="tn-i">${s.lab}</span><span class="tn-n">${j<filled?s.n:'؟'}</span></div>`).join('')}</div>
     <div class="bank">${TT.bank.map((b,j)=>b.used?'':`<button class="chip" onclick="ttPick(${j})">${b.n}</button>`).join('')}</div>
-    ${TT.bad!=null?`<div class="verdict bad"><b>✗ خطأ في الموضع ${AR(TT.bad+1)}</b><p>الصواب: <b>${slots[TT.bad].n}</b>. يُعاد المستوى من البداية بترتيب جديد.</p></div><button class="btn" style="width:100%;background:var(--red)" onclick="ttStart('${id}','${TT.k}');TT.learn=false;treeTest('${id}')">أعد المستوى</button>`:''}`;
+    ${TT.bad!=null?`<div class="verdict bad"><b>✗ خطأ في الموضع ${AR(TT.bad+1)}</b><p>الصواب: <b>${slots[TT.bad].n}</b>. أعد المحاولة في هذا الموضع؛ إجاباتك السابقة محفوظة.</p></div><button class="btn" style="width:100%;background:var(--red)" onclick="TT.bad=null;ttRun('${id}')">أعد المحاولة في الموضع نفسه</button>`:''}`;
   const nx=document.querySelector('.slot.next');nx&&nx.scrollIntoView({block:'center',behavior:'smooth'});
 }
 function ttPick(j){
@@ -18269,11 +18293,12 @@ function drawCertG(o){
 let QZ=null;
 function newQuiz(id){
   const src=MUTUN[id].quiz;
-  QZ={id,i:0,ans:null,qs:shuffle(src.map((q,qi)=>{
+  const qs=shuffle(src.map(q=>{
     if(q.t==='mcq'){const o=q.o.map((t,k)=>({t,ok:k===0}));return {q,o:shuffle(o)}}
     if(q.t==='order'){return {q,o:shuffle(q.o.map((t,k)=>({t,k}))),pick:[]}}
     return {q};
-  }))};
+  }));
+  QZ={id,i:0,ans:null,qs:qs.map((it,i)=>Object.assign(it,{sourceIndex:i})),results:Array(qs.length).fill(null),mode:'exam',recorded:false};
 }
 function tQuiz(id){
   const st=stationState(id),q=S.quiz[id]||{};
@@ -18281,15 +18306,16 @@ function tQuiz(id){
   if(!QZ||QZ.id!==id){
     $('#tabBody').innerHTML=`<div class="panel">
       <h3>قواعد الاختبار</h3>
-      <ul class="rules"><li>${AR(MUTUN[id].quiz.length)} سؤالًا في الفهم، لا في الحفظ.</li><li><b>بلا مساعدة:</b> لا تلميح ولا رجوع إلى الشرح.</li><li>أي خطأ يعيد الاختبار <b>من البداية</b>، والأسئلة والخيارات تُخلط من جديد.</li><li>بعد كل إجابة يظهر التعليل: لماذا هذا صواب.</li><li>لا يُفتح ما بعده إلا بـ<b>١٠٠٪</b> هنا، وباجتياز <b>الاختبار الشامل للشجرة</b>${stationState(id).treeOk?' ✅':''}.</li></ul>
-      ${q.passed?`<p style="color:var(--ok);font-weight:700">✅ اجتزته بنسبة ١٠٠٪ بعد ${AR(q.attempts)} محاولة. يمكنك إعادته للتثبيت.</p>`:q.attempts?`<p class="muted">المحاولات السابقة: ${AR(q.attempts)} — أفضل تقدم: ${AR(q.best||0)}/${AR(MUTUN[id].quiz.length)}</p>`:''}
+      <ul class="rules"><li>${AR(MUTUN[id].quiz.length)} سؤالًا في الفهم، لا في الحفظ.</li><li><b>بلا مساعدة:</b> لا تلميح ولا رجوع إلى الشرح.</li><li>أجب عن الأسئلة كلها؛ الخطأ لا يعيدك إلى البداية، ويمكنك مراجعة أخطائك أو إعادة دراسة الشرح.</li><li>بعد كل إجابة يظهر التعليل: لماذا هذا صواب.</li><li>نسبة النجاح المستهدفة <b>${AR(LX_PASS)}٪</b>، ويمكنك متابعة المسار على أي حال. يبقى اختبار الشجرة والحفظ (أو تخطيه) شرطًا لاكتمال المحطة.</li></ul>
+      ${q.passed?`<p style="color:var(--ok);font-weight:700">✅ أكملت الاختبار بعد ${AR(q.attempts)} محاولة. آخر درجة: ${AR(q.last||100)}٪. يمكنك إعادته للتثبيت.</p>`:q.attempts?`<p class="muted">المحاولات السابقة: ${AR(q.attempts)} — أفضل إجابات صحيحة: ${AR(q.best||0)}/${AR(MUTUN[id].quiz.length)}</p>`:''}
       <button class="btn" style="width:100%;padding:14px" onclick="newQuiz('${id}');tQuiz('${id}')">${q.passed?'أعد الاختبار':'ابدأ الاختبار'}</button></div>`;return;
   }
   const total=QZ.qs.length;
   if(QZ.i>=total){
-    const r=S.quiz[id]=S.quiz[id]||{attempts:0,best:0};r.attempts++;r.best=total;r.passed=true;save();QZ=null;sound('win');
-    $('#tabBody').innerHTML=`<div class="panel done"><div class="big">🏆</div><h2 style="margin:4px 0">١٠٠٪ — أحسنت</h2>
-      <p class="muted">اجتزت أسئلة الفهم في ${MUTUN[id].title}.${!stationState(id).treeOk?' بقي <b>الاختبار الشامل لشجرة النسب</b> لتكتمل محطة الفهم.':memDone(id)?' اكتملت هذه المحطة، وفُتح ما بعدها.':' بقي إتمام الحفظ (أو تخطيه) لتُفتح المحطة التالية.'}</p>${!stationState(id).treeOk?`<button class="btn gold" onclick="TV.mode='test';go('matn',{id:'${id}',tab:'tree'})">إلى اختبار الشجرة</button> `:''}
+    if(!QZ.confirmed)return qQuizResult(id);
+    const score=QZ.score,r=S.quiz[id]=S.quiz[id]||{attempts:0,best:0};r.passed=true;r.last=score;save();QZ=null;sound('win');
+    $('#tabBody').innerHTML=`<div class="panel done"><div class="big">🏆</div><h2 style="margin:4px 0">${AR(score)}٪ — أحسنت</h2>
+      <p class="muted">${score>=LX_PASS?'حققت نسبة النجاح المستهدفة.':'تابعت على أي حال دون بلوغ نسبة النجاح المستهدفة.'} أسئلة الفهم في ${MUTUN[id].title}.${!stationState(id).treeOk?' بقي <b>الاختبار الشامل لشجرة النسب</b> لتكتمل محطة الفهم.':memDone(id)?' اكتملت هذه المحطة، وفُتح ما بعدها.':' بقي إتمام الحفظ (أو تخطيه) لتُفتح المحطة التالية.'}</p>${!stationState(id).treeOk?`<button class="btn gold" onclick="TV.mode='test';go('matn',{id:'${id}',tab:'tree'})">إلى اختبار الشجرة</button> `:''}
       <button class="btn" onclick="backSci()">إلى العلوم</button></div>`;return;
   }
   const it=QZ.qs[QZ.i],q0=it.q,answered=QZ.ans!==null;
@@ -18313,13 +18339,23 @@ function tQuiz(id){
     <div class="progress"><i style="width:${QZ.i/total*100}%"></i></div>
     <h3 style="font-size:18px;line-height:1.8;margin:12px 0">${q0.q}</h3>${body}
     ${answered?`<div class="verdict ${ok?'ok':'bad'}"><b>${ok?'✓ إجابة صحيحة':'✗ إجابة خاطئة'}</b><p><b>التعليل:</b> ${q0.w}</p></div>
-      ${ok?`<button class="btn" style="width:100%;padding:14px" onclick="QZ.i++;QZ.ans=null;tQuiz('${id}')">${QZ.i+1>=total?'إنهاء':'التالي'}</button>`
-        :`<button class="btn" style="width:100%;padding:14px;background:var(--red)" onclick="qFail('${id}')">أعد الاختبار من البداية</button>`}`:''}
+      <button class="btn" style="width:100%;padding:14px" onclick="qNext();tQuiz('${id}')">${QZ.i+1>=total?'النتيجة':'التالي'}</button>`:''}
   </div>`;
 }
 function qAns(v){if(QZ.ans!==null)return;QZ.ans=v;const it=QZ.qs[QZ.i];sound((it.q.t==='mcq'?it.o[v].ok:v===it.q.a)?'ok':'bad');tQuiz(QZ.id)}
 function qPick(k){const it=QZ.qs[QZ.i];it.pick.push(k);if(it.pick.length===it.q.o.length){QZ.ans=it.pick.every((x,j)=>x===j);sound(QZ.ans?'ok':'bad')}tQuiz(QZ.id)}
-function qFail(id){const r=S.quiz[id]=S.quiz[id]||{attempts:0,best:0};r.attempts++;r.best=Math.max(r.best||0,QZ.i);save();newQuiz(id);tQuiz(id);window.scrollTo(0,0)}
+function qNext(){const it=QZ.qs[QZ.i],q=it.q;QZ.results[it.sourceIndex]=q.t==='mcq'?it.o[QZ.ans].ok:q.t==='tf'?QZ.ans===q.a:QZ.ans===true;QZ.i++;QZ.ans=null}
+function qQuizResult(id){
+  const r=S.quiz[id]=S.quiz[id]||{attempts:0,best:0},total=QZ.results.length,correct=QZ.results.filter(Boolean).length,pct=Math.round(correct/total*100),wrong=QZ.qs.filter(it=>QZ.results[it.sourceIndex]===false).length;
+  QZ.score=pct;
+  if(!QZ.recorded){r.attempts++;QZ.recorded=true}
+  r.best=Math.max(r.best||0,correct);r.last=pct;save();
+  $('#tabBody').innerHTML=`<div class="panel done"><div class="big">${pct>=LX_PASS?'🌟':'📖'}</div><h2 style="margin:4px 0">${AR(correct)} من ${AR(total)} — ${AR(pct)}٪</h2>
+    <p class="muted">${pct>=LX_PASS?`حققت نسبة النجاح المستهدفة (${AR(LX_PASS)}٪).`:`لم تبلغ نسبة النجاح المستهدفة (${AR(LX_PASS)}٪) بعد.`}${wrong?` بقي ${AR(wrong)} سؤالًا أخطأت فيه.`:''}</p>
+    ${wrong?`<p class="muted">راجع الأسئلة الخاطئة، أو أعد دراسة شرح المنظومة. ويمكنك متابعة المسار على أي حال.</p><button class="btn" style="width:100%;padding:14px;margin:6px 0" onclick="qReview();tQuiz('${id}')">🔁 راجع الأسئلة التي أخطأت فيها (${AR(wrong)})</button><button class="btn ghost" style="width:100%;padding:12px;margin-bottom:6px" onclick="QZ=null;go('matn',{id:'${id}'})">📖 أعد دراسة الشرح</button>`:''}
+    <button class="btn gold" style="width:100%;padding:14px" onclick="QZ.confirmed=true;tQuiz('${id}')">${pct<LX_PASS?'متابعة على أي حال':'متابعة'}</button></div>`;
+}
+function qReview(){const wrong=QZ.qs.filter(it=>QZ.results[it.sourceIndex]===false);if(!wrong.length)return;QZ.qs=wrong;QZ.i=0;QZ.ans=null;QZ.mode='review'}
 
 function openNote(k,title){
   $('#sheet').innerHTML=`<h3>${title}</h3><p class="muted" style="font-size:13px;margin:0 0 8px">يُحفظ على جهازك، ويدخل في النسخة الاحتياطية.</p>
@@ -18533,8 +18569,8 @@ function wrapSAW(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TE
   list.forEach(n=>{const parts=n.nodeValue.split('ﷺ'),f=document.createDocumentFragment();parts.forEach((t,i)=>{if(t)f.appendChild(document.createTextNode(t));if(i<parts.length-1){const sp=document.createElement('span');sp.className='saw';sp.textContent='ﷺ';f.appendChild(sp)}});n.parentNode.replaceChild(f,n)})}
 const _vHomeDailyReview=vHome;
 vHome=function(){_vHomeDailyReview();if(route.v!=='home'||(S.profile||{}).kid)return;
-  const levels=DLV.filter(L=>L.tabs&&((S.lvSeen||{})[L.k]||L.k===lvCur().k)).map(L=>({L,n:lxPool(L).length})).filter(x=>x.n);
-  if(!levels.length)return;const card=document.createElement('div');card.className='panel';card.innerHTML=`<h3>📚 المراجعة اليومية الشاملة</h3><p class="muted" style="font-size:13px">راجع أسئلة كل مستوى سبق أن فتحته؛ تغطي المراجعة المستوى كاملًا.</p><div class="row">${levels.map(({L,n})=>`<button class="btn ghost sm" onclick="lxDaily('${L.k}')">${L.ic} ${L.n} · ${AR(n)} سؤالًا</button>`).join('')}</div>`;
+  const levels=testsLevels();
+  if(!levels.length)return;const card=document.createElement('div');card.className='panel';card.innerHTML=`<h3>📚 المراجعة اليومية الشاملة</h3><p class="muted" style="font-size:13px">راجع جميع أسئلة ما أنجزته في كل مستوى؛ لا تظهر أسئلة الدروس غير المنجزة.</p><div class="row">${levels.map(({L,n})=>`<button class="btn ghost sm" onclick="startQz('levelDaily','${L.k}')">${L.ic} ${L.n} · ${AR(n.length)} سؤالًا</button>`).join('')}</div>`;
   const hero=document.querySelector('#app .hero');if(hero)hero.after(card);else document.querySelector('#app').prepend(card)};
 new MutationObserver(()=>{clearTimeout(wrapSAW._t);wrapSAW._t=setTimeout(()=>wrapSAW(document.body),0)}).observe(document.body,{childList:true,subtree:true});
 if(!(S.profile&&S.profile.done))route={v:'welcome'};
