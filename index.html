@@ -3664,7 +3664,7 @@ function vPath(){
       return `<div class="st qnode ${passed?'passed lit':''} ${qo?'open':'locked'} ${qo&&!passed?'cur':''}" onclick="${qo?`go('pquiz',{pid:'${pid}',lk:'${L.k}'})`:`toast('ادرس محطات هذه المرحلة كلها أولًا')`}">
         <div class="st-rail"><span class="st-dot">${passed?'✅':qo?'🎯':'🔒'}</span></div>
         <div class="st-card"><div class="st-age">نهاية المرحلة ${AR(lv+1)}</div><b class="st-t">اختبار مرحلة: ${L.n}</b>
-        <div class="st-sum">${passed?'اجتزته بنسبة ١٠٠٪ — فُتحت المرحلة التالية':qo?'أسئلة بصرية على الخريطة، ومتفق ومختلف، وفهم. بلا مساعدة، والنجاح بـ ١٠٠٪':'يُفتح بعد دراسة محطات هذه المرحلة كلها'}</div>
+        <div class="st-sum">${passed?`اجتزته — النجاح من ${AR(EXAM_PASS)}٪`:qo?`أسئلة بصرية على الخريطة، ومتفق ومختلف، وفهم. بلا مساعدة، والنجاح من ${AR(EXAM_PASS)}٪`:'يُفتح بعد دراسة محطات هذه المرحلة كلها'}</div>
         ${ps.att[L.k]?`<div class="st-meta"><span class="pill">المحاولات: ${AR(ps.att[L.k])}</span></div>`:''}</div></div>`})()}`}).join('');
   const levelCards=P0.levels.map((L,i)=>{
     const passed=!!ps.lv[L.k],open=i<=I.cur||RO(),allRead=RO()||L.st.every(s=>ps.read.includes(s));
@@ -3681,7 +3681,7 @@ function vPath(){
   ${(()=>{const pr=predictPath(pid);return pr?`<div class="predict">🗓 <b>الإتمام المتوقع:</b> ${fmtShort(pr.date)} <span class="muted">— بمعدل ${AR(Math.round(pr.p*10)/10)} محطة يوميًا حسب نشاطك</span></div>`:''})()}
   ${true?`
   <div class="pgrid"><div class="pmap-col">${pmHTML(pid)}</div><div class="plist-col">
-  <p class="muted" style="font-size:13px;margin:0 0 6px">اضغط على أي محطة مفتوحة: تتحرك الخريطة إلى مكانها وتجري أحداثها، ومنها تفتح التفاصيل. تضيء المحطات كلما فهمتها، ولا تُفتح محطات المستوى التالي حتى تجتاز اختبار المستوى بنسبة ١٠٠٪.</p>
+  <p class="muted" style="font-size:13px;margin:0 0 6px">اضغط على أي محطة مفتوحة: تتحرك الخريطة إلى مكانها وتجري أحداثها، ومنها تفتح التفاصيل. تضيء المحطات كلما فهمتها، ولا تُفتح محطات المستوى التالي حتى تجتاز اختبار المستوى بنسبة ${AR(EXAM_PASS)}٪.</p>
   <div class="spath">${stationsHTML}
     <div class="st ${I.finalOk?'passed lit':''} ${allLv?'open':'locked'} final-st" onclick="${allLv?`go('pquiz',{pid:'${pid}',lk:'final'})`:`toast('يُفتح بعد اجتياز المستويات كلها')`}">
       <div class="st-rail"><span class="st-dot">${I.finalOk?'🏆':allLv?'🎯':'🔒'}</span></div>
@@ -3736,7 +3736,7 @@ function vPQuiz(){
   if(!GQ||GQ.key!==pid+':'+lk){
     const bb=gqBuild(pid,lk),n=bb.fixed.length+bb.rest.length;
     $('#app').innerHTML=`<div class="panel"><h2 style="margin-top:0">${title}</h2>
-      <ul class="rules"><li>${AR(n)} سؤالًا: <b>أسئلة بصرية على الخريطة</b> لكل محطة بالترتيب، وتمييز <b>المتفق عليه والمختلف فيه</b>، ثم أسئلة الفهم.</li><li><b>بلا مساعدة:</b> لا تلميح ولا رجوع إلى المحطات.</li><li>أجب عن الأسئلة كلها؛ الخطأ لا يعيدك إلى البداية، ويمكنك مراجعته بعد النتيجة.</li><li>بعد كل إجابة يظهر التعليل.</li><li>نسبة النجاح المستهدفة <b>${AR(pid.startsWith('mtl:')?LX_PASS:100)}٪</b>${pid.startsWith('mtl:')?'، ويمكنك متابعة الدرس التالي على أي حال.':isFinal?'، ومعها شهادة الإتمام':'، وتفتح المرحلة التالية'}.</li></ul>
+      <ul class="rules"><li>${AR(n)} سؤالًا: <b>أسئلة بصرية على الخريطة</b> لكل محطة بالترتيب، وتمييز <b>المتفق عليه والمختلف فيه</b>، ثم أسئلة الفهم.</li><li><b>بلا مساعدة:</b> لا تلميح ولا رجوع إلى المحطات.</li><li>أجب عن الأسئلة كلها؛ الخطأ لا يعيدك إلى البداية، ويمكنك مراجعته بعد النتيجة.</li><li>بعد كل إجابة يظهر التعليل.</li><li>نسبة النجاح المستهدفة <b>${AR(EXAM_PASS)}٪</b>، ويمكنك المتابعة على أي حال${isFinal?' ومعها شهادة الإتمام':''}.</li></ul>
       ${ps.lv[lk]?'<p style="color:var(--ok);font-weight:700">✅ اجتزته من قبل. يمكنك إعادته للتثبيت.</p>':ps.att[lk]?`<p class="muted">المحاولات: ${AR(ps.att[lk])} — أفضل تقدم: ${AR(ps.best[lk]||0)}/${AR(n)}</p>`:''}
       <button class="btn" style="width:100%;padding:14px" onclick="gqStart('${pid}','${lk}')">ابدأ</button></div>`;return;
   }
@@ -3776,24 +3776,24 @@ function gqRender(){
     if(!GQ.confirmed)return gqResult();
     const score=GQ.score;
     ps.lv[lk]=true;save();GQ=null;sound('win');logAct('q');
-    if(String(pid).startsWith('dua:')){duaLvPassed(pid.slice(4));return}
-    if(String(pid).startsWith('spec:')){const k=pid.slice(5);SPS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>🎯</div><h2 style='margin:4px 0'>١٠٠٪ — اجتزت اختبار مسار ${SPECM[k].n}</h2><button class='btn gold' onclick="go('spec',{k:'${k}'})">العودة إلى المسار</button></div>`;return}
-    if(String(pid).startsWith('hzx:')){const k=pid.slice(4);HZXS(k).pass=true;save();logAct('s');$('#app').innerHTML=`<div class='panel done'><div class='big'>🎓</div><h2 style='margin:4px 0'>١٠٠٪ — اجتزت اختبار سور «${(DLVM[k]||{}).n||k}» كلها</h2><p class='muted'>ثبّت الله حفظك، وستعود السور إليك في المراجعة.</p><button class='btn gold' onclick='backLv()'>العودة</button></div>`;return}
-    if(String(pid).startsWith('bk:')){const k=pid.slice(3);BKS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>📚</div><h2 style='margin:4px 0'>١٠٠٪ — أتممت الكتاب</h2><p class='muted'>${BKM[k].t}: وُضع عليه الشريط الذهبي في رفّك.</p><button class='btn gold' onclick="go('lib',{s:'${BKM[k].s}'})">📚 العودة إلى المكتبة</button></div>`;return}
-    if(String(pid).startsWith('qs:')){const k=pid.slice(3);QSS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>📜</div><h2 style='margin:4px 0'>١٠٠٪ — أتممت القصة</h2><p class='muted'>${QSM[k].n}: صارت الأحداث والآيات مرتبطة في ذهنك.</p><button class='btn gold' onclick='backLv()'>العودة</button></div>`;return}
-    if(String(pid).startsWith('tl:')){const k=pid.slice(3);TLS(k).pass=true;save();$('#app').innerHTML=`<div class="panel done"><div class="big">🕰</div><h2 style="margin:4px 0">١٠٠٪ — أتممت الخط الزمني</h2><p class="muted">${TL.find(x=>x.k===k).n}: صارت الآيات مرتبطة في ذهنك بأحداثها وأعوامها.</p><button class="btn gold" onclick="backLv()">العودة</button></div>`;return}
+    if(String(pid).startsWith('dua:')){duaLvPassed(pid.slice(4),score);return}
+    if(String(pid).startsWith('spec:')){const k=pid.slice(5);SPS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>🎯</div><h2 style='margin:4px 0'>${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'} اختبار مسار ${SPECM[k].n}</h2><button class='btn gold' onclick="go('spec',{k:'${k}'})">العودة إلى المسار</button></div>`;return}
+    if(String(pid).startsWith('hzx:')){const k=pid.slice(4);HZXS(k).pass=true;save();logAct('s');$('#app').innerHTML=`<div class='panel done'><div class='big'>🎓</div><h2 style='margin:4px 0'>${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'} اختبار سور «${(DLVM[k]||{}).n||k}» كلها</h2><p class='muted'>ثبّت الله حفظك، وستعود السور إليك في المراجعة.</p><button class='btn gold' onclick='backLv()'>العودة</button></div>`;return}
+    if(String(pid).startsWith('bk:')){const k=pid.slice(3);BKS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>📚</div><h2 style='margin:4px 0'>${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت الاختبار':'تابعت على أي حال'}</h2><p class='muted'>${BKM[k].t}: وُضع عليه الشريط الذهبي في رفّك.</p><button class='btn gold' onclick="go('lib',{s:'${BKM[k].s}'})">📚 العودة إلى المكتبة</button></div>`;return}
+    if(String(pid).startsWith('qs:')){const k=pid.slice(3);QSS(k).pass=true;save();$('#app').innerHTML=`<div class='panel done'><div class='big'>📜</div><h2 style='margin:4px 0'>${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'} اختبار القصة</h2><p class='muted'>${QSM[k].n}: صارت الأحداث والآيات مرتبطة في ذهنك.</p><button class='btn gold' onclick='backLv()'>العودة</button></div>`;return}
+    if(String(pid).startsWith('tl:')){const k=pid.slice(3);TLS(k).pass=true;save();$('#app').innerHTML=`<div class="panel done"><div class="big">🕰</div><h2 style="margin:4px 0">${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'} اختبار الخط الزمني</h2><p class="muted">${TL.find(x=>x.k===k).n}: صارت الآيات مرتبطة في ذهنك بأحداثها وأعوامها.</p><button class="btn gold" onclick="backLv()">العودة</button></div>`;return}
     if(pid==='place:basics'){S.sciPass=true;save();
-      $('#app').innerHTML=`<div class="panel done"><div class="big">🌌</div><h2 style="margin:4px 0">١٠٠٪ — فُتحت لك العلوم</h2><p class="muted">أثبتّ أساسك في أساسيات الدين. ويبقى مساري متاحًا لك للمراجعة متى شئت.</p><button class="btn gold" onclick="go('gate')">🌌 ادخل إلى العلوم</button></div>`;return}
+      $('#app').innerHTML=`<div class="panel done"><div class="big">🌌</div><h2 style="margin:4px 0">${AR(score)}٪ — فُتحت لك العلوم</h2><p class="muted">أثبتّ أساسك في أساسيات الدين. ويبقى مساري متاحًا لك للمراجعة متى شئت.</p><button class="btn gold" onclick="go('gate')">🌌 ادخل إلى العلوم</button></div>`;return}
     if(String(pid).startsWith('mlv:')){const k=pid.slice(4),i=MLV.findIndex(L=>L.k===k),nxL=MLV[i+1];MS()[k]=true;save();
-      $('#app').innerHTML=`<div class="panel done"><div class="big">${nxL?nxL.ic:'🏔'}</div><h2 style="margin:4px 0">١٠٠٪ — اجتزت المرحلة ${AR(i+1)}</h2><p class="muted">🎯 ${MLV[i].goal}</p><p class="muted">${nxL?'فُتحت المرحلة التالية: '+nxL.n:'أتممت المراحل الخمس، فبقي «الجواب الحاضر» ثم الامتحان الشامل.'}</p><button class="btn gold" onclick="backLv()">العودة إلى المستوى</button></div>`;return}
+      $('#app').innerHTML=`<div class="panel done"><div class="big">${nxL?nxL.ic:'🏔'}</div><h2 style="margin:4px 0">${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'} المرحلة ${AR(i+1)}</h2><p class="muted">نسبة الاجتياز المطلوبة: ${AR(EXAM_PASS)}٪ · 🎯 ${MLV[i].goal}</p><p class="muted">${nxL?'فُتحت المرحلة التالية: '+nxL.n:'أتممت المراحل الخمس، فبقي «الجواب الحاضر» ثم الامتحان الشامل.'}</p><button class="btn gold" onclick="backLv()">العودة إلى المستوى</button></div>`;return}
     if(String(pid).startsWith('crs:')){const [,c,lv]=pid.split(':'),C=CRS[c],li=C.levels.findIndex(L=>L.id===lv),nxL=C.levels[li+1];CS(c).lv[lv]=true;save();
-      $('#app').innerHTML=`<div class="panel done"><div class="big">${nxL?'🌟':'🏆'}</div><h2 style="margin:4px 0">١٠٠٪ — اجتزت المستوى</h2><p class="muted">🎯 ${C.levels[li].goal}</p><p class="muted">${nxL?'فُتح المستوى التالي: '+nxL.n:'أتممت الدورة كلها. شهادتك جاهزة.'}</p>${nxL?'':`<button class="btn gold" onclick="openCertC('${c}')">🎓 الشهادة</button> `}<button class="btn" onclick="crsBack('${c}')">العودة</button></div>`;return}
+      $('#app').innerHTML=`<div class="panel done"><div class="big">${nxL?'🌟':'🏆'}</div><h2 style="margin:4px 0">${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'} المستوى</h2><p class="muted">نسبة الاجتياز المطلوبة: ${AR(EXAM_PASS)}٪ · 🎯 ${C.levels[li].goal}</p><p class="muted">${nxL?'فُتح المستوى التالي: '+nxL.n:'أتممت الدورة كلها. شهادتك جاهزة.'}</p>${nxL?'':`<button class="btn gold" onclick="openCertC('${c}')">🎓 الشهادة</button> `}<button class="btn" onclick="crsBack('${c}')">العودة</button></div>`;return}
     if(String(pid).startsWith('mtl:')){mtComplete(pid);const tid=pid.split(':')[1],tr=findTrack(tid),nx=tr.c?mtNext(tr):mlvNextAfter(tid,pid.split(':')[2]);
-      $('#app').innerHTML=`<div class="panel done"><div class="big">🌱</div><h2 style="margin:4px 0">أحسنت — ${AR(score)}٪</h2><p class="muted">أتممت الدرس، وسيعود إليك للمراجعة غدًا.${nx?' الدرس التالي: '+nx.t:tr.c?' أتممت دروس المستوى، ففُتح اختبار المستوى.':''}</p>${nx?`<button class="btn gold" onclick="go('lesson',{tid:'${nx.tid||tr.id}',lid:'${nx.id}'})">الدرس التالي ←</button> `:tr.c?`<button class="btn gold" onclick="go('pquiz',{pid:'crs:${tr.c}:${tr.id}',lk:'q'})">🎯 اختبار المستوى</button> `:(()=>{const [mi]=mlvPos(tid,pid.split(':')[2]);return mi>=0&&mlvReady(mi)&&!MS()[MLV[mi].k]?`<button class="btn gold" onclick="go('pquiz',{pid:'mlv:${MLV[mi].k}',lk:'q'})">🎯 اختبار المستوى</button> `:''})()}<button class="btn" onclick="go('${tr.c?'course':'muslim'}'${tr.c?`,{c:'${tr.c}'}`:''})">${tr.c?'إلى الدورة':'إلى مساري'}</button></div>`;return}
+      $('#app').innerHTML=`<div class="panel done"><div class="big">🌱</div><h2 style="margin:4px 0">${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'}</h2><p class="muted">نسبة الاجتياز المطلوبة: ${AR(EXAM_PASS)}٪. أتممت الدرس، وسيعود إليك للمراجعة غدًا.${nx?' الدرس التالي: '+nx.t:tr.c?' أتممت دروس المستوى، ففُتح اختبار المستوى.':''}</p>${nx?`<button class="btn gold" onclick="go('lesson',{tid:'${nx.tid||tr.id}',lid:'${nx.id}'})">الدرس التالي ←</button> `:tr.c?`<button class="btn gold" onclick="go('pquiz',{pid:'crs:${tr.c}:${tr.id}',lk:'q'})">🎯 اختبار المستوى</button> `:(()=>{const [mi]=mlvPos(tid,pid.split(':')[2]);return mi>=0&&mlvReady(mi)&&!MS()[MLV[mi].k]?`<button class="btn gold" onclick="go('pquiz',{pid:'mlv:${MLV[mi].k}',lk:'q'})">🎯 اختبار المستوى</button> `:''})()}<button class="btn" onclick="go('${tr.c?'course':'muslim'}'${tr.c?`,{c:'${tr.c}'}`:''})">${tr.c?'إلى الدورة':'إلى مساري'}</button></div>`;return}
     if(String(pid).startsWith('intro:')){const k=pid.slice(6);IS(k).passed=true;save();
-      $('#app').innerHTML=`<div class="panel done"><div class="big">🔓</div><h2 style="margin:4px 0">١٠٠٪ — اجتزت المدخل</h2><p class="muted">فُتح ما بعده في طرق العلوم.</p><button class="btn" onclick="backSci()">ادخل ←</button></div>`;return}
+      $('#app').innerHTML=`<div class="panel done"><div class="big">🔓</div><h2 style="margin:4px 0">${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'} المدخل</h2><p class="muted">نسبة الاجتياز المطلوبة: ${AR(EXAM_PASS)}٪. فُتح ما بعده في طرق العلوم.</p><button class="btn" onclick="backSci()">ادخل ←</button></div>`;return}
     const isFinal=lk==='final',idx=P0.levels.findIndex(x=>x.k===lk),next=P0.levels[idx+1];
-    $('#app').innerHTML=`<div class="panel done"><div class="big">${isFinal?'🏆':'🌟'}</div><h2 style="margin:4px 0">أحسنت — ${AR(score)}٪</h2>
+    $('#app').innerHTML=`<div class="panel done"><div class="big">${isFinal?'🏆':'🌟'}</div><h2 style="margin:4px 0">${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'}</h2><p class="pill">نسبة الاجتياز المطلوبة: ${AR(EXAM_PASS)}٪</p>
       <p class="muted">${isFinal?'أتممت '+P0.title+'. شهادتك جاهزة.':next?'فُتح المستوى التالي: '+next.n:'فُتح الاختبار الشامل.'}</p>
       ${isFinal?`<button class="btn gold" onclick="openCertP('${pid}')">🎓 شهادة الإتمام</button> `:''}<button class="btn" onclick="go('path',{pid:'${pid}'})">إلى المسار</button></div>`;return;
   }
@@ -3810,7 +3810,7 @@ function gqRender(){
   const ok=answered&&gqOk();
   if(q0.t==='map'&&!q0.w){const c=it.o.find(o=>o.ok);q0.w='الرقم الصحيح هو '+AR(it.o.indexOf(c)+1)+': '+(q0.local?LOCAL[c.k].n:PLACES[c.k].n)+'. وظهرت أسماء المواضع كلها على الخريطة.'}
   $('#app').innerHTML=`<div class="panel">
-    <div class="row" style="margin-bottom:6px"><span class="muted grow" style="font-size:13px">السؤال ${AR(GQ.i+1)} من ${AR(total)}</span><span class="pill">بلا مساعدة</span></div>
+    <div class="row" style="margin-bottom:6px"><span class="muted grow" style="font-size:13px">السؤال ${AR(GQ.i+1)} من ${AR(total)}</span><span class="pill">الاجتياز من ${AR(EXAM_PASS)}٪</span><span class="pill">بلا مساعدة</span></div>
     <div class="progress"><i style="width:${GQ.i/total*100}%"></i></div>
     <h3 style="font-size:18px;line-height:1.8;margin:12px 0">${q0.q}</h3>${body}
     ${answered?`<div class="verdict ${ok?'ok':'bad'}"><b>${ok?'✓ إجابة صحيحة':'✗ إجابة خاطئة'}</b><p><b>التعليل:</b> ${q0.w}</p></div>
@@ -3821,7 +3821,7 @@ function gqA(v){if(GQ.ans!==null)return;GQ.ans=v;sound(gqOk()?'ok':'bad');gqRend
 function gqPick(k){const it=GQ.qs[GQ.i];it.pick.push(k);if(it.pick.length===it.q.o.length){GQ.ans=it.pick.every((x,j)=>x===j);sound(GQ.ans?'ok':'bad')}gqRender()}
 function gqNext(){const it=GQ.qs[GQ.i];GQ.results[it.sourceIndex]=gqOk();GQ.i++;GQ.ans=null;gqRender()}
 function gqResult(){
-  const ps=PS(GQ.pid),total=GQ.results.length,correct=GQ.results.filter(Boolean).length,pct=Math.round(correct/total*100),target=GQ.pid.startsWith('mtl:')?LX_PASS:100;
+  const ps=PS(GQ.pid),total=GQ.results.length,correct=GQ.results.filter(Boolean).length,pct=Math.round(correct/total*100),target=EXAM_PASS;
   GQ.score=pct;
   if(!GQ.recorded){ps.att[GQ.lk]=(ps.att[GQ.lk]||0)+1;GQ.recorded=true}
   ps.best[GQ.lk]=Math.max(ps.best[GQ.lk]||0,correct);ps.last=ps.last||{};ps.last[GQ.lk]=pct;save();
@@ -4354,7 +4354,7 @@ function vMutunTab(){
   if(!introOk('mutun')){$('#app').innerHTML=roBanner()+introGate('mutun');return}
   $('#app').innerHTML=`
     <div class="row" style="margin:8px 0"><button class="btn sm ghost" onclick="go('intro',{k:'mutun'})">📖 المدخل</button><button class="btn sm ghost" onclick="go('practice')">🃏 تدريب حر</button></div>
-    <p class="muted" style="font-size:13px;margin:4px 0 8px">المنظومات مقسمة إلى مستويات من الأسهل إلى الأعلى. لا تُفتح منظومة حتى تُتمّ ما قبلها: الحفظ (أو تخطيه) واختبار الفهم بنسبة ١٠٠٪.</p>
+    <p class="muted" style="font-size:13px;margin:4px 0 8px">المنظومات مقسمة إلى مستويات من الأسهل إلى الأعلى. لا تُفتح منظومة حتى تُتمّ ما قبلها: الحفظ (أو تخطيه) واختبار الفهم بنسبة ${AR(EXAM_PASS)}٪ أو المتابعة على أي حال.</p>
     ${gateCard()}<h2>📚 دورات مفصّلة</h2>${crsCards()}
     ${levelsHTML(LV_M,'m')}
     <div class="panel muted" style="font-size:13px">منظومات <b>العقيدة</b> و<b>الفقه</b> تُضاف إلى المستويات بعد أن تختار المنهج والمذهب.</div>`;
@@ -5061,7 +5061,7 @@ function vLesson(){
     ${ADKL[l.id]?`<div class="ltip"><b>📿 الورد كاملًا بعدّاد لكل ذكر</b><div class="adk-open">${ADKL[l.id].map(k=>`<button class="btn sm" onclick="go('adhkar',{k:'${k}',from:'muslim'})">${ADHKAR[k].ic} ${ADHKAR[k].n} (${AR(ADHKAR[k].items.length)})</button>`).join('')}</div></div>`:''}
     <div class="refs">المصادر: ${l.src.join(' · ')}</div>
     <div class="dl-row">${dlBtn('lesson',{tid:tr.id,lid:l.id},'تنزيل الدرس')}${dlBtn('lquiz',{tid:tr.id,lid:l.id},'أسئلة للتدريس')}</div>
-    <button class="btn ${done?'ghost':'gold'}" style="width:100%;padding:14px;margin-top:14px" onclick="go('pquiz',{pid:'mtl:${tr.id}:${l.id}',lk:'l'})">${done?'أعد الاختبار القصير':'فهمت، اختبرني (٧٥٪)'}</button>
+    <button class="btn ${done?'ghost':'gold'}" style="width:100%;padding:14px;margin-top:14px" onclick="go('pquiz',{pid:'mtl:${tr.id}:${l.id}',lk:'l'})">${done?'أعد الاختبار القصير':`فهمت، اختبرني (النجاح من ${AR(EXAM_PASS)}٪)`}</button>
     ${done&&nx?`<button class="btn ghost" style="width:100%;margin-top:8px" onclick="go('lesson',{tid:'${nx.tid||tr.id}',lid:'${nx.id}'})">الدرس التالي: ${nx.t} ←</button>`:''}
     ${tr.c&&!nx&&tr.lessons.every(x=>MTS(tr.id).done.includes(x.id))?`<button class="btn gold" style="width:100%;margin-top:8px" onclick="go('pquiz',{pid:'crs:${tr.c}:${tr.id}',lk:'q'})">🎯 اختبار المستوى</button>`:''}
     ${!tr.c&&(()=>{const [mi]=mlvPos(tr.id,route.lid);return mi>=0&&mlvReady(mi)&&!MS()[MLV[mi].k]})()?`<button class="btn gold" style="width:100%;margin-top:8px" onclick="go('pquiz',{pid:'mlv:${MLV[mlvPos(tr.id,route.lid)[0]].k}',lk:'q'})">🎯 اختبار المستوى</button>`:''}
@@ -6899,10 +6899,10 @@ function vMuslim(){if((S.profile||{}).kid)return vKid();
       <div class="lv-b">${L.ids.map(([t,l],j)=>{const tr=MT.find(x=>x.id===t),ls=tr.lessons.find(x=>x.id===l),dd=mlDone(t,l),o=mlvLsOpen(i,j);
         return `<button class="mt-l ${dd?'done':''} ${o?'':'locked'}" ${o?`onclick="go('lesson',{tid:'${t}',lid:'${l}'})"`:''}><span class="ml-n">${dd?'✓':o?AR(j+1):'🔒'}</span> ${ls.t} <span class="ml-tag">${tr.ic} ${tr.n}</span></button>`}).join('')}
        <div class="crs-goal">🎯 <b>هدف المستوى:</b> ${L.goal}</div>
-       <button class="btn ${ps?'ghost':'gold'}" style="width:100%" ${op&&(rd||RO())?`onclick="go('pquiz',{pid:'mlv:${L.k}',lk:'q'})"`:'disabled'}>${ps?'✓ أعد اختبار المستوى':rd?'🎯 اختبار المستوى (١٠٠٪)':'أتمّ الدروس ليُفتح اختبار المستوى'}</button></div></div>`}).join('')}</div>
+       <button class="btn ${ps?'ghost':'gold'}" style="width:100%" ${op&&(rd||RO())?`onclick="go('pquiz',{pid:'mlv:${L.k}',lk:'q'})"`:'disabled'}>${ps?'✓ أعد اختبار المستوى':rd?`🎯 اختبار المستوى (النجاح من ${AR(EXAM_PASS)}٪)`:'أتمّ الدروس ليُفتح اختبار المستوى'}</button></div></div>`}).join('')}</div>
    <div class="dl-row">${dlBtn('mlv',{},'تنزيل مساري كاملًا للتدريس')}</div><div class="panel muted" style="font-size:13px">بعد المستوى الخامس تُفتح لك <b>العلوم</b>: العقيدة والفقه والتجويد والسيرة وغيرها، لكل علم طريق مستقل.</div>`;
 }
-function openCertM(){const tot=MLV.reduce((a,L)=>a+L.ids.length,0);certFlow(()=>openCertM(),()=>drawCertG({line:'قد أتمّ بعون الله دراسة وفهم',title:'مسار المسلم',sub:'أساسيات الدين في خمسة مستويات',items:[AR(tot)+' درسًا في الإيمان والصلاة والقرآن والسيرة والأذكار والأخلاق','٥ مستويات، كلها بنسبة ١٠٠٪'],motto:'«من يرد الله به خيرًا يفقهه في الدين»'}),'شهادة-مسار-المسلم')}
+function openCertM(){const tot=MLV.reduce((a,L)=>a+L.ids.length,0);certFlow(()=>openCertM(),()=>drawCertG({line:'قد أتمّ بعون الله دراسة وفهم',title:'مسار المسلم',sub:'أساسيات الدين في خمسة مستويات',items:[AR(tot)+' درسًا في الإيمان والصلاة والقرآن والسيرة والأذكار والأخلاق','٥ مستويات مع حد اجتياز للاختبار '+AR(EXAM_PASS)+'٪'],motto:'«من يرد الله به خيرًا يفقهه في الدين»'}),'شهادة-مسار-المسلم')}
 
 /* اختبار تحديد المستوى: يفتح العلوم لمن لديه أساس */
 PATHS['place:basics']={id:'place:basics',title:'اختبار أساسيات مساري',stations:[],levels:[{k:'q',n:'أساسيات مساري',st:[],quiz:MLV.flatMap(L=>L.ids.filter((_,j)=>j%Math.ceil(L.ids.length/3)===0).slice(0,3).map(([t,l])=>MT.find(x=>x.id===t).lessons.find(x=>x.id===l).quiz[0]))}],final:{n:'',order:{o:[]},mix:0}};
@@ -6919,7 +6919,7 @@ function vGateLocked(){const dn=MLV.filter(L=>MS()[L.k]).length;
    <div class="lk-prog">${MLV.map((L,i)=>`<span class="${MS()[L.k]?'on':''}">${MS()[L.k]?'✓':L.ic}<small>${L.n}</small></span>`).join('')}</div>
    <p class="muted" style="font-size:13px">أتممت ${AR(dn)} من ${AR(MLV.length)} مستويات</p>
    <button class="btn gold" style="padding:12px 26px" onclick="go('muslim')">🌱 تابع مساري</button>
-   <button class="lk-skip" onclick="go('pquiz',{pid:'place:basics',lk:'q'});gqStart('place:basics','q')">لديك أساس؟ اختبر نفسك في أساسيات مساري (١٠٠٪) لتُفتح لك العلوم</button></div></div>`}
+   <button class="lk-skip" onclick="go('pquiz',{pid:'place:basics',lk:'q'});gqStart('place:basics','q')">لديك أساس؟ اختبر نفسك في أساسيات مساري (النجاح من ${AR(EXAM_PASS)}٪) لتُفتح لك العلوم</button></div></div>`}
 function vGate(){
   if(sciLocked())return vGateLocked();
   const open=!!route.lit,R=40.5;
@@ -6976,10 +6976,10 @@ function vCourse(){
      return `<div class="lv ${open?'open':'locked'} ${passed?'done':''}"><div class="lv-h" onclick="this.parentNode.classList.toggle('open')"><span class="lv-n">${passed?'✓':open?AR(li+1):'🔒'}</span><div class="grow"><b>المستوى ${AR(li+1)}: ${L.n}</b><div class="muted" style="font-size:12px">${AR(L.lessons.length)} دروس · أتممت ${AR(S2.done.length)}${passed?' · اجتزت الاختبار':''}</div></div><span class="chev">‹</span></div>
       <div class="lv-b">${li===0&&C.plan?planHTML(C):''}${lsStrip('cv-'+L.id,L.lessons.map((l,i)=>{const d=S2.done.includes(l.id),o=open&&(d||i===0||S2.done.includes(L.lessons[i-1].id)||RO());return {t:l.t,sub:l.pts&&l.pts[0],done:d,open:o,go:`go('lesson',{tid:'${L.id}',lid:'${l.id}'})`,vis:l.vis}}))}
        <div class="crs-goal">🎯 <b>هدف المستوى:</b> ${L.goal}</div>
-       <button class="btn ${passed?'ghost':'gold'}" style="width:100%" ${open&&(allL||RO())?`onclick="go('pquiz',{pid:'crs:${c}:${L.id}',lk:'q'})"`:'disabled'}>${passed?'✓ أعد اختبار المستوى':allL?'🎯 اختبار المستوى (١٠٠٪)':'أتمّ الدروس ليُفتح اختبار المستوى'}</button></div></div>`}).join('')}</div>
+       <button class="btn ${passed?'ghost':'gold'}" style="width:100%" ${open&&(allL||RO())?`onclick="go('pquiz',{pid:'crs:${c}:${L.id}',lk:'q'})"`:'disabled'}>${passed?'✓ أعد اختبار المستوى':allL?`🎯 اختبار المستوى (النجاح من ${AR(EXAM_PASS)}٪)`:'أتمّ الدروس ليُفتح اختبار المستوى'}</button></div></div>`}).join('')}</div>
    <div class="panel sources"><h3 style="color:var(--ink)">مصادر الدورة</h3><ol>${[...new Set(C.levels.flatMap(L=>L.lessons.flatMap(l=>l.src)))].slice(0,14).map(s=>`<li>${s}</li>`).join('')}</ol></div>`;
 }
-function openCertC(c){const C=CRS[c],I=crsInfo(c);certFlow(()=>openCertC(c),()=>drawCertG({line:'قد أتمّ بعون الله دراسة وفهم',title:C.n,sub:C.sub.split(':')[0],items:[AR(C.levels.length)+' مستويات، كلها بنسبة ١٠٠٪',AR(I.tot)+' درسًا مع اختباراتها'],motto:C.motto}),'شهادة-'+C.n)}
+function openCertC(c){const C=CRS[c],I=crsInfo(c);certFlow(()=>openCertC(c),()=>drawCertG({line:'قد أتمّ بعون الله دراسة وفهم',title:C.n,sub:C.sub.split(':')[0],items:[AR(C.levels.length)+' مستويات مكتملة، وحد اجتياز الاختبار '+AR(EXAM_PASS)+'٪',AR(I.tot)+' درسًا مع اختباراتها'],motto:C.motto}),'شهادة-'+C.n)}
 function crsCards(){return `<div class="crs-cards">${Object.values(CRS).map(C=>{const I=crsInfo(C.id);return `<button class="crs-card" onclick="go('course',{c:'${C.id}',from:'${route.v}'})"><span class="crs-ic">${C.ic}</span><div class="grow"><b>${C.n}</b><small>${AR(C.levels.length)} مستويات · ${AR(I.tot)} درسًا · أتممت ${AR(I.dn)}</small><i class="crs-bar"><u style="width:${I.tot?I.dn/I.tot*100:0}%"></u></i></div><span class="chev">‹</span></button>`}).join('')}</div>`}
 /* ---- رسوم جديدة: بطاقات الألقاب، خريطة الفم، مختبر الحروف ---- */
 const MOUTH_PARTS=['jawf','h1','h2','h3','tB','tB2','tM','tS','tSF','tT','gum','thanaya','molars','lipU','lipL','khay'];
@@ -7689,12 +7689,12 @@ function duaQ(d,seed){const ws=dWords(d.t),idx=[];ws.forEach((w,i)=>{if(dClean(w
   return {t:'mcq',q:`${d.n}: أكمل ${DUA_LV[d.lv].tr==='a'?'الذكر':'الدعاء'} — ${ws.map((w,i)=>i===k?'<span class="d-blank">٭٭٭</span>'+(/[،,.؛]$/.test(w)?w.slice(-1):''):w).join(' ')}`,o:[ans].concat(wrong),w:`المصدر: ${d.s}`}}
 DUA_LV.forEach(L=>{PATHS['dua:'+L.k]={id:'dua:'+L.k,title:'اختبار المستوى: '+L.n,stations:[],levels:[{k:'q',n:L.n,st:[],quiz:L.ds.map(d=>duaQ(d,'L')).filter(Boolean)}],final:{n:'',order:{o:[]},mix:0}}});
 /* ---- الشهادات: لكل مستوى، وعند إتمام الكل ---- */
-function openCertDua(i){const L=DUA_LV[i],T=DTR[L.tr];certFlow(()=>openCertDua(i),()=>drawCertG({line:'قد أتمّ بعون الله حفظ',title:L.n,sub:T.n+' · المستوى '+AR(duaLvNo(i)),items:[AR(L.ds.length)+' '+(L.tr==='a'?'ذكرًا':'دعاءً')+' بالفهم والإخفاء والترتيب والتسميع','اجتاز اختبار المستوى بنسبة ١٠٠٪'],motto:T.motto}),'شهادة-'+L.n.replace(/\s+/g,'-'))}
+function openCertDua(i){const L=DUA_LV[i],T=DTR[L.tr];certFlow(()=>openCertDua(i),()=>drawCertG({line:'قد أتمّ بعون الله حفظ',title:L.n,sub:T.n+' · المستوى '+AR(duaLvNo(i)),items:[AR(L.ds.length)+' '+(L.tr==='a'?'ذكرًا':'دعاءً')+' بالفهم والإخفاء والترتيب والتسميع','أتم اختبار المستوى (حد الاجتياز '+AR(EXAM_PASS)+'٪)'],motto:T.motto}),'شهادة-'+L.n.replace(/\s+/g,'-'))}
 function duaAllPassed(){return DUA_LV.every((_,i)=>duaPassed(i))}
-function openCertDuaAll(){certFlow(()=>openCertDuaAll(),()=>drawCertG({line:'قد أتمّ بعون الله حفظ',title:'الأدعية والأذكار',sub:'أدعية اليوم وأذكار اليوم والليلة كاملة',items:[AR(DUAS.length)+' دعاءً وذكرًا من القرآن والسنة الصحيحة',AR(DUA_LV.length)+' مستويات، كلها بنسبة ١٠٠٪'],motto:'﴿فَاذْكُرُونِي أَذْكُرْكُمْ﴾'}),'شهادة-الأدعية-والأذكار')}
-function duaLvPassed(k){const i=DUA_LV.findIndex(L=>L.k===k),L=DUA_LV[i];S.duaLv=S.duaLv||{};S.duaLv[k]=true;save();
+function openCertDuaAll(){certFlow(()=>openCertDuaAll(),()=>drawCertG({line:'قد أتمّ بعون الله حفظ',title:'الأدعية والأذكار',sub:'أدعية اليوم وأذكار اليوم والليلة كاملة',items:[AR(DUAS.length)+' دعاءً وذكرًا من القرآن والسنة الصحيحة',AR(DUA_LV.length)+' مستويات مكتملة، وحد الاجتياز لكل اختبار '+AR(EXAM_PASS)+'٪'],motto:'﴿فَاذْكُرُونِي أَذْكُرْكُمْ﴾'}),'شهادة-الأدعية-والأذكار')}
+function duaLvPassed(k,score){const i=DUA_LV.findIndex(L=>L.k===k),L=DUA_LV[i];S.duaLv=S.duaLv||{};S.duaLv[k]=true;save();
   let nx=-1;for(let j=i+1;j<DUA_LV.length;j++)if(DUA_LV[j].tr===L.tr){nx=j;break}const all=duaAllPassed();
-  $('#app').innerHTML=`<div class="panel done d-pass"><div class="big">${L.ic}</div><h2 style="margin:4px 0">١٠٠٪ — اجتزت «${L.n}»</h2><p class="muted">🎯 ${L.goal}</p><p class="muted">${nx>=0?'فُتح المستوى التالي: '+DUA_LV[nx].n:'أتممت مستويات «'+DTR[L.tr].n+'» كلها، تقبّل الله.'}</p>
+  $('#app').innerHTML=`<div class="panel done d-pass"><div class="big">${L.ic}</div><h2 style="margin:4px 0">${AR(score)}٪ — ${score>=EXAM_PASS?'اجتزت':'تابعت على أي حال'} «${L.n}»</h2><p class="muted">نسبة الاجتياز المطلوبة: ${AR(EXAM_PASS)}٪ · 🎯 ${L.goal}</p><p class="muted">${nx>=0?'فُتح المستوى التالي: '+DUA_LV[nx].n:'أتممت مستويات «'+DTR[L.tr].n+'» كلها، تقبّل الله.'}</p>
    <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap"><button class="btn gold" onclick="openCertDua(${i})">🎓 شهادة المستوى</button>${all?`<button class="btn gold" onclick="openCertDuaAll()">🏆 شهادة الإتمام الكبرى</button>`:''}<button class="btn" onclick="DTRK='${L.tr}';go('duas')">إلى الأدعية</button></div></div>`}
 /* ---- الواجهة ---- */
 let DTRK=null;
@@ -7721,7 +7721,7 @@ function vDuas(){const tr=route.tr||DTRK||'d';DTRK=tr;const tot=DUAS.length,dn=D
       ${lp?`<div class="d-lpred">📅 تُتم هذا المستوى خلال ${dDays(lp.days)}، نحو ${fmtDD(lp.date)}</div>`:''}
       <div class="crs-goal">🎯 <b>هدف المستوى:</b> ${L.goal}</div>
       <div class="d-lvbtns"><button class="btn ghost" ${op?`onclick="go('dread',{lv:${i},from:'duas'})"`:'disabled'}>📖 ${L.ak?'ورد اليوم':'قراءة اليوم'}</button>
-       <button class="btn ${ps?'ghost':'gold'}" ${op&&(rd||RO())?`onclick="go('pquiz',{pid:'dua:${L.k}',lk:'q'});gqStart('dua:${L.k}','q')"`:'disabled'}>${ps?'✓ أعد الاختبار':rd?'🎯 اختبار المستوى (١٠٠٪)':'🎯 الاختبار بعد الحفظ'}</button>
+       <button class="btn ${ps?'ghost':'gold'}" ${op&&(rd||RO())?`onclick="go('pquiz',{pid:'dua:${L.k}',lk:'q'});gqStart('dua:${L.k}','q')"`:'disabled'}>${ps?'✓ أعد الاختبار':rd?`🎯 اختبار المستوى (النجاح من ${AR(EXAM_PASS)}٪)`:'🎯 الاختبار بعد الحفظ'}</button>
        ${ps?`<button class="btn gold" onclick="openCertDua(${i})">🎓 الشهادة</button>`:''}</div></div></div>`}).join('')}</div>
    <div class="dl-row">${dlBtn('duas',{},'تنزيل الأدعية والأذكار كاملة')}</div>
    <p class="muted" style="font-size:12px">كل ما هنا من القرآن أو من الأحاديث الصحيحة والحسنة، ومع كل دعاء وذكر مصدره ودرجته؛ وما اختُلف في تصحيحه مبيَّن.</p>`;
@@ -8110,7 +8110,7 @@ KID_U.push({ic:'🌉',n:'جِسْرٌ إِلَى التَّأْسِيسِ',c:'#3
 
 /* ============ مستوى البراعم: المحرّك ============ */
 const KIDL=KID_U.flatMap((U,ui)=>U.ls.map((l,li)=>Object.assign(l,{ui,li})));
-const KID_PASS=85,KID_EXAM_N=30;
+const EXAM_PASS=60,KID_PASS=EXAM_PASS,KID_EXAM_N=30;
 function KS0(){S.kid=S.kid||{done:{},stars:0,pt:{},mini:{}};S.kid.pt=S.kid.pt||{};S.kid.mini=S.kid.mini||{};return S.kid}
 const kidDone=id=>!!KS0().done[id];
 function kidToday(){const t=today();return Object.values(KS0().done).filter(d=>d===t).length}
@@ -8307,7 +8307,7 @@ function vTL(){const T=TL.find(x=>x.k===route.k),st=TLS(T.k),n=T.ev.length,seen=
   $('#app').innerHTML=`<div class="hero"><div class="row"><div class="grow"><div class="t">📜 التفسير على الخط الزمني</div><div style="font-size:13px;opacity:.85">${T.n}: ${T.sub}. الآيات هنا مرتبة بحسب أسبقية الأحداث لا بترتيب السور، ومع كل حدث عامه وسبب النزول بمصدره ودرجته.</div><div style="font-size:13px;opacity:.85;margin-top:6px">قرأت ${AR(seen)} من ${AR(n)} أحداث${st.pass?' · اجتزت الاختبار':''}</div></div>${ring(seen/n)}</div></div>
    <div class="tl">${T.ev.map((e,i)=>{const o=i===0||st.seen.includes(i-1)||st.seen.includes(i)||RO(),sn=st.seen.includes(i);return `<div class="tl-e ${o?'':'lk'} ${sn?'ok':''}" id="tle${i}"><div class="tl-y"><b>${e.y}</b>${e.ad?`<small>${e.ad}</small>`:''}</div><div class="tl-dot">${sn?'✓':o?AR(i+1):'🔒'}</div>
      <div class="tl-c" ${o&&!sn?`onclick="tlOpen(${i})"`:''}><h3>${e.e}</h3>${o?`<div class="tl-body ${sn?'':'hid'}"><div class="tl-v">${e.v}</div><p><b>السياق:</b> ${e.s}</p><div class="refs">📚 ${e.src}</div>${e.d?`<div class="tl-d">⚖ ${e.d}</div>`:''}<div class="tl-t">💡 <b>تدبّر:</b> ${e.t}</div>${e.sr?`<button class="btn ghost sm" onclick="event.stopPropagation();go('path',{pid:'${e.sr[0]}'})">✨ الحدث في مسار السيرة</button>`:''}</div>${sn?'':'<span class="tl-tap">اضغط لتقرأ</span>'}`:''}</div></div>`}).join('')}</div>
-   <button class="btn ${st.pass?'ghost':'gold'}" style="width:100%;padding:14px" ${seen>=n||RO()?`onclick="go('pquiz',{pid:'tl:${T.k}',lk:'q'});gqStart('tl:${T.k}','q')"`:'disabled'}>${st.pass?'✓ أعد الاختبار':seen>=n?'🎯 اختبار الخط الزمني (١٠٠٪)':'اقرأ الأحداث كلها ليُفتح الاختبار'}</button>
+   <button class="btn ${st.pass?'ghost':'gold'}" style="width:100%;padding:14px" ${seen>=n||RO()?`onclick="go('pquiz',{pid:'tl:${T.k}',lk:'q'});gqStart('tl:${T.k}','q')"`:'disabled'}>${st.pass?'✓ أعد الاختبار':seen>=n?`🎯 اختبار الخط الزمني (النجاح من ${AR(EXAM_PASS)}٪)`:'اقرأ الأحداث كلها ليُفتح الاختبار'}</button>
    <div class="dl-row">${dlBtn('tl',{k:T.k},'تنزيل الخط الزمني')}</div>
    <p class="muted" style="font-size:12px">ما كان تاريخه تقريبيًا أو مختلفًا فيه نبيّنه بـ ⚖. والمراحل التالية (العهد المدني) تأتي في المستويات القادمة.</p>`}
 function tlOpen(i){const st=TLS(route.k);if(!st.seen.includes(i)){st.seen.push(i);save();logAct('s');sound('lit')}vTL();setTimeout(()=>{const e=document.getElementById('tle'+i);e&&e.scrollIntoView({behavior:'smooth',block:'start'})},60)}
@@ -8553,7 +8553,7 @@ add('w4',[
 })();
 
 /* ============ طريق الذُّرى: مستويات متوازنة مسمّاة، لكل مستوى بوابة HUD وعلوم تُفتح بالتتابع ============ */
-const LX_N=150,LX_PASS=75;
+const LX_N=150,LX_PASS=EXAM_PASS;
 const MTI=t=>MT.find(x=>x.id===t);
 function stageTabs(ks){const g=[];ks.forEach(k=>MLV.find(x=>x.k===k).ids.forEach(([t,l])=>{let x=g.find(y=>y.tid===t);if(!x){x={tid:t,lids:[]};g.push(x)}x.lids.push(l)}));
   return g.map(x=>{const tr=MTI(x.tid);return {k:x.tid,ic:tr.ic,n:tr.n,items:[{t:'mtl',tid:x.tid,lids:x.lids}]}})}
@@ -8635,7 +8635,7 @@ function ptVis(v){
   if(v==='score')return `<div class="pt-sc"><div class="lx-score"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" class="vct-bg"/><circle cx="50" cy="50" r="42" class="vct-fg" pathLength="100" style="stroke-dashoffset:10"/></svg><b>٩٠ / ١٠٠</b></div><small>محفوظة · بقيت ١٠ مواضيع تدرسها ثم تجيب عنها</small></div>`;return ''}
 function ptHud(){const h=document.getElementById('pthud');h.classList.toggle('on');sound(h.classList.contains('on')?'open':'flip')}
 function ptSeq(){const s=[...document.querySelectorAll('#ptseq span')],i=s.findIndex(x=>!x.classList.contains('op'));if(i<0)return;s[i-1].classList.add('ok');s[i].classList.add('op');s[i].textContent=s[i].textContent.replace('🔒 ','');sound('lit')}
-function ptEx(b,k){const m=document.getElementById('ptexm');m.textContent=k==='ok'?'✓ تُحسب لك وتنتقل إلى السؤال التالي.':k==='no'?'✗ لو أخطأت لعاد الامتحان من البداية؛ لذلك لا تخمّن.':'📖 يُؤجَّل السؤال ويُحفظ ما أجبته، وتدرس موضوعه ثم تعود إليه وحده.';sound(k==='no'?'bad':'ok')}
+function ptEx(b,k){const m=document.getElementById('ptexm');m.textContent=k==='ok'?'✓ تُحسب لك وتنتقل إلى السؤال التالي.':k==='no'?'✗ تُحفظ الإجابة الخاطئة وتتابع الأسئلة دون أن تعود للبداية.':'📖 يُؤجَّل السؤال ويُحفظ ما أجبته، وتدرس موضوعه ثم تعود إليه وحده.';sound(k==='no'?'bad':'ok')}
 function vPTour(){const n=PT_SLIDES.length;
   if(PT<n){const s=PT_SLIDES[PT];
     $('#app').innerHTML=`<div class="pt"><div class="onb-dots">${PT_SLIDES.map((_,i)=>`<i class="${i===PT?'on':''}"></i>`).join('')}<i class="${PT===n?'on':''}"></i></div>
@@ -8645,7 +8645,7 @@ function vPTour(){const n=PT_SLIDES.length;
   const c=DLV[0],nx=DLV[1];
   $('#app').innerHTML=`<div class="pt"><div class="pt-card"><small class="pt-k">من أين تبدأ؟</small><h2>اختر بدايتك</h2>
     <button class="pt-ch" onclick="ptDone()"><span>${c.ic}</span><div><b>أبدأ من «${c.n}»</b><small>أدرس المستوى الأول بالترتيب من بوابته، علمًا بعد علم.</small></div></button>
-    <button class="pt-ch alt" onclick="ptDone();lxIntro('${c.k}')"><span>${nx.ic}</span><div><b>أعرف الأساس: أنتقل إلى «${nx.n}»</b><small>بشرط اجتياز الامتحان الشامل لـ«${c.n}»: ١٠٠ سؤال بدرجة ١٠٠٪. وما لا تعرفه تؤجله وتدرسه، وتُحفظ درجتك.</small></div></button></div>
+    <button class="pt-ch alt" onclick="ptDone();lxIntro('${c.k}')"><span>${nx.ic}</span><div><b>أعرف الأساس: أنتقل إلى «${nx.n}»</b><small>بشرط اجتياز الامتحان الشامل لـ«${c.n}»: ١٠٠ سؤال، والنجاح من ${AR(EXAM_PASS)}٪. إجاباتك محفوظة، والخطأ لا يعيدك إلى البداية.</small></div></button></div>
     <button class="icon-btn" onclick="PT=0;vPTour()">↺ أعد الشرح</button></div>`}
 function ptDone(){S.pathTour=1;save();PT=0;go('muslim')}
 /* ---- مساري: بوابة المستوى الحالي ---- */
@@ -8702,12 +8702,12 @@ function tabItemHTML(it,o){const [a,b]=itemProg(it),d=itemDone(it),lk=o?'':'lock
      ${it.l===0?`<div class="muted" style="font-size:12.5px;margin:-2px 0 8px">ℹ ${C.note}</div>${C.plan?planHTML(C):''}`:''}
      ${lsStrip('c-'+CL.id,CL.lessons.map((l,i)=>{const dd=S2.done.includes(l.id),oo=o&&(dd||i===0||S2.done.includes(CL.lessons[i-1].id)||RO());return {t:l.t,sub:l.pts&&l.pts[0],done:dd,open:oo,go:`go('lesson',{tid:'${CL.id}',lid:'${l.id}'})`,vis:l.vis}}))}
      <div class="crs-goal">🎯 <b>الهدف:</b> ${CL.goal}</div>
-     <button class="btn ${d?'ghost':'gold'}" style="width:100%" ${o&&(allL||RO())?`onclick="go('pquiz',{pid:'crs:${it.c}:${CL.id}',lk:'q'})"`:'disabled'}>${d?'✓ أعد الاختبار':allL?'🎯 اختبار (١٠٠٪)':'أتمّ الدروس ليُفتح الاختبار'}</button>${dlBtn('course',{c:it.c},'تنزيل الدورة')}</div>`}
+     <button class="btn ${d?'ghost':'gold'}" style="width:100%" ${o&&(allL||RO())?`onclick="go('pquiz',{pid:'crs:${it.c}:${CL.id}',lk:'q'})"`:'disabled'}>${d?'✓ أعد الاختبار':allL?`🎯 اختبار (النجاح من ${AR(EXAM_PASS)}٪)`:'أتمّ الدروس ليُفتح الاختبار'}</button>${dlBtn('course',{c:it.c},'تنزيل الدورة')}</div>`}
   if(it.t==='dua'){const i=DUA_LV.findIndex(x=>x.k===it.ref),D=DUA_LV[i],ps=duaPassed(i),dn=D.ds.filter(duaLearned).length,rd=dn===D.ds.length,lp=o&&!ps?duaPredict(D.ds):null;
     return `<div class="tab-blk ${lk}"><div class="tab-h"><b>${D.ic} ${D.n}</b><small>${AR(D.ds.length)} ${D.tr==='a'?'أذكار':'أدعية'} · حفظت ${AR(dn)}${ps?' · ✓ اجتزت الاختبار':''}</small></div>
      <div class="dmini-row">${D.ds.map((x,j)=>{const st=(S.dua||{})[x.id]||{s:0},ln=duaLearned(x),oo=o&&duaOpen(x),cur=oo&&!ln;return `<button class="dmini ${ln?'ok':''} ${oo?'':'lk'} ${cur?'cur':''}" ${oo?`onclick="go('dua',{id:'${x.id}',from:'muslim'})"`:''}><span class="dm-n">${ln?'✓':oo?AR(j+1):'🔒'}</span><b>${x.n}</b><small>${ln?'محفوظ':cur?(st.s?'الخطوة '+AR(Math.min(st.s,3)+1)+' من ٤':'ابدأ الآن'):'احفظ ما قبله'}</small></button>`}).join('')}</div>
      ${lp?`<div class="d-lpred">📅 تُتم حفظها نحو ${fmtDD(lp.date)}</div>`:''}
-     <button class="btn ${ps?'ghost':'gold'}" style="width:100%" ${o&&(rd||RO())?`onclick="go('pquiz',{pid:'dua:${D.k}',lk:'q'});gqStart('dua:${D.k}','q')"`:'disabled'}>${ps?'✓ أعد الاختبار':rd?'🎯 اختبار الحفظ (١٠٠٪)':'احفظها كلها ليُفتح الاختبار'}</button>
+     <button class="btn ${ps?'ghost':'gold'}" style="width:100%" ${o&&(rd||RO())?`onclick="go('pquiz',{pid:'dua:${D.k}',lk:'q'});gqStart('dua:${D.k}','q')"`:'disabled'}>${ps?'✓ أعد الاختبار':rd?`🎯 اختبار الحفظ (النجاح من ${AR(EXAM_PASS)}٪)`:'احفظها كلها ليُفتح الاختبار'}</button>
      ${ps?`<button class="btn ghost sm" style="margin-top:6px" onclick="openCertDua(${i})">🎓 شهادة الحفظ</button>`:''}</div>`}
   const meta={path:()=>{const P0=PATHS[it.ref];return ['✨',P0.title,P0.sub||'',`go('path',{pid:'${it.ref}'})`]},
     intro:()=>{const D=INTROS[it.ref];return ['🔐',D.title,'مدخل: '+(D.sub||''),`go('intro',{k:'${it.ref}'})`]},
@@ -8718,7 +8718,7 @@ function tabItemHTML(it,o){const [a,b]=itemProg(it),d=itemDone(it),lk=o?'':'lock
   const card=`<button class="tab-card ${lk} ${d?'ok':''}" ${o?`onclick="${meta[3]}"`:''}><span class="tc-ic">${d?(it.t==='matn'&&mSkipped(it.ref)?'⏭':'✓'):o?meta[0]:'🔒'}</span><div class="grow"><b>${meta[1]}</b><small>${meta[2]}</small><i class="crs-bar"><u style="width:${a/b*100}%"></u></i></div><span class="chev">‹</span></button>`;
   if(it.t==='matn'&&o&&!stationState(it.ref).passed)return `<div class="mt-wrap">${card}<button class="mt-skip" onclick="mSkipToggle('${it.ref}')">${mSkipped(it.ref)?'↩ ألغِ التخطي':'⏭ تخطَّ هذه المنظومة إلى ما بعدها'}</button></div>`;
   return card}
-/* ============ الامتحان الشامل: ١٠٠ سؤال متنوع، ١٠٠٪، مع «أدرسه أولًا» ============ */
+/* ============ الامتحان الشامل: ١٠٠ سؤال متنوع، حد الاجتياز موحّد، مع «أدرسه أولًا» ============ */
 const xNorm=w=>String(w).replace(/<[^>]+>/g,'').replace(/[ً-ْٰـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[^ء-يa-z0-9]/gi,'').trim();
 const xStrip=t=>String(t).replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
 const X_STOP=new Set(['الذي','التي','الذين','على','إلى','الى','عند','بعد','قبل','حتى','كان','كانت','فيه','فيها','منه','منها','هذا','هذه','ذلك','وهو','وهي','بين','لكن','ليس','عليه','عليها','إذا','اذا','لأن','كما','وكل','أنها','أنه','الله']);
@@ -8822,7 +8822,7 @@ function drawCertJ(k){const L=DLVM[k],W=1600,H=1130,c=document.createElement('ca
   T(S.settings.name||'',375,'700 92px Amiri','#ffffff','rgba(255,230,160,.8)');
   T('سلك طريقًا يلتمس فيه علمًا، فاجتاز بفضل الله',470,'400 38px Amiri','#e7f3ea');
   T('المستوى '+lvNo(L)+': «'+L.n+'»',550,'700 58px Amiri','#ffe9a6');
-  T('الامتحان الشامل: ١٠٠ سؤال بدرجة ١٠٠٪   ✦   '+AR(L.tabs.length)+' علوم',625,'700 30px Tajawal','#bfe9d3');
+  T('الامتحان الشامل: ١٠٠ سؤال · النجاح من '+AR(EXAM_PASS)+'٪   ✦   '+AR(L.tabs.length)+' علوم',625,'700 30px Tajawal','#bfe9d3');
   T('«مَن سَلَكَ طريقًا يلتمسُ فيه علمًا سهَّلَ اللهُ له به طريقًا إلى الجنة» — رواه مسلم',1010,'400 34px Amiri','#fff6d8');
   const d=new Date();T(hijri(d)+'   —   '+d.toLocaleDateString('ar-IQ',{day:'numeric',month:'long',year:'numeric'})+'   ·   ذُرى',1068,'400 26px Amiri','#d9f0e2');
   return c.toDataURL('image/png')}
@@ -11366,7 +11366,7 @@ function vQSmain(){const q=QSM[route.k];if(!q)return go('muslim');const st=QSS(q
     <button class="trw-b" onclick="${o?`qsTog('${q.k}',${j})`:`toast('🔒 أتمّ المشهد الذي قبله')`}"><span class="trw-n">${dn?'✓':o?AR(j+1):'🔒'}</span><div class="grow"><b>${sc.t}</b><small>${sc.y||sc.w||''}</small></div><span class="chev">‹</span></button>
     ${op?`<div class="trw-x qs-p">${qsSceneBody(q,j)}</div>`:''}</div>`}).join('')}</div>
   ${nxq?`<div class="qs-chain">⬇ بعدها: <b>${nxq.gap?'فاصل: ':''}${nxq.n}</b></div>`:''}
-  <button class="btn ${st.pass?'ghost':'gold'}" style="width:100%;padding:14px;margin-top:8px" ${st.seen.length>=n||RO()?`onclick="go('pquiz',{pid:'qs:${q.k}',lk:'q'});gqStart('qs:${q.k}','q')"`:'disabled'}>${st.pass?'✓ أعد الاختبار':st.seen.length>=n?'🎯 الاختبار (١٠٠٪)':'أتمّ المشاهد كلها ليُفتح الاختبار ('+AR(st.seen.length)+'/'+AR(n)+')'}</button>
+  <button class="btn ${st.pass?'ghost':'gold'}" style="width:100%;padding:14px;margin-top:8px" ${st.seen.length>=n||RO()?`onclick="go('pquiz',{pid:'qs:${q.k}',lk:'q'});gqStart('qs:${q.k}','q')"`:'disabled'}>${st.pass?'✓ أعد الاختبار':st.seen.length>=n?`🎯 الاختبار (النجاح من ${AR(EXAM_PASS)}٪)`:'أتمّ المشاهد كلها ليُفتح الاختبار ('+AR(st.seen.length)+'/'+AR(n)+')'}</button>
   <div class="panel sources"><h3 style="color:var(--ink)">المصادر</h3><ol>${q.src.map(s=>`<li>${s}</li>`).join('')}<li>نص الآيات: الرسم العثماني من «موسوعة القرآن الكريم» (مصحف المدينة النبوية).</li></ol><p style="margin:6px 0 0;font-size:12px">الشرح من إعداد Claude ملخّصًا من هذه التفاسير. اعرض ما يُشكل عليك على شيخ متقن.</p></div>`;
   if(route._qs){setTimeout(()=>{const e=document.getElementById('qsc'+i);e&&e.scrollIntoView({block:'start',behavior:'smooth'})},40);route._qs=0}}
 function qsTog(k,j){const cur=route.i!=null?+route.i:null;route.i=cur===j?-1:j;route._qs=1;vQS();sound('flip')}
@@ -11609,7 +11609,7 @@ function vSpec(){const k=route.k;
    <h3 class="acc-t">⚖ المسائل المختلف فيها</h3>
    ${t.disp.map(d=>`<details class="sp-d"><summary>${d.q}</summary><div class="md-ag"><b>✓ المتفق عليه</b>${d.agree}</div>${d.views.map(v=>`<div class="sp-v"><b>${v[0]}</b><p>${v[1]}</p></div>`).join('')}</details>`).join('')}
    <h3 class="acc-t">🔍 دقائق المسار</h3><div class="qs-c"><ul>${t.dq.map(x=>`<li>${x}</li>`).join('')}</ul></div>
-   <button class="btn ${s.pass?'ghost':'gold'}" style="width:100%;padding:14px;margin-top:12px" onclick="go('pquiz',{pid:'spec:${k}',lk:'q'});gqStart('spec:${k}','q')">${s.pass?'✓ أعد اختبار المسار':'🎯 اختبار المسار (١٠٠٪)'}</button>
+   <button class="btn ${s.pass?'ghost':'gold'}" style="width:100%;padding:14px;margin-top:12px" onclick="go('pquiz',{pid:'spec:${k}',lk:'q'});gqStart('spec:${k}','q')">${s.pass?'✓ أعد اختبار المسار':`🎯 اختبار المسار (النجاح من ${AR(EXAM_PASS)}٪)`}</button>
    <p class="muted" style="font-size:12px;margin-top:10px">التواريخ بالهجري، والمدرسة المعلّمة بلون مختلف هي التي اخترتها في «المدخل إلى المدارس العقدية». ادرس كل كتاب على شيخ متقن بسند متصل ما أمكن.</p>`}
 function spTog(k,id){const s=SPS(k);if(s.b[id])delete s.b[id];else s.b[id]=1;save();sound('flip');vSpec()}
 
@@ -11623,7 +11623,7 @@ function tabRows(T){const R=[];
     if(it.t==='mtl'){const tr=MTI(it.tid);it.lids.forEach(l=>{const ls=tr.lessons.find(x=>x.id===l);R.push({ic:tr.ic,t:ls.t,kind:'درس',done:mlDone(it.tid,l),go:`go('lesson',{tid:'${it.tid}',lid:'${l}'})`,sub:ls.pts&&ls.pts[0],vis:ls.vis})})}
     else if(it.t==='crsl'){const C=CRS[it.c],CL=C.levels[it.l],S2=MTS(CL.id);
       CL.lessons.forEach((l,j)=>R.push({ic:C.ic,t:l.t,kind:C.n+' — '+CL.n,head:j===0?{n:C.n+': '+CL.n,goal:CL.goal,note:it.l===0?C.note:'',plan:it.l===0&&C.plan?planHTML(C):''}:null,done:S2.done.includes(l.id),go:`go('lesson',{tid:'${CL.id}',lid:'${l.id}'})`,sub:l.pts&&l.pts[0],vis:l.vis}));
-      R.push({ic:'🎯',t:'اختبار: '+CL.n,kind:'اختبار المرحلة (١٠٠٪)',done:!!CS(it.c).lv[CL.id],go:`go('pquiz',{pid:'crs:${it.c}:${CL.id}',lk:'q'})`,sub:'🎯 '+CL.goal,quiz:1})}
+      R.push({ic:'🎯',t:'اختبار: '+CL.n,kind:`اختبار المرحلة (النجاح من ${AR(EXAM_PASS)}٪)`,done:!!CS(it.c).lv[CL.id],go:`go('pquiz',{pid:'crs:${it.c}:${CL.id}',lk:'q'})`,sub:'🎯 '+CL.goal,quiz:1})}
     else R.push({it,ic:'',t:'',done:itemDone(it)})});
   return R}
 let TBOPEN={};
@@ -12095,7 +12095,7 @@ tabRows=function(T){const out=[];const nCrsl=T.items.filter(i=>i.t==='crsl').len
     qg=null;
     const base=_tabRows10({items:[it]});
     if(it.t==='crsl'&&T.items.length>1){const C=CRS[it.c],CL=C.levels[it.l],head=base[0].head||{};
-      out.push({grp:1,ic:C.ic,t:(CL.n===C.n||C.levels.length===1?C.n:C.n+': '+CL.n),goal:CL.goal,note:head.note,plan:head.plan,rows:base.map(r=>({ic:r.quiz?'🎯':'📖',t:r.t,sub:r.quiz?'اختبار المرحلة (١٠٠٪)':(r.sub?String(r.sub).replace(/<[^>]+>/g,''):''),go:r.go,quiz:r.quiz,done:r.done})),done:base.every(r=>r.done)});return}
+      out.push({grp:1,ic:C.ic,t:(CL.n===C.n||C.levels.length===1?C.n:C.n+': '+CL.n),goal:CL.goal,note:head.note,plan:head.plan,rows:base.map(r=>({ic:r.quiz?'🎯':'📖',t:r.t,sub:r.quiz?`اختبار المرحلة (النجاح من ${AR(EXAM_PASS)}٪)`:(r.sub?String(r.sub).replace(/<[^>]+>/g,''):''),go:r.go,quiz:r.quiz,done:r.done})),done:base.every(r=>r.done)});return}
     base.forEach(r=>out.push(r))});
   out.forEach(r=>{if(r.grp){const n=r.rows.filter(x=>!x.quiz).length,d=r.rows.filter(x=>x.done).length;r.kind=(r.g?AR(n)+' محطات':AR(n)+' '+(n>10||n<3?'درسًا':'دروس'))+' · أتممت '+AR(d)}});
   return out};
@@ -13168,7 +13168,7 @@ const _hzLvDone21=hzLvDone;hzLvDone=function(k){if(!HZ_LV[k]||RO())return true;i
 (()=>{Object.keys(HZ_LV).forEach(k=>{const L=DLVM[k];if(!L||!L.tabs)return;const T=L.tabs.find(x=>x.hz);if(!T)return;if(hzOptional(k))T.n='حفظ القرآن (اختياري)';if(!T.items.some(i=>i.t==='hzx'))T.items.push({t:'hzx',l:k})})})();
 const _itemDone21=itemDone;itemDone=function(it){if(it.t==='hzx')return RO()||HZXS(it.l).pass;return _itemDone21(it)};
 const _itemProg21=itemProg;itemProg=function(it){if(it.t==='hzx')return [HZXS(it.l).pass?1:0,1];return _itemProg21(it)};
-const _tabMeta21=tabMeta;tabMeta=function(it){if(it.t==='hzx'){const n=(HZ_LV[it.l]||[]).length;return ['🎓','الاختبار الشامل لسور المستوى',AR(n)+' '+(n>10||n<3?'سورة':'سور')+' · يلزم ١٠٠٪'+(HZXS(it.l).pass?' · ✓ اجتزته':''),`hzxStart('${it.l}')`]}return _tabMeta21(it)};
+const _tabMeta21=tabMeta;tabMeta=function(it){if(it.t==='hzx'){const n=(HZ_LV[it.l]||[]).length;return ['🎓','الاختبار الشامل لسور المستوى',AR(n)+' '+(n>10||n<3?'سورة':'سور')+' · النجاح من '+AR(EXAM_PASS)+'٪'+(HZXS(it.l).pass?' · ✓ اجتزته':''),`hzxStart('${it.l}')`]}return _tabMeta21(it)};
 const _tabItemHTML21=tabItemHTML;tabItemHTML=function(it,o){if(it.t!=='hzx')return _tabItemHTML21(it,o);const k=it.l,list=HZ_LV[k]||[],m=list.filter(hzDone).length,ready=m===list.length||RO(),x=HZXS(k);
   return `<div class="hz-card"><p>بعد حفظ سور المستوى كلها تختبر فيها معًا: إكمال الآيات، ومعرفة سورة كل آية، والآية التي تليها. ولا تجتاز المستوى إلا بعده.</p><i class="crs-bar"><u style="width:${m/list.length*100}%"></u></i><small class="muted">حفظت ${AR(m)} من ${AR(list.length)}</small>
    <button class="btn ${x.pass?'ghost':'gold'}" style="width:100%;margin-top:8px" ${ready?`onclick="hzxStart('${k}')"`:'disabled'}>${x.pass?'✓ أعد الاختبار':ready?'🎓 ابدأ الاختبار الشامل':'🔒 احفظ السور كلها أولًا'}</button></div>`};
@@ -13211,7 +13211,7 @@ function shelfChain(lv,tk){return ((LIBPLACE[lv]||{})[tk])||[]}
 function shelfBooks(lv,tk){return shelfChain(lv,tk).flat().filter(id=>BKM[id])}
 /* هل العنصر رقم i في السلسلة مفتوح؟ */
 function chainOpen(ch,i){if(RO())return true;for(let j=0;j<i;j++){const e=ch[j];if(Array.isArray(e)){const mine=e.filter(bkMine);if(!(mine.length?mine:e).some(bkComplete))return false}else if(!bkComplete(e))return false}return true}
-function bkLockMsg(ch,i){for(let j=0;j<i;j++){const e=ch[j],ids=Array.isArray(e)?e:[e];if(!ids.some(bkComplete))return 'أتمّ «'+BKM[ids[0]].t+'» أولًا: القراءة كاملة واختباره بنسبة ١٠٠٪'}return ''}
+function bkLockMsg(ch,i){for(let j=0;j<i;j++){const e=ch[j],ids=Array.isArray(e)?e:[e];if(!ids.some(bkComplete))return 'أتمّ «'+BKM[ids[0]].t+'» أولًا: القراءة كاملة واجتياز اختباره بنسبة '+EXAM_PASS+'٪ أو المتابعة على أي حال'}return ''}
 /* نزع بنود المكتبة القديمة ووضع رفّ واحد */
 (()=>{DLV.forEach(L=>(L.tabs||[]).forEach(T=>{T.items=(T.items||[]).filter(i=>i.t!=='lib');const tk=T.k==='akhlaq'&&L.k!=='D1'?'akh':T.k;if(shelfBooks(L.k,tk).length)T.items.push({t:'shelf',lv:L.k,tk})}))})();
 const _itemDone20=itemDone;itemDone=function(it){if(it.t==='shelf')return true;return _itemDone20(it)};
@@ -13228,7 +13228,7 @@ function shelfHTML(lv,tk){const ch=shelfChain(lv,tk);let n=0;
     return `<span class="bk2-par" title="كتب متوازية: اقرأ كتاب مذهبك أو مدرستك">${e.map(id=>bkSpine2(id,o,grp&&!bkMine(id)?'opt':'',msg)).join('')}</span>`});
   const par=ch.some(Array.isArray);
   return `<div class="shelf2"><div class="shelf2-back"></div><div class="shelf2-row">${parts.join('<i class="bk2-arr">←</i>')}</div><div class="shelf2-board"></div></div>
-   <p class="shelf2-note">${ch.length>1?'الكتب بالترتيب: لا يُفتح الكتاب التالي حتى تُتم الذي قبله قراءةً واختبارًا بنسبة ١٠٠٪.':'اضغط على الكتاب لينزل من الرف ويُفتح.'}${par?' الكتب المتجاورة متوازية بحسب المذهب أو المدرسة: كتاب اختيارك مضيء، والبقية اختيارية.':''}</p>`}
+   <p class="shelf2-note">${ch.length>1?`الكتب بالترتيب: لا يُفتح الكتاب التالي حتى تُتم الذي قبله قراءةً واختباره (النجاح من ${AR(EXAM_PASS)}٪ أو المتابعة على أي حال).`:'اضغط على الكتاب لينزل من الرف ويُفتح.'}${par?' الكتب المتجاورة متوازية بحسب المذهب أو المدرسة: كتاب اختيارك مضيء، والبقية اختيارية.':''}</p>`}
 const _tabItemHTML20=tabItemHTML;tabItemHTML=function(it,o){if(it.t!=='shelf')return _tabItemHTML20(it,o);return shelfHTML(it.lv,it.tk)};
 /* الكتاب ينزل من الرف إلى طاولة القراءة، ثم يتحرك يمينًا وينفتح غلافه وتتقلب أوراقه، ثم تُفتح تفاصيله */
 function bkPull(el,id){if(el.classList.contains('pull'))return;sound('flip');el.classList.add('pull');
@@ -13342,7 +13342,7 @@ function exItemBody(it,o){try{switch(it.t){
 function exReport(){const nm=S.settings.certName||S.settings.name||'';let h=`<h1>التقرير الشامل</h1><p class="meta">${nm?nm+' · ':''}${fmtDate(today())}</p>`;
   h+=`<h2>المستويات</h2><table><tr><th>المستوى</th><th>الحالة</th><th>التقدم</th><th>الحفظ</th></tr>${DLV.filter(L=>L.tabs).map(L=>{let a=0,b=0;L.tabs.forEach(T=>{const [x,y]=tabProg2(T);a+=x;b+=y});const hz=(HZ_LV[L.k]||[]);return `<tr><td>${L.ic} ${L.n}</td><td>${lvPassed(L.k)?'✓ اجتازه':lvOpen(L.i)?'مفتوح':'مقفل'}</td><td>${AR(b?Math.round(a/b*100):0)}٪</td><td>${hz.length?AR(hz.filter(hzDone).length)+' من '+AR(hz.length)+(HZXS(L.k).pass?' · ✓ الاختبار':''):'—'}</td></tr>`}).join('')}</table>`;
   DLV.filter(L=>L.tabs&&lvOpen(L.i)).forEach(L=>{h+=`<h2>${L.ic} ${L.n}</h2>`;L.tabs.forEach(T=>{h+=`<h3>${T.ic} ${T.n}</h3><table>${T.items.map(it=>{const m=tabMeta(it),[x,y]=itemProg(it);return `<tr><td>${m[0]} ${String(m[1]).replace(/<[^>]+>/g,'')}</td><td>${itemDone(it)?'✓ أتمّه':y?AR(x)+' من '+AR(y):'—'}</td></tr>`}).join('')}</table>`})});
-  const bks=BOOKS.filter(b=>bkReadPct(b.id)>0);if(bks.length)h+=`<h2>الكتب</h2><table><tr><th>الكتاب</th><th>المقروء</th><th>الاختبار</th></tr>${bks.map(b=>`<tr><td>${b.t}</td><td>${AR(Math.round(bkReadPct(b.id)*100))}٪</td><td>${BKS(b.id).pass?'✓ ١٠٠٪':'—'}</td></tr>`).join('')}</table>`;
+  const bks=BOOKS.filter(b=>bkReadPct(b.id)>0);if(bks.length)h+=`<h2>الكتب</h2><table><tr><th>الكتاب</th><th>المقروء</th><th>الاختبار</th></tr>${bks.map(b=>`<tr><td>${b.t}</td><td>${AR(Math.round(bkReadPct(b.id)*100))}٪</td><td>${BKS(b.id).pass?'✓ اجتاز':'—'}</td></tr>`).join('')}</table>`;
   const mi=Object.entries(MIST());if(mi.length)h+=`<h2>أخطائي في الامتحانات</h2><ol>${mi.map(([k,m])=>{const q=lxFind(k);return q?`<li>${q.q}${m.c!=null?` <small>(صُحّح ${AR(m.c)} مرات)</small>`:''}</li>`:''}).join('')}</ol>`;
   const ev=(S.ev||[]).slice(-400);if(ev.length)h+=`<h2>السجل</h2><ol>${ev.map(e=>`<li>${(EVT[e[1]]||['',''])[1]}: ${e[2]||''} <small>(${new Date(e[0]).toLocaleString('ar-IQ')})</small></li>`).join('')}</ol>`;
   return h}
@@ -13933,19 +13933,19 @@ function tjQGen(){const qs=[],rnd=a=>a[Math.floor(Math.random()*a.length)],sh=a=
   {const ch=rnd(Object.keys(TJ_ERR)),e=rnd(TJ_ERR[ch]);qs.push({t:'mcq',q:`«${e.replace(/:.*$/,'')}» — هذا خطأ في نطق أي حرف؟`,o:sh([TJ_LN[ch],...sh(Object.values(TJ_LN).filter(n=>n!==TJ_LN[ch])).slice(0,3)]),ok:TJ_LN[ch],w:e})}
   return sh(qs)}
 function tjQuiz(){if(!TJQ)TJQ={qs:tjQGen(),i:0,ok:0,ans:null};const Q=TJQ,q=Q.qs[Q.i],app=document.getElementById('app'),x=TJST();
-  if(!q){const pass=Q.ok===Q.qs.length;x.qz.best=Math.max(x.qz.best||0,Math.round(Q.ok/Q.qs.length*100));if(pass){x.qz.pass=true;logAct('q')}save();
-    app.innerHTML=`${tjTabs()}<div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(Q.ok)} من ${AR(Q.qs.length)}</h2><p class="muted">${pass?'إتقان تام لمخارج الحروف وصفاتها!':'يلزم ١٠٠٪ لاجتياز المختبر، والأسئلة تتغير في كل مرة.'}</p><button class="btn gold" onclick="TJQ=null;tjQuiz()">↻ اختبار جديد</button></div>`;sound(pass?'win':'lit');return}
+  if(!q){const pct=Math.round(Q.ok/Q.qs.length*100),pass=pct>=EXAM_PASS;x.qz.best=Math.max(x.qz.best||0,pct);if(pass){x.qz.pass=true;logAct('q')}save();
+    app.innerHTML=`${tjTabs()}<div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(Q.ok)} من ${AR(Q.qs.length)} — ${AR(pct)}٪</h2><p class="muted">${pass?`اجتزت الاختبار؛ نسبة النجاح المطلوبة ${AR(EXAM_PASS)}٪.`:`لم تبلغ نسبة النجاح المطلوبة ${AR(EXAM_PASS)}٪، والأسئلة تتغير في كل مرة.`}</p><button class="btn gold" onclick="TJQ=null;tjQuiz()">↻ اختبار جديد</button></div>`;sound(pass?'win':'lit');return}
   let body='';
   if(q.t==='pick')body=`<div class="tj-letters qz">${TJ_LS.map(c=>`<button onclick="tjQAns(this,'${c}')">${c}</button>`).join('')}</div>`;
   else if(q.t==='mk'){TJV.mode='side';TJV.zoom='all';TJV.sel=null;body=`<div class="tj-stage side qz">${tjSideSVG().replace(/onclick="tjPickMk\('([^']+)'\)"/g,`onclick="tjQAns(this,'$1')"`)}</div>`}
   else body=`<div class="opts">${q.o.map(o=>`<button class="opt" onclick="tjQAns(this,'${o.replace(/'/g,'’')}')">${o}</button>`).join('')}</div>`;
-  app.innerHTML=`${tjTabs()}<div class="panel"><div class="row"><small class="muted grow">السؤال ${AR(Q.i+1)} من ${AR(Q.qs.length)}</small><small class="pill">✓ ${AR(Q.ok)}</small></div><h3 style="margin:8px 0">${q.q}</h3>${body}<div id="tjFb"></div></div>`}
+  app.innerHTML=`${tjTabs()}<div class="panel"><div class="row"><small class="muted grow">السؤال ${AR(Q.i+1)} من ${AR(Q.qs.length)}</small><small class="pill">✓ ${AR(Q.ok)}</small><small class="pill">الاجتياز من ${AR(EXAM_PASS)}٪</small></div><h3 style="margin:8px 0">${q.q}</h3>${body}<div id="tjFb"></div></div>`}
 function tjQAns(el,v){const Q=TJQ,q=Q.qs[Q.i];if(Q.ans!=null)return;const ok=Array.isArray(q.ok)?q.ok.includes(v):q.ok===v.replace(/’/g,"'");Q.ans=v;if(ok)Q.ok++;
   el.classList.add(ok?'ok':'no');sound(ok?'ok':'bad');document.getElementById('tjFb').innerHTML=`<div class="tj-fb ${ok?'ok':'no'}">${ok?'✓ صحيح':'✗ ليس هذا'} — ${q.w}</div><button class="btn gold" style="width:100%;margin-top:8px" onclick="TJQ.i++;TJQ.ans=null;tjQuiz()">التالي ←</button>`}
 /* ---- إدراج المختبر في تبويب التجويد ---- */
 (()=>{const T=(DLVM.D2&&DLVM.D2.tabs||[]).find(T=>T.k==='tjw');if(!T)return;const idx=k=>T.items.findIndex(i=>i.t==='crsl'&&i.c==='tajweed'&&i.l===k);
   const add=(after,it)=>{const j=idx(after);if(j>=0)T.items.splice(j+1,0,it)};add(2,{t:'tjlab',m:'qz'});add(2,{t:'tjlab',m:'mn'});add(2,{t:'tjlab',m:'sf'});add(1,{t:'tjlab',m:'mk'})})();
-const TJL_META={mk:['👄','مختبر المخارج بالحركة','الهواء من الصدر إلى المخرج، والحرف يضيء ويُنطق'],sf:['🌀','مختبر الصفات بالحركة','كل صفة بحركة تقرّبها، واضغط للتقريب'],mn:['💡','العبارات الجامعة','«قطب جد» و«خص ضغط قظ» وأخواتها'],qz:['🎯','اختبار المختبر','أعطني حرفًا مستعليًا، واضغط على المخرج… (١٠٠٪)']};
+const TJL_META={mk:['👄','مختبر المخارج بالحركة','الهواء من الصدر إلى المخرج، والحرف يضيء ويُنطق'],sf:['🌀','مختبر الصفات بالحركة','كل صفة بحركة تقرّبها، واضغط للتقريب'],mn:['💡','العبارات الجامعة','«قطب جد» و«خص ضغط قظ» وأخواتها'],qz:['🎯','اختبار المختبر',`أعطني حرفًا مستعليًا، واضغط على المخرج… (النجاح من ${AR(EXAM_PASS)}٪)`]};
 function tjlDone(m){const x=TJST();return RO()||(m==='mk'?x.mk.length>=17:m==='sf'?x.sf.length>=TJ_SF.length:m==='mn'?!!x.mnSeen:!!x.qz.pass)}
 const _itemDone70=itemDone;itemDone=function(it){if(it.t==='tjlab')return tjlDone(it.m);return _itemDone70(it)};
 const _itemProg70=itemProg;itemProg=function(it){if(it.t==='tjlab'){const x=TJST();return it.m==='mk'?[Math.min(17,x.mk.length),17]:it.m==='sf'?[x.sf.length,TJ_SF.length]:[tjlDone(it.m)?1:0,1]}return _itemProg70(it)};
@@ -13992,26 +13992,26 @@ function tjVidQs(v){if(v.q)return TJ_VQ[v.q].map(q=>({t:'mcq',q:q.q,o:q.o.slice(
   return sh(qs).slice(0,6)}
 let TJVQ=null;
 function tjVideos(){const V=TJVS(),app=document.getElementById('app'),op=route.n!=null?+route.n:null,G=route.g,VL=G?TJ_VID.filter(v=>v.g===G):TJ_VID;
-  app.innerHTML=`${tjTabs()}<p class="muted" style="font-size:13px">شرح كتاب «التجويد المصور» بصوت مؤلفه الدكتور أيمن سويد، من قناته الرسمية على يوتيوب. شاهد الحلقة، ثم اجتز اختبارها بنسبة ١٠٠٪، فتُفتح التي بعدها.</p>
+  app.innerHTML=`${tjTabs()}<p class="muted" style="font-size:13px">شرح كتاب «التجويد المصور» بصوت مؤلفه الدكتور أيمن سويد، من قناته الرسمية على يوتيوب. شاهد الحلقة، ثم اجتز اختبارها من ${AR(EXAM_PASS)}٪، فتُفتح التي بعدها.</p>
    ${G?`<p class="pill" style="display:inline-block">${{in:'المقدمة',mk:'مخارج الحروف',sf:'صفات الحروف'}[G]} · <a href="#" onclick="event.preventDefault();go('tjlab',{m:'vd'})">كل الحلقات</a></p>`:''}<div class="vd-list">${VL.map((v,i)=>{const st=V[v.n]||{},pi=TJ_VID.indexOf(v),open=RO()||pi===0||(V[TJ_VID[pi-1].n]||{}).pass,cur=op===v.n;
      return `<div class="vd-c ${st.pass?'ok':''} ${open?'':'lk'} ${cur?'open':''}"><button class="vd-h" onclick="${open?`go('tjlab',{m:'vd',g:${G?`'${G}'`:'null'},n:${cur?'null':v.n}})`:`toast('🔒 اجتز اختبار الحلقة السابقة أولًا')`}"><span class="vd-n">${st.pass?'✓':open?AR(v.n):'🔒'}</span><div class="grow"><b>الحلقة ${AR(v.n)}: ${v.t}</b><small>${st.pass?'اجتزت اختبارها':st.w?'شاهدتها · بقي الاختبار':'لم تُشاهد بعد'}</small></div><span class="chev">${cur?'⌃':'⌄'}</span></button>
       ${cur?`<div class="vd-b"><div class="vd-fr"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}?rel=0" title="${v.t}" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
         <div class="row" style="gap:8px;margin-top:8px"><button class="btn ${st.w?'ghost':'gold'} grow" onclick="TJVS()[${v.n}]=Object.assign(TJVS()[${v.n}]||{},{w:1});save();tjVideos()">${st.w?'✓ شاهدتها':'شاهدتها ✓'}</button><button class="btn ${st.w?'gold':''} grow" ${st.w||RO()?'':'disabled'} onclick="TJVQ={v:${v.n},g:${G?`'${G}'`:'null'},qs:tjVidQs(TJ_VID[${pi}]),i:0,ok:0,ans:null};tjVQuiz()">🎯 اختبار الحلقة</button></div>
         <small class="muted">المصدر: قناة «د. أيمن سويد Dr. Ayman Swaid» على يوتيوب · تحتاج اتصالًا بالإنترنت</small></div>`:''}</div>`}).join('')}</div>`}
 function tjVQuiz(){const Q=TJVQ,q=Q.qs[Q.i],app=document.getElementById('app'),v=TJ_VID.find(x=>x.n===Q.v);
-  if(!q){const pass=Q.ok===Q.qs.length,V=TJVS();V[Q.v]=Object.assign(V[Q.v]||{},{w:1,best:Math.max((V[Q.v]||{}).best||0,Math.round(Q.ok/Q.qs.length*100))});if(pass){V[Q.v].pass=1;logAct('q')}save();
-    app.innerHTML=`${tjTabs()}<div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(Q.ok)} من ${AR(Q.qs.length)}</h2><p class="muted">${pass?'اجتزت اختبار الحلقة '+AR(Q.v)+'، وفُتحت التي بعدها.':'يلزم ١٠٠٪، والأسئلة تتغير في كل محاولة. أعد مشاهدة ما فاتك.'}</p><div class="row" style="gap:8px;justify-content:center"><button class="btn gold" onclick="TJVQ={v:${Q.v},qs:tjVidQs(TJ_VID.find(x=>x.n===${Q.v})),i:0,ok:0,ans:null};tjVQuiz()">↻ أعد</button><button class="btn" onclick="go('tjlab',{m:'vd',g:${Q.g?`'${Q.g}'`:'null'},n:${pass?(TJ_VID[TJ_VID.indexOf(v)+1]||v).n:Q.v}})">الحلقات</button></div></div>`;sound(pass?'win':'lit');return}
+  if(!q){const pct=Math.round(Q.ok/Q.qs.length*100),pass=pct>=EXAM_PASS,V=TJVS();V[Q.v]=Object.assign(V[Q.v]||{},{w:1,best:Math.max((V[Q.v]||{}).best||0,pct)});if(pass){V[Q.v].pass=1;logAct('q')}save();
+    app.innerHTML=`${tjTabs()}<div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(Q.ok)} من ${AR(Q.qs.length)} — ${AR(pct)}٪</h2><p class="muted">${pass?`اجتزت اختبار الحلقة ${AR(Q.v)}، وفُتحت التي بعدها. نسبة النجاح المطلوبة ${AR(EXAM_PASS)}٪.`:`لم تبلغ نسبة النجاح المطلوبة ${AR(EXAM_PASS)}٪، والأسئلة تتغير في كل محاولة. راجع ما فاتك.`}</p><div class="row" style="gap:8px;justify-content:center"><button class="btn gold" onclick="TJVQ={v:${Q.v},qs:tjVidQs(TJ_VID.find(x=>x.n===${Q.v})),i:0,ok:0,ans:null};tjVQuiz()">↻ أعد</button><button class="btn" onclick="go('tjlab',{m:'vd',g:${Q.g?`'${Q.g}'`:'null'},n:${pass?(TJ_VID[TJ_VID.indexOf(v)+1]||v).n:Q.v}})">الحلقات</button></div></div>`;sound(pass?'win':'lit');return}
   let body='';
   if(q.t==='pick')body=`<div class="tj-letters qz">${TJ_LS.map(c=>`<button onclick="tjVAns(this,'${c}')">${c}</button>`).join('')}</div>`;
   else if(q.t==='mk'){TJV.mode='side';TJV.zoom='all';TJV.sel=null;body=`<div class="tj-stage side qz">${tjSideSVG().replace(/onclick="tjPickMk\('([^']+)'\)"/g,`onclick="tjVAns(this,'$1')"`)}</div>`}
   else body=`<div class="opts">${q.o.map(o=>`<button class="opt" onclick="tjVAns(this,'${o.replace(/'/g,'’')}')">${o}</button>`).join('')}</div>`;
-  app.innerHTML=`${tjTabs()}<div class="panel"><div class="row"><small class="muted grow">🎬 الحلقة ${AR(Q.v)} · السؤال ${AR(Q.i+1)} من ${AR(Q.qs.length)}</small><small class="pill">✓ ${AR(Q.ok)}</small></div><h3 style="margin:8px 0">${q.q}</h3>${body}<div id="tjFb"></div></div>`}
+  app.innerHTML=`${tjTabs()}<div class="panel"><div class="row"><small class="muted grow">🎬 الحلقة ${AR(Q.v)} · السؤال ${AR(Q.i+1)} من ${AR(Q.qs.length)}</small><small class="pill">✓ ${AR(Q.ok)}</small><small class="pill">الاجتياز من ${AR(EXAM_PASS)}٪</small></div><h3 style="margin:8px 0">${q.q}</h3>${body}<div id="tjFb"></div></div>`}
 function tjVAns(el,val){const Q=TJVQ,q=Q.qs[Q.i];if(Q.ans!=null)return;const v=val.replace(/’/g,"'"),ok=Array.isArray(q.ok)?q.ok.includes(v):q.ok===v;Q.ans=v;if(ok)Q.ok++;el.classList.add(ok?'ok':'no');sound(ok?'ok':'bad');
   document.getElementById('tjFb').innerHTML=`<div class="tj-fb ${ok?'ok':'no'}">${ok?'✓ صحيح':'✗ ليس هذا'} — ${q.w}</div><button class="btn gold" style="width:100%;margin-top:8px" onclick="TJVQ.i++;TJVQ.ans=null;tjVQuiz()">التالي ←</button>`}
 /* إضافة «الدروس المرئية» إلى تبويبات المختبر وإلى تبويب التجويد */
 tjTabs=function(){const m=route.m||'mk';return `<div class="tj-hero"><div class="t">🔬 مختبر التجويد</div><div class="tj-tabs">${[['vd','🎬 الدروس المرئية'],['mk','👄 المخارج'],['sf','🌀 الصفات'],['mn','💡 العبارات'],['qz','🎯 اختبر نفسك']].map(([k,n])=>`<button class="${m===k?'on':''}" onclick="go('tjlab',{m:'${k}'})">${n}</button>`).join('')}</div></div>`};
 const _tjRender80=tjRender;tjRender=function(){if(route.v==='tjlab'&&route.m==='vd')return tjVideos();return _tjRender80()};
-TJL_META.vd=['🎬','دروس «التجويد المصور» المرئية','بصوت مؤلفه د. أيمن سويد، ولكل حلقة اختبار (١٠٠٪)'];
+TJL_META.vd=['🎬','دروس «التجويد المصور» المرئية',`بصوت مؤلفه د. أيمن سويد، ولكل حلقة اختبار (النجاح من ${AR(EXAM_PASS)}٪)`];
 const TJ_VG={in:'المقدمة',mk:'مخارج الحروف',sf:'صفات الحروف'};
 const _tjlDone80=tjlDone;tjlDone=function(m,g){if(m==='vd'){const V=TJVS();return RO()||TJ_VID.filter(v=>!g||v.g===g).every(v=>(V[v.n]||{}).pass)}return _tjlDone80(m)};
 const _itemProg80=itemProg;itemProg=function(it){if(it.t==='tjlab'&&it.m==='vd'){const V=TJVS(),L=TJ_VID.filter(v=>!it.g||v.g===it.g);return [L.filter(v=>(V[v.n]||{}).pass).length,L.length]}return _itemProg80(it)};
@@ -14750,7 +14750,7 @@ function tjuBody(u,key){const S1=tjuSteps(u),x=TJX0(),[a,b]=tjuProg(u.k);const o
     return row(s,i,'🎬','الحلقة '+AR(v.n)+': '+v.t,st.pass?'اجتزت اختبارها':st.w?'شاهدتها · بقي الاختبار (١٠ أسئلة)':'شاهد ثم اختبر نفسك',`TJU_V=${cur?'null':s.n};vLvTab()`)+(cur?tjuVid(v,u):'')}).join(''));
   h+=sec('🔬','المختبر',S1.map((s,i)=>{if(s.k!=='lab')return '';const M=TJL2[s.m],[p,q]=tjLabProg(s.m);return row(s,i,M[0],M[1],M[2]+(q>1?` · ${AR(p)} من ${AR(q)}`:''),`TJ_BACK={l:'${u.lv}',t:tjuLoc('${u.k}').t,u:'${u.k}'};go('tjlab',{m:'${s.m}'})`)}).join(''));
   h+=sec('💡','العبارات الجامعة',S1.map((s,i)=>{if(s.k!=='mn')return '';const M=TJ_MN2[s.s];return row(s,i,'💡',M.n,M.it.map(z=>'«'+z[1]+'»').join(' · ').slice(0,90),`tjMnOpen('${s.s}','${u.k}')`)}).join(''));
-  h+=sec('🎯','اختبار الموضوع',S1.map((s,i)=>s.k!=='qz'?'':row(s,i,'🎯','اختبار: '+u.n,'أسئلة متنوعة من الدروس والمختبر · يلزم ١٠٠٪',`tjuTest('${u.k}')`)).join(''));
+  h+=sec('🎯','اختبار الموضوع',S1.map((s,i)=>s.k!=='qz'?'':row(s,i,'🎯','اختبار: '+u.n,`أسئلة متنوعة من الدروس والمختبر · النجاح من ${AR(EXAM_PASS)}٪`,`tjuTest('${u.k}')`)).join(''));
   return `<div class="tju-head"><div class="tju-ic">${u.ic}</div><div class="grow"><b>${u.n}</b><small>📘 من «التجويد المصور»: ${u.ch}</small></div><div class="tju-p">${AR(a)}/${AR(b)}</div></div>
    <p class="ls-cs">🎯 ${u.goal}</p>${h}`}
 function tjuVid(v,u){const st=TJX0().vd[v.n]||{};return `<div class="tju-v"><div class="vd-fr"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}?rel=0" title="${v.t}" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div>
@@ -14760,17 +14760,17 @@ function tjuVid(v,u){const st=TJX0().vd[v.n]||{};return `<div class="tju-v"><div
 /* ---- ٥) محرك الاختبارات المتنوعة ---- */
 let TJX=null;const shf=a=>a.slice().sort(()=>Math.random()-.5),rnd=a=>a[Math.floor(Math.random()*a.length)];
 function tjQNorm(q){q=Object.assign({},q);if(q.t==='mcq'||q.t==='odd'||q.t==='ear'){q.ok=q.ok!=null?q.ok:q.o[0];q.o=shf(q.o)}if(q.t==='order')q.sh=shf(q.o.map((_,i)=>i));if(q.t==='match')q.r=shf(q.p.map((_,i)=>i));if(q.t==='multi')q.o=shf(q.o);return q}
-function tjXStart(qs,o){const allQs=qs.map(tjQNorm);TJX=Object.assign({i:0,ok:0,ans:null,sel:[],mp:{}},o);TJX.gen=o.gen;TJX.allQs=allQs;TJX.qs=allQs;TJX.results=allQs.map(()=>null);TJX.active=allQs.map((_,i)=>i);TJX.passPercent=Number.isFinite(o.passPercent)?o.passPercent:100;TJX.reviewWrong=!!o.reviewWrong;TJX.mode='exam';TJX.passLogged=false;tjXR()}
+function tjXStart(qs,o){const allQs=qs.map(tjQNorm);TJX=Object.assign({i:0,ok:0,ans:null,sel:[],mp:{}},o);TJX.gen=o.gen;TJX.allQs=allQs;TJX.qs=allQs;TJX.results=allQs.map(()=>null);TJX.active=allQs.map((_,i)=>i);TJX.passPercent=Number.isFinite(o.passPercent)?o.passPercent:EXAM_PASS;TJX.reviewWrong=!!o.reviewWrong;TJX.mode='exam';TJX.passLogged=false;tjXR()}
 function tjXR(){const Q=TJX,q=Q.qs[Q.i],app=document.getElementById('app');window.scrollTo(0,0);
   if(!q){const score=Q.results.filter(Boolean).length,total=Q.allQs.length,percent=total?Math.round(score/total*100):0,pass=total>0&&score/total*100>=Q.passPercent;
     if(Q.reviewWrong){if(pass&&!Q.passLogged){if(Q.onPass)Q.onPass();Q.passLogged=true}save();
       const wrong=Q.results.filter(x=>x===false).length,canReview=wrong>0;
       if(Q.onResults)Q.onResults(Q.results.slice(),Q.allQs);
-      app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(score)} من ${AR(total)} — ${AR(percent)}٪</h2><p class="muted">${pass?(Q.passMsg||`حققت نسبة النجاح ${AR(Q.passPercent)}٪.`):`نسبة النجاح ${AR(Q.passPercent)}٪. يمكنك مراجعة الأخطاء أو المتابعة على أي حال.`}</p>
+      app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(score)} من ${AR(total)} — ${AR(percent)}٪</h2><p class="pill">نسبة الاجتياز المطلوبة: ${AR(Q.passPercent)}٪</p><p class="muted">${pass?(Q.passMsg||`حققت نسبة النجاح ${AR(Q.passPercent)}٪.`):`لم تبلغ نسبة النجاح المطلوبة ${AR(Q.passPercent)}٪. يمكنك مراجعة الأخطاء أو المتابعة على أي حال.`}</p>
        <div class="row" style="gap:8px;justify-content:center;flex-wrap:wrap">${canReview?`<button class="btn gold" onclick="tjXReview()">مراجعة الأسئلة الخاطئة (${AR(wrong)})</button>`:''}<button class="btn ${canReview?'':'gold'}" onclick="${!pass&&Q.onContinue?'TJX.onContinue(TJX.results.slice(),TJX.allQs);':''}${Q.back}">${pass?'متابعة':'العبور على أي حال'} ←</button></div></div>`;sound(pass?'win':'lit');return}
     if(pass&&Q.onPass)Q.onPass();save();
-    app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(Q.ok)} من ${AR(Q.qs.length)}</h2><p class="muted">${pass?(Q.passMsg||'أحسنت! اجتزت بنسبة ١٠٠٪.'):'يلزم ١٠٠٪، والأسئلة تتغير في كل محاولة. راجع ما فاتك ثم أعد.'}</p>
-     <div class="row" style="gap:8px;justify-content:center">${pass?'':`<button class="btn gold" onclick="tjXStart(TJX.gen(),{title:TJX.title,gen:TJX.gen,onPass:TJX.onPass,back:TJX.back,passMsg:TJX.passMsg})">↻ أعد</button>`}<button class="btn ${pass?'gold':''}" onclick="${Q.back}">العودة ←</button></div></div>`;sound(pass?'win':'lit');return}
+    app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel done"><div class="big">${pass?'🏆':'🌱'}</div><h2>${AR(Q.ok)} من ${AR(Q.qs.length)} — ${AR(percent)}٪</h2><p class="pill">نسبة الاجتياز المطلوبة: ${AR(Q.passPercent)}٪</p><p class="muted">${pass?(Q.passMsg||`اجتزت الاختبار؛ نسبة النجاح المطلوبة ${AR(Q.passPercent)}٪.`):`لم تبلغ نسبة النجاح المطلوبة ${AR(Q.passPercent)}٪. أعد الاختبار بعد المراجعة.`}</p>
+     <div class="row" style="gap:8px;justify-content:center">${pass?'':`<button class="btn gold" onclick="tjXStart(TJX.gen(),{title:TJX.title,gen:TJX.gen,onPass:TJX.onPass,back:TJX.back,passMsg:TJX.passMsg,passPercent:TJX.passPercent})">↻ أعد</button>`}<button class="btn ${pass?'gold':''}" onclick="${Q.back}">العودة ←</button></div></div>`;sound(pass?'win':'lit');return}
   const T={mcq:'اختر',tf:'صواب أم خطأ؟',order:'رتّب',pick:'اختر حرفًا',multi:'اختر كل ما ينطبق',mk:'اضغط على الرسم',match:'صِل',odd:'الدخيل',ear:'استمع'}[q.t]||'';let body='';
   if(q.t==='mcq'||q.t==='odd')body=`<div class="opts">${q.o.map((o,i)=>`<button class="opt" onclick="tjXA(this,${i})">${o}</button>`).join('')}</div>`;
   else if(q.t==='ear')body=`<button class="btn gold" style="width:100%;margin-bottom:8px" onclick="tjPlayEx('${q.ch}')">🔊 استمع للكلمة</button><div class="opts">${q.o.map((o,i)=>`<button class="opt" onclick="tjXA(this,${i})">${o}</button>`).join('')}</div>`;
@@ -14780,7 +14780,7 @@ function tjXR(){const Q=TJX,q=Q.qs[Q.i],app=document.getElementById('app');windo
   else if(q.t==='order')body=`<div class="ord-ans">${Q.sel.map(i=>`<span>${q.o[i]}</span>`).join('')||'<small class="muted">اضغط العناصر بالترتيب الصحيح</small>'}</div><div class="opts">${q.sh.map(i=>`<button class="opt ${Q.sel.includes(i)?'used':''}" ${Q.sel.includes(i)?'disabled':''} onclick="tjXOrd(${i})">${q.o[i]}</button>`).join('')}</div>${Q.sel.length?`<button class="btn ghost sm" onclick="TJX.sel=[];tjXR()">↺ ابدأ الترتيب من جديد</button>`:''}`;
   else if(q.t==='match')body=`<div class="mt-g"><div>${q.p.map((p,i)=>`<button class="opt ${Q.mp.L===i?'on':''} ${Q.mp[i]!=null?'used':''}" onclick="TJX.mp.L=${i};tjXR()">${p[0]}</button>`).join('')}</div><div>${q.r.map(j=>`<button class="opt ${Object.values(Q.mp).includes(j)&&Q.mp.L!==undefined&&false?'':''} ${Object.keys(Q.mp).some(k=>k!=='L'&&Q.mp[k]===j)?'used':''}" onclick="tjXMatch(${j})">${q.p[j][1]}</button>`).join('')}</div></div>`;
   else if(q.t==='mk'){TR.mode='qz';TR.cfg=null;TR.vb=TRV.head.slice();body=`<div class="tr-stage qz"><div class="tr-wrap">${trSVG().replace(/onclick="trPickMk\('([^']+)'\)"/g,`onclick="tjXA(this,'$1')"`)}</div></div>`}
-  app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel"><div class="row"><small class="muted grow">السؤال ${AR(Q.i+1)} من ${AR(Q.qs.length)} · ${T}</small><small class="pill">✓ ${AR(Q.ok)}</small></div><i class="crs-bar"><u style="width:${Q.i/Q.qs.length*100}%"></u></i><h3 style="margin:10px 0">${q.q}</h3>${body}<div id="tjFb"></div></div>
+  app.innerHTML=`<div class="tjx-h">${Q.title}</div><div class="panel"><div class="row"><small class="muted grow">السؤال ${AR(Q.i+1)} من ${AR(Q.qs.length)} · ${T}</small><small class="pill">✓ ${AR(Q.ok)}</small><small class="pill">الاجتياز من ${AR(Q.passPercent)}٪</small></div><i class="crs-bar"><u style="width:${Q.i/Q.qs.length*100}%"></u></i><h3 style="margin:10px 0">${q.q}</h3>${body}<div id="tjFb"></div></div>
    <button class="btn ghost" style="width:100%" onclick="${Q.back}">⟵ خروج</button>`;if(q.t==='mk')setTimeout(()=>trFrame(0),10)}
 function tjXReview(){const wrong=TJX.results.map((v,i)=>v===false?i:-1).filter(i=>i>=0);if(!wrong.length)return tjXR();
   TJX.active=wrong;TJX.qs=wrong.map(i=>TJX.allQs[i]);TJX.i=0;TJX.ok=0;TJX.ans=null;TJX.sel=[];TJX.mp={};TJX.mode='review';tjXR()}
@@ -14872,7 +14872,7 @@ tjRender=function(){const app=document.getElementById('app');if(route.v!=='tjlab
   if(m==='gn'){app.innerHTML=`${tjTabs()}${sfCards(['gna'])}${tjDrillBtn('gn')}`;sfMount();return}
   if(m==='md'){app.innerHTML=`${tjTabs()}${mdRuler()}${tjDrillBtn('md')}`;mdMount();return}
   app.innerHTML=`${tjTabs()}<p class="muted">اختر المختبر من موضوعه في تبويب التجويد.</p>`};
-function tjDrillBtn(m){const d=!!TJX0().drill[m];return `<button class="btn ${d?'ghost':'gold'}" style="width:100%;margin-top:10px" onclick="tjXStart(tjDrillQs('${m}'),{title:'${TJL2[m][0]} تدريب: ${TJL2[m][1]}',gen:()=>tjDrillQs('${m}'),back:\`go('tjlab',{m:'${m}'})\`,onPass:()=>{TJX0().drill['${m}']=1}})">${d?'✓ أعد التدريب':'🎯 ابدأ التدريب (١٠٠٪)'}</button>`}
+function tjDrillBtn(m){const d=!!TJX0().drill[m];return `<button class="btn ${d?'ghost':'gold'}" style="width:100%;margin-top:10px" onclick="tjXStart(tjDrillQs('${m}'),{title:'${TJL2[m][0]} تدريب: ${TJL2[m][1]}',gen:()=>tjDrillQs('${m}'),back:\`go('tjlab',{m:'${m}'})\`,onPass:()=>{TJX0().drill['${m}']=1}})">${d?'✓ أعد التدريب':`🎯 ابدأ التدريب (النجاح من ${AR(EXAM_PASS)}٪)`}</button>`}
 const _gq90=window.gqStart;
 /* ---- مِسطرة المدود ---- */
 let MDR={i:0,c:null,sp:550,t0:0,raf:0};
@@ -15378,7 +15378,7 @@ function hajjSim(){const back=`go('amal',{id:'hj'})`;tjXStart([
   {t:'mcq',q:'يبدأ السعي من:',o:['الصفا','المروة','الحِجر','زمزم'],w:'«أبدأ بما بدأ الله به» (مسلم).'},
   {t:'mcq',q:'ركن الحج الأعظم:',o:['الوقوف بعرفة','المبيت بمنى','رمي الجمار','طواف الوداع'],w:'«الحج عرفة».'},
   {t:'tf',q:'من قدّم الحلق على الرمي يوم النحر فلا حرج عليه.',a:true,w:'«افعل ولا حرج» (متفق عليه).'}],
- {title:'🕋 محاكاة العمرة والحج',gen:()=>TJX.qs.map(q=>{const c=Object.assign({},q);delete c.sh;return c}),back,passMsg:'أتممت المحاكاة بلا خطأ.',onPass:()=>{const st=AS('hj'),t=today();st.d[t]=[0,1];save()}})}
+ {title:'🕋 محاكاة العمرة والحج',gen:()=>TJX.qs.map(q=>{const c=Object.assign({},q);delete c.sh;return c}),back,passMsg:`اجتزت المحاكاة؛ نسبة الاجتياز المطلوبة ${AR(EXAM_PASS)}٪.`,onPass:()=>{const st=AS('hj'),t=today();st.d[t]=[0,1];save()}})}
 
 /* ============ محرّك المواريث: الحجب، والفروض، والتعصيب، والجد والإخوة، والعول، والرد، والتصحيح ============ */
 const FR=(n,d)=>{if(d<0){n=-n;d=-d}const g=(a,b)=>b?g(b,a%b):Math.abs(a);const k=g(n,d)||1;return [n/k,d/k]};
@@ -15647,14 +15647,14 @@ function mwQs(){const Q=[],pk=shf(MWTPL).slice(0,8);pk.forEach((c,qi)=>{const r=
    else if(t===2){const x=rnd(act);Q.push({t:'mcq',q:`مات عن: ${desc}. لماذا يأخذ ${x.nm} ما يأخذ؟`,o:[x.why,...shf(MWTPL.map(c2=>mwSolve({c:c2}).out.map(y=>y.why)).flat().filter(w=>w&&w!==x.why)).slice(0,3)],ok:x.why,w:x.why})}
    else{const kind=r.special?'مسألة '+r.special:r.awl?'تعول':r.radd?'فيها رد':'لا عول ولا رد';Q.push({t:'mcq',q:`مات عن: ${desc}. هذه المسألة:`,o:[kind,...shf(['تعول','فيها رد','لا عول ولا رد','مسألة الأكدرية','مسألة المشرّكة'].filter(k=>k!==kind)).slice(0,3)],ok:kind,w:r.awl?'زادت الفروض على الأصل.':r.radd?'نقصت الفروض ولا عاصب.':r.special||'استوفت الفروض والتعصيب التركة.'})}});
   return Q}
-function mwPractice(){tjXStart(mwQs(),{title:'⚖️ جولة تدريب في المواريث',gen:mwQs,back:`go('mw',{t:'prac'})`,passMsg:'أتقنت هذه الجولة.',onPass:()=>{const m=MWS0();m.pr=Math.min(3,(m.pr||0)+1);logAct('q')}})}
+function mwPractice(){tjXStart(mwQs(),{title:'⚖️ جولة تدريب في المواريث',gen:mwQs,back:`go('mw',{t:'prac'})`,passMsg:`اجتزت هذه الجولة؛ نسبة الاجتياز المطلوبة ${AR(EXAM_PASS)}٪.`,onPass:()=>{const m=MWS0();m.pr=Math.min(3,(m.pr||0)+1);logAct('q')}})}
 NAV_ROOTS.push('mw');
 /* ---- في المستويات: تبويب فقه في المستوى الرابع ---- */
 (()=>{const L=DLVM.D4;if(!L||!L.tabs)return;let T=L.tabs.find(T=>T.k==='fqh');if(!T){T={k:'fqh',ic:'⚖',n:'الفقه',items:[]};const i=L.tabs.findIndex(x=>x.k==='aml');L.tabs.splice(i<0?L.tabs.length:i,0,T)}
   T.items=[{t:'crsl',c:'talaq',l:0},{t:'crsl',c:'mawarith',l:0},{t:'crsl',c:'mawarith',l:1},{t:'crsl',c:'mawarith',l:2},{t:'mwlab',m:'calc'},{t:'crsl',c:'mawarith',l:3},{t:'crsl',c:'mawarith',l:4},{t:'mwlab',m:'prac'},{t:'shelf',lv:'D4',tk:'fqh'}].concat(T.items.filter(x=>!['crsl','mwlab','shelf'].includes(x.t)))})();
 const _itemDone100=itemDone;itemDone=function(it){if(it.t==='mwlab'){const m=MWS0();return RO()||(it.m==='calc'?!!m.used:(m.pr||0)>=3)}return _itemDone100(it)};
 const _itemProg100=itemProg;itemProg=function(it){if(it.t==='mwlab'){const m=MWS0();return it.m==='calc'?[m.used?1:0,1]:[Math.min(3,m.pr||0),3]}return _itemProg100(it)};
-const _tabMeta100=tabMeta;tabMeta=function(it){if(it.t==='mwlab')return it.m==='calc'?['🧮','مختبر المواريث: الحاسبة','أدخل الورثة وشاهد الحل خطوة خطوة: الحجب، فالفروض، فالعصبة، فالعول أو الرد',`go('mw',{t:'calc'})`]:['🎯','مختبر المواريث: مسائل التدريب','ثلاث جولات بنسبة ١٠٠٪ من مسائل تتولّد في كل مرة',`go('mw',{t:'prac'})`];return _tabMeta100(it)};
+const _tabMeta100=tabMeta;tabMeta=function(it){if(it.t==='mwlab')return it.m==='calc'?['🧮','مختبر المواريث: الحاسبة','أدخل الورثة وشاهد الحل خطوة خطوة: الحجب، فالفروض، فالعصبة، فالعول أو الرد',`go('mw',{t:'calc'})`]:['🎯','مختبر المواريث: مسائل التدريب',`ثلاث جولات، ونسبة الاجتياز ${AR(EXAM_PASS)}٪ من مسائل تتولّد في كل مرة`,`go('mw',{t:'prac'})`];return _tabMeta100(it)};
 const _tabItemHTML100=tabItemHTML;tabItemHTML=function(it,o){if(it.t!=='mwlab')return _tabItemHTML100(it,o);const m=tabMeta(it),[a,b]=itemProg(it);return `<div class="tj-card"><p>${m[2]}</p><i class="crs-bar"><u style="width:${b?a/b*100:0}%"></u></i><button class="btn gold" style="width:100%;margin-top:8px" onclick="${m[3]}">ادخل المختبر ←</button></div>`};
 const _mwSolve0=mwSolve;mwSolve=function(o){const r=_mwSolve0(o);if(route.v==='mw'&&MWT==='calc'){const m=MWS0();if(!m.used){m.used=1;save()}}return r};
 
@@ -15707,7 +15707,7 @@ function svQs(g){const E=SVE.filter(e=>e.g===g),all=SVE,Q=[];shf(E).forEach(e=>{
   if(g==='m')Q.push({t:'order',q:'رتّب هذه المواقف زمنيًا:',o:['بدء الوحي في غار حراء','الجهر بالدعوة على الصفا','الإسراء والمعراج','الهجرة'],w:'هذا تسلسلها.'});
   if(g==='d')Q.push({t:'order',q:'رتّب الغزوات زمنيًا:',o:['بدر','أحد','الأحزاب'],w:'سنة ٢ ثم ٣ ثم ٥ للهجرة.'});
   return tjMix(Q,Math.min(10,Q.length))}
-function svTest(g){tjXStart(svQs(g),{title:'📜 '+SVGR[g].n,gen:()=>svQs(g),back:`go('sv',{g:'${g}'})`,passMsg:'أتقنت هذه المواقف وآياتها.',onPass:()=>{SVS().pass[g]=1;logAct('q')}})}
+function svTest(g){tjXStart(svQs(g),{title:'📜 '+SVGR[g].n,gen:()=>svQs(g),back:`go('sv',{g:'${g}'})`,passMsg:`اجتزت اختبار هذه المواقف؛ نسبة الاجتياز المطلوبة ${AR(EXAM_PASS)}٪.`,onPass:()=>{SVS().pass[g]=1;logAct('q')}})}
 NAV_ROOTS.push('sv');
 
 /* ============ تتمات الصوت: دعاء المسجد + الأدعية النصية + الشرح المسموع ============ */
@@ -16564,7 +16564,7 @@ function nskQs(tr){const mc=[];NSK.filter(L=>L.tr===tr).forEach(L=>L.q.forEach((
     {t:'multi',q:'اختر أركان الحج عند الحنابلة:',o:['الإحرام','الوقوف بعرفة','طواف الإفاضة','السعي','رمي الجمار','المبيت بمزدلفة','طواف الوداع'],ok:['الإحرام','الوقوف بعرفة','طواف الإفاضة','السعي'],w:'والبقية واجبات.'},
     {t:'tf',q:'من قدّم الطواف على الرمي يوم النحر فحجّه صحيح ولا شيء عليه.',a:true,w:'«افعل ولا حرج».'},{t:'tf',q:'يُشرع صعود جبل الرحمة والتعبّد عليه.',a:false,w:'«وعرفة كلها موقف».'}];
   return fx.concat(mc.sort(()=>.5-Math.random()).slice(0,tr==='u'?14:16)).sort(()=>.5-Math.random())}
-function nskTest(tr){tjXStart(nskQs(tr),{title:tr==='u'?'🕋 اختبار العمرة':'⛰️ اختبار الحج',gen:()=>nskQs(tr),back:"go('nsk')",passMsg:tr==='u'?'أتقنت فقه العمرة، تقبّل الله منك.':'أتقنت فقه الحج، تقبّل الله منك.',onPass:()=>{const n=NSKS();n.tp=n.tp||{};n.tp[tr]=today();if(n.tp.u&&n.tp.h){n.t=today();try{const st=AS('hj');st.d[today()]=[0,1]}catch(e){}}save()}})}
+function nskTest(tr){tjXStart(nskQs(tr),{title:tr==='u'?'🕋 اختبار العمرة':'⛰️ اختبار الحج',gen:()=>nskQs(tr),back:"go('nsk')",passMsg:tr==='u'?`اجتزت اختبار العمرة؛ نسبة الاجتياز المطلوبة ${AR(EXAM_PASS)}٪.`:`اجتزت اختبار الحج؛ نسبة الاجتياز المطلوبة ${AR(EXAM_PASS)}٪.`,onPass:()=>{const n=NSKS();n.tp=n.tp||{};n.tp[tr]=today();if(n.tp.u&&n.tp.h){n.t=today();try{const st=AS('hj');st.d[today()]=[0,1]}catch(e){}}save()}})}
 /* ---- العرض ---- */
 function nskTrDone(tr){return NSK.filter(L=>L.tr===tr).every(L=>nskDone(L.id))}
 function vNsk(){const n=NSKS(),tr=n.tr||'u',T=NSK.filter(l=>l.tr===tr),dn=T.filter(l=>n.d[l.id]).length,L=route.l?NSKM[route.l]:null,sec=n.sec==='lab'?'les':(n.sec||'les');
@@ -16720,7 +16720,7 @@ function fqSaveReview(u,results,qs){const n=FQST(u),mist=new Map((n.mist||[]).ma
     if(results[i]===true)mist.delete(key);
     else if(results[i]===false)mist.set(key,{key,q:{t:'mcq',q:q.q,o:[q.ok,...q.o.filter(x=>x!==q.ok)],w:q.w||''}})});
   n.mist=[...mist.values()];save()}
-function fqTest(u){tjXStart(fqQs(u),{title:FQU[u].ic+' اختبار '+FQU[u].n,gen:()=>fqQs(u),back:`go('fqu',{u:'${u}'})`,passPercent:75,reviewWrong:true,passMsg:'أتقنت الوحدة، بارك الله فيك.',onResults:(results,qs)=>fqSaveReview(u,results,qs),onContinue:(results,qs)=>{fqSaveReview(u,results,qs);FQST(u).t=FQST(u).t||today();save()},onPass:()=>{FQST(u).t=today();save()}})}
+function fqTest(u){tjXStart(fqQs(u),{title:FQU[u].ic+' اختبار '+FQU[u].n,gen:()=>fqQs(u),back:`go('fqu',{u:'${u}'})`,passPercent:EXAM_PASS,reviewWrong:true,passMsg:'بلغت حد الاجتياز (٦٠٪)، بارك الله فيك.',onResults:(results,qs)=>fqSaveReview(u,results,qs),onContinue:(results,qs)=>{fqSaveReview(u,results,qs);FQST(u).t=FQST(u).t||today();save()},onPass:()=>{FQST(u).t=today();save()}})}
 /* ---- العرض ---- */
 function vFqu(){const u=route.u||'thr',U=FQU[u];if(!U)return go('home');const n=FQST(u),dn=U.L.filter(l=>n.d[l.id]).length,L=route.l?U.L.find(x=>x.id===route.l):null,sec=n.sec||'les';
   if(L){const j=U.L.indexOf(L),nx=U.L[j+1],pv=U.L[j-1];$('#app').innerHTML=`<div class="zb-top"><button class="icon-btn" onclick="go('fqu',{u:'${u}'})">›</button><b class="grow">${L.ic} ${L.n}</b><small class="muted">${U.n} · ${AR(j+1)}/${AR(U.L.length)}</small></div>
@@ -16729,7 +16729,7 @@ function vFqu(){const u=route.u||'thr',U=FQU[u];if(!U)return go('home');const n=
   const chips=[['les','📘 الدروس'],['sc','❓ ماذا لو؟'],['tst','📝 الاختبار']];let body='';
   if(sec==='les')body=`<div class="nk-ls">${U.L.map((l,i)=>{const o=fqOpen(u,i),d=fqDone(u,l.id);return `<button class="${d?'ok':''} ${o?'':'lk'}" onclick="${o?`go('fqu',{u:'${u}',l:'${l.id}'})`:`toast('🔒 أتمّ الدرس السابق أولًا')`}"><span class="n">${d?'✓':o?AR(i+1):'🔒'}</span><div class="grow"><b>${l.ic} ${l.n}</b></div><span class="ah-go">‹</span></button>`}).join('')}</div>`;
   else if(sec==='sc')body=`<p class="muted" style="font-size:13px">مسائل تقع كثيرًا، وأحكامها مع الخلاف المعتبر. اختر الجواب ثم اقرأ التعليل.</p>${fqSc(u)}${Object.keys(n.sc).length?`<button class="btn sm" onclick="FQST('${u}').sc={};save();vFqu()">↺ أعد المسائل</button>`:''}`;
-  else body=`<div class="panel"><h3>📝 اختبار ${U.n}</h3><p class="muted">أسئلة متنوعة تتغير في كل محاولة. نسبة النجاح ٧٥٪، وبعد النتيجة يمكنك مراجعة الأسئلة التي أخطأت فيها أو العبور على أي حال.</p>${dn<U.L.length?`<p class="nk-no">يُستحسن أن تُتمّ الدروس أولًا (${AR(dn)} من ${AR(U.L.length)}).</p>`:''}<button class="btn gold" style="width:100%" onclick="fqTest('${u}')">ابدأ الاختبار</button></div>`;
+  else body=`<div class="panel"><h3>📝 اختبار ${U.n}</h3><p class="muted">أسئلة متنوعة تتغير في كل محاولة. <b>تجتاز الاختبار عند تحقيق ٦٠٪ أو أكثر.</b> بعد النتيجة يمكنك مراجعة الأسئلة التي أخطأت فيها أو العبور على أي حال.</p>${dn<U.L.length?`<p class="nk-no">يُستحسن أن تُتمّ الدروس أولًا (${AR(dn)} من ${AR(U.L.length)}).</p>`:''}<button class="btn gold" style="width:100%" onclick="fqTest('${u}')">ابدأ الاختبار</button></div>`;
   $('#app').innerHTML=`<div class="hero nk-h"><div class="row"><div class="grow"><div class="t">${U.ic} ${U.n}</div><div style="font-size:13px;opacity:.85">فقه · نظري وعملي · ${U.sub}${n.t?' · ✓ اجتزت الاختبار':''}</div></div><div class="nk-ring" style="--p:${dn/U.L.length}"><b>${AR(Math.round(dn/U.L.length*100))}٪</b></div></div></div>
    <div class="tju-bar nk-bar">${chips.map(([k,t])=>`<button class="${sec===k?'on':''}" onclick="FQST('${u}').sec='${k}';save();vFqu()">${t}</button>`).join('')}</div>${body}<button class="btn ghost" style="width:100%;margin-top:12px" onclick="backLv()">⟵ العودة إلى المستوى</button>`}
 /* ---- الإدراج في مسار الفقه ---- */
@@ -17570,7 +17570,7 @@ function kExamStart(){if(!kidAll())return toast('أتمّ الدروس كلها 
 function vKExam(){if(!KL||KL.id!=='exam'||!KL.g)return go('muslim');kGame(KL.g)}
 function kExamDone(G){const n=G.qs.length,pct=Math.round(G.ok/n*100),K=KS0(),ex=K.exam=K.exam||{};ex.best=Math.max(ex.best||0,pct);ex.n=(ex.n||0)+1;ex.last=pct;ex.d=today();const pass=pct>=KID_PASS;if(pass)ex.pass=true;save();KL=null;
   sound(pass?'win':'lit');
-  $('#app').innerHTML=`<div class="k-win"><div class="k-win-st">${pass?'🏆':'🌱'}</div><h1>${AR(pct)}٪</h1><p>${AR(G.ok)} إجابة صحيحة من ${AR(n)}</p>
+  $('#app').innerHTML=`<div class="k-win"><div class="k-win-st">${pass?'🏆':'🌱'}</div><h1>${AR(pct)}٪</h1><p>${AR(G.ok)} إجابة صحيحة من ${AR(n)} · نسبة النجاح المطلوبة ${AR(KID_PASS)}٪</p>
    ${pass?`<p><b>${kg('مبارك يا','مبارك يا')} ${kidName()}! ${kg('اجتزتَ','اجتزتِ')} رحلة البراعم، و${kg('صرتَ مؤهَّلًا','صرتِ مؤهَّلةً')} للمستوى الثاني: مسار المسلم.</b></p><button class="k-btn big" onclick="openCertKid()">🎓 الشهادة الكبرى</button><button class="k-btn ghost" onclick="kidGraduate()">⛰ انتقل إلى مسار المسلم</button>`
    :`<p>النجاح من ${AR(KID_PASS)}٪ فأكثر. ${kg('راجِعْ','راجِعي')} مع ${kPar()} ثم ${kg('حاول','حاولي')} مرة أخرى، ${kg('أنت','أنتِ')} قريب${kg('','ة')} جدًا 🌟</p><button class="k-btn big" onclick="kExamStart()">↻ حاول مرة أخرى</button><button class="k-btn ghost" onclick="go('kreview')">🎮 لعبة المراجعة</button>`}
    <button class="k-btn ghost" onclick="go('muslim')">🗺 رحلتي</button></div>`;if(pass)setTimeout(()=>kBurst(document.querySelector('.k-win-st')),300)}
@@ -17967,7 +17967,7 @@ function vHome(){if((S.profile||{}).kid)return vKidHome();
 
 /* ============ المكتبة ============ */
 function vLibrary(){
-  $('#app').innerHTML=`<p class="muted" style="margin-top:4px">المنظومات والأقسام مرتبة حسب العلوم من الأسهل إلى الأعلى. لا تُفتح منظومة حتى تُتمّ ما قبلها: الحفظ (أو تخطيه) واختبار الفهم بنسبة ١٠٠٪.</p>`+
+  $('#app').innerHTML=`<p class="muted" style="margin-top:4px">المنظومات والأقسام مرتبة حسب العلوم من الأسهل إلى الأعلى. لا تُفتح منظومة حتى تُتمّ ما قبلها: الحفظ (أو تخطيه) واختبار الفهم بنسبة ${AR(EXAM_PASS)}٪ أو المتابعة على أي حال.</p>`+
   SCIENCES.map((s,si)=>{
     const avail=s.items.filter(i=>i.m||i.p).length;
     return `<div class="sci ${si===0?'open':''}" id="sci${si}"><div class="sci-h" onclick="this.parentNode.classList.toggle('open')">
@@ -18006,7 +18006,7 @@ function vMatn(){
     <div class="stations">
       <div class="stn ${st.mem?'done':''}"><b>${st.skip?'⏭':st.mem?'✓':'١'}</b><span>الحفظ</span><small>${st.skip?'تخطيته':AR(Object.keys(P(id).cards).length)+'/'+AR(st.total)}</small></div>
       <div class="stn ${st.readDone?'done':''}"><b>${st.readDone?'✓':'٢'}</b><span>الشرح</span><small>${AR(st.read)}/${AR(st.total)}</small></div>
-      <div class="stn ${st.passed?'done':''} ${st.readDone?'':'lock'}"><b>${st.passed?'✓':st.readDone?'٣':'🔒'}</b><span>الفهم</span><small>${st.passed?'١٠٠٪':st.readDone?'مفتوح':'مقفل'}</small></div>
+      <div class="stn ${st.passed?'done':''} ${st.readDone?'':'lock'}"><b>${st.passed?'✓':st.readDone?'٣':'🔒'}</b><span>الفهم</span><small>${st.passed?'اجتاز':st.readDone?'مفتوح':'مقفل'}</small></div>
     </div></div>
   ${roBanner()}${matnDone(id)?`<button class="btn gold cert-btn" onclick="openCert('${id}')">🎓 شهادة الإتمام</button>`:''}
   <div class="tabs">${tabs.map(([k,l,ic,lk])=>`<button class="${tab===k?'on':''} ${lk?'locked':''}" onclick="${lk?`toast('أكمل قراءة الشرح كله أولًا (${AR(st.read)}/${AR(st.total)})')`:`go('matn',{id:'${id}',tab:'${k}'})`}">${ic} ${l}</button>`).join('')}</div>
@@ -18278,10 +18278,10 @@ window.downloadCertPDF=()=>{
   if(img&&!img.complete){img.onload=()=>setTimeout(doPrint,300)}else{setTimeout(doPrint,300)}
 };
 function openCert(id){certFlow(()=>openCert(id),()=>drawCert(id),'شهادة-'+MUTUN[id].title.split(' فِي')[0].replace(/[ً-ْ]/g,''))}
-function openCertP(pid){const P0=PATHS[pid],ps=PS(pid);certFlow(()=>openCertP(pid),()=>drawCertG({line:'قد أتمّ بعون الله دراسة وفهم',title:P0.title,sub:P0.sub,items:[AR(P0.stations.length)+' محطة',AR(P0.levels.length)+' مستويات بنسبة ١٠٠٪','الاختبار الشامل: ١٠٠٪'],motto:'﴿لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ﴾'}),'شهادة-'+P0.title.replace(/[:：]/g,''))}
+function openCertP(pid){const P0=PATHS[pid],ps=PS(pid);certFlow(()=>openCertP(pid),()=>drawCertG({line:'قد أتمّ بعون الله دراسة وفهم',title:P0.title,sub:P0.sub,items:[AR(P0.stations.length)+' محطة',AR(P0.levels.length)+' مستويات، حد اجتياز الاختبار '+AR(EXAM_PASS)+'٪','الاختبار الشامل (حد الاجتياز '+AR(EXAM_PASS)+'٪)'],motto:'﴿لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ﴾'}),'شهادة-'+P0.title.replace(/[:：]/g,''))}
 function drawCert(id){
   const m=MUTUN[id],st=stationState(id),tq=S.treeQ[id]||{};
-  const items=[st.skip?'الشرح والفهم (دون الحفظ)':'حفظ الأبيات كاملة: '+AR(m.verses.length)+' أبيات','اختبار الفهم: ١٠٠٪',m.tree?'شجرة النسب: '+AR(TLV_A.filter(L=>tq[L.k]).length)+'/'+AR(TLV_A.length)+' مستويات'+(TLV_S().every(L=>tq[L.k])?' + ملتقى الصحابة':''):''].filter(Boolean);
+  const items=[st.skip?'الشرح والفهم (دون الحفظ)':'حفظ الأبيات كاملة: '+AR(m.verses.length)+' أبيات','اختبار الفهم (حد الاجتياز '+AR(EXAM_PASS)+'٪)',m.tree?'شجرة النسب: '+AR(TLV_A.filter(L=>tq[L.k]).length)+'/'+AR(TLV_A.length)+' مستويات'+(TLV_S().every(L=>tq[L.k])?' + ملتقى الصحابة':''):''].filter(Boolean);
   return drawCertG({line:st.skip?'قد أتمّ بعون الله دراسة وفهم':'قد أتمّ بعون الله حفظ وفهم',title:m.title,sub:m.nazim,items,motto:m.motto||'طُوبَى لِمَنْ حَفِظَهُ وَعَرَفَهْ'});
 }
 function drawCertG(o){
